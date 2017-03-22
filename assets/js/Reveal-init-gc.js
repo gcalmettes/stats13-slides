@@ -55,17 +55,17 @@ Reveal.initialize({
     // Specifies the themes that will be available in the themes
     // menu panel. Set to 'false' to hide themes panel.
     themes: [
-      { name: 'Black', theme: 'assets/revealjs/css/theme/black.css' },
-      { name: 'White', theme: 'assets/revealjs/css/theme/white.css' },
-      { name: 'League', theme: 'assets/revealjs/css/theme/league.css' },
-      { name: 'Sky', theme: 'assets/revealjs/css/theme/sky.css' },
-      { name: 'Beige', theme: 'assets/revealjs/css/theme/beige.css' },
-      { name: 'Simple', theme: 'assets/revealjs/css/theme/simple.css' },
-      { name: 'Serif', theme: 'assets/revealjs/css/theme/serif.css' },
-      { name: 'Blood', theme: 'assets/revealjs/css/theme/blood.css' },
-      { name: 'Night', theme: 'assets/revealjs/css/theme/night.css' },
-      { name: 'Moon', theme: 'assets/revealjs/css/theme/moon.css' },
-      { name: 'Solarized', theme: 'assets/revealjs/css/theme/solarized.css' }
+      { name: 'Black', theme: 'assets/reveal.js-master/css/theme/black.css' },
+      { name: 'White', theme: 'assets/reveal.js-master/css/theme/white.css' },
+      { name: 'League', theme: 'assets/reveal.js-master/css/theme/league.css' },
+      { name: 'Sky', theme: 'assets/reveal.js-master/css/theme/sky.css' },
+      { name: 'Beige', theme: 'assets/reveal.js-master/css/theme/beige.css' },
+      { name: 'Simple', theme: 'assets/reveal.js-master/css/theme/simple.css' },
+      { name: 'Serif', theme: 'assets/reveal.js-master/css/theme/serif.css' },
+      { name: 'Blood', theme: 'assets/reveal.js-master/css/theme/blood.css' },
+      { name: 'Night', theme: 'assets/reveal.js-master/css/theme/night.css' },
+      { name: 'Moon', theme: 'assets/reveal.js-master/css/theme/moon.css' },
+      { name: 'Solarized', theme: 'assets/reveal.js-master/css/theme/solarized.css' }
           ],
     // Specifies if the transitions menu panel will be shown.
     transitions: true,
@@ -85,12 +85,12 @@ Reveal.initialize({
 
   // More info https://github.com/hakimel/reveal.js#dependencies
   dependencies: [
-    { src: 'assets/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'assets/reveal.js-master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
     //{ src: 'assets/revealjs/plugin/markdown/marked.js' },
     //{ src: 'assets/revealjs/plugin/markdown/markdown.js' },
-    { src: 'assets/revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-    { src: 'assets/revealjs/plugin/notes/notes.js', async: true },
-    { src: 'assets/revealjs/plugin/math/math.js', async: true },
+    { src: 'assets/reveal.js-master/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'assets/reveal.js-master/plugin/notes/notes.js', async: true },
+    { src: 'assets/reveal.js-master/plugin/math/math.js', async: true },
     { src: 'assets/plugin/reveal.js-plugins-master/menu/menu.js' },
   ],
 });
@@ -113,5 +113,5 @@ Reveal.addEventListener('slidechanged', function (event) {
 var linkpdf = document.createElement( 'link' );
 linkpdf.rel = 'stylesheet';
 linkpdf.type = 'text/css';
-linkpdf.href = window.location.search.match( /print-pdf/gi ) ? 'assets/revealjs/css/print/pdf.css' : 'assets/revealjs/css/print/paper.css';
+linkpdf.href = window.location.search.match( /print-pdf/gi ) ? 'assets/reveal.js-master/css/print/pdf.css' : 'assets/reveal.js-master/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( linkpdf );
