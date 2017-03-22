@@ -23,7 +23,7 @@ Reveal.initialize({
   },
 
   math: {
-    mathjax: 'assets/plugin/MathJax-master/MathJax.js',
+    mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
     config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
       },
 
