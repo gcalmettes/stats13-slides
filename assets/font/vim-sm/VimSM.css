@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'VimSMOblique';
+    src: url('vimsm-oblique-webfont.eot');
+    src: url('vimsm-oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('vimsm-oblique-webfont.woff') format('woff'),
+         url('vimsm-oblique-webfont.ttf') format('truetype'),
+         url('vimsm-oblique-webfont.svg#vim_smheavy-oblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'VimSM';
+    src: url('vimsm-webfont.eot');
+    src: url('vimsm-webfont.eot?#iefix') format('embedded-opentype'),
+         url('vimsm-webfont.woff') format('woff'),
+         url('vimsm-webfont.ttf') format('truetype'),
+         url('vimsm-webfont.svg#vim_smheavy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

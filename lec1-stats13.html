@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 1 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/revealjs/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/revealjs/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <!-- <link rel="stylesheet" href="assets/revealjs/lib/css/zenburn.css"> -->
+  <link rel="stylesheet" href="assets/revealjs/lib/css/monokai-sublime.css" />
+  <!-- Custom css -->
+  <!-- <link rel="stylesheet" href="assets/plugin/Font-Awesome-master/css/font-awesome.min.css" /> -->
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugin/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+
+
+
+
+<section class="title-slide">
+  <div class="big-title-passionone"> STATS 13</div>
+</section>
+
+<section>
+  <h3>The administrative stuff</h3>
+</section>
+
+<section class="title-slide" data-background='assets/img/shared/bckg2.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 1</h1>
+  </div>
+    <h3 style="color: #FFFFFF">Introduction</h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section class="title-slide">
+  <h1>Statistics?</h1>
+  <aside class="notes">
+    What are statistics?
+    What is it used for?
+    <p>=> Analyze (complex) datasets, tell something with data</p>
+  </aside>
+</section>
+
+<section>
+  <h3>Statistics is all about Data!</h3>
+  <aside class="notes">
+    <p>
+      Data are everywhere!  Regardless of your field, interests, lifestyle, etc.,
+      you will almost definitely have to make decisions based on data, or evaluate
+      decisions someone else has made based on data
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h3>Cholera in the 19$^\mathrm{th}$ century</h3>
+  <img class="plain" src="assets/img/lec1/cholera-disposal-bodies.jpg" width="90%">
+</section>
+
+<section id="cholera">
+  <h3>Cholera outbreaks in the world </h3>
+  <div id="cholera_globe"></div>
+  <span class="fragment"></span> <!-- trigger india -->
+  <span class="fragment"></span> <!-- trigger russia -->
+  <span class="fragment"></span> <!-- trigger zoom to london -->
+  <aside class="notes">
+    1832, Cholera arrives to big European capitals, Paris, London.
+  </aside>
+</section>
+
+<section>
+  <h3>John Snow</h3>
+  <div class="row">
+    <span class="col-60">
+      <p>[ ... a bit about him ... ]</p>
+      <p>[ ... and his theory about cholera ... ]</p>
+    </span>
+    <span class="col-5"> <p> </p></span>
+    <span class="col-35"> <img src="assets/img/lec1/john-snow.jpg"></span>
+
+  </div>
+</section>
+
+<section class="center" data-menu-title="london panorama">
+  <svg width="100%" height="100%" viewbox="0 0 970 550">
+    <svg><use xlink:href="assets/img/lec1/london-thames.svg#background"></svg>
+    <svg class="fragment fade-out"><use xlink:href="assets/img/lec1/london-thames.svg#letters"></svg>
+  </svg>
+</section>
+
+<section id="soho">
+  <h3> Soho (London 1854) </h3>
+  <div class="row">
+  <div class="col-35">
+    <p class="sided border-danger">Similarity</p>
+    <p class="sided">Proximity</p>
+    <div class="fragment" data-fragment-index="1">
+      <p style="font-size: 0.7em;">Workhouse<br>(>530 inmates)</p>
+      <p style="font-size: 0.7em;">Brewery <br>(70 workers)</p>
+    </div>
+  </div>
+  <div class="col-60" id="soho_map"></div>
+  </div>
+  <span class="fragment" data-fragment-index="0"></span> <!-- trigger zoom -->
+</section>
+
+<section>
+  <h3>Outliers</h3>
+  <p>"Anomaly"</p>
+  <aside class="notes">
+    <p>
+      We'll see later in the class how to detect, represent and deal with outliers. <br>
+      But you already see here that outliers are important, and shouldn't be ignored.
+      They store information
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h3>The "Grand Experiment"</h3>
+</section>
+
+<!-- <section id="london-waterworks">
+  <h3>London waterworks</h3>
+  <div id="waterworks"></div>
+  <span class="fragment"></span>
+</section> -->
+<section id="london-waterworks">
+  <h3>London waterworks</h3>
+  <div class="row">
+    <div class="col-65" id="waterworks"></div>
+    <div class="col-35">
+      <p style="font-size: 0.7em;">2 major water supply companies</p>
+    </div>
+  </div>
+  <span class="fragment"></span>
+  <span class="fragment"></span>
+</section>
+
+<section>
+  <h3>John Snow's study</h3>
+  <h4>"Grand Experiment"</h4>
+  <p>Observational study (vs experimental)</p>
+  <p>Research question</p>
+  <p>data</p>
+</section>
+
+<section>
+  <h3>Data (tables)</h3>
+  <table>
+    <thead>
+        <tr style="background: white;">
+            <th>Item</th>
+            <th>Value</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Apples</td>
+            <td>$1</td>
+            <td>7</td>
+        <tr>
+        <tr>
+            <td>Lemonade</td>
+            <td>$2</td>
+            <td>18</td>
+        <tr>
+        <tr>
+            <td>Bread</td>
+            <td>$3</td>
+            <td>2</td>
+        <tr>
+    </tbody>
+</table>
+  <aside class="notes">
+    <p>
+      Usually data is stored and presented in a dataset,
+      comprised of variables measured on cases
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h3>Observational units & variables</h3>
+  <svg width="50%" height="100%" viewbox="0 0 110 50" style="margin-top: 5%;">
+    <svg><use xlink:href="assets/img/lec1/observational-unit.svg#Layer_1"></svg>
+  </svg>
+  <aside class="notes">
+    <p>
+      We obtain information about units (or cases).
+      A variable is any characteristic that is recorded for each unit/case.
+  </p>
+  </aside>
+</section>
+
+<section>
+  <h3>Categorical & Quantitative variables</h3>
+</section>
+
+<section>
+  <h3>Explanatory & Response variables</h3>
+  <aside class="notes">
+    <p>
+      If we are using one variable to help us understand or predict values
+      of another variable, we call the former the explanatory variable and 
+      the latter the response variable
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h3>Proportion visualization</h3>
+  <p>Bar graph (for count)</p>
+  <p>Pie chart (not recommended)</p>
+</section>
+
+<section>
+  <h3>The 6 steps of statistigal investigation</h3>
+  <div class="row">
+    <svg class="col-35" height="100%" viewbox="0 0 90 250">
+      <svg class="fragment" data-fragment-index="5"><use xlink:href="assets/img/lec1/stats-investigations.svg#Layer_6"></svg>
+      <svg class="fragment" data-fragment-index="4"><use xlink:href="assets/img/lec1/stats-investigations.svg#Layer_5"></svg>
+      <svg class="fragment" data-fragment-index="3"><use xlink:href="assets/img/lec1/stats-investigations.svg#Layer_4"></svg>
+      <svg class="fragment" data-fragment-index="2"><use xlink:href="assets/img/lec1/stats-investigations.svg#Layer_3"></svg>
+      <svg class="fragment" data-fragment-index="1"><use xlink:href="assets/img/lec1/stats-investigations.svg#Layer_2"></svg>
+      <svg><use xlink:href="assets/img/lec1/stats-investigations.svg#Layer_1"></svg>
+    </svg>
+    <div class="col-60">
+      <p>Is the Cholera a water-borned disease?</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section>
+
+ -->
+
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/revealjs/lib/js/head.min.js"></script>
+  <script src="assets/revealjs/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <script src="assets/looney-slide/looney-reveal.js"></script>
+
+  <!-- Google spreadsheet to javascript -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+  <!-- D3 -->
+  <script src="assets/js/d3.v4.min.js"></script>
+  <script src="assets/js/d3-selection-multi.v0.4.min.js"></script>
+
+    <!-- D3 in REVEAL -->
+  <script src="assets/js/d3-in-reveal.js"></script>
+    <!-- The D3 config & animations -->
+    <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
+    <script src="assets/d3-anim/js-graphs/soho.js"></script>
+    <script src="assets/d3-anim/js-graphs/cholera-globe.js"></script>
+    <script src="assets/d3-anim/js-graphs/london-waterworks.js"></script>
+
+
+</body>
+</html>

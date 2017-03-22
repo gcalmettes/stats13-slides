@@ -1,0 +1,117 @@
+// More info https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  width: 960,
+  height: 700,
+  // margin: 0.05, // Factor of the display size that should remain empty around the content
+  controls: false, // Display controls in the bottom right corner
+  progress: true, // Display a presentation progress bar
+  slideNumber: false, // Display the page number of the current slide
+  history: true, // Push each slide change to the browser history
+  keyboard: true, // Enable keyboard shortcuts for navigation
+  center: false, // Vertical centering of slide
+  overview: true,
+  transition: 'slide', // Transition style: none/fade/slide/convex/concave/zoom
+  transitionSpeed: 'default', // Transition speed: default/fast/slow
+
+  keyboard: {
+    80: function() {
+      if (! window.location.search.match( /print-pdf/gi )) {
+        var uri = window.location.toString().split("#")
+        window.location.replace(uri[0] + "?print-pdf");
+      }
+    }
+  },
+
+  math: {
+    mathjax: 'assets/plugin/MathJax-master/MathJax.js',
+    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+      },
+
+  menu: {
+    // Specifies which side of the presentation the menu will
+    // be shown. Use 'left' or 'right'.
+    side: 'left',
+    // Add slide numbers to the titles in the slide list.
+    // Use 'true' or format string (same as reveal.js slide numbers)
+    numbers: false,
+    // Specifies which slide elements will be used for generating
+    // the slide titles in the menu. The default selects the first
+    // heading element found in the slide, but you can specify any
+    // valid css selector and the text from the first matching
+    // element will be used.
+    // Note: that a section data-menu-title attribute or an element
+    // with a menu-title class will take precedence over this option
+    titleSelector: 'h1, h2, h3, h4, h5, h6',
+    // Hide slides from the menu that do not have a title.
+    // Set to 'true' to only list slides with titles.
+    hideMissingTitles: false,
+    // Add markers to the slide titles to indicate the
+    // progress through the presentation
+    markers: true,
+    // Specify custom panels to be included in the menu, by
+    // providing an array of objects with 'title', 'icon'
+    // properties, and either a 'src' or 'content' property.
+    custom: false,
+    // Specifies the themes that will be available in the themes
+    // menu panel. Set to 'false' to hide themes panel.
+    themes: [
+      { name: 'Black', theme: 'assets/revealjs/css/theme/black.css' },
+      { name: 'White', theme: 'assets/revealjs/css/theme/white.css' },
+      { name: 'League', theme: 'assets/revealjs/css/theme/league.css' },
+      { name: 'Sky', theme: 'assets/revealjs/css/theme/sky.css' },
+      { name: 'Beige', theme: 'assets/revealjs/css/theme/beige.css' },
+      { name: 'Simple', theme: 'assets/revealjs/css/theme/simple.css' },
+      { name: 'Serif', theme: 'assets/revealjs/css/theme/serif.css' },
+      { name: 'Blood', theme: 'assets/revealjs/css/theme/blood.css' },
+      { name: 'Night', theme: 'assets/revealjs/css/theme/night.css' },
+      { name: 'Moon', theme: 'assets/revealjs/css/theme/moon.css' },
+      { name: 'Solarized', theme: 'assets/revealjs/css/theme/solarized.css' }
+          ],
+    // Specifies if the transitions menu panel will be shown.
+    transitions: true,
+    // Adds a menu button to the slides to open the menu panel.
+    // Set to 'false' to hide the button.
+    openButton: true,
+    // If 'true' allows the slide number in the presentation to
+    // open the menu panel. The reveal.js slideNumber option must
+    // be displayed for this to take effect
+    openSlideNumber: false,
+    // If true allows the user to open and navigate the menu using
+    // the keyboard. Standard keyboard interaction with reveal
+    // will be disabled while the menu is open.
+    keyboard: true
+  },
+
+
+  // More info https://github.com/hakimel/reveal.js#dependencies
+  dependencies: [
+    { src: 'assets/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    //{ src: 'assets/revealjs/plugin/markdown/marked.js' },
+    //{ src: 'assets/revealjs/plugin/markdown/markdown.js' },
+    { src: 'assets/revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'assets/revealjs/plugin/notes/notes.js', async: true },
+    { src: 'assets/revealjs/plugin/math/math.js', async: true },
+    { src: 'assets/plugin/reveal.js-plugins-master/menu/menu.js' },
+  ],
+});
+
+/* ====================== SCRIPT for HEADERs & FOOTERs ====================== */
+Reveal.addEventListener('slidechanged', function (event) {
+  //event.previousSlide, event.currentSlide, event.indexh, event.indexv
+  if (event.currentSlide.dataset.header && event.currentSlide.dataset.state=='showHeaderRight') {
+    myHeadRight.innerHTML = event.currentSlide.dataset.header;}
+  if (event.currentSlide.dataset.header && event.currentSlide.dataset.state=='showHeaderLeft') {
+    myHeadLeft.innerHTML = event.currentSlide.dataset.header;}
+  if (event.currentSlide.dataset.footer && event.currentSlide.dataset.state=='showFooterRight') {
+    myFootRight.innerHTML = event.currentSlide.dataset.footer;}
+  if (event.currentSlide.dataset.footer && event.currentSlide.dataset.state=='showFooterLeft') {
+    myFootLeft.innerHTML = event.currentSlide.dataset.footer;}
+});
+/* ====================== SCRIPT for HEADERs & FOOTERs ====================== */
+
+// <!-- Printing and PDF exports -->
+var linkpdf = document.createElement( 'link' );
+linkpdf.rel = 'stylesheet';
+linkpdf.type = 'text/css';
+linkpdf.href = window.location.search.match( /print-pdf/gi ) ? 'assets/revealjs/css/print/pdf.css' : 'assets/revealjs/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( linkpdf );

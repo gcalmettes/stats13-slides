@@ -1,0 +1,38 @@
+body{
+  font-family:sans-serif}
+
+.intro{
+  margin:0 1em;
+  font:18px sans-serif;}
+
+span .label{
+  display:inline-block;
+  text-align:center;
+  font-weight:700;
+  width:2.5em}
+
+span .group{
+  display:inline-block;
+  white-space:nowrap}
+
+input{
+  position:relative;
+  top:2px;
+  width:20em}
+
+text{
+  font:16px sans-serif}
+
+svg{
+  display:block}
+
+.bar rect{
+  fill:#4682b4;
+  stroke-width:0.5;
+  stroke: #FFFFFF;
+  shape-rendering:crispEdges;}
+
+#reset_button {
+	position: absolute;
+	top: 150px;
+	left: 400px;}

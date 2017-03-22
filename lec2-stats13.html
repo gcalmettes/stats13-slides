@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 1 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/revealjs/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/revealjs/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <!-- <link rel="stylesheet" href="assets/revealjs/lib/css/zenburn.css"> -->
+  <link rel="stylesheet" href="assets/revealjs/lib/css/monokai-sublime.css" />
+  <!-- Custom css -->
+  <!-- <link rel="stylesheet" href="assets/plugin/Font-Awesome-master/css/font-awesome.min.css" /> -->
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugin/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+
+
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg2.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 2</h1>
+  </div>
+    <h3 style="color: #FFFFFF">Data visualization</h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+
+<section id="histogram">
+  <h3>The sacred histogram</h3>
+
+  <div class="row">
+    <div class="col-25 right">
+      <label>Distribution:</label>
+    </div>
+    <div class="col-20">
+      <select id="dist_select">
+        <option value="normal">Normal</option>
+        <option value="random">Random</option>
+        <option value="exponential">Exponential</option>
+        <option value="lognormal">Log-Normal</option>
+      </select>
+    </div>
+    <div class="col-40 right">
+      <label>Normalize bar height</label>
+    </div>
+    <div class="col-10 left">
+      <input type="checkbox" id="checkbox_norm" value="norm_checked">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-20 right">
+      <label>Bins #: 
+  </div>
+    <div class="col-5">
+      <span id="nbins-value" style="color: goldenrod;">10</span></label>
+    </div>
+    <div class="col-20">
+      <input type="range" min="1" max="50" id="nbins" style="width: 15em;">
+    </div>
+    <div class="col-40 right">
+      <label>Sort dataset</label>
+    </div>
+    <div class="col-10 left">
+      <input type="checkbox" id="checkbox_sort">
+    </div>
+  </div>
+
+  <div class="placeholder"></div>
+
+
+  <aside class="notes">
+    <p>
+      Bins size effect
+    </p>
+  </aside>
+</section>
+
+
+<!-- <section id="liveplot">
+  <h3>Live dot plot</h3>
+  <div class="placeholder"></div>
+</section> -->
+
+
+
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section>
+
+ -->
+
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/revealjs/lib/js/head.min.js"></script>
+  <script src="assets/revealjs/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <script src="assets/js/d3.v4.min.js"></script>
+  <script src="assets/js/d3-selection-multi.v0.4.min.js"></script>
+
+    <!-- D3 in REVEAL -->
+  <script src="assets/js/d3-in-reveal.js"></script>
+    <!-- The D3 config & animations -->
+    <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
+    <script src="assets/d3-anim/js-graphs/histogram.js"></script>
+    <!-- <script src="assets/d3-anim/js-graphs/live-dotplot.js"></script> -->
+
+
+</body>
+</html>

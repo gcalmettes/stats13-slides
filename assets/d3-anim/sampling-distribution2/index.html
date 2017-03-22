@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://bl.ocks.org/gabrielflorit/raw/32494d816b9c39c81f3533dee11322d0/ -->
+
+<html>
+
+
+<title>Sampling distribution</title>
+<link href='sampling-src/dist.css' rel='stylesheet' />
+
+<body>
+
+	<div class='intro'>
+
+		<p>Given a population where <i>p</i> = <span class="group">
+			<span class="proportion label"></span>
+				<input class="proportion" type="range" min="0" max="1" step="0.01" value="0.2" />
+			</span>,
+		</p>
+
+		<p>draw a histogram of <span class="group">
+			<span class="samples label"></span>
+			 sample proportions
+			 <input class="samples" type="range" min="1" max="1000" step="1" value="200" />
+		 </span>
+	 </p>
+
+		<p>where the samples are of
+		size <span class="group"><i>n</i> = <span class="size label"></span><input class="size" type="range" min="1" max="1000" step="1" value="100" /></span>.</p>
+
+		<p>We call this a <b>sampling distribution</b>.</p>
+
+	</div>
+
+	<button id="reset_button" class="btn btn-primary">Reset</button>
+
+
+	<script src="../lib-js/d3.v4.min.js"></script>
+  <script src="sampling-src/dist.js"></script>
+
+</body>
+
+</html>
