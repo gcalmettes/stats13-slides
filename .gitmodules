@@ -1,3 +1,6 @@
 [submodule "assets/plugin/reveal.js-plugin-master"]
 	path = assets/plugin/reveal.js-plugin-master
 	url = https://github.com/rajgoel/reveal.js-plugins.git
+[submodule "assets/reveal.js-master"]
+	path = assets/reveal.js-master
+	url = https://github.com/hakimel/reveal.js.git
