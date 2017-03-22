@@ -93,7 +93,7 @@ Reveal.initialize({
     { src: 'assets/reveal.js-master/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
     { src: 'assets/reveal.js-master/plugin/notes/notes.js', async: true },
     { src: 'assets/reveal.js-master/plugin/math/math.js', async: true },
-    { src: 'assets/plugin/reveal.js-plugins-master/menu/menu.js' },
+    { src: 'assets/plugins/reveal.js-plugins-master/menu/menu.js' },
   ],
 });
 
