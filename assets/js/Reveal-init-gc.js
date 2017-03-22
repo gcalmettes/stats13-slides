@@ -79,7 +79,9 @@ Reveal.initialize({
     // If true allows the user to open and navigate the menu using
     // the keyboard. Standard keyboard interaction with reveal
     // will be disabled while the menu is open.
-    keyboard: true
+    keyboard: true,
+    // Hides the address bar on mobile devices
+    hideAddressBar: true,
   },
 
 
