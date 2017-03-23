@@ -200,6 +200,7 @@ section[data-transition*="none-in"].present {
 .reveal p,
 .reveal div p {
   text-align: left;
+  font-size: 0.8em;
 }
 
 .reveal .centered-slide h1,
@@ -228,6 +229,8 @@ section[data-transition*="none-in"].present {
   text-align: left;
 }
 
+.tab { display:inline-block; 
+       margin-left: 40px !important; }
 
 /*********************************************
 * CSS GRID and co.
@@ -395,6 +398,18 @@ section .row *[class*='col-'] {
   padding: 0em 0.15em;
 }
 
+/*for tables*/
+td {
+  font-size: 0.6em !important;
+  text-align: center !important;
+}
+th {
+  font-size: 0.7em !important;
+  text-align: center !important;
+}
+
+.col-05 { width: 0.5%; }
+.col-1 { width: 1%; }
 .col-5 { width: 5%; }
 .col-10 { width: 10%; }
 .col-15 { width: 15%; }
@@ -647,3 +662,29 @@ label {
 .clip-text_london {
     background-image: url("../img/lec1/london.jpg");
 }
+
+/*********************************************
+* fragment highlight
+*********************************************/
+.reveal .slides section .fragment.highlight-bckg-yellow,
+.reveal .slides section .fragment.highlight-bckg-gray,
+.reveal .slides section .fragment.highlight-bckg-blue {
+  opacity: 1;
+  visibility: inherit; }
+
+.reveal .slides section .fragment.highlight-bckg-blue.current-fragment {
+  background-color: #5bc0de;
+  color: black;
+  /*font-weight: bold;*/
+}
+.reveal .slides section .fragment.highlight-bckg-yellow.current-fragment {
+  background-color: #f0ad4e;
+  color: black;
+  /*font-weight: bold;*/
+}
+.reveal .slides section .fragment.highlight-bckg-gray.current-fragment {
+  background-color: #636c72;
+  color: black;
+  /*font-weight: bold;*/
+}
+

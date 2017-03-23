@@ -7,11 +7,12 @@
   <title>
     Lecture 1 - Stats 13
   </title>
-  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <link rel="stylesheet" href="assets/revealjs/css/reveal.css" />
   <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
-  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <link rel="stylesheet" href="assets/revealjs/css/theme/black.css" id="theme"/>
   <!-- Theme used for syntax highlighting of code -->
-  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- <link rel="stylesheet" href="assets/revealjs/lib/css/zenburn.css"> -->
+  <link rel="stylesheet" href="assets/revealjs/lib/css/monokai-sublime.css" />
   <!-- Custom css -->
   <!-- <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" /> -->
   <link rel="stylesheet" href="assets/css/custom-gc.css" />
@@ -98,13 +99,30 @@
   <h3>John Snow</h3>
   <div class="row">
     <span class="col-60">
-      <p>[ ... a bit about him ... ]</p>
-      <p>[ ... and his theory about cholera ... ]</p>
-    </span>
+      <p>British physician.</p>
+      <p>He was <span class="warning">skeptic</span> about Cholera being caused by pollution or a noxious form of "bad air" (<i>miasma theory</i>).</p>
+      <p>He is considered one of the fathers of modern epidemiology.</p>
+    </span>.
     <span class="col-5"> <p> </p></span>
-    <span class="col-35"> <img src="assets/img/lec1/john-snow.jpg"></span>
-
+    <span class="col-30"> 
+    <img style="margin-bottom: 0;" src="assets/img/lec1/john-snow.jpg">
+    <span style="font-size: 0.4em;">(15 March 1813 - 16 June 1858)</span>
+    </span>
   </div>
+  <aside class="notes">
+    <p>
+      The first cases of cholera in England were reported in1831, about the time Dr. Snow as finishing up his medical studies at the age of eighteen. Between 1831 and 1854, tens of thousands of people in England died of cholera. Although Dr. Snow was deeply involved in experiments using a new technique, known as anesthesia, to deliver babies, he was also fascinated with researching his theory on how cholera spread. 
+      <br>
+
+      In the middle 1800s, people didn’t have running water or modern toilets in their homes. They used town wells and communal pumps to get the water they used for drinking, cooking and washing.  Septic systems were primitive and most homes and businesses dumped untreated sewage and animal waste directly into the Thames River or into open pits called “cesspools”.  Water companies often bottled water from the Thames and delivered it to pubs, breweries and other businesses.
+      <br>
+
+      Dr. Snow believed sewage dumped into the river or into cesspools near town wells could contaminate the water supply, leading to a rapid spread of disease.
+      <br>
+
+      In August of 1854 Soho, a suburb of London, was hit hard by a terrible outbreak of cholera. Dr. Snows himself lived near Soho, and immediately went to work to prove his theory that contaminated water was the cause of the outbreak.
+    </p>
+  </aside>
 </section>
 
 <section class="center" data-menu-title="london panorama">
@@ -114,16 +132,236 @@
   </svg>
 </section>
 
+<section data-state="showFooterRight" data-footer="Source - <a href='http://www.victorianweb.org/science/health/cholera/cholera.html' target='_blank'>John Leech's cartoon in Punch, 23 (25 September 1852): 139)</a>">
+  <h3> Soho cholera epidemics (Sept. 1854)</h3>
+  <div class="row">
+  <div class="col-33">
+    <p><span class="quoted" style="font-size: 1em;">The most terrible outbreak of cholera which ever occurred in this kingdom.</span><br><span>- John Snow -</span></p>
+    <p><br></p>
+    <p class="sided border-warning">
+      <span class="warning"><i>The first 10 days:</i></span><br>
+      <span class="tab">> 500 dead</span></p>
+  </div>
+  <div class="col-66">
+    <!-- <svg width="100%" height="100%" viewbox="45 55 1900 1700">
+      <svg><use xlink:href="assets/img/lec1/london_soho-slide.svg#Layer1"></svg>
+    </svg> -->
+    <img src="assets/img/lec1/Court_for_king_Cholera.jpg">
+  </div>
+  </div>
+</section>
+
+<section>
+  <h3>John Snow's dataset</h3>
+  <p></p>
+  <table>
+    <thead>
+      <tr style="background: #636c72;">
+        <th>Building</th>
+        <th>Address</th>
+        <th>Population</th>
+        <th>Casualties</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bldg #1</td>
+        <td>45 Lexington St</td>
+        <td>8</td>
+        <td>5</td>
+      <tr>
+      <tr>
+        <td>Bldg #2</td>
+        <td>15 Broadwick St</td>
+        <td>21</td>
+        <td>7</td>
+      <tr>
+      <tr>
+        <td>Bldg #3</td>
+        <td>61 Poland St</td>
+        <td>4</td>
+        <td>1</td>
+      <tr>
+      <tr>
+        <td>Bldg #4</td>
+        <td>37 Broad St</td>
+        <td>27</td>
+        <td>16</td>
+      <tr>
+      <tr>
+        <td>Bldg #5</td>
+        <td>48 Carnaby St</td>
+        <td>11</td>
+        <td>3</td>
+      <tr>
+      <tr>
+        <td>Bldg #6</td>
+        <td>46 Beak St</td>
+        <td>8</td>
+        <td>0</td>
+      <tr>
+      <tr>
+        <td>Bldg #7</td>
+        <td>43 Broad St</td>
+        <td>44</td>
+        <td>9</td>
+      <tr>
+      <tr>
+        <td>Bldg #8</td>
+        <td>15 Marshall St</td>
+        <td>6</td>
+        <td>1</td>
+      <tr>
+    </tbody>
+  </table>
+  <aside class="notes">
+    <p>
+      Usually data is stored and presented in a dataset,
+      comprised of variables measured on cases
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h3>Observational units & variables</h3>
+  <p class="quoted">
+    An <span class="u">observational unit</span> is the <span class="warning">individual entity of interest</span> on which data are recorded.
+  </p>
+  <p class="quoted">
+    The <span class="warning">recorded characteristics</span> of the observational unit are the <span class="u">variables</span> of interest. Those variables can be <span class="warning">quantitative</span> (numerical values) or <span class="warning">categorical</span> (category designation).
+  </p>
+  <svg width="50%" height="100%" viewbox="0 0 110 50" style="margin-top: 5%;">
+    <svg><use xlink:href="assets/img/lec1/observational-unit.svg#Layer_1"></svg>
+  </svg>
+  <aside class="notes">
+    <p>
+      We obtain information about units (or cases).
+      A variable is any characteristic that is recorded for each unit/case.
+  </p>
+  </aside>
+</section>
+
+<section>
+  <h3>John Snow's dataset</h3>
+  <div class="row">
+    <div style="position:relative" >
+        <p class="fragment current-visible info" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="2">
+        Categorical
+        </p>
+        <p class="fragment current-visible info" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="3">
+          Quantitative
+        </p>
+    </div>
+    <div class="col-20">
+    <p></p>
+      <!-- <p class="info fragment current-visible" data-fragment-index=2>Categorical</p> -->
+    </div>
+    <div class="col-75">
+      <div style="padding-bottom: 0px !important;" class="em warning fragment" data-fragment-index=1>
+        Variables
+      </div>
+      <hr align="left" width=97% color="#f0ad4e" size=3px class="fragment" data-fragment-index=1>
+      <!-- <span class="col-50"><hr align="center" width=95%></span> -->
+    </div>  
+  </div>
+  <p></p>
+  <div class="row">
+  <div class="col-15" style="position: relative; margin-top: 18% !important;">
+    <span class="em warning fragment push-right" data-fragment-index=1>Units</span>
+  </div>
+  <div class="col-05">
+    <table style="border-collapse: collapse;" class="fragment" data-fragment-index=1>
+      <tr style="height: 1em;"><p></p></tr>
+      <tr style="height: 7.5em; border-left: solid 0.1em #f0ad4e;"><td><p></p></td></tr>
+    </table>
+  </div>
+  <div class="col-80">
+  <table>
+    <thead>
+      <tr style="background: #636c72;">
+        <th>Building</th>
+        <th>Address</th>
+        <th>Population</th>
+        <th>Casualties</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #1</td>
+        <td>45 Lexington St</td>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=3>8</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #2</td>
+        <td>15 Broadwick St</td>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=3>21</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #3</td>
+        <td>61 Poland St</td>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=3>4</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #4</td>
+        <td>37 Broad St</td>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=3>27</td>
+        <td>16</td>
+      </tr>
+      <tr>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #5</td>
+        <td>48 Carnaby St</td>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=3>11</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #6</td>
+        <td>46 Beak St</td>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=3>8</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #7</td>
+        <td>43 Broad St</td>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=3>44</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #8</td>
+        <td>15 Marshall St</td>
+        <td class="fragment highlight-bckg-blue" data-fragment-index=3>6</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+  <aside class="notes">
+    <p>
+      Usually data is stored and presented in a dataset,
+      comprised of variables measured on cases
+    </p>
+  </aside>
+</section>
+
 <section id="soho">
-  <h3> Soho (London 1854) </h3>
+  <h3> Soho cholera epidemics (Sept. 1854)</h3>
   <div class="row">
   <div class="col-35">
-    <p class="sided border-danger">Similarity</p>
-    <p class="sided">Proximity</p>
-    <div class="fragment" data-fragment-index="1">
-      <p style="font-size: 0.7em;">Workhouse<br>(>530 inmates)</p>
-      <p style="font-size: 0.7em;">Brewery <br>(70 workers)</p>
-    </div>
+    <p style="font-size: 0.7em;">Snow analyzed the spatial pattern of the disease based on:
+      <br>
+      <ul style="font-size: 0.7em;">
+        <li>Water sources</li>
+        <li>Cholera fatal attacks</li>
+      </ul>
+    </p>
+    <p class="fragment sided border-success" data-fragment-index="1">
+      <span class="success"><i>No casualties:</i></span><br>
+      Workhouse<br><span class="tab">(535 inmates)</span><br>
+      Brewery <br><span class="tab">(70 workers)</span>
+    </p>
   </div>
   <div class="col-60" id="soho_map"></div>
   </div>
@@ -132,9 +370,11 @@
 
 <section>
   <h3>Outliers</h3>
-  <p>"Anomaly"</p>
+  <p class="quoted">An outlier is an <span class="warning">observed value that is notably distinct</span> from the other values in a dataset. Usually, an outlier is <span class="u">much larger or much smaller</span> than the rest of the data values.</p>
+  <img src="assets/img/lec1/oulier.svg" class="unbordered" style="top: 0;">
   <aside class="notes">
     <p>
+      Anomaly. <br>
       We'll see later in the class how to detect, represent and deal with outliers. <br>
       But you already see here that outliers are important, and shouldn't be ignored.
       They store information
@@ -144,6 +384,20 @@
 
 <section>
   <h3>The "Grand Experiment"</h3>
+</section>
+
+<section>
+<h3>Test highlight</h3>
+  <ul class="fragment fragment--trigger-highlight u-opacity1">
+                <li class="highlight">CSS Gradients</li>
+                <li>CSS Filters</li>
+                <li>CSS Blend Modes</li>
+                <li>CSS Masking</li>
+                <li class="highlight">backgrounds</li>
+                <li>box-shadow</li>
+                <li>text-shadow</li>
+                <li>borders</li>
+              </ul>
 </section>
 
 <!-- <section id="london-waterworks">
@@ -169,55 +423,6 @@
   <p>Observational study (vs experimental)</p>
   <p>Research question</p>
   <p>data</p>
-</section>
-
-<section>
-  <h3>Data (tables)</h3>
-  <table>
-    <thead>
-        <tr style="background: white;">
-            <th>Item</th>
-            <th>Value</th>
-            <th>Quantity</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Apples</td>
-            <td>$1</td>
-            <td>7</td>
-        <tr>
-        <tr>
-            <td>Lemonade</td>
-            <td>$2</td>
-            <td>18</td>
-        <tr>
-        <tr>
-            <td>Bread</td>
-            <td>$3</td>
-            <td>2</td>
-        <tr>
-    </tbody>
-</table>
-  <aside class="notes">
-    <p>
-      Usually data is stored and presented in a dataset,
-      comprised of variables measured on cases
-    </p>
-  </aside>
-</section>
-
-<section>
-  <h3>Observational units & variables</h3>
-  <svg width="50%" height="100%" viewbox="0 0 110 50" style="margin-top: 5%;">
-    <svg><use xlink:href="assets/img/lec1/observational-unit.svg#Layer_1"></svg>
-  </svg>
-  <aside class="notes">
-    <p>
-      We obtain information about units (or cases).
-      A variable is any characteristic that is recorded for each unit/case.
-  </p>
-  </aside>
 </section>
 
 <section>
@@ -304,8 +509,8 @@
 
 
   <!-- Reveal -->
-  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
-  <script src="assets/reveal.js-master/js/reveal.js"></script>
+  <script src="assets/revealjs/lib/js/head.min.js"></script>
+  <script src="assets/revealjs/js/reveal.js"></script>
     <!-- Reveal initialization file, including custom event listeners-->
   <script src="assets/js/Reveal-init-gc.js"></script>
 
@@ -315,7 +520,7 @@
   <script src="assets/looney-slide/looney-reveal.js"></script>
 
   <!-- Google spreadsheet to javascript -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
 
   <!-- D3 -->
   <script src="assets/js/d3.v4.min.js"></script>
