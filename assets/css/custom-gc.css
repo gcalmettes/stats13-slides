@@ -681,6 +681,7 @@ label {
 /*********************************************
 * fragment highlight
 *********************************************/
+
 .reveal .slides section .fragment.highlight-bckg-yellow,
 .reveal .slides section .fragment.highlight-bckg-gray,
 .reveal .slides section .fragment.highlight-bckg-blue,
@@ -737,4 +738,78 @@ label {
 }
 
 
+/*********************************************
+* Rotation
+*********************************************/
+
+.rotation-30 {
+    -ms-transform: rotate(30deg); /* IE 9 */
+    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+    transform: rotate(30deg);
+}
+.rotation-45 {
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+.rotation-60 {
+    -ms-transform: rotate(60deg); /* IE 9 */
+    -webkit-transform: rotate(60deg); /* Chrome, Safari, Opera */
+    transform: rotate(60deg);
+}
+.rotation-90 {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+.rotation-105 {
+    -ms-transform: rotate(105deg); /* IE 9 */
+    -webkit-transform: rotate(105deg); /* Chrome, Safari, Opera */
+    transform: rotate(105deg);
+}
+.rotation-120 {
+    -ms-transform: rotate(120deg); /* IE 9 */
+    -webkit-transform: rotate(120deg); /* Chrome, Safari, Opera */
+    transform: rotate(120deg);
+}
+.rotation-150 {
+    -ms-transform: rotate(150deg); /* IE 9 */
+    -webkit-transform: rotate(150deg); /* Chrome, Safari, Opera */
+    transform: rotate(150deg);
+}
+.rotation-180 {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+.rotation-210 {
+    -ms-transform: rotate(210deg); /* IE 9 */
+    -webkit-transform: rotate(210deg); /* Chrome, Safari, Opera */
+    transform: rotate(210deg);
+}
+.rotation-240 {
+    -ms-transform: rotate(240deg); /* IE 9 */
+    -webkit-transform: rotate(240deg); /* Chrome, Safari, Opera */
+    transform: rotate(240deg);
+}
+.rotation-270 {
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+}
+.rotation-300 {
+    -ms-transform: rotate(300deg); /* IE 9 */
+    -webkit-transform: rotate(300deg); /* Chrome, Safari, Opera */
+    transform: rotate(300deg);
+}
+.rotation-315 {
+    -ms-transform: rotate(315deg); /* IE 9 */
+    -webkit-transform: rotate(315deg); /* Chrome, Safari, Opera */
+    transform: rotate(315deg);
+}
+.rotation-330 {
+    -ms-transform: rotate(330deg); /* IE 9 */
+    -webkit-transform: rotate(330deg); /* Chrome, Safari, Opera */
+    transform: rotate(330deg);
+}
 
