@@ -12,6 +12,9 @@ Reveal.initialize({
   overview: true,
   transition: 'slide', // Transition style: none/fade/slide/convex/concave/zoom
   transitionSpeed: 'default', // Transition speed: default/fast/slow
+  shownotes: false,
+  hideAddressBar: true,
+
 
   keyboard: {
     80: function() {
@@ -19,6 +22,10 @@ Reveal.initialize({
         var uri = window.location.toString().split("#")
         window.location.replace(uri[0] + "?print-pdf");
       }
+    },
+
+    83: function() {
+      console.log("speaker notes not available")
     }
   },
 
@@ -81,7 +88,6 @@ Reveal.initialize({
     // will be disabled while the menu is open.
     keyboard: true,
     // Hides the address bar on mobile devices
-    hideAddressBar: true,
   },
 
 
