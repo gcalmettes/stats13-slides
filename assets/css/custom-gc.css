@@ -497,7 +497,6 @@ th {
 }
 
 
-
 /*********************************************
 * HEADERS
 *********************************************/
@@ -684,23 +683,58 @@ label {
 *********************************************/
 .reveal .slides section .fragment.highlight-bckg-yellow,
 .reveal .slides section .fragment.highlight-bckg-gray,
-.reveal .slides section .fragment.highlight-bckg-blue {
+.reveal .slides section .fragment.highlight-bckg-blue,
+.reveal .slides section .fragment.highlight-bckg-red,
+.reveal .slides section .fragment.highlight-bckg-green,
+.reveal .slides section .fragment.highlight-current-bckg-yellow,
+.reveal .slides section .fragment.highlight-current-bckg-gray,
+.reveal .slides section .fragment.highlight-current-bckg-blue,
+.reveal .slides section .fragment.highlight-current-bckg-red,
+.reveal .slides section .fragment.highlight-current-bckg-green {
   opacity: 1;
   visibility: inherit; }
 
-.reveal .slides section .fragment.highlight-bckg-blue.current-fragment {
+.reveal .slides section .fragment.highlight-bckg-blue.visible {
   background-color: #5bc0de;
   color: black;
-  /*font-weight: bold;*/
 }
-.reveal .slides section .fragment.highlight-bckg-yellow.current-fragment {
+.reveal .slides section .fragment.highlight-bckg-yellow.visible {
   background-color: #f0ad4e;
   color: black;
-  /*font-weight: bold;*/
 }
-.reveal .slides section .fragment.highlight-bckg-gray.current-fragment {
+.reveal .slides section .fragment.highlight-bckg-gray.visible {
   background-color: #636c72;
   color: black;
-  /*font-weight: bold;*/
 }
+.reveal .slides section .fragment.highlight-bckg-red.visible {
+  background-color: #d9534f;
+  color: black;
+}
+.reveal .slides section .fragment.highlight-bckg-green.visible {
+  background-color: #5cb85c;
+  color: black;
+}
+
+.reveal .slides section .fragment.highlight-current-bckg-blue.current-fragment {
+  background-color: #5bc0de;
+  color: black;
+}
+.reveal .slides section .fragment.highlight-current-bckg-yellow.current-fragment {
+  background-color: #f0ad4e;
+  color: black;
+}
+.reveal .slides section .fragment.highlight-current-bckg-gray.current-fragment {
+  background-color: #636c72;
+  color: black;
+}
+.reveal .slides section .fragment.highlight-current-bckg-red.current-fragment {
+  background-color: #d9534f;
+  color: black;
+}
+.reveal .slides section .fragment.highlight-current-bckg-green.current-fragment {
+  background-color: #5cb85c;
+  color: black;
+}
+
+
 

@@ -35,25 +35,35 @@
 <div class="slides">
 
 
-
-
-
-
-<section class="title-slide">
+<section class="title-slide" data-menu-title="STATS 13">
   <div class="big-title-passionone"> STATS 13</div>
+</section>
+
+<section>
+  <h3>Bonjour, I'm Guillaume</h3>
+  <img class="unbordered" width=65% src="assets/img/lec1/french.svg">
 </section>
 
 <section>
   <h3>The administrative stuff</h3>
   <div class="row">
     <div class="col-50">
-      <p> <span class="u">Lectures:</span> Tuesdays & Thursdays 3:30-4:45PM</p>
-      <p> <span class="u">Labs:</span> Mondays & Wednesdays 10:00-10:50AM</p>
-      <p>Homeworks (25%) given after 1$^{st}$ Lab and due before Friday (11:55PM) of same week.</p>
+      <p class="sided border-warning"> 
+        <span class="u warning strong">Lectures:</span><br>
+         Tuesdays & Thursdays<br>
+         3:30-4:45PM</p>
+      <p class="sided border-info"> 
+        <span class="u info strong">Labs:</span><br>
+        Mondays & Wednesdays<br>
+        10:00-10:50AM</p>
+      <p> <span class="u">Grading:</span><br>
+        Homeworks (25%)<br>
+        Midterm (35%)<br>
+        Final (40%)</p>
     </div>
     <div class="col-50">
       <p>No official textbook</p>
-      <p>1 midterm (35%)/ 1 final exam (40%)</p>
+      <p class="framed"><span class="u strong">Homeworks:</span><br> assigned Mondays (11:00AM)<br> due before the next Monday (10:00AM)</p>
     </div>
   </div>
 </section>
@@ -75,17 +85,43 @@
     What are statistics?
     What is it used for?
     <p>=> Analyze (complex) datasets, tell something with data</p>
+    <p>Formula</p>
   </aside>
 </section>
 
 <section>
-  <h3>Statistics is all about Data!</h3>
+  <h3>Understanding > knowing</h3>
+  <!-- <div class="col-50"> -->
+    <img class="unbordered" src="assets/img/lec1/answer.jpg" width="48%">
+  <!-- </div> -->
+  <aside class="notes">
+    <p>
+      This class is a bit different => RESAMPLING & SIMULATIONS.
+      <br>
+      We believe understanding how things work is far more interesting
+      and useful, because it can be applied and tweaked to very specific situations.
+      <br>
+      Formula have been developed for a certain kind of data.
+      <br>
+      The problem is that we are living in a rapidly evolving world, with new kind of data being generated every day. We need to be able to analyze this new kind of data.
+      Formula applies to a very narrow range of data. We are not living in a fantasy world.
+      <br>
+      I am not here to train you to be a bunch of robots who know how to apply some recipe by heart and just press a button and just read the results.
+      <br>
+      I am here is to train the next generation of scientists, the next generation of entrepreneurs,
+      the next generation of leader, who will be able to understand to analyze any kind of new data they encounter.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h3>Making decision based on Data!</h3>
     <div>
       <img class="unbordered" src="assets/img/lec1/data.svg" width=45% style="margin-bottom: 0;">
     </div>
   <div class="row">
     <div class="col-25" style="margin-top: 6%;">
-      <p>Statistics is the <span class="u">science</span> of
+      <p style="text-align: right;">Statistics is the <span class="u">science</span> of
     </div>
     <div class="col-29">
       <p style="border-style: solid; border-left-color: #f0ad4e; border-left-width: 0.1em;">
@@ -102,42 +138,31 @@
     <div class="col-35" style="margin-top: 3%;">
       <p>
       to assist
-      in <br><span class="u">making more effective decisions</span>.
+      in <br><span class="fragment highlight-bckg-yellow">making more effective decisions</span>.
       </p>
     </div>
   </div>
   <aside class="notes">
     <p>
-      Data are everywhere!  Regardless of your field, interests, lifestyle, etc.,
-      you will almost definitely have to make decisions based on data, or evaluate
+      Data are everywhere!
+      <br>
+      Regardless of your field, interests, lifestyle, etc., you will almost definitely have to make decisions based on data, or evaluate
       decisions someone else has made based on data.
       <br>
-      Formula have been developed for a certain kind of data.
-      <br>
-      The problem is that we are living in a rapidly evolving world, with new kind of data being generated every day. We need to be able to analyze this new kind of data.
-      Formula applies to a very narrow range of data. We are not livin in a fantasy world.
+      Statistics is basically the science of how to deal with all those data, and what information can I extract from them.
     </p>
   </aside>
 </section>
 
 <section>
-  <h3>Knowing is understanding</h3>
-  <div class="col-50">
-    <img class="unbordered" src="assets/img/lec1/answer.jpg" width="100%">
-  </div>
+  <h3>How statistics solved the Cholera transmission problem?</h3>
+  <img class="plain" src="assets/img/lec1/cholera-disposal-bodies.jpg" width="80%">
   <aside class="notes">
     <p>
-      I am not here to train you to be a bunch of robots who know how to apply some recipe by heart.
-      <br>
-      I am here is to train the next generation of scientists, the next generation of entrepreneurs,
-      the next generation of leader, who will be able to understand to analyze any kind of new data they encounter.
+      Cholera is an infection of the small intestine caused by some bacteria.
+      Symptoms of this disease include nausea, vomiting, abdominal pain and a horribly violent case of diarrhea that can cause one to lose as much as 20 liters of fluid and electrolytes per day, leading to extremely severe dehydration.
     </p>
   </aside>
-</section>
-
-<section>
-  <h3>Cholera in the 19$^\mathrm{th}$ century</h3>
-  <img class="plain" src="assets/img/lec1/cholera-disposal-bodies.jpg" width="90%">
 </section>
 
 <section id="cholera">
@@ -147,7 +172,13 @@
   <span class="fragment"></span> <!-- trigger russia -->
   <span class="fragment"></span> <!-- trigger zoom to london -->
   <aside class="notes">
-    1832, Cholera arrives to big European capitals, Paris, London.
+    <p>
+      Cholera is a bacterial disease causing intense diarrhea that has swept the globe in a series of global pandemics ending with the recent, sixth pandemic, in the latter half of the twentieth century. 
+      <br>
+      The first outbreak began in India early in the 19th century and spread to England in 1831 in the first of four 19th century epidemics occurring in 1831–1833, 1848–1850, 1853–1854, and 1866.
+      <br>
+      In part as a result of cholera’s mortality rate of between 20 and 25 percent, the nature of cholera—was it air or waterborne—and the means of its diffusion were subjects of intense professional debate.
+    </p>
   </aside>
 </section>
 
@@ -167,25 +198,15 @@
   </div>
   <aside class="notes">
     <p>
-      The first cases of cholera in England were reported in1831, about the time Dr. Snow as finishing up his medical studies at the age of eighteen. Between 1831 and 1854, tens of thousands of people in England died of cholera. Although Dr. Snow was deeply involved in experiments using a new technique, known as anesthesia, to deliver babies, he was also fascinated with researching his theory on how cholera spread. 
+      The first cases of cholera in England were reported in 1831, about the time Dr. Snow as finishing up his medical studies at the age of eighteen. Between 1831 and 1854, tens of thousands of people in England died of cholera. Although Dr. Snow was deeply involved in experiments using a new technique, known as anesthesia, to deliver babies, he was also fascinated with researching his theory on how cholera spread. 
       <br>
-
       In the middle 1800s, people didn’t have running water or modern toilets in their homes. They used town wells and communal pumps to get the water they used for drinking, cooking and washing.  Septic systems were primitive and most homes and businesses dumped untreated sewage and animal waste directly into the Thames River or into open pits called “cesspools”.  Water companies often bottled water from the Thames and delivered it to pubs, breweries and other businesses.
       <br>
-
       Dr. Snow believed sewage dumped into the river or into cesspools near town wells could contaminate the water supply, leading to a rapid spread of disease.
       <br>
-
       In August of 1854 Soho, a suburb of London, was hit hard by a terrible outbreak of cholera. Dr. Snows himself lived near Soho, and immediately went to work to prove his theory that contaminated water was the cause of the outbreak.
     </p>
   </aside>
-</section>
-
-<section class="center" data-menu-title="london panorama">
-  <svg width="100%" height="100%" viewbox="0 0 970 550">
-    <svg><use xlink:href="assets/img/lec1/london-thames.svg#background"></svg>
-    <svg class="fragment fade-out"><use xlink:href="assets/img/lec1/london-thames.svg#letters"></svg>
-  </svg>
 </section>
 
 <section data-state="showFooterRight" data-footer="Source - <a href='http://www.victorianweb.org/science/health/cholera/cholera.html' target='_blank'>John Leech's cartoon in Punch, 23 (25 September 1852): 139)</a>">
@@ -196,111 +217,27 @@
     <p><br></p>
     <p class="sided border-warning">
       <span class="warning"><i>The first 10 days:</i></span><br>
-      <span class="tab">> 500 dead</span></p>
+      <span class="tab">> 500 fatalities</span></p>
   </div>
   <div class="col-66">
-    <!-- <svg width="100%" height="100%" viewbox="45 55 1900 1700">
-      <svg><use xlink:href="assets/img/lec1/london_soho-slide.svg#Layer1"></svg>
-    </svg> -->
     <img src="assets/img/lec1/Court_for_king_Cholera.jpg">
   </div>
   </div>
-</section>
-
-<section>
-  <h3>John Snow's dataset</h3>
-    <p>Snow tracked the numbers of deaths in the neighborhood.</p>
-    <br>
-  <p></p>
-  <table>
-    <thead>
-      <tr style="background: #636c72;">
-        <th>Building</th>
-        <th>Address</th>
-        <th>Population</th>
-        <th>Casualties</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Bldg #1</td>
-        <td>45 Lexington St</td>
-        <td>8</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>Bldg #2</td>
-        <td>15 Broadwick St</td>
-        <td>21</td>
-        <td>7</td>
-      </tr>
-      <tr>
-        <td>Bldg #3</td>
-        <td>61 Poland St</td>
-        <td>4</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>Bldg #4</td>
-        <td>37 Broad St</td>
-        <td>27</td>
-        <td>16</td>
-      </tr>
-      <tr>
-        <td>Bldg #5</td>
-        <td>48 Carnaby St</td>
-        <td>11</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>Bldg #6</td>
-        <td>46 Beak St</td>
-        <td>8</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>Bldg #7</td>
-        <td>43 Broad St</td>
-        <td>44</td>
-        <td>9</td>
-      </tr>
-      <tr>
-        <td>Bldg #8</td>
-        <td>15 Marshall St</td>
-        <td>6</td>
-        <td>1</td>
-      </tr>
-    </tbody>
-  </table>
   <aside class="notes">
     <p>
-      Usually data is stored and presented in a dataset,
-      comprised of variables measured on cases
+      Soho was the neighborhood of John Snow.
+      <br>
+      First hand case study for him.
+      <br>
+      he gathered demographic data on the victims who were struck with cholera.
     </p>
   </aside>
 </section>
 
 <section>
-  <h3>Observational units & variables</h3>
-  <p class="quoted">
-    An <span class="u">observational unit</span> is the <span class="warning">individual entity of interest</span> on which data are recorded.
-  </p>
-  <p class="quoted">
-    The <span class="warning">recorded characteristics</span> of the observational unit are the <span class="u">variables</span> of interest. Those variables can be <span class="warning">quantitative</span> (numerical values) or <span class="warning">categorical</span> (category designation).
-  </p>
-  <svg width="50%" height="100%" viewbox="0 0 110 50" style="margin-top: 5%;">
-    <svg><use xlink:href="assets/img/lec1/observational-unit.svg#Layer_1"></svg>
-  </svg>
-  <aside class="notes">
-    <p>
-      We obtain information about units (or cases).
-      A variable is any characteristic that is recorded for each unit/case.
-  </p>
-  </aside>
-</section>
-
 <section>
   <h3>John Snow's dataset</h3>
+  <p style="margin: 0;">Snow tracked the numbers of cholera fatal attacks in the neighborhood.</p>
   <div class="row">
     <div style="position:relative" >
         <p class="fragment current-visible info strong" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="2">
@@ -323,73 +260,67 @@
   </div>
   <p></p>
   <div class="row">
-  <div class="col-15" style="position: relative; margin-top: 18% !important;">
-    <span class="em warning fragment push-right" data-fragment-index=1>Units</span>
+  <div class="col-15" style="position: relative; margin-top: 14% !important;">
+    <span class="em warning fragment push-right" data-fragment-index=1>Obsv.<br>Units</span>
   </div>
   <div class="col-05">
     <table style="border-collapse: collapse;" class="fragment" data-fragment-index=1>
       <tr style="height: 1em;"><p></p></tr>
-      <tr style="height: 7.5em; border-left: solid 0.1em #f0ad4e;"><td><p></p></td></tr>
+      <tr style="height: 6.5em; border-left: solid 0.1em #f0ad4e;"><td><p></p></td></tr>
     </table>
   </div>
   <div class="col-80">
   <table>
     <thead>
       <tr style="background: #636c72;">
-        <th>Name</th>
+        <th>House</th>
         <th>Address</th>
         <th>Population</th>
-        <th>Casualties</th>
+        <th>Fatalities</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #1</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=2>House #1</td>
         <td>45 Lexington St</td>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=3>8</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=3>8</td>
         <td>5</td>
       </tr>
       <tr>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #2</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=2>House #2</td>
         <td>15 Broadwick St</td>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=3>21</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=3>21</td>
         <td>7</td>
       </tr>
       <tr>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #3</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=2>House #3</td>
         <td>61 Poland St</td>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=3>4</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=3>4</td>
         <td>1</td>
       </tr>
       <tr>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #4</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=2>House #4</td>
         <td>37 Broad St</td>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=3>27</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=3>27</td>
         <td>16</td>
       </tr>
       <tr>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #5</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=2>House #5</td>
         <td>48 Carnaby St</td>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=3>11</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=3>11</td>
         <td>3</td>
       </tr>
       <tr>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #6</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=2>House #6</td>
         <td>46 Beak St</td>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=3>8</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=3>8</td>
         <td>0</td>
       </tr>
       <tr>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #7</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=2>House #7</td>
         <td>43 Broad St</td>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=3>44</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=3>44</td>
         <td>9</td>
-      </tr>
-      <tr>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=2>Bldg #8</td>
-        <td>15 Marshall St</td>
-        <td class="fragment highlight-bckg-blue" data-fragment-index=3>6</td>
-        <td>1</td>
       </tr>
     </tbody>
   </table>
@@ -397,12 +328,223 @@
   </div>
   <aside class="notes">
     <p>
+      Kind of data Snow was collecting going door to door.
+      <br>
       Usually data is stored and presented in a dataset,
-      comprised of variables measured on cases
+      comprised of variables measured on observational units (or cases)
+      <br>
+      We see that there are different types of variables. Categories and numbers.
     </p>
   </aside>
 </section>
 
+<section>
+  <h3>Observational units & variables</h3>
+  <p class="quoted">
+    An <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">observational unit</span> is the <span class="warning">individual entity of interest</span> on which data are recorded.
+  </p>
+  <p class="quoted">
+    The <span class="info">recorded characteristics</span> of the observational unit are the <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">variables</span> of interest. Those variables can be <span class="info">quantitative</span> (numerical values) or <span class="info">categorical</span> (category designation).
+  </p>
+  <svg width="50%" height="100%" viewbox="0 0 110 50" style="margin-top: 5%;">
+    <svg><use xlink:href="assets/img/lec1/observational-unit.svg#Layer_1"></svg>
+  </svg>
+  <aside class="notes">
+    <p>
+      We obtain information about units (or cases).
+      A variable is any characteristic that is recorded for each unit/case.
+  </p>
+  </aside>
+</section>
+
+<section>
+  <h3>Categorical & Quantitative variables</h3>
+  <p class="quoted">
+    A <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">categorical</span> variable divides the observational units into <span class="warning">groups</span>.
+  </p>
+  <p class="quoted">
+    A <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">quantitative</span> variable measures a <span class="info">numerical quantity</span> for each observational unit.
+  </p>
+  <br>
+
+  <div class="col-95 fragment" data-fragment-index=1>
+  <!-- <table  style="table-layout: fixed; width:100%;"> -->
+  <table style="word-break: break-all; font-size: 0.85em;">
+    <thead>
+      <tr>
+        <th class="fragment highlight-current-bckg-yellow" data-fragment-index=2>Name</th>
+        <th class="fragment highlight-current-bckg-yellow" data-fragment-index=2>Year</th>
+        <th class="fragment highlight-current-bckg-yellow" data-fragment-index=2>Gender</th>
+        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>GPA</th>
+        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>Sibling</th>
+        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>Height</th>
+        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>Weight</th>
+        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>TV</th>
+        <th class="fragment highlight-current-bckg-yellow" data-fragment-index=2>Award</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Paul</td>
+        <td>Senior</td>
+        <td>M</td>
+        <td>3.1</td>
+        <td>2</td>
+        <td>71</td>
+        <td>180</td>
+        <td>3</td>
+        <td>Olympic</td>
+      </tr>
+      <tr>
+        <td>Nicole</td>
+        <td>Somophore</td>
+        <td>F</td>
+        <td>3.4</td>
+        <td>0</td>
+        <td>66</td>
+        <td>140</td>
+        <td>1</td>
+        <td>Nobel</td>
+      </tr>
+      <tr>
+        <td>Maria</td>
+        <td>Senior</td>
+        <td>F</td>
+        <td>2.9</td>
+        <td>4</td>
+        <td>64</td>
+        <td>135</td>
+        <td>0</td>
+        <td>Academy</td>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>First Year</td>
+        <td>M</td>
+        <td></td>
+        <td>1</td>
+        <td>68</td>
+        <td>160</td>
+        <td>2</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td>Chris</td>
+        <td>Junior</td>
+        <td>M</td>
+        <td>3.8</td>
+        <td>3</td>
+        <td>72</td>
+        <td>173</td>
+        <td>1</td>
+        <td>Nobel</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <aside class="notes">
+    <p>
+      Let's consider student survey results.
+      <br>
+      Quantitative variables have UNITS!
+      <br>
+      what is what?
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h3>What are the <span class="warning">observational units</span> & <span class="info">variables</span>?</h3>
+  <p class="fragment" data-fragment-index=1>
+    Does <span class="fragment highlight-bckg-blue" data-fragment-index=3>louder music</span> cause <span class="fragment highlight-bckg-yellow" data-fragment-index=2>people</span> to drink more <span class="fragment highlight-bckg-blue" data-fragment-index=3>beer</span>?</p>
+  <p class="fragment" data-fragment-index=4>Do males find <span class="fragment highlight-bckg-yellow" data-fragment-index=5>females</span> more <span class="fragment highlight-bckg-blue" data-fragment-index=6>attractive</span> if they wear <span class="fragment highlight-bckg-blue" data-fragment-index=6>red</span>?</p>
+  <p class="fragment" data-fragment-index=7>Are <span class="fragment highlight-bckg-yellow" data-fragment-index=8>lions</span> more likely to <span class="fragment highlight-bckg-yellow" data-fragment-index=8>attack</span> after a <span class="fragment highlight-bckg-blue" data-fragment-index=9>full moon</span>?</p>
+
+  <aside class="notes">
+    <p>
+      To put everything together.
+      What are the observational units and variables?
+      <br>
+      Are the variables Categorical or Quantitative?
+      <br>
+      1- We would record data on people. And define different level of music volume (high/low ... in this case CATEGORICAL) or (direct volume number ... in this case QUANTITATIVE). And we would observe the number of beer people would drink (Quantitative).
+      <br>
+      2- Women would be our observational unit. For each women, we would record if she was wearing red or not as a variable (categorical). Another variable would be the level of attractiveness felt by men (could just be "Attractive/Not attractive" or a value).
+      <br>
+      Lions attacks would be what we observe. For each lion attack we would store the time information (full moon or not). 
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h3>John Snow's dataset</h3>
+  <br>
+  <div class="col-100">
+  <table>
+    <thead>
+      <tr style="background: #636c72;">
+        <th>House</th>
+        <th>Address</th>
+        <th>Population</th>
+        <th>Fatalities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>House #1</td>
+        <td>45 Lexington St</td>
+        <td>8</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>House #2</td>
+        <td>15 Broadwick St</td>
+        <td>21</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>House #3</td>
+        <td>61 Poland St</td>
+        <td>4</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>House #4</td>
+        <td>37 Broad St</td>
+        <td>27</td>
+        <td>16</td>
+      </tr>
+      <tr>
+        <td>House #5</td>
+        <td>48 Carnaby St</td>
+        <td>11</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>House #6</td>
+        <td>46 Beak St</td>
+        <td>8</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>House #7</td>
+        <td>43 Broad St</td>
+        <td>44</td>
+        <td>9</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <aside class="notes">
+    <p>
+      Back to our cholera dataset.
+    </p>
+  </aside>
+</section>
+
+</section>
+
+<section>
 <section id="soho">
   <h3>Tracking down the outbreak's source</h3>
   <div class="row">
@@ -415,7 +557,7 @@
       </ul>
     </p>
     <p class="fragment sided border-success" data-fragment-index="1">
-      <span class="success"><i>No casualties:</i></span><br>
+      <span class="success"><i>"Anomalies":</i></span><br>
       Workhouse<br><span class="tab">(535 inmates)</span><br>
       Brewery <br><span class="tab">(70 workers)</span>
     </p>
@@ -423,6 +565,24 @@
   <div class="col-60" id="soho_map"></div>
   </div>
   <span class="fragment" data-fragment-index="0"></span> <!-- trigger zoom -->
+  <aside class="notes">
+    <p>
+      To better see what was happening, snow placed the data on a map of Soho. Within 250 yards of the spot where Cambridge Street joins Broad Street there were upwards of 500 fatal attacks of cholera in 10 days.
+      <br>
+      He also added the water sources locations (blue points)
+      <br>
+      Deaths concentrated around Broad Street pump. Dr. Snow worked around the clock to track down information from hospital and public records on when the outbreak began and whether the victims drank water from the Broad Street pump. Snow suspected that those who lived or worked near the pump were the most likely to use the pump and thus, contract cholera.
+      <br>
+      But they are also data that are a bit different. Anomalies.
+      Snow also investigated groups of people who did not get cholera and tracked down whether they drank pump water. That information was important because it helped Snow rule out other possible sources of the epidemic besides pump water.
+      <br>
+      A workhouse, or prison, near Soho had 535 inmates but almost no cases of cholera. Snow discovered the workhouse had its own well and bought water from the Grand Junction Water Works.
+      <br>
+      A workhouse in that area had its own private well, and there were only 5 deaths among its 535 inmates. 
+      <br>
+      The men who worked in a brewery on Broad Street which made malt liquor also escaped getting cholera. The proprietor of the brewery, Mr. Huggins, told Snow that the men drank the liquor they made or water from the brewery’s own well and not water from the Broad Street pump. it had no cases among its 70 workers.
+    </p>
+  </aside>
 </section>
 
 <section>
@@ -431,12 +591,16 @@
   <img src="assets/img/lec1/outlier.svg" class="unbordered" style="top: 0;">
   <aside class="notes">
     <p>
-      Anomaly. <br>
-      We'll see later in the class how to detect, represent and deal with outliers. <br>
-      But you already see here that outliers are important, and shouldn't be ignored.
-      They store information
+      Anomaly.
+      <br>
+      We'll see later in the class how to detect, represent and deal with outliers. 
+      <br>
+      But you already see here that outliers are important, and shouldn't be ignored. 
+      <br>
+      They store information that can help better understand your dataset.
     </p>
   </aside>
+</section>
 </section>
 
 <section>
@@ -446,8 +610,9 @@
   <div class="col-70">
     <img class="unbordered" width=100% src="assets/img/lec1/cholera-deathdays.svg">
   </div>
-  <div class="col-30" style="position: relative; margin-top: 5% !important;">
-    <p class="framed border-danger fragment">Still, the scientific community was reluctant to believe him ...</p>
+  <div class="col-30" style="position: relative; margin-top: 3% !important;">
+    <p class="framed border-danger fragment">Still, the scientific community was reluctant to 
+    believe his theory ...</p>
   </div>
   </div>
   <aside class="notes">
@@ -462,28 +627,62 @@
 </section>
 
 <section>
-  <h3>The "Grand Experiment"</h3>
-  <p>Observational study (vs experimental)</p>
-  <p>Research question</p>
-  <p>data</p>
+<section>
+  <h3>Snow's "Grand Experiment"</h3>
+  <p class="sided"><span class="u">Research question:</span><br>
+   Is there a causal relationship between water supply and cholera?</p>
+  <p class="sided border-warning fragment"><span class="u">Observational units:</span><br>
+  "Groups" of people</p>
+
+  <p class="sided border-info fragment"><span class="u">Variables:</span><br>
+  - Occurence of cholera fatal attacks <span class="fragment highlight-current-bckg-red">(outcome)</span><br>
+  - Type of water supply <span class="fragment highlight-current-bckg-red">(explain difference in outcome)</span></p>
+<aside class="notes">
+  Snow was still eager to prove his theory.
+  <br>
+  Went back to work at a bigger scale.
+</aside>
 </section>
 
 <section>
   <h3>Explanatory & Response variables</h3>
   <p class="quoted">
     A 
-    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> response variable</span> is the variable <span class="warning">about which questions are asked</span>, it measures the outcome of the study. <br>
-    An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">explanatory variable</span> is any factor that can <span class="info">influence, explain or predict</span> the response variable. The response variable is usually called <span class="warning">dependent</span>, while the explanatory variable is sometimes called <span class="info">independent</span>.
+    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> response variable</span> is the variable <span class="warning">about which questions are asked</span>, it measures the outcome of the study.</p>
+  <p class="quoted">
+    An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">explanatory variable</span> is any factor that can <span class="info">influence, explain or predict</span> the response variable.</p>
+  <p class="quoted">
+    The response variable is usually called <span class="warning">dependent</span>, while the explanatory variable is sometimes called <span class="info">independent</span>.
   </p> 
+  <hr class="fragment" data-fragment-index=1>
+  <p class="fragment" data-fragment-index=1>Does <span class="fragment highlight-bckg-blue" data-fragment-index=2>meditation</span> help reduce <span class="fragment highlight-bckg-yellow" data-fragment-index=2>stress</span>?</p>
+  <p class="fragment" data-fragment-index=3>Does <span class="fragment highlight-bckg-blue" data-fragment-index=4>sugar consumption</span> increase <span class="fragment highlight-bckg-yellow" data-fragment-index=4>hyperactivity</span>?</p>
   <aside class="notes">
     <p>
       If we are using one variable to help us understand or predict values
-      of another variable, we call the former the explanatory variable and 
-      the latter the response variable
+      of another variable, we call the former the explanatory variable and the latter the response variable.
+      <br>
+      Examples.
     </p>
   </aside>
 </section>
+</section>
 
+<section class="center" data-menu-title="london panorama">
+  <svg width="100%" height="100%" viewbox="0 0 970 550">
+    <svg><use xlink:href="assets/img/lec1/london-thames.svg#background"></svg>
+    <svg class="fragment fade-out"><use xlink:href="assets/img/lec1/london-thames.svg#letters"></svg>
+  </svg>
+  <aside class="notes">
+    Back to London.
+    <br>
+    John Snow started to gather more data on cholera, and analyzed data outside Soho too. He wanted to prove link between water source and cholera, so studied the waterworks landscape of London.
+    <br>
+    Most of companies were treating water directly from the Thames.
+  </aside>
+</section>
+
+<section>
 <section id="london-waterworks">
   <h3>The London waterworks landscape</h3>
   <div class="row">
@@ -529,14 +728,17 @@
   <h3>Experiment & Observational study</h3>
   <p class="quoted">
     An 
-    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> experiment</span> is a study in which the researcher <span class="warning">actively controls one or more of the explanatory variables</span>. <br>
+    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> experiment</span> is a study in which the researcher <span class="warning">actively controls one or more of the explanatory variables</span>. <br><br>
     An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">observational study</span> is a study in which the researcher does not actively control the value of any variable but simply <span class="info">observes and record the values as they naturally exist</span>.
   </p> 
   <aside class="notes">
     <p>
-      This was not a true experiment since Snow did not randomly allocated people into two groups, one exposed to contaminated water and the other not. Clearly, this would have been unethical and certainly illegal. He did, however, recognize that allocation and near- randomization had taken place in a natural setting, and had taken advantage of this historical occurrence to test his hypothesis.
+      This was not a true experiment since Snow did not randomly allocated people into two groups, one exposed to contaminated water and the other not. 
+      <br>
+      Clearly, this would have been unethical and certainly illegal. He did, however, recognize that allocation and near-randomization had taken place in a natural setting, and had taken advantage of this historical occurrence to test his hypothesis.
     </p>
   </aside>
+</section>
 </section>
 
 <section>
@@ -555,55 +757,104 @@
       <img class="unbordered" src="assets/img/lec1/cholera-deaths-analysis-snow.jpg" height="590" width=auto  >
     </div>
   </div>
+  <aside class="notes">
+    Data from London Registrar office.
+    <br>
+    Gathered all the weekly deaths data by district.
+  </aside>
 </section>
 
-<section>
-  <h3>Results</h3>
-    <div class="row">
-      <div class="col-50">
-        <div class="framed" style="border-color: white;">
-         <table>
-          <thead>
-            <tr>
-              <th> </th>
-              <th>Houses</th>
-              <th>Deaths</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="strong" style="vertical-align: middle;">Southwark Vauxhall</td>
-              <td style="vertical-align: middle;">40,046</td>
-              <td style="vertical-align: middle;">286</td>
-            </tr>
-            <tr>
-              <td class="strong" style="vertical-align: middle;">Lambeth Waterworks</td>
-              <td style="vertical-align: middle;">26,107</td>
-              <td style="vertical-align: middle;">14</td>
-            </tr>
-          </tbody>
-        </table>
+<section data-state="showFooterRight" data-footer="Source - <a href='http://www.ph.ucla.edu/epi/snow/snowbook_a3.html#TABLE9' target='_blank'>Snow, J. 1855. Table IX. On the Mode of Communication of Cholera, 86)
+</a>">
+  <h3>Water supply and cholera occurence</h3>
+  <div class="row">
+    <div class="col-15"><p></p></div>
+    <div class="col-70">
+      <div class="framed" style="border-color: white; border: 2px solid;">
+      <table>
+        <thead>
+          <tr style="font-size: 0.6em;">
+            <th> </th>
+            <th>Number of houses</th>
+            <th>Deaths from cholera</th>
+            <th><span class="fragment" data-fragment-index=1>Deaths in each 10,000 houses</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="strong" style="vertical-align: middle; font-size: 0.4em !important;">Southwark & Vauxhall</td>
+            <td style="vertical-align: middle;">40,046</td>
+            <td style="vertical-align: middle;">1,263</td>
+            <td style="height: 1px; padding: 0 !important;">
+              <div class="fragment" data-fragment-index=1 style="width: 100%; height:100%;" >
+                <div class="fragment highlight-bckg-red" data-fragment-index=2 style="width: 100%; height:100%;">315</div>
+              </div></td>
+          </tr>
+          <tr>
+            <td class="strong" style="vertical-align: middle; font-size: 0.4em !important;">Lambeth Waterworks</td>
+            <td style="vertical-align: middle;">26,107</td>
+            <td style="vertical-align: middle;">98</td>
+            <td style="vertical-align: middle;"><span class="fragment" data-fragment-index=1>37</span></td>
+          </tr>
+          <tr>
+            <td class="strong" style="vertical-align: middle; font-size: 0.4em !important;">Rest of London</td>
+            <td style="vertical-align: middle;">256,423</td>
+            <td style="vertical-align: middle;">1,422</td>
+            <td style="vertical-align: middle;"><span  class="fragment" data-fragment-index=1>59</span></td>
+          </tr>
+        </tbody>
+      </table>
       </div>
-      <img class="unbordered" src="assets/img/lec1/cholera-proportion-deaths-companies.svg">
-      </div>
-      <div class="col-5">
-        <p></p>
-      </div>
-      <div class="col-40">
-        <img src="assets/img/lec1/cholera-public-notice.jpg" class=" fragment unbordered">
-      </div>
+      <img class="unbordered fragment" data-fragment-index=3 src="assets/img/lec1/cholera-proportion-deaths-companies.svg">
     </div>
-    <aside class="notes">
-      <p>
-        Bar graph great for COUNT, compared to pie chart for example.
-        <br>
-        However we'll see later that it must be avoided when values are not COUNT.
-      </p>
-    </aside>
+  </div>
+  <aside class="notes">
+    <p>
+      Summary of data.
+      <br>
+      Here we see that more deaths in Rest of London. But there is also way more houses.
+      <br>
+      => Need to normalize to be able to directly compare data.
+      <br>
+      Bar graph great for COUNT.
+      However we'll see later that it must be avoided when values are not COUNT.
+    </p>
+  </aside>
 </section>
 
 <section>
-  <h3>The 6 steps of statistigal investigation</h3>
+  <h3>New prevention measures enforced</h3>
+  <div class="row">
+    <div class="col-60">
+      <p class="sided">Less people started to question the relevance of the germ theory to cholera.</p>
+      <p class="sided">New prevention and control measures developped to prevent cholera outbreaks (boiling water)</p>
+    </div>
+    <div class="col-40">
+      <img src="assets/img/lec1/cholera-public-notice.jpg" class="unbordered">
+    </div>
+  </div>
+  <aside class="notes">
+    Germ theory started to be taken seriously.
+    <br>
+    Preventive measures were developped.
+  </aside>
+</section>
+
+<section data-state="showFooterRight" data-footer="Source - <a href='http://www.ph.ucla.edu/epi/snow/southwarkwatercompany.html' target='_blank'>Georges Cruikshank, Salus Populi Suprema Lex, 1832.</a>">
+  <h3>Improving the London waterworks</h3>
+  <p style="margin: 0;">The S&V company was forced by the Metropolitan Water Act to move its intake to a location far upriver near Hampton.</p>
+  <img src="assets/img/lec1/cruikshank_southwark-gc.jpg" width="72%">
+  <aside class="notes">
+    Cartoon
+    <br>
+    It presents John Edwards, owner of the Southwark Water Company.
+    <br>
+    He is seen crowned with a chamber-pot, seated on a stool on top of a cesspool which doubles as the water-intake for the Southwark Water Company customers in south London.  
+  </aside>
+</section>
+
+<section>
+  <h3>6 steps of a statistigal investigation</h3>
   <div class="row">
   <div class="col-25" style="padding: 0;">
     <svg viewbox="7 0 66 150">
@@ -615,59 +866,55 @@
       <svg><use xlink:href="assets/img/lec1/stats-investigations.svg#Layer_1"></svg>
     </svg>
     </div>
-    <div class="col-70 left">
-      <div class="row framed border-warning" style="font-size: 0.65em; margin-top: 0.5em;">
-        Can contaminated water be a vector for Cholera transmission?
+    <div class="col-75 left">
+      <div class="row framed border-warning" style="font-size: 0.6em; margin-top: 0em;">
+        Could water supplied to South London residents by private companies be a principal vector for the transmission of cholera?
       </div>
       <div class="row fragment" data-fragment-index="1"
-        style="font-size: 0.65em; margin-top: 0.4em;">
-        Examination of the influence of the water source on the occurence of 
-        fatal cholera attacks
+        style="font-size: 0.6em; margin-top: 0.15em;">
+        Large scale study of cholera fatal attacks in South London (water supply randomly "assigned")
       </div>
       <div class="row fragment" data-fragment-index="2"
-       style="font-size: 0.65em; margin-top: 0.4em;">
-        Comparison of the proportion of deadly cholera attacks in the 2 groups
+       style="font-size: 0.6em; margin-top: 0.75em;">
+        Looking for patterns by comparing the occurence of cholera fatal attacks in the different population groups
       </div>
       <div class="row fragment" data-fragment-index="3"
-        style="font-size: 0.65em; margin-top: 0.4em;">
+        style="font-size: 0.6em; margin-top: 0.75em;">
         People served by sewage-contaminated water seem more affected
-        to fatal cholera attacks
+        by fatal cholera attacks
+        <!-- cholera was far more intense in one company’s service area than the others -->
       </div>
       <div class="row fragment" data-fragment-index="4"
-        style="font-size: 0.65em; margin-top: 0.5em;">
-        Contamined water is most likely one source of cholera infection
+        style="font-size: 0.6em; margin-top: 0.8em;">
+        Contamined water is most likely a source of cholera infection. Cholera is a waterborne disease.
       </div>
       <div class="row fragment framed border-danger" data-fragment-index="5"
-        style="font-size: 0.65em; margin-top: 0.4em;">
-        Boiling water mandatory during cholera epidemics
+        style="font-size: 0.6em; margin-top: 0.75em;">
+        Boiling water mandatory during cholera epidemics. <br>
+        Need for analyzing water samples (identify "germ").
       </div>
-
-    <!-- <table style="font-size: 0.7em;">
-      <tr>
-        <td>Can contaminated water be a vector to transmit Cholera?</td>
-      </tr>
-      <tr>
-        <td>Comparison of fatal cholera attacks on populations randomly served by
-        2 different water companies</td>
-      </tr>
-      <tr>
-        <td>Compare the proportion of deadly attacks</td>
-      </tr>
-      <tr>
-        <td>Non contaminated water appears to be safer</td>
-      </tr>
-      <tr>
-        <td>Cholera can be transmitted by contaminated water</td>
-      </tr>
-      <tr>
-        <td></td>
-      </tr>
-    </table> -->
     </div>
   </div>
 </section>
 
-
+<section>
+  <h3>Summary</h3>
+  <ul style="font-size: 0.8em;">
+    <li style="margin: 0.3em 0;">Data are everywhere.</li>
+    <li style="margin: 0.3em 0;">A dataset is usually comprised of variables measured on observational units.</li>
+    <li style="margin: 0.3em 0;">
+      <div class="row" style="margin-top:-4%;">
+        <span class="col-30">Variables can be</span>
+        <div class="col-1" style="padding: 0; margin-top:-1%;;"><hr width="1em" size="80em" color="white"></div>
+        <span class="col-25">Categorical<br>Quantitative</span>
+        <div class="col-1" style="padding: 0; margin-top:-1%;;"><hr width="1em" size="80em" color="white"></div>
+        <span class="col-25">Response<br>Explanatory</span>
+      </div>
+    </li>  
+    <li style="margin: 0.3em 0;">Data can be used to provide information about essentially anything we are interested in and want to  collect data on!</li>
+    <li style="margin: 0.3em 0;">Statistics is a powerful tool to draw inferences and make decisions.</li>
+  </ul>
+</section>
 
 
 <!-- THE END -->
