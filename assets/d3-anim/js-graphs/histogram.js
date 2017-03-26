@@ -12,7 +12,7 @@ gc.histogram.width = 850 - gc.histogram.margin.left - gc.histogram.margin.right;
 gc.histogram.height = 450 - gc.histogram.margin.top - gc.histogram.margin.bottom;
 gc.histogram.height2 = 450 - gc.histogram.margin2.top - gc.histogram.margin2.bottom;
 
-gc.histogram.nsample = 500;
+gc.histogram.nsample = 150;
 
 // possible distributions to plot
 gc.histogram.dist = [
@@ -34,7 +34,7 @@ gc.histogram.data = gc.histogram.dataset;
 gc.histogram.minBound = 0;
 gc.histogram.maxBound = gc.histogram.data.length;
 // initial histogram setup
-gc.histogram.nbins = 10;
+gc.histogram.nbins = 15;
 gc.histogram.ymax = gc.histogram.data.length;
 // format of text on histogram bars
 gc.histogram.formatCount = d3.format(",.0f");
@@ -127,10 +127,10 @@ gc.histogram.update = function() {
     .enter()
     .append("rect")
       .attr("class", "bar")
-      .attr("fill", "steelblue")
+      .attr("fill", "#d9534f")
       .attr("x", function(d,i){return gc.histogram.xscale2(i);})
       .attr("y", function(d){return gc.histogram.yscale2(d);})
-      .attr("width", gc.histogram.xscale2(1))
+      .attr("width", gc.histogram.xscale2(1)-1)//the -1 is to space the bar
       .attr("height", function(d){return gc.histogram.height2-gc.histogram.yscale2(d);});
 };
 

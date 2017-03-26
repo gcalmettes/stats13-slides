@@ -289,10 +289,335 @@ data-transition="none-in slide-out">
   </svg>
 </section>
 
+<section>
+  <h3>Displaying a proportion</h3>
+  <svg width="65%" viewBox="0 0 551.2 395.2" style="margin-top: 0;">
+    <svg><use xlink:href="assets/img/lec2/pie-bar.svg#pie"></svg>
+    <svg class="fragment" data-fragment-index=1><use xlink:href="assets/img/lec2/pie-bar.svg#bar"></svg>
+  </svg>
+  <p class="sided fragment col-80" data-fragment-index=1 style="margin-top: 0;">
+    <span class="u">Note:</span><br>
+    Lengths are easier to visually compare than area
+  </p>
+</section>
+
+<section data-state="showFooterRight" data-footer="Source - 2010 World Almanac, p. 292">
+  <h3>Displaying quantitative values</h3>
+  <p>A common way to visualize the shape of a moderately sized dataset is a <span class="warning">dotplot</span>.</p>
+  <table style="font-size: 0.5em;">
+    <thead>
+      <tr>
+        <th bgcolor="#636c72">Species</th>
+        <th bgcolor="#636c72">Longevity</th>
+        <th bgcolor="#636c72">Species</th>
+        <th bgcolor="#636c72">Longevity</th>
+        <th bgcolor="#636c72">Species</th>
+        <th bgcolor="#636c72">Longevity</th>
+        <th bgcolor="#636c72">Species</th>
+        <th bgcolor="#636c72">Longevity</th>
+        <th bgcolor="#636c72">Species</th>
+        <th bgcolor="#636c72">Longevity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Baboon</td>
+        <td>20</td>
+        <td>Chimpanzee</td>
+        <td>20</td>
+        <td>Fox</td>
+        <td>7</td>
+        <td>Leopard</td>
+        <td>12</td>
+        <td>Rabbit</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Black bear</td>
+        <td>18</td>
+        <td>Chipmunk</td>
+        <td>6</td>
+        <td>Giraffe</td>
+        <td>10</td>
+        <td>Lion</td>
+        <td>15</td>
+        <td>Rhinoceros</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td>Grizzly bear</td>
+        <td>25</td>
+        <td>Cow</td>
+        <td>15</td>
+        <td>Goat</td>
+        <td>8</td>
+        <td>Monkey</td>
+        <td>15</td>
+        <td>Sea lion</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>Polar bear</td>
+        <td>20</td>
+        <td>Deer</td>
+        <td>8</td>
+        <td>Gorilla</td>
+        <td>20</td>
+        <td>Moose</td>
+        <td>12</td>
+        <td>Sheep</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>Beaver</td>
+        <td>5</td>
+        <td>Dog</td>
+        <td>12</td>
+        <td>Guinea Pig</td>
+        <td>4</td>
+        <td>Mouse</td>
+        <td>3</td>
+        <td>Squirrel</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Buffalo</td>
+        <td>15</td>
+        <td>Donkey</td>
+        <td>12</td>
+        <td>Hippopotamus</td>
+        <td>25</td>
+        <td>Opossum</td>
+        <td>1</td>
+        <td>Tiger</td>
+        <td>16</td>
+      </tr>
+      <tr>
+        <td>Camel</td>
+        <td>12</td>
+        <td>Elephant</td>
+        <td>40</td>
+        <td>Horse</td>
+        <td>20</td>
+        <td>Pig</td>
+        <td>10</td>
+        <td>Wolf</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Cat</td>
+        <td>12</td>
+        <td>Elk</td>
+        <td>15</td>
+        <td>Kangaroo</td>
+        <td>7</td>
+        <td>Puma</td>
+        <td>12</td>
+        <td>Zebra</td>
+        <td>15</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+  <div class="col-5">
+    <p></p>
+  </div>
+    <div class="col-45">
+      <img src="assets/img/lec2/mammals-longevity-dotplot.svg" class="unbordered" width="100%">
+    </div>
+    <div class="col-45 fragment">
+      <img src="assets/img/lec2/mammals-longevity-hist.svg" class="unbordered" width="100%">
+</section>
+
+<section data-menu-title="Histogram (basics)">
+  <h3>The histogram</h3>
+  <div class="row">
+    <p class="col-30" style="margin-top: 0; font-size: 0.65em;">Let's consider this <br>dataset of ages:</p>
+    <table class="col-50" style="font-size: 1em;">
+      <tbody>
+        <tr class="no-bottom"  style="border-top: 1px solid;">
+          <td>36</td>
+          <td>25</td>
+          <td>38</td>
+          <td>46</td>
+          <td>55</td>
+          <td>68</td>
+          <td>72</td>
+          <td>55</td>
+          <td>36</td>
+          <td>38</td>
+        </tr>
+        <tr class="no-top" style="border-bottom: 1px solid;">
+          <td>67</td>
+          <td>45</td>
+          <td>22</td>
+          <td>48</td>
+          <td>91</td>
+          <td>46</td>
+          <td>52</td>
+          <td>61</td>
+          <td>58</td>
+          <td>55</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Disappear in fragment -->
+  <div class="fragment fade-out" data-fragment-index=1>
+  <div class="row">
+    <div class="col-40">
+      <img src="assets/img/lec2/histogram-ex.svg" class="unbordered" width="90%">
+    </div>
+    <table class="col-45" style="font-size: 0.7em; margin-top:1em;">
+      <thead>
+        <tr class="vert-align">
+          <th bgcolor="#636c72">Bin</th>
+          <th bgcolor="#636c72">Frequency</th>
+          <th bgcolor="#636c72">"Scores" included</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>20-30</td>
+          <td>2</td>
+          <td>25, 22</td>
+        </tr>
+        <tr>
+          <td>30-40</td>
+          <td>4</td>
+          <td>36, 38, 36, 38</td>
+        </tr>
+        <tr>
+          <td>40-50</td>
+          <td>4</td>
+          <td>46, 45, 48, 46</td>
+        </tr>
+        <tr>
+          <td>50-60</td>
+          <td>5</td>
+          <td>55, 55, 52, 58, 55</td>
+        </tr>
+        <tr>
+          <td>60-70</td>
+          <td>3</td>
+          <td>68, 67, 61</td>
+        </tr>
+        <tr>
+          <td>70-80</td>
+          <td>1</td>
+          <td>72</td>
+        </tr>
+        <tr>
+          <td>80-90</td>
+          <td>0</td>
+          <td>--</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td>90-100</td>
+          <td>1</td>
+          <td>91</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <!-- Appear in fragment -->
+  <div class="fragment fade-in" style="position: relative; margin-top: -35%;"
+    data-fragment-index=1>
+  <div class="row">
+    <div class="col-30">
+      <img src="assets/img/lec2/histogram-ex-bins-too-small.svg" class="unbordered" width="100%">
+    </div>
+    <div class="col-30">
+      <svg width="96%" viewBox="0 0 288 288" style="margin-top: 0;">
+        <svg><use xlink:href="assets/img/lec2/histogram-ex.svg#axes_1"></svg>
+      </svg>
+    </div>
+    <div class="col-30">
+      <img src="assets/img/lec2/histogram-ex-bins-too-large.svg" class="unbordered" width="100%">
+    </div>
+  </div>
+  </div>
+
+  <p class="sided fragment col-90" data-fragment-index=2>
+    <span class="u">Note:</span><br>
+    Number of bins = <span class="warning">$\sqrt{n}$</span> is a good start to explore your data.
+  </p>
+  <aside class="notes">
+    <p>
+      A histogram is a plot that lets you discover, and show, the underlying frequency distribution (shape) of a set of continuous data. This allows the inspection of the data for its underlying distribution (e.g., normal distribution), outliers, skewness, etc.
+      <br>
+      To construct a histogram from a continuous variable you first need to split the data into intervals, called bins.
+      <br>
+      Notice that, unlike a bar chart, there are no "gaps" between the bars (although some bars might be "absent" reflecting no frequencies). This is because a histogram represents a continuous data set, and as such, there are no gaps in the data (although you will have to decide whether you round up or round down scores on the boundaries of bins).
+      <br>
+      There is no right or wrong answer as to how wide a bin should be, but there are rules of thumb. You need to make sure that the bins are not too small or too large.
+      <br>
+      => We can see from the histogram on the left that the bin width is too small because it shows too much individual data and does not allow the underlying pattern (frequency distribution) of the data to be easily seen. At the other end of the scale is the diagram on the right, where the bins are too large, and again, we are unable to find the underlying trend in the data.
+      <br>
+      Histograms are based on area, not height of bars!
+      In a histogram, it is the area of the bar that indicates the frequency of occurrences for each bin. This means that the height of the bar does not necessarily indicate how many occurrences of scores there were within each individual bin. It is the product of height multiplied by the width of the bin that indicates the frequency of occurrences within that bin. One of the reasons that the height of the bars is often incorrectly assessed as indicating frequency and not the area of the bar is due to the fact that a lot of histograms often have equally spaced bars (bins), and under these circumstances, the height of the bin does reflect the frequency.
+      <br>
+      The major difference is that a histogram is only used to plot the frequency of score occurrences in a continuous data set that has been divided into classes, called bins. Bar charts, on the other hand, can be used for a great deal of other types of variables including ordinal and nominal data sets.
+    </p>
+  </aside>
+</section>
+
+<section data-menu-title="Histogram (interactive)" id="histogram">
+  <h3>The histogram</h3>
+  <div class="row">
+    <div class="col-25 right">
+      <label>Distribution:</label>
+    </div>
+    <div class="col-20">
+      <select id="dist_select">
+        <option value="normal">Normal</option>
+        <option value="random">Random</option>
+        <option value="exponential">Exponential</option>
+        <option value="lognormal">Log-Normal</option>
+      </select>
+    </div>
+    <div class="col-40 right">
+      <label>Normalize bar height</label>
+    </div>
+    <div class="col-10 left">
+      <input type="checkbox" id="checkbox_norm" value="norm_checked">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-20 right">
+      <label>Bins #: 
+  </div>
+    <div class="col-5">
+      <span id="nbins-value" style="color: goldenrod;">15</span></label>
+    </div>
+    <div class="col-20">
+      <input type="range" min="1" max="50" id="nbins" style="width: 15em;">
+    </div>
+    <div class="col-40 right">
+      <label>Sort dataset</label>
+    </div>
+    <div class="col-10 left">
+      <input type="checkbox" id="checkbox_sort">
+    </div>
+  </div>
+  <div class="placeholder"></div>
+  <aside class="notes">
+    <p>
+      Bar height can be normalized (height=proportion of occurences).
+      <br>
+      Show that if less value (select only half), then too much bins and we lose the distribution shape (try with exponential distribution)
+      <br>
+      Idem: Exponential w/ 8 bins resemble Log-Normal with 4 bins.
+    </p>
+  </aside>
+</section>
+
 <section data-transition="slide-in">
   <h3>Bar graphs are evil</h3>
   <p class="em warning col-80">1) Part of the range covered by the bar might have never been observed in the sample</p>
-  
   <svg width="80%" viewBox="0 0 504 288" style="margin-top: 1%;">
     <svg><use xlink:href="assets/img/lec2/barplot-distributions.svg#axes_1"></svg>
     <svg><use xlink:href="assets/img/lec2/barplot-distributions.svg#axes_2"></svg>
@@ -330,55 +655,6 @@ data-transition="none-in slide-out">
     </svg>
   </div>
 </section>
-
-
-<section id="histogram">
-  <h3>The sacred histogram</h3>
-  <div class="row">
-    <div class="col-25 right">
-      <label>Distribution:</label>
-    </div>
-    <div class="col-20">
-      <select id="dist_select">
-        <option value="normal">Normal</option>
-        <option value="random">Random</option>
-        <option value="exponential">Exponential</option>
-        <option value="lognormal">Log-Normal</option>
-      </select>
-    </div>
-    <div class="col-40 right">
-      <label>Normalize bar height</label>
-    </div>
-    <div class="col-10 left">
-      <input type="checkbox" id="checkbox_norm" value="norm_checked">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-20 right">
-      <label>Bins #: 
-  </div>
-    <div class="col-5">
-      <span id="nbins-value" style="color: goldenrod;">10</span></label>
-    </div>
-    <div class="col-20">
-      <input type="range" min="1" max="50" id="nbins" style="width: 15em;">
-    </div>
-    <div class="col-40 right">
-      <label>Sort dataset</label>
-    </div>
-    <div class="col-10 left">
-      <input type="checkbox" id="checkbox_sort">
-    </div>
-  </div>
-  <div class="placeholder"></div>
-  <aside class="notes">
-    <p>
-      Bins size effect
-    </p>
-  </aside>
-</section>
-
 
 <!-- <section id="liveplot">
   <h3>Live dot plot</h3>

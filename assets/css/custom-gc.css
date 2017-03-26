@@ -381,6 +381,10 @@ th {
 .no-bottom th {
   border-bottom:0 none !important;
 }
+.vert-align td,
+.vert-align th {
+  vertical-align: middle !important;
+}
 
 .col-05 { width: 0.5%; }
 .col-1 { width: 1%; }
