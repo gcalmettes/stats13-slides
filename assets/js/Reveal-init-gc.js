@@ -90,7 +90,10 @@ Reveal.initialize({
     //{ src: 'assets/reveal.js-master/plugin/markdown/markdown.js' },
     { src: 'assets/reveal.js-master/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
     { src: 'assets/reveal.js-master/plugin/notes/notes.js', async: true },
-    { src: 'assets/reveal.js-master/plugin/math/math.js', async: true },
+
+    //No need of Maths.js since I am using a modified version (see below)
+    // { src: 'assets/reveal.js-master/plugin/math/math.js', async: true },
+
     { src: 'assets/plugins/reveal.js-plugins-master/menu/menu.js' },
   ],
 });
