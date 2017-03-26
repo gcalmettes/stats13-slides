@@ -12,9 +12,6 @@ Reveal.initialize({
   overview: true,
   transition: 'slide', // Transition style: none/fade/slide/convex/concave/zoom
   transitionSpeed: 'default', // Transition speed: default/fast/slow
-  shownotes: false,
-  hideAddressBar: true,
-
 
   keyboard: {
     80: function() {
@@ -22,15 +19,11 @@ Reveal.initialize({
         var uri = window.location.toString().split("#")
         window.location.replace(uri[0] + "?print-pdf");
       }
-    },
-
-    83: function() {
-      console.log("speaker notes not available")
     }
   },
 
   math: {
-    mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+    mathjax: 'assets/plugins/MathJax-master/MathJax.js',
     config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
       },
 
@@ -86,18 +79,17 @@ Reveal.initialize({
     // If true allows the user to open and navigate the menu using
     // the keyboard. Standard keyboard interaction with reveal
     // will be disabled while the menu is open.
-    keyboard: true,
-    // Hides the address bar on mobile devices
+    keyboard: true
   },
 
 
   // More info https://github.com/hakimel/reveal.js#dependencies
   dependencies: [
     { src: 'assets/reveal.js-master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-    //{ src: 'assets/revealjs/plugin/markdown/marked.js' },
-    //{ src: 'assets/revealjs/plugin/markdown/markdown.js' },
+    //{ src: 'assets/reveal.js-master/plugin/markdown/marked.js' },
+    //{ src: 'assets/reveal.js-master/plugin/markdown/markdown.js' },
     { src: 'assets/reveal.js-master/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-    // { src: 'assets/reveal.js-master/plugin/notes/notes.js', async: true },
+    { src: 'assets/reveal.js-master/plugin/notes/notes.js', async: true },
     { src: 'assets/reveal.js-master/plugin/math/math.js', async: true },
     { src: 'assets/plugins/reveal.js-plugins-master/menu/menu.js' },
   ],
@@ -123,3 +115,116 @@ linkpdf.rel = 'stylesheet';
 linkpdf.type = 'text/css';
 linkpdf.href = window.location.search.match( /print-pdf/gi ) ? 'assets/reveal.js-master/css/print/pdf.css' : 'assets/reveal.js-master/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( linkpdf );
+
+
+//==========================================
+//======== MODIFICATION OF MATHS.JS PLUGIN TO HAVE FRAGMENTS IN MATHJAX
+//==========================================
+
+var RevealMath = window.RevealMath || (function(){
+
+  var options = Reveal.getConfig().math || {};
+  options.mathjax = options.mathjax || 'https://cdn.mathjax.org/mathjax/latest/MathJax.js';
+  options.config = options.config || 'TeX-AMS_HTML-full';
+
+  loadScript( options.mathjax + '?config=' + options.config, function() {
+
+    MathJax.Hub.Config({
+      messageStyle: 'none',
+      tex2jax: {
+        inlineMath: [['$','$'],['\\(','\\)']] ,
+        skipTags: ['script','noscript','style','textarea','pre']
+      },
+      skipStartupTypeset: true
+    });
+
+    // Typeset followed by an immediate reveal.js layout since
+    // the typesetting process could affect slide height
+    MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub ] );
+    MathJax.Hub.Queue( Reveal.layout );
+
+    //=====================================
+    // Fragments in Mathjax equations
+    // usage \fragment{1}{x_1} and \fraglight{highlight-blue}{x_1}
+    // and \fragindex{1}{\fraglight{highlight-blue}{x_1}}
+
+        MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+            var TEX = MathJax.InputJax.TeX;
+
+            TEX.Definitions.Add({macros: {'fragment': 'FRAGMENT_INDEX_attribute'}}); // regular fragments
+            TEX.Definitions.Add({macros: {'fraglight': 'FRAGMENT_highlight'}}); // highlighted fragments
+            TEX.Definitions.Add({macros: {'fragindex': 'FRAGMENT_add_INDEX'}}); // add fragment index to highlighted fragments
+            
+            TEX.Parse.Augment({
+             FRAGMENT_INDEX_attribute: function (name) {
+                 var index = this.GetArgument(name);
+                 var arg   = this.ParseArg(name);
+                 this.Push(arg.With({
+                    'class': 'fragment',
+                    attrNames: ['data-fragment-index'],
+                    attr: {'data-fragment-index':index}
+                 }));
+             },
+             FRAGMENT_highlight: function (name) {
+                 var highlight_kind = this.GetArgument(name);
+                 var arg   = this.ParseArg(name);
+                 this.Push(arg.With({
+                    'class': 'fragment ' + highlight_kind
+                 }));
+             },
+             FRAGMENT_add_INDEX: function (name) {
+                 var index = this.GetArgument(name);
+                 var arg   = this.ParseArg(name);
+                 this.Push(arg.With({
+                    attrNames: ['data-fragment-index'],
+                    attr: {'data-fragment-index':index}
+                 }));
+              }
+            });
+        });
+
+    //=====================================
+
+
+    // Reprocess equations in slides when they turn visible
+    Reveal.addEventListener( 'slidechanged', function( event ) {
+
+      MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub, event.currentSlide ] );
+
+    } );
+
+  } );
+
+  function loadScript( url, callback ) {
+
+    var head = document.querySelector( 'head' );
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.src = url;
+
+    // Wrapper for callback to make sure it only fires once
+    var finish = function() {
+      if( typeof callback === 'function' ) {
+        callback.call();
+        callback = null;
+      }
+    }
+
+    script.onload = finish;
+
+    // IE
+    script.onreadystatechange = function() {
+      if ( this.readyState === 'loaded' ) {
+        finish();
+      }
+    }
+
+    // Normal browsers
+    head.appendChild( script );
+
+  }
+
+})();
+
+
+

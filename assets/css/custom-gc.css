@@ -140,28 +140,6 @@ section[data-transition*="none-in"].present {
 }
 
 /*slide class with content center/middle but title at the top*/
-.centered-slide {
-  min-height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  position: absolute !important;
-  top: 0 !important;
-  align-items: stretch;
-}
-
-/*slide class with content center/left but title at the top*/
-.centered-left-slide {
-  min-height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  position: absolute !important;
-  top: 0 !important;
-  align-items: left;
-}
-
-/*slide class with content center/middle but title at the top*/
 .looney-slide {
   min-height: 100% !important;
   display: flex !important;
@@ -201,32 +179,6 @@ section[data-transition*="none-in"].present {
 .reveal div p {
   text-align: left;
   font-size: 0.8em;
-}
-
-.reveal .centered-slide h1,
-.reveal .centered-slide h2,
-.reveal .centered-slide h3,
-.reveal .centered-slide h4 {
-  position: absolute !important;
-  top: 2.7% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  left: 0 !important;
-  right: 0 !important;
-  text-align: center;
-}
-
-.reveal .centered-left-slide h1,
-.reveal .centered-left-slide h2,
-.reveal .centered-left-slide h3,
-.reveal .centered-left-slide h4 {
-  position: absolute !important;
-  top: 2.7% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  left: 0 !important;
-  right: 0 !important;
-  text-align: left;
 }
 
 .tab { display:inline-block; 
@@ -415,7 +367,20 @@ th {
   text-align: center !important;
 }
 
+.table-vert td,
+.table-vert th {
+  border-right: solid 1px white; 
+  border-left: solid 1px white;
+}
 
+.no-top td,
+.no-top th {
+  border-top:0 none !important;
+}
+.no-bottom td,
+.no-bottom th {
+  border-bottom:0 none !important;
+}
 
 .col-05 { width: 0.5%; }
 .col-1 { width: 1%; }
@@ -681,7 +646,11 @@ label {
 /*********************************************
 * fragment highlight
 *********************************************/
-
+.reveal .slides section .fragment.highlight-red-gc,
+.reveal .slides section .fragment.highlight-blue-gc,
+.reveal .slides section .fragment.highlight-yellow-gc,
+.reveal .slides section .fragment.highlight-green-gc,
+.reveal .slides section .fragment.highlight-gray-gc,
 .reveal .slides section .fragment.highlight-bckg-yellow,
 .reveal .slides section .fragment.highlight-bckg-gray,
 .reveal .slides section .fragment.highlight-bckg-blue,
@@ -694,6 +663,22 @@ label {
 .reveal .slides section .fragment.highlight-current-bckg-green {
   opacity: 1;
   visibility: inherit; }
+
+.reveal .slides section .fragment.highlight-blue-gc.visible {
+  color: #5bc0de;
+}
+.reveal .slides section .fragment.highlight-yellow-gc.visible {
+  color: #f0ad4e;
+}
+.reveal .slides section .fragment.highlight-gray-gc.visible {
+  color: #636c72;
+}
+.reveal .slides section .fragment.highlight-red-gc.visible {
+  color: #d9534f;
+}
+.reveal .slides section .fragment.highlight-green-gc.visible {
+  color: #5cb85c;
+}
 
 .reveal .slides section .fragment.highlight-bckg-blue.visible {
   background-color: #5bc0de;

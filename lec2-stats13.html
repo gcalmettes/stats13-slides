@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
 
   <title>
-    Lecture 1 - Stats 13
+    Lecture 2 - Stats 13
   </title>
   <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
   <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
@@ -39,21 +39,301 @@
 
 
 
-<section class="title-slide" data-background='assets/img/shared/bckg2.jpg' data-state="alpha-04">
+<section class="title-slide" data-background='assets/img/shared/bckg3.jpg' data-state="alpha-04">
   <div class="content-box framed border-muted">
     <h2>Stats 13</h2>
     <h1 style="color: #FFFFFF">Lecture 2</h1>
   </div>
-    <h3 style="color: #FFFFFF">Data visualization</h3>
+    <h3 style="color: #FFFFFF; text-align: center;">Introduction to data <br>reporting & visualization</h3>
     <div class="col-90">
       <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h3>Last time</h3>
+  <p class="sided">How to make decisions with statistics</p>
+  <p class="sided">Basic statistical terminology <br>
+    <span style="margin-left: 1em">Data, Dataset, Design study, Observational units, variables, outliers, distribution, mean, median</span></p>
+  <p class="sided">Importance of visualisation to better understand data<br>
+    <span style="margin-left: 1em">Soho epidemics map</span></p></p>
+</section>
+
+
+
+<section data-state="showFooterRight" data-footer="Source - <a href='http://www.sjsu.edu/faculty/gerstman/StatPrimer/anscombe1973.pdf' target='_blank'>Anscombe, F. J. (1973). 'Graphs in Statistical Analysis'. American Statistician 27 (1): 17–21</a>"
+data-transition="slide-in">
+  <h3>Why visualize your data?</h3>
+  <div>
+  <div style="position: relative;">
+    <p class="u em">Anscombe's quartet</p>
+  </div>
+  <div class="push-right" style="postion: relative; margin-top: -1.8em; margin-right: 1.5em;">
+  <table style="font-size: 0.7em;">
+    <thead class="table-vert">
+      <tr>
+        <th style="border-left: none; border-right: none; border-bottom:0 none"></th>
+        <th bgcolor="#636c72" colspan="2" style="border-left: none !important;">Dataset #1</th>
+        <th bgcolor="#636c72" colspan="2">Dataset #2</th>
+        <th bgcolor="#636c72" colspan="2">Dataset #3</th>
+        <th bgcolor="#636c72" colspan="2" style="border-right: none;">Dataset #4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>x</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">y</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>x</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">y</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>x</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">y</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>x</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2>y</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>10</td>
+        <td style="border-right: solid 1px white;">8.04</td>
+        <td>10</td>
+        <td style="border-right: solid 1px white;">9.14</td>
+        <td>10</td>
+        <td style="border-right: solid 1px white;">7.46</td>
+        <td>8</td>
+        <td>6.58</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>8</td>
+        <td style="border-right: solid 1px white;">6.95</td>
+        <td>8</td>
+        <td style="border-right: solid 1px white;">8.14</td>
+        <td>8</td>
+        <td style="border-right: solid 1px white;">6.77</td>
+        <td>8</td>
+        <td>5.76</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>13</td>
+        <td style="border-right: solid 1px white;">7.58</td>
+        <td>13</td>
+        <td style="border-right: solid 1px white;">8.74</td>
+        <td>13</td>
+        <td style="border-right: solid 1px white;">12.74</td>
+        <td>8</td>
+        <td>7.71</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>9</td>
+        <td style="border-right: solid 1px white;">8.81</td>
+        <td>9</td>
+        <td style="border-right: solid 1px white;">8.77</td>
+        <td>9</td>
+        <td style="border-right: solid 1px white;">7.11</td>
+        <td>8</td>
+        <td>8.84</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>11</td>
+        <td style="border-right: solid 1px white;">8.33</td>
+        <td>11</td>
+        <td style="border-right: solid 1px white;">9.26</td>
+        <td>11</td>
+        <td style="border-right: solid 1px white;">7.81</td>
+        <td>8</td>
+        <td>8.47</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>14</td>
+        <td style="border-right: solid 1px white;">9.96</td>
+        <td>14</td>
+        <td  style="border-right: solid 1px white;">8.1</td>
+        <td>14</td>
+        <td style="border-right: solid 1px white;">8.84</td>
+        <td>8</td>
+        <td>7.04</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>6</td>
+        <td style="border-right: solid 1px white;">7.24</td>
+        <td>6</td>
+        <td style="border-right: solid 1px white;">6.13</td>
+        <td>6</td>
+        <td style="border-right: solid 1px white;">6.08</td>
+        <td>8</td>
+        <td>5.25</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>4</td>
+        <td style="border-right: solid 1px white;">4.26</td>
+        <td>4</td>
+        <td style="border-right: solid 1px white;">3.1</td>
+        <td>4</td>
+        <td style="border-right: solid 1px white;">5.39</td>
+        <td>19</td>
+        <td>12.5</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>12</td>
+        <td style="border-right: solid 1px white;">10.84</td>
+        <td>12</td>
+        <td style="border-right: solid 1px white;">9.13</td>
+        <td>12</td>
+        <td style="border-right: solid 1px white;">8.15</td>
+        <td>8</td>
+        <td>5.56</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>7</td>
+        <td style="border-right: solid 1px white;">4.82</td>
+        <td>7</td>
+        <td  style="border-right: solid 1px white;">7.26</td>
+        <td>7</td>
+        <td  style="border-right: solid 1px white;">6.42</td>
+        <td>8</td>
+        <td>7.91</td>
+      </tr>
+      <tr>
+        <td style="border-left: none; border-bottom:0 none"></td>
+        <td>5</td>
+        <td  style="border-right: solid 1px white;">5.68</td>
+        <td>5</td>
+        <td  style="border-right: solid 1px white;">4.74</td>
+        <td>5</td>
+        <td style="border-right: solid 1px white;">5.73</td>
+        <td>8</td>
+        <td>6.89</td>
+      </tr>
+      <tr class="no-top no-bottom">
+        <td style="border-left: none; border-bottom:0 none;">
+          <span style="color: transparent;">Regression</span>
+        </td>
+        <td colspan="8"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="fragment" data-fragment-index=0 style="position: relative; font-size: 0.7em; top:-1.5em;">
+    <thead>
+      <tr>
+        <th></th>
+        <th colspan="2"><span style="color: transparent;">Dataset #1</span></th>
+        <th colspan="2"><span style="color: transparent;">Dataset #2</span></th>
+        <th colspan="2"><span style="color: transparent;">Dataset #3</span></th>
+        <th colspan="2"><span style="color: transparent;">Dataset #4</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Mean</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>9</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">7.5</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>9</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">7.5</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>9</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">7.5</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>9</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2>7.5</td>
+      </tr>
+      <tr>
+        <td>Variance</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>11</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">4.1</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>11</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">4.1</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>11</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2 style="border-right: solid 1px white;">4.1</td>
+        <td class="fragment highlight-current-bckg-blue" data-fragment-index=1>11</td>
+        <td class="fragment highlight-current-bckg-yellow" data-fragment-index=2>4.1</td>
+      </tr>
+      <tr>
+        <td>Correlation</td>
+        <td class="fragment highlight-current-bckg-red" data-fragment-index=3 style="border-right: solid 1px white;" colspan="2">0.86</td>
+        <td class="fragment highlight-current-bckg-red" data-fragment-index=3 style="border-right: solid 1px white;" colspan="2">0.86</td>
+        <td class="fragment highlight-current-bckg-red" data-fragment-index=3 style="border-right: solid 1px white;" colspan="2">0.86</td>
+        <td class="fragment highlight-current-bckg-red" data-fragment-index=3 colspan="2">0.86</td>
+      </tr>
+      <tr>
+        <td>Regression <br>line</td>
+        <td class="fragment highlight-current-bckg-red" data-fragment-index=4 style="border-right: solid 1px white;" colspan="2">y = 3 + 0.5x</td>
+        <td class="fragment highlight-current-bckg-red" data-fragment-index=4 style="border-right: solid 1px white;" colspan="2">y = 3 + 0.5x</td>
+        <td class="fragment highlight-current-bckg-red" data-fragment-index=4 style="border-right: solid 1px white;" colspan="2">y = 3 + 0.5x</td>
+        <td class="fragment highlight-current-bckg-red" data-fragment-index=4 colspan="2">y = 3 + 0.5x</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+</section>
+
+<section data-state="showFooterRight" data-footer="Source - <a href='http://www.sjsu.edu/faculty/gerstman/StatPrimer/anscombe1973.pdf' target='_blank'>Anscombe, F. J. (1973). 'Graphs in Statistical Analysis'. American Statistician 27 (1): 17–21</a>"
+data-transition="none-in slide-out">
+  <h3>Why visualize your data?</h3>
+  <svg width="80%" viewBox="0 0 432 324" style="margin-top: 1%;">
+    <svg><use xlink:href="assets/img/lec2/anscombe.svg#axes_1"></svg>
+    <svg><use xlink:href="assets/img/lec2/anscombe.svg#axes_2"></svg>
+    <svg><use xlink:href="assets/img/lec2/anscombe.svg#axes_3"></svg>
+    <svg><use xlink:href="assets/img/lec2/anscombe.svg#axes_4"></svg>
+    <svg class="fragment" data-fragment-index=1><use xlink:href="assets/img/lec2/anscombe.svg#axes_5"></svg>
+    <svg class="fragment" data-fragment-index=1><use xlink:href="assets/img/lec2/anscombe.svg#axes_6"></svg>
+    <svg class="fragment" data-fragment-index=1><use xlink:href="assets/img/lec2/anscombe.svg#axes_7"></svg>
+    <svg class="fragment" data-fragment-index=1><use xlink:href="assets/img/lec2/anscombe.svg#axes_8"></svg>
+  </svg>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Bar graphs are evil</h3>
+  <p class="em warning col-80">1) Part of the range covered by the bar might have never been observed in the sample</p>
+  
+  <svg width="80%" viewBox="0 0 504 288" style="margin-top: 1%;">
+    <svg><use xlink:href="assets/img/lec2/barplot-distributions.svg#axes_1"></svg>
+    <svg><use xlink:href="assets/img/lec2/barplot-distributions.svg#axes_2"></svg>
+  </svg>
+</section>
+
+<!-- <section>
+  <h3>Bar graphs are evil</h3>
+  <p>2) They conceal the variance & distribution of the data</p>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 324" style="margin-top: 1%;">
+        <svg><use xlink:href="assets/img/lec2/barplot-same.svg#axes_1"></svg>
+        <svg class="fragment" data-fragment-index=1><use xlink:href="assets/img/lec2/barplot-same.svg#axes_2"></svg>
+      </svg>
+    </div>
+    <div class="col-50">
+      <p class="info">Look the same?</p>
+      <p class="danger fragment" data-fragment-index=1>It's not!</p>
+    </div>
+  </div>
+</section> -->
+
+<section data-transition="none-in slide-out">
+  <h3>Bar graphs are evil</h3>
+  <p class="em warning col-80">2) They conceal the variance and the underlying distribution of the data</p>
+  <div class="row">
+    <div class="col-45 info">Look the same?</div>
+    <div class="col-50 danger fragment" data-fragment-index=1>It's not!</div>
+  </div>
+  <div class="col-90">
+    <svg width="100%" viewBox="0 0 576 252" style="margin-top: 1%;">
+      <svg><use xlink:href="assets/img/lec2/barplot-same-side.svg#axes_1"></svg>
+      <svg class="fragment" data-fragment-index=1><use xlink:href="assets/img/lec2/barplot-same-side.svg#axes_2"></svg>
+    </svg>
   </div>
 </section>
 
 
 <section id="histogram">
   <h3>The sacred histogram</h3>
-
   <div class="row">
     <div class="col-25 right">
       <label>Distribution:</label>
@@ -91,10 +371,7 @@
       <input type="checkbox" id="checkbox_sort">
     </div>
   </div>
-
   <div class="placeholder"></div>
-
-
   <aside class="notes">
     <p>
       Bins size effect
