@@ -23,8 +23,8 @@ Reveal.initialize({
   },
 
   math: {
-    mathjax: 'assets/plugins/MathJax-master/MathJax.js',
-    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+    mathjax: mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+		config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
       },
 
   menu: {
@@ -154,7 +154,7 @@ var RevealMath = window.RevealMath || (function(){
             TEX.Definitions.Add({macros: {'fragment': 'FRAGMENT_INDEX_attribute'}}); // regular fragments
             TEX.Definitions.Add({macros: {'fraglight': 'FRAGMENT_highlight'}}); // highlighted fragments
             TEX.Definitions.Add({macros: {'fragindex': 'FRAGMENT_add_INDEX'}}); // add fragment index to highlighted fragments
-            
+
             TEX.Parse.Augment({
              FRAGMENT_INDEX_attribute: function (name) {
                  var index = this.GetArgument(name);
@@ -225,6 +225,3 @@ var RevealMath = window.RevealMath || (function(){
   }
 
 })();
-
-
-
