@@ -199,6 +199,7 @@
     </span>
   </div>
   <aside class="notes">
+    <p>Being skeptic, curious, not taking anything for granted is a good quality to have.</p>
     <p>
       The first cases of cholera in England were reported in 1831, about the time Dr. Snow as finishing up his medical studies at the age of eighteen. Between 1831 and 1854, tens of thousands of people in England died of cholera. Although Dr. Snow was deeply involved in experiments using a new technique, known as anesthesia, to deliver babies, he was also fascinated with researching his theory on how cholera spread. 
       <br>
@@ -330,10 +331,14 @@
   </div>
   <aside class="notes">
     <p>
+      When you want to study something, you need data. 
+      <br>
       Kind of data Snow was collecting going door to door.
       <br>
       Usually data is stored and presented in a dataset,
-      comprised of variables measured on observational units (or cases)
+      comprised of variables measured on observational units (or cases).
+      <br>
+      In any dataset, it is important to understand exactly what each variable is mea- suring and how the values are coded. First column is usually used to provide an identier for each of the individuals in the study (House number).
       <br>
       We see that there are different types of variables. Categories and numbers.
     </p>
@@ -355,6 +360,8 @@
     <p>
       We obtain information about units (or cases).
       A variable is any characteristic that is recorded for each unit/case.
+      <br>
+      You can have as many variable as you want/can on each unit.
   </p>
   </aside>
 </section>
@@ -374,15 +381,15 @@
   <table style="word-break: break-all; font-size: 0.85em;">
     <thead>
       <tr>
-        <th class="fragment highlight-current-bckg-yellow" data-fragment-index=2>Name</th>
-        <th class="fragment highlight-current-bckg-yellow" data-fragment-index=2>Year</th>
-        <th class="fragment highlight-current-bckg-yellow" data-fragment-index=2>Gender</th>
-        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>GPA</th>
-        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>Sibling</th>
-        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>Height</th>
-        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>Weight</th>
-        <th class="fragment highlight-current-bckg-blue" data-fragment-index=2>TV</th>
-        <th class="fragment highlight-current-bckg-yellow" data-fragment-index=2>Award</th>
+        <th class="fragment highlight-bckg-yellow" data-fragment-index=2>Name</th>
+        <th class="fragment highlight-bckg-yellow" data-fragment-index=2>Year</th>
+        <th class="fragment highlight-bckg-yellow" data-fragment-index=2>Gender</th>
+        <th class="fragment highlight-bckg-blue" data-fragment-index=2>GPA</th>
+        <th class="fragment highlight-bckg-blue" data-fragment-index=2>Sibling</th>
+        <th class="fragment highlight-bckg-blue" data-fragment-index=2>Height</th>
+        <th class="fragment highlight-bckg-blue" data-fragment-index=2>Weight</th>
+        <th class="fragment highlight-bckg-blue" data-fragment-index=2>TV</th>
+        <th class="fragment highlight-bckg-yellow" data-fragment-index=2>Award</th>
       </tr>
     </thead>
     <tbody>
@@ -486,60 +493,66 @@
     <thead>
       <tr style="background: #636c72;">
         <th>House</th>
-        <th>Address</th>
+        <th class="fragment highlight-bckg-yellow" data-fragment-index=1>Address</th>
         <th>Population</th>
-        <th>Fatalities</th>
+        <th class="fragment highlight-bckg-yellow" data-fragment-index=1>Fatalities</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>House #1</td>
-        <td>45 Lexington St</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>45 Lexington St</td>
         <td>8</td>
-        <td>5</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
       </tr>
       <tr>
         <td>House #2</td>
-        <td>15 Broadwick St</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>15 Broadwick St</td>
         <td>21</td>
-        <td>7</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>7</td>
       </tr>
       <tr>
         <td>House #3</td>
-        <td>61 Poland St</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>61 Poland St</td>
         <td>4</td>
-        <td>1</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>1</td>
       </tr>
       <tr>
         <td>House #4</td>
-        <td>37 Broad St</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>37 Broad St</td>
         <td>27</td>
-        <td>16</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>16</td>
       </tr>
       <tr>
         <td>House #5</td>
-        <td>48 Carnaby St</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>48 Carnaby St</td>
         <td>11</td>
-        <td>3</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>3</td>
       </tr>
       <tr>
         <td>House #6</td>
-        <td>46 Beak St</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>46 Beak St</td>
         <td>8</td>
-        <td>0</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>0</td>
       </tr>
       <tr>
         <td>House #7</td>
-        <td>43 Broad St</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>43 Broad St</td>
         <td>44</td>
-        <td>9</td>
+        <td class="fragment highlight-bckg-yellow" data-fragment-index=1>9</td>
       </tr>
     </tbody>
   </table>
   </div>
+  <br>
+  <div class="fragment" data-fragment-index=1><span class="warning">Subset</span> of the dataset.</div>
   <aside class="notes">
     <p>
       Back to our cholera dataset.
+      <br>
+      Because he had geographic information store as variable (address), Snow decided to plot all the fatalities using the corresponding address they occured.
+      <br>
+      You see that it's not because we have lots of data that we need to use them all. Sometime we are only interesed in a subset of the data.
     </p>
   </aside>
 </section>
@@ -586,7 +599,7 @@
 
 <section>
   <h3>Outliers</h3>
-  <p class="quoted">An outlier is an <span class="warning">observed value that is notably distinct</span> from the other values in a dataset. Usually, an outlier is <span class="u">much larger or much smaller</span> than the rest of the data values.</p>
+  <p class="quoted">An outlier is an <span class="warning">observed value that is notably distinct</span> from the other values in a dataset. Usually, an outlier is <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"x>much larger or much smaller</span> than the rest of the data values.</p>
   <img src="assets/img/lec1/outlier.svg" class="unbordered" style="top: 0;">
   <aside class="notes">
     <p>
@@ -597,6 +610,32 @@
       But you already see here that outliers are important, and shouldn't be ignored. 
       <br>
       They store information that can help better understand your dataset.
+    </p>
+  </aside>
+</section>
+
+<section>
+  <h3>The Broad street pump area</h3>
+  <div class="row">
+    <div class="col-20">
+      <p class="fragment success" data-fragment-index=1 style="font-size: 0.6em;">Area for which the Broad Street pump is the fastest trip to water <br>(on foot).</p>
+    </div>
+    <div class="col-80">
+      <svg width=125% viewbox="550 300 1700 1300">
+        <svg><use xlink:href="assets/img/lec1/london_soho-slide.svg#Layer1"></svg>
+        <svg class="fragment" data-fragment-index=1><use xlink:href="assets/img/lec1/london_soho-slide.svg#nearest"></svg>
+      </svg>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>
+      Snow employed network analysis to calculate which water pump was closest to each house.
+      <br>
+      The stroke of genius: he based it on walking distance, not as-the-crow-flies distance. 
+      <br>
+      He then used polygons to demarcate areas based on those findings. Because he added foot traffic to the equation, the output yielded a shape that clearly illustrated the relationship between human movement and disease.
+      <br>
+      It was impossible to deny the high concentration of fatalities in the population that was drinking Broad Street water. This map helped convince the local authorities that cholera was waterborne.
     </p>
   </aside>
 </section>
@@ -626,6 +665,8 @@
 
 <section>
   <h3>Snow's "Grand Experiment"</h3>
+  <div class="left muted" style="font-size: 0.65em;">Despite the success of Snow’s theory in stemming the cholera epidemic in Soho, public officials still thought his hypothesis was nonsense. <br>
+  <span style="margin-left: 2em;">=> He needed stronger evidences.</span></div>
   <p class="sided"><span class="u">Research question:</span><br>
    Is there a causal relationship between water supply and cholera?</p>
   <p class="sided border-warning fragment"><span class="u">Observational units:</span><br>
@@ -726,6 +767,15 @@
     <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> experiment</span> is a study in which the researcher <span class="warning">actively controls one or more of the explanatory variables</span>. <br><br>
     An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">observational study</span> is a study in which the researcher does not actively control the value of any variable but simply <span class="info">observes and record the values as they naturally exist</span>.
   </p> 
+  <p class="fragment" style="font-size: 0.6em">
+    <span class="u">Note:</span><br>
+    - The "Grand Experiment" was not a true experiment <br>
+    <span style="margin-left: 2em;">Snow did not randomly allocated people into two groups, one exposed</span><br>
+     <span style="margin-left: 2em;">to contaminated water and the other not ... this would have been <span class="u" style="text-decoration-color: #d9534f;-webkit-text-decoration-color: #d9534f;">unethical</span></span><br>
+     <span style="margin-left: 2em;">and certainly illegal</span> 
+    <br>
+    - Near-<span class="u" style="text-decoration-color: #d9534f;-webkit-text-decoration-color: #d9534f;">randomization</span> had taken place in a natural setting and Snow had taken advantage of this historical occurrence to test his hypothesis.
+  </p>
   <aside class="notes">
     <p>
       This was not a true experiment since Snow did not randomly allocated people into two groups, one exposed to contaminated water and the other not. 
@@ -804,11 +854,13 @@
   </div>
   <aside class="notes">
     <p>
-      Summary of data.
+      Summary of data in a table.
       <br>
       Here we see that more deaths in Rest of London. But there is also way more houses.
       <br>
       => Need to normalize to be able to directly compare data.
+      <br>
+      We could have also calculated the proportion of fatalities for each group.
       <br>
       Bar graph great for COUNT.
       However we'll see later that it must be avoided when values are not COUNT.
@@ -934,13 +986,37 @@
   <div class="row">
     <p class=" sided col-40">These are all aspects of what we call the <span class="info">distribution</span> of the data.</p>
     <div class="col-50">
-      <img class="unbordered" src="assets/img/lec2/dotplot-distribution.svg" width="100%">  
+      <svg width="100%" viewBox="0 0 576 216" style="margin-top: 5%;">
+        <svg><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_1"></svg>
+      </svg>
+      <!-- <img class="unbordered" src="assets/img/lec2/dotplot-distribution.svg" width="100%">   -->
     </div>
   </div>
 </section>
 
-<section class="title-slide">
-  <h1 style="text-align: center;">Shape<br>of a distribution</h1>
+<!-- <section>
+  <h1 >1) Shape</h1>
+  <div class="row">
+    <div class="col-5">
+      <p></p>
+    </div>
+    <div class="col-90">
+      <svg width="100%" viewBox="0 0 576 216" style="margin-top: 5%;">
+        <svg><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_1"></svg>
+        <svg  class="fragment"><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_2"></svg>
+      </svg>
+    </div>
+  </div>
+</section> -->
+
+<section class="title-slide fullwidth">
+  <h1 class="center">-- 1 --<br> Shape</h1>
+  <div>
+    <svg width="75%" viewBox="0 42 576 216"">
+      <svg><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_1"></svg>
+      <svg  class="fragment"><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_2"></svg>
+    </svg>
+  </div>
 </section>
 
 <section>
@@ -954,8 +1030,15 @@
   <img class="unbordered" width="80%" src="assets/img/lec2/shape-distribution.svg">
 </section>
 
-<section class="title-slide">
-  <h1 style="text-align: center;">Central tendency<br>of a distribution</h1>
+<section class="title-slide fullwidth">
+  <h1 class="center">-- 2 --<br>Central tendency</h1>
+  <div>
+    <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
+      <svg><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_1"></svg>
+      <svg><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_2"></svg>
+      <svg class="fragment"><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_3"></svg>
+    </svg>
+  </div>
 </section>
 
 <section>
@@ -965,8 +1048,8 @@
   <div class="row">
     <p class="warning col-50" style="font-size: 1.5em; text-align: center; margin-bottom: 0.5em; margin-top: 0.5em;">$\bar{x}=\sum x_{i}$</p>
     <p class="col-50" style="font-size: 0.8em; text-align: left; margin-bottom: 0.5em; margin-top: 0.5em;">
-      $\bar{x}$ for a sample (reads "x-bar")<br>
-      $\mu$ for a population</p>
+      <span class="info">$\bar{x}$</span> for a sample (read "x-bar")<br>
+      <span class="info">$\mu$</span> for a population</p>
   </div>
   <p>Which corresponds to:</p>
   <p style="margin-left: 0.8em; font-size: 1em;">$\bar{x}=\frac{x_{1}+x_{2}+...+x_{n}}{n}$</p>
@@ -977,7 +1060,7 @@
   <h3>The trimmed mean</h3>
   <p class="quoted">A <span class="warning">trimmed mean</span> refers to the calculation of the mean after discarding given parts of a sample (or distribution) at the high and low end (typically discarding an equal amount of both).
   </p>
-  <p>The use of a trimmed mean helps eliminate the influence of data points on the tails that may affect the traditional mean.</p>
+  <p>The use of a trimmed mean "helps" eliminate the influence of data points on the tails that may affect the traditional mean.</p>
   <aside class="notes">
     We'll talk about that later.
     <br>
@@ -1040,7 +1123,7 @@
 </section>
 
 <section>
-  <h3>Other descriptors</h3>
+  <h3>Other locations</h3>
   <p class="quoted">The <span class="warning">minimum</span> is the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">smallest number</span> in the (sorted) dataset.
   <br> <br>
   The <span class="info">maximum</span> is the <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">largest number</span> in the (sorted) dataset</p>
@@ -1049,8 +1132,16 @@
   </svg>
 </section>
 
-<section class="title-slide">
-  <h1 style="text-align: center;">Variation<br>in a distribution</h1>
+<section class="title-slide fullwidth">
+  <h1 class="center">-- 3 --<br>Variation, spread</h1>
+  <div>
+    <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
+      <svg><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_1"></svg>
+      <svg><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_2"></svg>
+      <svg><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_3"></svg>
+      <svg class="fragment"><use xlink:href="assets/img/lec2/dotplot-distribution.svg#axes_4"></svg>
+    </svg>
+  </div>
 </section>
 
 <section>
@@ -1064,18 +1155,49 @@
 
 <section>
   <h3>The standard deviation</h3>
-  <p class="quoted">A common measure of data variability is <br>the <span class="warning">standard deviation</span> (SD).</p>
+  <p class="quoted" style="margin-bottom: 0;">A common measure of data variability is <br>the <span class="warning">standard deviation</span> (SD). It measures the spread of the data in a sample</p>
   <div class="row">
     <p class="warning col-60" style="font-size: 1.2em; text-align: right; margin-bottom: 0.5em; margin-top: 0.5em;">
       $s=\sqrt{\fragindex{0}{\fraglight{highlight-red-gc}{\frac{\sum(x_{i}-\bar{x})^2}{n-1}}}}$
     </p>
-    <p class="col-20 fragment danger" data-fragment-index=1 style="font-size: 1.2em; text-align:center;">Variance</p>
+    <div class="col-35">
+    <p class="fragment danger" data-fragment-index=1 style="font-size: 1.2em; text-align:center;">Variance</p>
+    <p><span class="info">$s$</span> for a sample <br>
+      <span class="info">$\sigma$</span> for a population</p>
+    </div>
   </div>
-  <p>Which corresponds to:</p>
-  <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{(x_{1}-\bar{x})+(x_{2}-\bar{x})+...+(x_{n}-\bar{x})}{n-1}}$</p>
-  <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{\textrm{sum of observed squared difference from sample mean}}{\textrm{number of observations - 1}}}$</p>
+    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{(x_{1}-\bar{x})+(x_{2}-\bar{x})+...+(x_{n}-\bar{x})}{n-1}}$</p>
+    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{\textrm{sum of observed squared difference from sample mean}}{\textrm{number of observations - 1}}}$</p>
   <aside class="notes">
     <p>The SD can be loosely interpreted as the typical distance (in absolute value) between the data values and the mean of the distribution.</p>
+    <p>The larger the standard deviation, the more variability there is in the data and the more spread out the data are.</p>
+    <p>In practice, we generally compute the standard deviation using a calculator or computer software. The units for the standard deviation are the same as the units for the original data.</p>
+  </aside>
+</section>
+
+<section>
+  <h3>Interquantile range</h3>
+  <p class="quoted" style="font-size: 0.7em;">The median divides the data into two equal halves (it is the $50^{th}$ percentile). If we divide each of those halves again, we obtain two additional statistics known as the <span class="warning">first (Q1) and third (Q3) quartiles</span>, which are the $25^{th}$ and $75^{th}$ percentiles.</p>
+  <p><span class="u">Interquartile range:</span> <span class="warning" style="margin-left: 0.5em;">$\textrm{IQR} = Q3 − Q1$</span></p>
+  <div class="row">
+    <div class="col-55">
+      <img class="unbordered" src="assets/img/lec2/quartiles.svg" width=100%>
+    </div>
+    <div class="col-45 fragment">
+      <p style="font-size: 0.5em; margin-bottom: 0;">A value is considered an <span class="info">outlier</span> if it is:</p>
+      <div class="row framed border-info">
+        <div class="col-10">
+          <p style="font-size:0.5em; margin-top: 0.55em;">or</p>
+        </div>
+        <div class="col-90 left" style="font-size: 0.55em;">
+          smaller than $Q1−1.5\times IQR$<br>
+          larger than $Q3+1.5\times IQR$
+        </div>
+      </div> 
+    </div>
+  </div>
+  <aside class="notes">
+    Consider again the data on mammal longevity in Data 2.2 on page 64. Our intu- ition suggests that the longevity of 40 years for the elephant is an unusually high value compared to the other lifespans in this sample. How do we determine objec- tively when such a value is an outlier? The criteria should depend on some measure of location for “typical” values and a measure of spread to help us judge when a data point is “far” from those typical cases. One approach, typically used for identifying outliers for boxplots, uses the quartiles and interquartile range. As a rule, most data values will fall within about 1.5(IQR)’s of the quartiles.
   </aside>
 </section>
 

@@ -20,8 +20,8 @@ gc.soho.init = function() {
     .attr('width', gc.soho.WIDTH)
     .attr('height', gc.soho.HEIGHT)
 
-  // gc.soho.svg.select("#pump")
-  //   .attr("opacity", 0)
+  gc.soho.svg.select("#nearest")
+     .attr("opacity", 0)
   });
 };
 
@@ -37,16 +37,18 @@ gc.soho.zoomout = function(){
 };
 
 gc.soho.zoomin = function(){
+  gc.soho.svg = d3.selectAll("#soho_map svg")
   gc.soho.svg
     .transition()
     .duration(500)
-    .attr('viewBox', "660 520 740 800");
+    .attr('viewBox', "730 500 600 600");
 
   gc.soho.svg.selectAll("#workhouse, #brewery")
     .style("fill", "#BFBFBF");
 };
 
 gc.soho.highligth_bg = function(){
+  gc.soho.svg = d3.selectAll("#soho_map svg")
   gc.soho.svg.selectAll("#workhouse, #brewery")
     .style("fill", "#FCECBEFF");
 };

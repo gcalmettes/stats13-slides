@@ -139,6 +139,10 @@ section[data-transition*="none-in"].present {
 /*background: #7396a1;*/
 }
 
+.title-slide.fullwidth div{
+  width: 100%;
+}
+
 /*slide class with content center/middle but title at the top*/
 .looney-slide {
   min-height: 100% !important;
@@ -404,6 +408,7 @@ th {
 .col-40 { width: 40%; }
 .col-45 { width: 45%; }
 .col-50 { width: 50%; }
+.col-55 { width: 55%; }
 .col-60 { width: 60%; }
 .col-64 { width: 64%; }
 .col-65 { width: 65%; }
