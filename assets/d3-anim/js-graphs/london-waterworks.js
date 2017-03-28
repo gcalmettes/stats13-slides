@@ -9,7 +9,7 @@ gc.waterworks.HEIGHT = 560;
 gc.waterworks.init = function() {
   'use strict';
   //Import the svg
-  d3.xml("assets/img/lec1/london-waterworks.svg").mimeType("image/svg+xml").get(function(error, xml) {
+  d3.xml("assets/img/lec/london-waterworks.svg").mimeType("image/svg+xml").get(function(error, xml) {
     if (error) throw error;
     var importedNode = document.importNode(xml.documentElement, true);
   //add it to the D3 scene

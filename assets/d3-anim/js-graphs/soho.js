@@ -10,7 +10,7 @@ gc.soho.HEIGHT = 560;
 gc.soho.init = function() {
   'use strict';
   //Import the svg
-  d3.xml("assets/img/lec1/london_soho-slide.svg").mimeType("image/svg+xml").get(function(error, xml) {
+  d3.xml("assets/img/lec/london_soho-slide.svg").mimeType("image/svg+xml").get(function(error, xml) {
     if (error) throw error;
     var importedNode = document.importNode(xml.documentElement, true);
   //add it to the D3 scene

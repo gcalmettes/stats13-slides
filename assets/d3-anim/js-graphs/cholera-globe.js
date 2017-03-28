@@ -10,7 +10,7 @@ gc.globe.HEIGHT = 560;
 gc.globe.init = function() {
   'use strict';
   //Import the svg
-  d3.xml("assets/img/lec1/cholera-globe.svg").mimeType("image/svg+xml").get(function(error, xml) {
+  d3.xml("assets/img/lec/cholera-globe.svg").mimeType("image/svg+xml").get(function(error, xml) {
     if (error) throw error;
     var importedNode = document.importNode(xml.documentElement, true);
   //add it to the D3 scene
