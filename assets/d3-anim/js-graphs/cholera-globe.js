@@ -27,7 +27,7 @@ gc.globe.init = function() {
 };
 
 gc.globe.zoomout = function(){
-  gc.globe.svg = d3.selectAll("#cholera_globe svg")
+  gc.globe.svg = d3.selectAll("#cholera_globe svg");
   gc.globe.svg
     .transition()
     .duration(1000)
@@ -57,6 +57,7 @@ gc.globe.india = function(){
 };
 
 gc.globe.russia = function(){
+  gc.globe.svg = d3.selectAll("#cholera_globe svg");
   gc.globe.svg
     .transition()
     .duration(1000)
@@ -83,6 +84,7 @@ gc.globe.russia = function(){
 };
 
 gc.globe.zoomin = function(){
+  gc.globe.svg = d3.selectAll("#cholera_globe svg");
   gc.globe.svg.selectAll("#russia")
     .transition()
     .duration(500)

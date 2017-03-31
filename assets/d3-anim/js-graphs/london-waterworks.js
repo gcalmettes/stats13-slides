@@ -27,6 +27,7 @@ gc.waterworks.init = function() {
 
 gc.waterworks.lambeth_move = function() {
   'use strict';
+  gc.waterworks.svg = d3.selectAll("#waterworks svg");
 
   gc.waterworks.svg
     .transition()
@@ -46,6 +47,8 @@ gc.waterworks.lambeth_move = function() {
 
 gc.waterworks.zoomin = function() {
   'use strict';
+  gc.waterworks.svg = d3.selectAll("#waterworks svg");
+
   gc.waterworks.svg
     .transition()
     .duration(1000)
@@ -64,7 +67,7 @@ gc.waterworks.zoomin = function() {
 
 gc.waterworks.zoomout = function() {
   'use strict';
-  gc.waterworks.svg = d3.selectAll("#waterworks svg")
+  gc.waterworks.svg = d3.selectAll("#waterworks svg");
   gc.waterworks.svg
     .transition()
     .duration(500)

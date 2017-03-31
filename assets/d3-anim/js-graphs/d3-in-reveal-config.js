@@ -118,4 +118,27 @@ gc.slideIdToFunctions = {
     }
   },
 
+  'bardeaths': {
+    'init': function() {
+      'use strict';
+      gc.bardeaths.init();
+    },
+    '-1': function() {
+      'use strict';
+      gc.bardeaths.bar_raw();
+    },
+    0: function() {
+      'use strict';
+      gc.bardeaths.bar_raw();
+    },
+    1: function() {
+      'use strict';
+      gc.bardeaths.bar_raw();
+    },
+    2: function() {
+      'use strict';
+      gc.bardeaths.bar_norm();
+    }
+  },
+
 };
