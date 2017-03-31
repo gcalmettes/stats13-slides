@@ -30,8 +30,8 @@ gc.bardeaths.init = function(){
   //
   gc.bardeaths.data = [
     {name: 'Southwark<br>& Vauxhaull', deaths_raw: 1263,   deaths_norm: 315},
-    {name: 'Lambeth<br>Waterworks', deaths_raw: 98,   deaths_norm: 37},
-    {name: 'Rest of<br>London', deaths_raw: 1422,   deaths_norm: 59},
+    {name: 'Lambeth<br>Waterworks', deaths_raw: 98,   deaths_norm: 38},
+    {name: 'Rest of<br>London', deaths_raw: 1422,   deaths_norm: 55},
   ];
   
   gc.bardeaths.init_subject = 'deaths_raw';
@@ -121,7 +121,8 @@ gc.bardeaths.draw_bar = function(subject) {
   gc.bardeaths.bars.exit()
     .remove();
   gc.bardeaths.bars.transition() // NEW
-    .duration(100) // Also NEW
+    .ease(d3.easeLinear)
+    .duration(150) // Also NEW
     .attr('y', d => gc.bardeaths.yScale(d[subject]))
     .attr('height', d => gc.bardeaths.height - gc.bardeaths.yScale(d[subject]));
   gc.bardeaths.bars.enter()

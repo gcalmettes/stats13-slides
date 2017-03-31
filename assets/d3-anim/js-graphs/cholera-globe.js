@@ -108,5 +108,5 @@ gc.globe.zoomin = function(){
   gc.globe.svg
     .transition()
     .duration(2000)
-    .attr('viewBox', "210 274 4 4");
+    .attr('viewBox', "209.5 274 4 4");
 };
