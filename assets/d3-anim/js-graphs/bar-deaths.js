@@ -108,7 +108,7 @@ gc.bardeaths.init = function(){
       .style("text-anchor", "middle")
       .style("font-size","0.5em")
       .style("font-family", "Raleway")
-      .style("fill","#f0ad4e")
+      .style("fill","#5bc0de")
       .text(gc.bardeaths.ylabel(gc.bardeaths.init_subject));
 };
 

@@ -54,242 +54,11 @@
   <h3>Last time</h3>
   <p class="sided">How to make decisions with statistics</p>
   <p class="sided">Basic statistical terminology <br>
-    <span style="margin-left: 1em">Data, Dataset, Design study, Observational units, variables, outliers, distribution, mean, median</span></p>
+    <span style="margin-left: 1em">Data, dataset, statistical study, observational units, variables, outliers, population, sample</span></p>
   <p class="sided">Importance of visualisation to better understand data<br>
-    <span style="margin-left: 1em">Soho epidemics map</span></p></p>
+    <span style="margin-left: 1em">=> Soho epidemics map</span></p></p>
 </section>
 
-
-<section>
-  <h3>Describing a dataset</h3>
-  <div style="font-size: 0.75em; text-align: left;">
-    When describing a dataset, we generally consider the following three questions: <br>
-    <span style="margin-left: 1em;">
-    <ul>
-      <li>What is the general <span class="warning">shape</span> of the data?</li>
-      <li>Where are the data values <span class="warning">centered</span>?</li>
-      <li>How do the data <span class="warning">vary</span>?</li>
-    </ul></span>
-  </div>
-  <br>
-  <div class="row">
-    <p class=" sided col-40">These are all aspects of what we call the <span class="info">distribution</span> of the data.</p>
-    <div class="col-50">
-      <svg width="100%" viewBox="0 0 576 216" style="margin-top: 5%;">
-        <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
-      </svg>
-      <!-- <img class="unbordered" src="assets/img/lec/dotplot-distribution.svg" width="100%">   -->
-    </div>
-  </div>
-</section>
-
-<!-- <section>
-  <h1 >1) Shape</h1>
-  <div class="row">
-    <div class="col-5">
-      <p></p>
-    </div>
-    <div class="col-90">
-      <svg width="100%" viewBox="0 0 576 216" style="margin-top: 5%;">
-        <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
-        <use  class="fragment" xlink:href="assets/img/lec/dotplot-distribution.svg#axes_2"></use>
-      </svg>
-    </div>
-  </div>
-</section> -->
-
-<section class="title-slide fullwidth">
-  <h1 class="center">-- 1 --<br> Shape</h1>
-  <div>
-    <svg width="75%" viewBox="0 42 576 216"">
-      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
-      <use  class="fragment" xlink:href="assets/img/lec/dotplot-distribution.svg#axes_2"></use>
-    </svg>
-  </div>
-</section>
-
-<section>
-  <h3>General shape of a distribution</h3>
-  <div>
-  <p class="quoted" style="font-size: 0.75em; margin-top: 0;">A <span class="warning">symetric</span> distribution is one in which the left and right hand sides of the distribution are roughly equally balanced. <br>
-  A <span class="info">skewed</span> (non-symmetric) distribution is a distribution in which there is no such equal balance. <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">Right-skewness</span> refers to a longer right tail, while <span class="u" style="text-decoration-color: #d9534f;-webkit-text-decoration-color: #d9534f;">left-skewness</span> correspond to a longer left tail. <br>
-  A <span class="success">uniform</span> distribution is a specific symetric distribution in which all outcomes are equally likely.
-  </p>
-  </div>
-  <img class="unbordered" width="80%" src="assets/img/lec/shape-distribution.svg">
-</section>
-
-<section class="title-slide fullwidth">
-  <h1 class="center">-- 2 --<br>Central tendency</h1>
-  <div>
-    <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
-      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
-      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_2"></use>
-      <use class="fragment" xlink:href="assets/img/lec/dotplot-distribution.svg#axes_3"></use>
-    </svg>
-  </div>
-</section>
-
-<section>
-  <h3>The mean</h3>
-  <p class="quoted">A common measure of central location is the (arithmetic) <span class="warning">mean</span>.
-  It is sometimes called the <span class="u">average</span>.</p>
-  <div class="row">
-    <p class="warning col-50" style="font-size: 1.5em; text-align: center; margin-bottom: 0.5em; margin-top: 0.5em;">$\bar{x}=\sum x_{i}$</p>
-    <p class="col-50" style="font-size: 0.8em; text-align: left; margin-bottom: 0.5em; margin-top: 0.5em;">
-      <span class="info">$\bar{x}$</span> for a sample (read "x-bar")<br>
-      <span class="info">$\mu$</span> for a population</p>
-  </div>
-  <p>Which corresponds to:</p>
-  <p style="margin-left: 0.8em; font-size: 1em;">$\bar{x}=\frac{x_{1}+x_{2}+...+x_{n}}{n}$</p>
-  <p style="margin-left: 0.8em; font-size: 1em;">$\bar{x}=\frac{\textrm{sum of all the observations}}{\textrm{number of observations}}$</p>
-</section>
-
-<section>
-  <h3>The trimmed mean</h3>
-  <p class="quoted">A <span class="warning">trimmed mean</span> refers to the calculation of the mean after discarding given parts of a sample (or distribution) at the high and low end (typically discarding an equal amount of both).
-  </p>
-  <p>The use of a trimmed mean "helps" eliminate the influence of data points on the tails that may affect the traditional mean.</p>
-  <aside class="notes">
-    We'll talk about that later.
-    <br>
-    The median can be regarded as a fully truncated mean and is most robust. As with other trimmed estimators, the main advantage of the trimmed mean is robustness and higher efficiency for mixed distributions and heavy-tailed distribution (like the Cauchy distribution), at the cost of lower efficiency for some other less heavily-tailed distributions (such as the normal distribution). For intermediate distributions the differences between the efficiency of the mean and the median are not very big, e.g. for the student-t distribution with 2 degrees of freedom the variances for mean and median are nearly equal.
-  </aside>
-</section>
-
-<section>
-  <h3>The median</h3>
-  <p class="quoted">
-    The <span class="warning">median</span> of a set of <span class="warning">ordered data values</span> is: <br>
-    <span style="margin-left: 1.5em;">- the middle entry (for an odd number of entries)</span><br>
-    <span style="margin-left: 1.5em;">- the average of the middle 2 values (for an even number</span> <br>
-      <span style="margin-left: 1.5em;">of entries)</span>
-  </p>
-  <svg width="75%" viewBox="0 0 239.5 109.5" style="margin-top: 1%;">
-    <use xlink:href="assets/img/lec/median.svg#median1"></use>
-    <use xlink:href="assets/img/lec/median.svg#median2"></use>
-  </svg>
-  <aside class="notes">
-    To find the median, your numbers have to be listed in numerical order from smallest to largest, so you may have to rewrite your list before you can find the median.
-  </aside>
-</section>
-
-<section>
-  <h3>The mode</h3>
-  <p class="quoted">
-    The <span class="warning">mode</span> is the value that occurs most often in the dataset. If no value in the dataset is repeated, then there is no mode this particular dataset.
-  </p>
-  <p style="margin-top: 1.5em;">What is the mode in the dataset below?</p>
-  <table style="font-size: 1.5em;">
-    <tr>
-      <td>4</td>
-      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
-      <td>9</td>
-      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
-      <td>11</td>
-      <td>7</td>
-      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
-      <td>3</td>
-      <td>7</td>
-      <td>8</td>
-      <td>6</td>
-      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
-      <td>12</td>
-    </tr>
-  </table>
-</section>
-
-<section>
-  <h3>Resistance</h3>
-  <p class="quoted">The term <span class="warning">resistance</span> is related to the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">impact of outliers</span> on a statistic.
-  In general, we say that a statistic is resistant if it is relatively <span class="warning">unaffected by extreme values</span>.
-  </p>
-  <p>The median and the mode are resistant, while the mean is not.</p>
-  <img class="unbordered" width="100%" src="assets/img/lec/mean-median-mode.svg">
-  <aside class="notes">
-    What about the minimum and maximum?
-  </aside>
-</section>
-
-<section>
-  <h3>Other locations</h3>
-  <p class="quoted">The <span class="warning">minimum</span> is the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">smallest number</span> in the (sorted) dataset.
-  <br> <br>
-  The <span class="info">maximum</span> is the <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">largest number</span> in the (sorted) dataset</p>
-  <svg width="75%" viewBox="0 0 239.5 60.5" style="margin-top: 1%;">
-    <use xlink:href="assets/img/lec/min-max.svg#minmax"></use>
-  </svg>
-</section>
-
-<section class="title-slide fullwidth">
-  <h1 class="center">-- 3 --<br>Variation, spread</h1>
-  <div>
-    <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
-      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
-      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_2"></use>
-      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_3"></use>
-      <use class="fragment" xlink:href="assets/img/lec/dotplot-distribution.svg#axes_4"></use>
-    </svg>
-  </div>
-</section>
-
-<section>
-  <h3>The standard deviation</h3>
-  <p class="quoted" style="margin-bottom: 0;">A common measure of data variability is <br>the <span class="warning">standard deviation</span> (SD). It measures the spread of the data in a sample</p>
-  <div class="row">
-    <p class="warning col-60" style="font-size: 1.2em; text-align: right; margin-bottom: 0.5em; margin-top: 0.5em;">
-      $s=\sqrt{\fragindex{0}{\fraglight{highlight-red-gc}{\frac{\sum(x_{i}-\bar{x})^2}{n-1}}}}$
-    </p>
-    <div class="col-35">
-    <p class="fragment danger" data-fragment-index=1 style="font-size: 1.2em; text-align:center;">Variance</p>
-    <p><span class="info">$s$</span> for a sample <br>
-      <span class="info">$\sigma$</span> for a population</p>
-    </div>
-  </div>
-    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{(x_{1}-\bar{x})+(x_{2}-\bar{x})+...+(x_{n}-\bar{x})}{n-1}}$</p>
-    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{\textrm{sum of observed squared difference from sample mean}}{\textrm{number of observations - 1}}}$</p>
-  <aside class="notes">
-    <p>The SD can be loosely interpreted as the typical distance (in absolute value) between the data values and the mean of the distribution.</p>
-    <p>The larger the standard deviation, the more variability there is in the data and the more spread out the data are.</p>
-    <p>In practice, we generally compute the standard deviation using a calculator or computer software. The units for the standard deviation are the same as the units for the original data.</p>
-  </aside>
-</section>
-
-<section>
-  <h3>The range</h3>
-  <p class="quoted">The <span class="warning">range</span> gives you the most basic information about the spread of a dataset. It is calculated by the (arithmetic) <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">difference between the lowest and highest data value</span>.</p>
-  <svg width="75%" viewBox="0 0 239.5 81" style="margin-top: 1%;">
-    <use xlink:href="assets/img/lec/min-max.svg#minmax"></use>
-    <use class="fragment" xlink:href="assets/img/lec/min-max.svg#range"></use>
-  </svg>
-</section>
-
-
-<section>
-  <h3>Interquantile range</h3>
-  <p class="quoted" style="font-size: 0.7em;">The median divides the data into two equal halves (it is the $50^{th}$ percentile). If we divide each of those halves again, we obtain two additional statistics known as the <span class="warning">first (Q1) and third (Q3) quartiles</span>, which are the $25^{th}$ and $75^{th}$ percentiles.</p>
-  <p><span class="u">Interquartile range:</span> <span class="warning" style="margin-left: 0.5em;">$\textrm{IQR} = Q3 − Q1$</span></p>
-  <div class="row">
-    <div class="col-55">
-      <img class="unbordered" src="assets/img/lec/quartiles.svg" width=100%>
-    </div>
-    <div class="col-45 fragment">
-      <p style="font-size: 0.5em; margin-bottom: 0;">A value is considered an <span class="info">outlier</span> if it is:</p>
-      <div class="row framed border-info">
-        <div class="col-10">
-          <p style="font-size:0.5em; margin-top: 0.55em;">or</p>
-        </div>
-        <div class="col-90 left" style="font-size: 0.55em;">
-          smaller than $Q1−1.5\times IQR$<br>
-          larger than $Q3+1.5\times IQR$
-        </div>
-      </div>
-    </div>
-  </div>
-  <aside class="notes">
-    Consider again the data on mammal longevity in Data 2.2 on page 64. Our intu- ition suggests that the longevity of 40 years for the elephant is an unusually high value compared to the other lifespans in this sample. How do we determine objec- tively when such a value is an outlier? The criteria should depend on some measure of location for “typical” values and a measure of spread to help us judge when a data point is “far” from those typical cases. One approach, typically used for identifying outliers for boxplots, uses the quartiles and interquartile range. As a rule, most data values will fall within about 1.5(IQR)’s of the quartiles.
-  </aside>
-</section>
 
 <section data-state="showFooterRight" data-footer="Source - <a href='http://www.sjsu.edu/faculty/gerstman/StatPrimer/anscombe1973.pdf' target='_blank'>Anscombe, F. J. (1973). 'Graphs in Statistical Analysis'. American Statistician 27 (1): 17–21</a>"
 data-transition="slide-in">
@@ -519,9 +288,417 @@ data-transition="none-in slide-out">
   </svg>
 </section>
 
+<section data-transition="slide-in">
+  <h3>Bar graphs are evil</h3>
+  <p class="em warning col-80">1) Part of the range covered by the bar might have never been observed in the sample</p>
+  <svg width="80%" viewBox="0 0 504 288" style="margin-top: 1%;">
+    <use xlink:href="assets/img/lec/barplot-distributions.svg#axes_1"></use>
+    <use xlink:href="assets/img/lec/barplot-distributions.svg#axes_2"></use>
+  </svg>
+</section>
+
+<!-- <section>
+  <h3>Bar graphs are evil</h3>
+  <p>2) They conceal the variance & distribution of the data</p>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 324" style="margin-top: 1%;">
+        <use xlink:href="assets/img/lec/barplot-same.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/barplot-same.svg#axes_2"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <p class="info">Look the same?</p>
+      <p class="danger fragment" data-fragment-index=1>It's not!</p>
+    </div>
+  </div>
+</section> -->
+
+<section data-transition="none-in slide-out">
+  <h3>Bar graphs are evil</h3>
+  <p class="em warning col-80">2) They conceal the variance and the underlying distribution of the data</p>
+  <div class="row">
+    <div class="col-45 info">Look the same?</div>
+    <div class="col-50 danger fragment" data-fragment-index=1>It's not!</div>
+  </div>
+  <div class="col-90">
+    <svg width="100%" viewBox="0 0 576 252" style="margin-top: 1%;">
+      <use xlink:href="assets/img/lec/barplot-same-side.svg#axes_1"></use>
+      <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/barplot-same-side.svg#axes_2"></use>
+    </svg>
+  </div>
+</section>
+
+<section data-state="showFooterRight" data-footer="Source - <a href='http://onlinelibrary.wiley.com/doi/10.1113/jphysiol.2011.205062/full' target='_blank'>G. Drummond - 'Show the data, don't conceal them', J Physiol. (2011) Apr 15;589(Pt 8):1861-3</a>">
+  <h3>Avoid making bar graphs</h3>
+  <div class="row">
+    <div class="col-60">
+      <p style="font-size: 0.6em; margin-top:0; margin-bottom:0;">
+        <span class="u">To reveal the distribution of the data:</span>
+        <ul style="font-size: 0.55em; margin-top:0;"">
+          <li>Display data in their raw form</li>
+          <li>A dot plot is a good start</li>
+          <li>Dynamite plunger plots conceal data</li>
+          <li>Check the pattern of distribution of the values</li>
+        </ul>
+      </p>
+      <p class="fragment" data-fragment-index=1 style="font-size: 0.6em; margin-top:0; margin-bottom:0;">
+      <span class="u">About Figure 1:</span>
+      <ul class="fragment" data-fragment-index=1 style="font-size: 0.55em;">
+        <li> <span class="info">First set:</span> Gaussian (or normal) distribution (symmetrically distributed)</li>
+        <li> <span class="info">Second set:</span> right skewed, lognormal (few large values). <span class="warning">This type of distribution of values is quite common in biology</span> (ex: plasma concentrations of immune or inflammatory mediators)”</li>
+      </ul>
+      </p>
+      <p class="quoted fragment" data-fragment-index=1 style="font-size: 0.6em; margin-top:0;">
+        Plunger plots only: who would know that the values were skewed [...]
+        and that <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">the common statistical tests would be inappropriate?</span>”
+      </p>
+    </div>
+    <div class="col-35">
+      <img src="assets/img/lec/j-physiol-drummond-title.png" class="unbordered" width="100%" style="margin-top: 0; margin-bottom: 0;">
+      <img src="assets/img/lec/j-physiol-drummond-bargraph.png" class="unbordered fragment" data-fragment-index=1 width="100%" style="margin-top: 0; margin-bottom: 0;">
+    </div>
+    
+  </div>
+  <p class="sided" style="font-size: 0.65em;">
+    <span class="warning">"For better characterization of a sample, we prefer dots plots, or box plots</span> for their ability to display a minimum of five measures of the underlying data."
+  </p>
+</section>
+
+<section data-state="showFooterRight" data-footer="Source - <a href='https://www.jci.org/articles/view/63462' target='_blank'>Rockman H.A. (2012). 'Great expectations'. J Clin Invest 122 (4): 1133</a>">
+  <h3>Avoid making bar graphs</h3>
+  <div class="row">
+    <div class="col-55">
+      <img src="assets/img/lec/jci-spelled-out-white-on-transparent.png" class="border-muted" width="100%" style="margin-bottom: 0 !important; margin-top: 0;">
+      <p>
+        <ul style="font-size: 0.5em;">
+          <li>Impact Factor: 12.575 (2015). <br>The JCI is one of the top journals in the “Medicine, Research & Experimental” category.</li>
+        </ul>
+      </p>
+      <p class="quoted" style="font-size: 0.55em;">
+        To maintain the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">highest level of trustworthiness of data</span>, <span class="warning">we are encouraging authors to display data in their raw form</span> and not in a fashion that conceals their variance.
+      </p>
+      <p class="quoted" style="font-size: 0.55em;">
+        <span class="info">Presenting data as columns with error bars (dynamite plunger plots) conceals data</span>. We recommend that <span class="warning">individual data be presented</span> as dot plots shown next to the average for the group with appropriate error bars (Figure 1).
+      </p>
+    </div>
+    <div class="col-45">
+      <img class="unbordered" src="assets/img/lec/jci-editorial-fig1.png" width="100%">
+    </div>
+  </div>  
+</section>
+
+
+<section data-state="showFooterRight" data-footer="Source - <a href='http://www.nature.com/nmeth/journal/v11/n2/full/nmeth.2837.html' target='_blank'>Editorial of Nature Methods 11, 113 (2013)</a>">
+  <h3>Avoid making bar graphs</h3>
+  <div class="row">
+    <div class="col-60">
+      <img src="assets/img/lec/nature-methods-editorial.png" class="unbordered" width="100%">
+    </div>
+    <div class="col-40">
+      <p class="quoted" style="font-size: 0.7em; margin-top:0;">
+        [...] the <span class="info">amount of information</span> they provide is still <span class="info">limited to two values</span>, the mean and the spread.
+      </p>
+    </div>
+  </div>
+  <p class="sided" style="font-size: 0.65em;">
+    <span class="warning">"For better characterization of a sample, we prefer dots plots, or box plots</span> for their ability to display a minimum of five measures of the underlying data."
+  </p>
+</section>
+
+<section>
+  <h3>You've been warned before!</h3>
+  <div class="row">
+    <div class="col-5">
+      <p></p>
+    </div>
+    <div class="col-90">
+      <svg width="100%" viewBox="0 0 924 351" style="margin-top: 5%;">
+        <use xlink:href="assets/img/lec/wiley-coyote-plunger.svg#coyote"></use>
+        <use class="fragment" xlink:href="assets/img/lec/wiley-coyote-plunger.svg#arrow"></use>
+      </svg>
+    </div>
+  </div>
+  <aside class="notes">
+    Use bar graphs at your own risk
+    <br>
+    Bar grahs are dangerous material
+  </aside>
+</section>
+
+
+
+<section>
+  <h3>Describing a dataset</h3>
+  <div style="font-size: 0.75em; text-align: left;">
+    When describing a dataset, we generally consider the following three questions: <br>
+    <span style="margin-left: 1em;">
+    <ul>
+      <li>What is the general <span class="warning">shape</span> of the data?</li>
+      <li>Where are the data values <span class="warning">centered</span>?</li>
+      <li>How do the data <span class="warning">vary</span>?</li>
+    </ul></span>
+  </div>
+  <br>
+  <div class="row">
+    <p class=" sided col-40">These are all aspects of what we call the <span class="info">distribution</span> of the data.</p>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 576 216" style="margin-top: 5%;">
+        <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
+      </svg>
+      <!-- <img class="unbordered" src="assets/img/lec/dotplot-distribution.svg" width="100%">   -->
+    </div>
+  </div>
+</section>
+
+<!-- <section>
+  <h1 >1) Shape</h1>
+  <div class="row">
+    <div class="col-5">
+      <p></p>
+    </div>
+    <div class="col-90">
+      <svg width="100%" viewBox="0 0 576 216" style="margin-top: 5%;">
+        <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
+        <use  class="fragment" xlink:href="assets/img/lec/dotplot-distribution.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+</section> -->
+
+<section class="title-slide fullwidth">
+  <h1 class="center">-- 1 --<br> Shape</h1>
+  <div>
+    <svg width="75%" viewBox="0 42 576 216"">
+      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
+      <use  class="fragment" xlink:href="assets/img/lec/dotplot-distribution.svg#axes_2"></use>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h3>General shape of a distribution</h3>
+  <div>
+  <p class="quoted" style="font-size: 0.75em; margin-top: 0;">A <span class="warning">symmetric</span> distribution is one in which the left and right hand sides of the distribution are roughly equally balanced. <br>
+  A <span class="info">skewed</span> (non-symmetric) distribution is a distribution in which there is no such equal balance. <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">Right-skewness</span> refers to a longer right tail, while <span class="u" style="text-decoration-color: #d9534f;-webkit-text-decoration-color: #d9534f;">left-skewness</span> correspond to a longer left tail. <br>
+  A <span class="success">uniform</span> distribution is a specific symmetric distribution in which all outcomes are equally likely.
+  </p>
+  </div>
+  <img class="unbordered" width="80%" src="assets/img/lec/shape-distribution.svg">
+</section>
+
+<section class="title-slide fullwidth">
+  <h1 class="center">-- 2 --<br>Central tendency</h1>
+  <div>
+    <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
+      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
+      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_2"></use>
+      <use class="fragment" xlink:href="assets/img/lec/dotplot-distribution.svg#axes_3"></use>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h3>The mean</h3>
+  <p class="quoted">A common measure of central location is the (arithmetic) <span class="warning">mean</span>.
+  It is sometimes called the <span class="u">average</span>.</p>
+  <div class="row">
+    <p class="warning col-50" style="font-size: 1.5em; text-align: center; margin-bottom: 0.5em; margin-top: 0.5em;">$\bar{x}=\sum x_{i}$</p>
+    <p class="col-50" style="font-size: 0.8em; text-align: left; margin-bottom: 0.5em; margin-top: 0.5em;">
+      <span class="info">$\bar{x}$</span> for a sample (read "x-bar")<br>
+      <span class="info">$\mu$</span> for a population</p>
+  </div>
+  <p>Which corresponds to:</p>
+  <p style="margin-left: 0.8em; font-size: 1em;">$\bar{x}=\frac{x_{1}+x_{2}+...+x_{n}}{n}$</p>
+  <p style="margin-left: 0.8em; font-size: 1em;">$\bar{x}=\frac{\textrm{sum of all the observations}}{\textrm{number of observations}}$</p>
+</section>
+
+<section>
+  <h3>The trimmed mean</h3>
+  <p class="quoted">A <span class="warning">trimmed mean</span> refers to the calculation of the mean after discarding given parts of a sample (or distribution) at the high and low end (typically discarding an equal amount of both).
+  </p>
+  <p>The use of a trimmed mean "helps" eliminate the influence of data points on the tails that may affect the traditional mean.</p>
+  <aside class="notes">
+    We'll talk about that later.
+    <br>
+    The median can be regarded as a fully truncated mean and is most robust. As with other trimmed estimators, the main advantage of the trimmed mean is robustness and higher efficiency for mixed distributions and heavy-tailed distribution (like the Cauchy distribution), at the cost of lower efficiency for some other less heavily-tailed distributions (such as the normal distribution). For intermediate distributions the differences between the efficiency of the mean and the median are not very big, e.g. for the student-t distribution with 2 degrees of freedom the variances for mean and median are nearly equal.
+  </aside>
+</section>
+
+<section>
+  <h3>The median</h3>
+  <p class="quoted">
+    The <span class="warning">median</span> of a set of <span class="warning">ordered data values</span> is: <br>
+    <span style="margin-left: 1.5em;">- the middle entry (for an odd number of entries)</span><br>
+    <span style="margin-left: 1.5em;">- the average of the middle 2 values (for an even number</span> <br>
+      <span style="margin-left: 1.5em;">of entries)</span>
+  </p>
+  <svg width="75%" viewBox="0 0 239.5 109.5" style="margin-top: 1%;">
+    <use xlink:href="assets/img/lec/median.svg#median1"></use>
+    <use xlink:href="assets/img/lec/median.svg#median2"></use>
+  </svg>
+  <aside class="notes">
+    To find the median, your numbers have to be listed in numerical order from smallest to largest, so you may have to rewrite your list before you can find the median.
+  </aside>
+</section>
+
+<section>
+  <h3>The mode</h3>
+  <p class="quoted">
+    The <span class="warning">mode</span> is the value that occurs most often in the dataset. If no value in the dataset is repeated, then there is no mode this particular dataset.
+  </p>
+  <p style="margin-top: 1.5em;">What is the mode in the dataset below?</p>
+  <table style="font-size: 1.5em;">
+    <tr>
+      <td>4</td>
+      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
+      <td>9</td>
+      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
+      <td>11</td>
+      <td>7</td>
+      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
+      <td>3</td>
+      <td>7</td>
+      <td>8</td>
+      <td>6</td>
+      <td class="fragment highlight-bckg-yellow" data-fragment-index=1>5</td>
+      <td>12</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h3>Resistance</h3>
+  <p class="quoted">The term <span class="warning">resistance</span> is related to the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">impact of outliers</span> on a statistic.
+  In general, we say that a statistic is resistant if it is relatively <span class="warning">unaffected by extreme values</span>.
+  </p>
+  <p>The median and the mode are resistant, while the mean is not.</p>
+  <img class="unbordered" width="100%" src="assets/img/lec/mean-median-mode.svg">
+  <aside class="notes">
+    What about the minimum and maximum?
+  </aside>
+</section>
+
+<section>
+  <h3>Averages are misleading</h3>
+  <svg width="60%" viewBox="0 0 432 432" style="margin-top: 1%;">
+      <use xlink:href="assets/img/lec/map-usa-ship.svg#map"></use>
+      <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/map-usa-ship.svg#panama"></use>
+      <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/map-usa-ship.svg#caphorn"></use>
+      <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/map-usa-ship.svg#average"></use>
+    </svg>
+    <aside class="notes">
+      Not only mean is not resistant, but also it doesn't represent well the data.
+    </aside>
+</section>
+
+
+<section data-state="showFooterRight" data-footer="Source - <a href='http://data.un.org/Default.aspx' target='_blank'>United Nations Data Retrieval System</a>">
+  <h3>The mean is usually a bad descriptor</h3>
+  <div class="row">
+    <div class="col-50">
+      <p>Number of children per household in China (2012)</p>
+      <p><span class="fragment" data-fragment-index=1 style="margin-left: 0.7em; font-size: 1.6em;">Mean: <span class="warning">1.55</span></span><br>
+      <span class="fragment" data-fragment-index=2 style="margin-left: 0.7em; font-size: 1.6em;">Median: <span class="info">1</span></span></p>
+      <p class="fragment" data-fragment-index=3>More representative of the "typical" 2012 family <br>
+      (<span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">One Child Policy</span>)</p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 300 225" style="margin-top: 1%;">
+        <use xlink:href="assets/img/lec/family.svg#family"></use>
+        <use class="fragment current-visible" data-fragment-index=1 xlink:href="assets/img/lec/family.svg#childrenhalf"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/family.svg#childrenfull"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <h3>Other locations</h3>
+  <p class="quoted">The <span class="warning">minimum</span> is the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">smallest number</span> in the (sorted) dataset.
+  <br> <br>
+  The <span class="info">maximum</span> is the <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">largest number</span> in the (sorted) dataset</p>
+  <svg width="75%" viewBox="0 0 239.5 60.5" style="margin-top: 1%;">
+    <use xlink:href="assets/img/lec/min-max.svg#minmax"></use>
+  </svg>
+</section>
+
+<section class="title-slide fullwidth">
+  <h1 class="center">-- 3 --<br>Variation, spread</h1>
+  <div>
+    <svg width="70%" viewBox="0 42 576 216" style="margin-top: 5%;">
+      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
+      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_2"></use>
+      <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_3"></use>
+      <use class="fragment" xlink:href="assets/img/lec/dotplot-distribution.svg#axes_4"></use>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h3>The standard deviation</h3>
+  <p class="quoted" style="margin-bottom: 0;">A common measure of data variability is <br>the <span class="warning">standard deviation</span> (SD). It measures the spread of the data in a sample</p>
+  <div class="row">
+    <p class="warning col-60" style="font-size: 1.2em; text-align: right; margin-bottom: 0.5em; margin-top: 0.5em;">
+      $s=\sqrt{\fragindex{0}{\fraglight{highlight-red-gc}{\frac{\sum(x_{i}-\bar{x})^2}{n-1}}}}$
+    </p>
+    <div class="col-35">
+    <p class="fragment danger" data-fragment-index=1 style="font-size: 1.2em; text-align:center;">Variance</p>
+    <p><span class="info">$s$</span> for a sample <br>
+      <span class="info">$\sigma$</span> for a population</p>
+    </div>
+  </div>
+    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{(x_{1}-\bar{x})+(x_{2}-\bar{x})+...+(x_{n}-\bar{x})}{n-1}}$</p>
+    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{\textrm{sum of observed squared difference from sample mean}}{\textrm{number of observations - 1}}}$</p>
+  <aside class="notes">
+    <p>The SD can be loosely interpreted as the typical distance (in absolute value) between the data values and the mean of the distribution.</p>
+    <p>The larger the standard deviation, the more variability there is in the data and the more spread out the data are.</p>
+    <p>In practice, we generally compute the standard deviation using a calculator or computer software. The units for the standard deviation are the same as the units for the original data.</p>
+  </aside>
+</section>
+
+<section>
+  <h3>The range</h3>
+  <p class="quoted">The <span class="warning">range</span> gives you the most basic information about the spread of a dataset. It is calculated by the (arithmetic) <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">difference between the lowest and highest data value</span>.</p>
+  <svg width="75%" viewBox="0 0 239.5 81" style="margin-top: 1%;">
+    <use xlink:href="assets/img/lec/min-max.svg#minmax"></use>
+    <use class="fragment" xlink:href="assets/img/lec/min-max.svg#range"></use>
+  </svg>
+</section>
+
+
+<section>
+  <h3>Interquantile range</h3>
+  <p class="quoted" style="font-size: 0.7em;">The median divides the data into two equal halves (it is the $50^{th}$ percentile). If we divide each of those halves again, we obtain two additional statistics known as the <span class="warning">first (Q1) and third (Q3) quartiles</span>, which are the $25^{th}$ and $75^{th}$ percentiles.</p>
+  <p><span class="u">Interquartile range:</span> <span class="warning" style="margin-left: 0.5em;">$\textrm{IQR} = Q3 − Q1$</span></p>
+  <div class="row">
+    <div class="col-55">
+      <img class="unbordered" src="assets/img/lec/quartiles.svg" width=100%>
+    </div>
+    <div class="col-45 fragment">
+      <p style="font-size: 0.5em; margin-bottom: 0;">A value is considered an <span class="info">outlier</span> if it is:</p>
+      <div class="row framed border-info">
+        <div class="col-10">
+          <p style="font-size:0.5em; margin-top: 0.55em;">or</p>
+        </div>
+        <div class="col-90 left" style="font-size: 0.55em;">
+          smaller than $Q1−1.5\times IQR$<br>
+          larger than $Q3+1.5\times IQR$
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Consider again the data on mammal longevity in Data 2.2 on page 64. Our intu- ition suggests that the longevity of 40 years for the elephant is an unusually high value compared to the other lifespans in this sample. How do we determine objec- tively when such a value is an outlier? The criteria should depend on some measure of location for “typical” values and a measure of spread to help us judge when a data point is “far” from those typical cases. One approach, typically used for identifying outliers for boxplots, uses the quartiles and interquartile range. As a rule, most data values will fall within about 1.5(IQR)’s of the quartiles.
+  </aside>
+</section>
+
+
+
 <section>
   <h3>Categorical variable (propotions)</h3>
-  <p>Proportions are also called <span class="warning">relative frequencies</span> and we can display them in a <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">relative frequency table</span>.</p>
+  <p>Proportions are also called <span class="warning">relative frequencies</span> and we can display them in a relative frequency table</span>.</p>
 
   <div class="row">
     <div class="col-1">
@@ -920,77 +1097,10 @@ data-transition="none-in slide-out">
   </aside>
 </section>
 
-<section data-transition="slide-in">
-  <h3>Bar graphs are evil</h3>
-  <p class="em warning col-80">1) Part of the range covered by the bar might have never been observed in the sample</p>
-  <svg width="80%" viewBox="0 0 504 288" style="margin-top: 1%;">
-    <use xlink:href="assets/img/lec/barplot-distributions.svg#axes_1"></use>
-    <use xlink:href="assets/img/lec/barplot-distributions.svg#axes_2"></use>
-  </svg>
-</section>
-
-<!-- <section>
-  <h3>Bar graphs are evil</h3>
-  <p>2) They conceal the variance & distribution of the data</p>
-  <div class="row">
-    <div class="col-50">
-      <svg width="100%" viewBox="0 0 432 324" style="margin-top: 1%;">
-        <use xlink:href="assets/img/lec/barplot-same.svg#axes_1"></use>
-        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/barplot-same.svg#axes_2"></use>
-      </svg>
-    </div>
-    <div class="col-50">
-      <p class="info">Look the same?</p>
-      <p class="danger fragment" data-fragment-index=1>It's not!</p>
-    </div>
-  </div>
-</section> -->
-
-<section data-transition="none-in slide-out">
-  <h3>Bar graphs are evil</h3>
-  <p class="em warning col-80">2) They conceal the variance and the underlying distribution of the data</p>
-  <div class="row">
-    <div class="col-45 info">Look the same?</div>
-    <div class="col-50 danger fragment" data-fragment-index=1>It's not!</div>
-  </div>
-  <div class="col-90">
-    <svg width="100%" viewBox="0 0 576 252" style="margin-top: 1%;">
-      <use xlink:href="assets/img/lec/barplot-same-side.svg#axes_1"></use>
-      <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/barplot-same-side.svg#axes_2"></use>
-    </svg>
-  </div>
-</section>
-
-<section>
-  <h3>Averages are misleading</h3>
-  <svg width="60%" viewBox="0 0 432 432" style="margin-top: 1%;">
-      <use xlink:href="assets/img/lec/map-usa-ship.svg#map"></use>
-      <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/map-usa-ship.svg#panama"></use>
-      <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/map-usa-ship.svg#caphorn"></use>
-      <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/map-usa-ship.svg#average"></use>
-    </svg>
-</section>
 
 
-<section data-state="showFooterRight" data-footer="Source - <a href='http://data.un.org/Default.aspx' target='_blank'>United Nations Data Retrieval System</a>">
-  <h3>The mean is usually a bad descriptor</h3>
-  <div class="row">
-    <div class="col-50">
-      <p>Number of children per household in China (2012)</p>
-      <p><span class="fragment" data-fragment-index=1 style="margin-left: 0.7em; font-size: 1.6em;">Mean: <span class="warning">1.55</span></span><br>
-      <span class="fragment" data-fragment-index=2 style="margin-left: 0.7em; font-size: 1.6em;">Median: <span class="info">1</span></span></p>
-      <p class="fragment" data-fragment-index=3>More representative of the "typical" 2012 family <br>
-      (<span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">One Child Policy</span>)</p>
-    </div>
-    <div class="col-50">
-      <svg width="100%" viewBox="0 0 300 225" style="margin-top: 1%;">
-        <use xlink:href="assets/img/lec/family.svg#family"></use>
-        <use class="fragment current-visible" data-fragment-index=1 xlink:href="assets/img/lec/family.svg#childrenhalf"></use>
-        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/family.svg#childrenfull"></use>
-      </svg>
-    </div>
-  </div>
-</section>
+
+
 
 <!-- <section id="liveplot">
   <h3>Live dot plot</h3>
