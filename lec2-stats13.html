@@ -271,6 +271,11 @@ data-transition="slide-in">
   </table>
   </div>
   </div>
+  <aside class="notes">
+    <p>
+      So if you were just looking at those data in their table, you would think that there is not much to see here. They are basically the same.
+    </p>
+  </aside>
 </section>
 
 <section data-state="showFooterRight" data-footer="Source - <a href='http://www.sjsu.edu/faculty/gerstman/StatPrimer/anscombe1973.pdf' target='_blank'>Anscombe, F. J. (1973). 'Graphs in Statistical Analysis'. American Statistician 27 (1): 17–21</a>"
@@ -286,6 +291,13 @@ data-transition="none-in slide-out">
     <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/anscombe.svg#axes_7"></use>
     <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/anscombe.svg#axes_8"></use>
   </svg>
+  <aside class="notes">
+    <p>
+      But there are in fact 4 distinct stories here.
+      <br>
+      So it is important to know how to describe and represent data (transition).
+    </p>
+  </aside>  
 </section>
 
 <section>
@@ -348,7 +360,7 @@ data-transition="none-in slide-out">
 </section>
 
 <section>
-  <h3>Categorical variable (proportion)</h3>
+  <h3>Proportions for categorical variables</h3>
   <p>Proportions are also called <span class="warning">relative frequencies</span> and we can display them in a relative frequency table</span>.</p>
 
   <div class="row">
@@ -414,7 +426,7 @@ data-transition="none-in slide-out">
 </section>
 
 <section>
-  <h3>Visualizing proportion data</h3>
+  <h3>Distribution of proportion data</h3>
   <svg width="65%" viewBox="0 0 551.2 395.2" style="margin-top: 0;">
     <use xlink:href="assets/img/lec/pie-bar.svg#pie"></use>
     <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/pie-bar.svg#bar"></use>
@@ -431,14 +443,47 @@ data-transition="none-in slide-out">
 </section>
 
 <section>
-  <h3>Visualizing proportion data</h3>
-  <svg width="90%" viewBox="0 0 259.35 171.545" style="margin-top: 0;">
-    <use xlink:href="assets/img/lec/bar-categorical-data.svg#all"></use>
-  </svg>
+  <h3>Distribution of proportion data</h3>
+  <div class="row">
+    <div class="col-80">
+      <svg width="100%" viewBox="0 2 259.35 56" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/bar-categorical-data.svg#stacked"></use>
+      </svg>
+    </div>
+    <div class="col-20">
+      <p style="font-size: 0.5em;">
+        <span class="u">Stacked bars</span> (overall quantity)
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-80">
+      <svg width="100%" viewBox="0 58 259.35 56" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/bar-categorical-data.svg#layered"></use>
+      </svg>
+    </div>
+    <div class="col-20">
+      <p style="font-size: 0.5em;">
+        <span class="u">Layered bars</span> (distribution of values in the categories)
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-80">
+      <svg width="100%" viewBox="0 114 259.35 56" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/bar-categorical-data.svg#grouped"></use>
+      </svg>
+    </div>
+    <div class="col-20">
+      <p style="font-size: 0.5em;">
+        <span class="u">Grouped bars</span> (comparison of categories + items)
+      </p>
+    </div>
+  </div>
 </section>
 
 <section data-state="showFooterRight" data-footer="Source - 2010 World Almanac, p. 292">
-  <h3>Shape of quantitative variables</h3>
+  <h3>Distribution of quantitative variables</h3>
   <p>A common way to visualize the shape of a moderately sized dataset is a <span class="warning">dotplot</span>.</p>
   <table style="font-size: 0.5em;">
     <thead>
@@ -556,14 +601,48 @@ data-transition="none-in slide-out">
   </table>
 
   <div class="row">
-  <div class="col-5">
-    <p></p>
-  </div>
-    <div class="col-45">
-      <img src="assets/img/lec/mammals-longevity-dotplot.svg" class="unbordered" width="100%">
+    <div class="col-10">
+      <p></p>
     </div>
-    <div class="col-45 fragment">
-      <img src="assets/img/lec/mammals-longevity-hist.svg" class="unbordered" width="100%">
+    <div class="col-65">
+      <svg width="100%" viewBox="0 65 360 216" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/mammals-longevity-dotplot.svg#axes_1"></use>      
+      </svg>
+    </div>
+    <div class="col-25">
+      <p class="fragment framed" style="font-size: 0.6em;">
+        <span class="u">Note:</span><br> 
+        For this particular dataset, values are integers and can be easily stacked.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Simplifying a dotplot</h3>
+  <p style="margin-top: 0;">A dotplot can be hard to build, and visually dots can overlap if the values are very similar.</p>
+  <div class="row">
+    <div class="col-65">
+      <svg width="100%" viewBox="40 20 380 288" style="margin-top: 0;">
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/dotplot-histo.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/dotplot-histo.svg#axes_4"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/dotplot-histo.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/dotplot-histo.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-35">
+      <p class="fragment" data-fragment-index=1 style="font-size: 0.6em;">
+        1- Define "boundaries"
+      </p>
+      <p class="fragment" data-fragment-index=2 style="font-size: 0.6em;">
+        2- Count the number of elements inside each zone
+      </p>
+      <p class="fragment" data-fragment-index=3>
+        This is the process to make what is called a <span class="warning">histogram</span>.
+      </p>
+    </div>
+  </div>
+
 </section>
 
 <section data-menu-title="Histogram (basics)">
@@ -680,9 +759,11 @@ data-transition="none-in slide-out">
   </div>
   </div>
 
-  <p class="sided fragment col-90" data-fragment-index=2>
+  <p class="sided fragment col-90" data-fragment-index=2 style="margin-top: 0; font-size: 0.6em;"">
     <span class="u">Note:</span><br>
-    Number of bins = <span class="warning">$\sqrt{n}$</span> is a good start to explore your data.
+    - Number of bins = <span class="warning">$\sqrt{n}$</span> is a good start to explore your data.
+    <br>
+    - Usually all the bins cover the same data range (similar bin width), but uneven bins can also be constructed.
   </p>
   <aside class="notes">
     <p>
@@ -705,7 +786,7 @@ data-transition="none-in slide-out">
 </section>
 
 <section data-menu-title="Histogram (interactive)" id="histogram">
-  <h3>The histogram</h3>
+  <h3>The characteristics of a histogram</h3>
   <div class="row">
     <div class="col-25 right">
       <label>Distribution:</label>
@@ -848,7 +929,7 @@ data-transition="none-in slide-out">
 </section>
 
 <section>
-  <h3>Averages are misleading</h3>
+  <h3>Averages can be misleading</h3>
   <svg width="60%" viewBox="0 0 432 432" style="margin-top: 1%;">
       <use xlink:href="assets/img/lec/map-usa-ship.svg#map"></use>
       <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/map-usa-ship.svg#panama"></use>
@@ -862,7 +943,7 @@ data-transition="none-in slide-out">
 
 
 <section data-state="showFooterRight" data-footer="Source - <a href='http://data.un.org/Default.aspx' target='_blank'>United Nations Data Retrieval System</a>">
-  <h3>The mean is usually a bad descriptor</h3>
+  <h3>Pick your central descriptor wisely</h3>
   <div class="row">
     <div class="col-50">
       <p>Number of children per household in China (2012)</p>
@@ -982,9 +1063,17 @@ data-transition="none-in slide-out">
     </div>
   </div>
   <aside class="notes">
-    Consider again the data on mammal longevity in Data 2.2 on page 64. Our intu- ition suggests that the longevity of 40 years for the elephant is an unusually high value compared to the other lifespans in this sample. How do we determine objec- tively when such a value is an outlier? The criteria should depend on some measure of location for “typical” values and a measure of spread to help us judge when a data point is “far” from those typical cases. One approach, typically used for identifying outliers for boxplots, uses the quartiles and interquartile range. As a rule, most data values will fall within about 1.5(IQR)’s of the quartiles.
+    Consider again the data on mammal longevity in Data 2.2 on page 64. Our intuition suggests that the longevity of 40 years for the elephant is an unusually high value compared to the other lifespans in this sample. How do we determine objec- tively when such a value is an outlier? The criteria should depend on some measure of location for “typical” values and a measure of spread to help us judge when a data point is “far” from those typical cases. One approach, typically used for identifying outliers for boxplots, uses the quartiles and interquartile range. As a rule, most data values will fall within about 1.5(IQR)’s of the quartiles.
   </aside>
 </section>
+
+<section class="title-slide fullwidth">
+  <h1 class="center">Present your<br> (quantitative) data</h1>
+  <div>
+    <img src="assets/img/lec/data-presentation.svg" class="unbordered">
+  </div>
+</section>
+
 
 <section data-transition="slide-in">
   <h3>Bar graphs are evil</h3>
@@ -1125,9 +1214,45 @@ data-transition="none-in slide-out">
   </aside>
 </section>
 
+<section>
+  <h3>Dotplot</h3>
+  <p>
+    If the number of data is relatively small, showing directly the raw data and accompanying mean/median is best.
+  </p>
+  <img src="assets/img/lec/dotplot-data.svg" class="unbordered">
+  
+  <aside class="notes">
+    <p>
+      Average temperature on April 14th for the 21 years ending in 2015 is given in Table 2.20 for Des Moines, Iowa, and San Francisco, California.
+    </p>
+  </aside>
+</section>
 
+<section>
+  <h3>Boxplot</h3>
+  <p class="sided" style="margin-top:0; font-size: 0.7em;">
+    A boxplot is a graphical display of the <span class="warning">five number summary</span> for a quantitative variable. It shows the general shape of the distribution, identifies the middle 50% of the data, and highlights any outliers.
+  </p>
+  <div class="row">
+    <div class="col-55">
+      <img class="unbordered" src="assets/img/lec/boxplot-ex.svg" width=100%></img>
+    </div>
+    <div class="col-45">
+      <p style="margin-bottom: 0.3;">A boxplot includes:
+      <ul style="font-size: 0.6em; margin-top: 0;">
+        <li>A box stretching from <span class="warning">Q1</span> to <span class="warning">Q3</span></li>
+        <li>A line that divides the box drawn at the <span class="warning">median</span></li>
+        <li>A line from each quartile to the <span class="warning">most extreme data value</span> <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">that is not an outlier</span>. (if no outliers minimum and maxixum)</li>
+        <li>Each <span class="warning">outlier</span> plotted individually</li>
+      </ul>
+      </p>
+    </div>
+  </div>
+</section>
 
-
+<section>
+  
+</section>
 
 
 <!-- <section id="liveplot">

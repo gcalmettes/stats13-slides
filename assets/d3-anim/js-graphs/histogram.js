@@ -38,6 +38,7 @@ gc.histogram.nbins = 15;
 gc.histogram.ymax = gc.histogram.data.length;
 // format of text on histogram bars
 gc.histogram.formatCount = d3.format(",.0f");
+gc.histogram.formatProportion = d3.format(",.2f");
 
 // the svg container
 gc.histogram.svg = d3.select("#histogram .placeholder").append("svg")
@@ -115,7 +116,12 @@ gc.histogram.update = function() {
     .attr("y", -14)
     .attr("x", (gc.histogram.xscale(gc.histogram.bins[0].x1) - gc.histogram.xscale(gc.histogram.bins[0].x0)) / 2)
     .attr("text-anchor", "middle")
-    .text(function(d) { return gc.histogram.formatCount(d.length); });
+    .text(function(d) { 
+      if(d3.select("#histogram #checkbox_norm").property("checked")){
+        return gc.histogram.formatProportion(d.length/gc.histogram.nsample);} 
+      else {
+        return gc.histogram.formatCount(d.length); }
+      });
   
   // individual data
   gc.histogram.yscale2 = d3.scaleLinear()
