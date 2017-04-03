@@ -182,9 +182,14 @@ section[data-transition*="none-in"].present {
 .reveal p,
 .reveal div p {
   text-align: left;
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 
+.reveal ul,
+.reveal div ul,
+.reveal p ul {
+  font-size: 0.8em;
+}
 .tab { display:inline-block; 
        margin-left: 40px !important; }
 
@@ -408,9 +413,13 @@ th {
 .col-35 { width: 35%; }
 .col-38 { width: 38%; }
 .col-40 { width: 40%; }
+.col-43 { width: 43%; }
+.col-44 { width: 44%; }
 .col-45 { width: 45%; }
 .col-50 { width: 50%; }
 .col-55 { width: 55%; }
+.col-56 { width: 56%; }
+.col-57 { width: 57%; }
 .col-60 { width: 60%; }
 .col-64 { width: 64%; }
 .col-65 { width: 65%; }

@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 3 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <!-- <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" /> -->
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg7.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 3</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">Introduction to <br>hypothesis testing</h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h3>Last time</h3>
+  <p class="sided">Importance of visualizing our data</p>
+  <p class="sided">Know your dataset: <br>Distribution / descriptors for central tendency / spread</p>
+  <p class="sided">How to present categorical and quantitative variables</p>
+</section>
+
+<section>
+  <h3>Statistical inference</h3>
+  <p class="sided">
+    A key step in the statistical investigation method is drawing conclusions beyond the
+    observed data. Statisticians often call this <span class="warning">statistical inference</span>.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p>They are 4 main types of conclusions (inferences) that <br>
+      we can draw from data:</p>
+    </div>
+    <div class="col-40">
+      <ul>
+        <li class="fragment highlight-blue-gc" data-fragment-index=1>Significance</li>
+        <li>Estimation</li>
+        <li>Generalization</li>
+        <li>Causation</li>
+      </ul>
+    </div>
+  </div>
+  <p class="fragment sided border-info" data-fragment-index=2 style="font-size: 0.7em;">
+    Could the observed result be considered <span class="info">statistically significant</span>?
+    <br>
+    Is our result unlikely to happen by <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">random chance</span>?
+  </p>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Can dolphins communicate?</h3>
+  <p class="push-right" style="font-size: 0.6em; margin-top:0;">Dr. Jarvins Bastian's experiment (1964)</p>
+  <div class="col-100">
+    <svg width="85%" viewBox="0 0 584.8 360" style="margin-top: 0;">
+      <use xlink:href="assets/img/lec/dorris-buzz.svg#dolphins"></use>
+      <use class="fragment" xlink:href="assets/img/lec/dorris-buzz.svg#curtain"></use>
+    </svg>
+  </div>
+  <!-- <img src="assets/img/lec/dorris-buzz.svg" class="unbordered" width=85%> -->
+  <aside class="notes">
+    In 1964, Dr. Jarvis Bastian trained two dolphins, Buzz and Doris, to push one 
+    of two switches in a pool. If he shined a constant light on them, the dolphins 
+    were trained to push the switch on the right to get a fish. If the light blinked,
+    the dolphins were trained to push the switch on the left. The
+    dolphins had no problems learning this behavior.
+  </aside>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Can dolphins communicate?</h3>
+  <p style="font-size: 0.7em;">
+    In one phase of the study, Dr. Bastian had Buzz attempt to push the correct button 
+    a total of 16 different times. <br>
+    <span style="font-size: 0.9em;">
+      => Buzz pushed the correct button 
+      <span class="warning">15 out of 16 times</span>. <span class="fragment info">($\overset{\hat{}}{p} = \frac{15}{16} = 0.938$)</span> 
+    </span>
+  </p>
+  <p class="sided fragment">
+    <span class="u">Think about it:</span><br>
+    Based on these data, do you think Buzz somehow knew which button to push? <br>
+    Is 15 out of 16 correct pushes convincing to you? <br>
+    Or do you think that Buzz could have just been guessing? <br>
+  </p>
+  <div class="row">
+    <div class="sided fragment left col-66 border-danger" style="font-size: 0.7em;">
+      <ul>
+        <li>Buzz is doing something other than just guessing (his probability of a correct button push is more than 0.50)</li>
+        <li>Buzz is just guessing (his probability of a correct button push is 0.50) and he got really lucky in these 16 attempts</li>
+      </ul>
+    </div>
+    <div class="col-33 fragment" style="font-size: 0.7em;">
+      <span class="danger">How could we test our hypothesis?</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>The chance model</h3>
+  <p class="sided">
+    Statisticians often employ <span class="warning">chance models</span> to generate data
+    from random processes to help them investigate such processes.
+  </p>
+  <div class="row">
+    <div class="col-50 fragment" data-fragment-index=1>
+      <p>
+      What would be a good simulation model for Buzz & Doris communication experiment?
+      <br>
+      <span class="fragment" data-fragment-index=2>
+        => <span class="info">50/50 chance model</span>
+      </span>
+      </p>
+    </div>
+    <div class="col-50">
+      <table style="font-size: 0.8em;" class="fragment" data-fragment-index=3>
+        <thead>
+          <tr>
+            <th bgcolor="#636c72">Model</th>
+            <th bgcolor="#636c72">Experiment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Coin flip</td>
+            <td>Button choice by Buzz</td>
+          </tr>
+          <tr>
+            <td>Heads</td>
+            <td>Correct button</td>
+          </tr>
+          <tr>
+            <td>Tail</td>
+            <td>Wrong button</td>
+          </tr>
+          <tr>
+            <td class="fragment highlight-current-bckg-blue" data-fragment-index=4 style="vertical-align: middle;">Chance of heads</td>
+            <td class="fragment highlight-current-bckg-blue" data-fragment-index=4>Probability of Buzz <br>pressing the correct button</td>
+          </tr>
+          <tr>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=5>One set of <br>16 coin flips</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=5>One set of <br>16 experiments</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="left fragment success" data-fragment-index=6>
+  Let's simulate it!
+  </div>
+</section>
+
+<!-- <section id="liveplotcoinflip"> -->
+<section>
+  <h3>In class simulation - Live data</h3>
+  <p style="margin-top: 0;">
+    If Buzz was just guessing which button to push each time, what would be the
+    number of correct choices we would observe for 16 attempts?
+  </p>
+  <div class="row">
+    <div class="col-50 sided"> 
+      <p style="font-size: 0.6em;">
+        1- Flip a coin <span class="warning">16 times</span>
+      </p>
+      <p style="font-size: 0.6em;">
+        2- Record the <span class="warning">number of heads</span> that you obtain,
+        which represents the number of correct choice that Buzz got by chance in 
+        his hypothetical 16 attempts
+      </p>
+      <p style="font-size: 0.6em;">
+        3- Enter this number in the spreedsheet in front of your name <br>
+         (please only fill up the value for your name!)
+      </p>
+      <p class="info">https://goo.gl/cYUbFn</p>
+    </div>
+    <div class="col-40">
+      <div class="placeholder"></div>
+    </div>
+  </div>  
+</section>
+
+<section>
+  
+</section>
+
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Google spreadsheet to javascript -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+  <!-- D3 -->
+  <script src="assets/js/d3.v4.min.js"></script>
+  <script src="assets/js/d3-selection-multi.v0.4.min.js"></script>
+
+    <!-- D3 in REVEAL -->
+  <script src="assets/js/d3-in-reveal.js"></script>
+    <!-- The D3 config & animations -->
+    <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip.js"></script>
+
+
+</body>
+</html>
