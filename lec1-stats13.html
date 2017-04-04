@@ -37,6 +37,8 @@
 
 <section class="title-slide" data-menu-title="STATS 13">
   <div class="big-title-passionone"> STATS 13</div>
+  <p class="muted" style="text-align: center; font-size: 1.1em">Introduction to statistical methods <br>
+     for the life and health sciences</p>
 </section>
 
 <section>
@@ -65,37 +67,45 @@
     </div>
     <div class="col-50">
       <p>No official textbook</p>
-      <p class="framed"><span class="u strong">Homeworks:</span><br> assigned Mondays (11:00AM)<br> due before the next Monday (10:00AM)</p>
+      <p class="framed">
+        <span class="u strong">Homeworks:</span><br> assigned Mondays (11:00AM)<br>
+        due before the next Monday (10:00AM)</p>
+      <p>
+        <span class="u">Office hours:</span><br>
+        W/F: 1:30-3:30PM (MRL 3761)
+      </p>
+      <p class="fragment">
+        <span class="u">Class-related communication:</span><br>
+        Piazza forum (peer learning)
+      </p>
     </div>
   </div>
-</section>
-
-<section class="title-slide" data-background='assets/img/shared/bckg2.jpg' data-state="alpha-04">
-  <div class="content-box framed border-muted">
-    <h2>Stats 13</h2>
-    <h1 style="color: #FFFFFF">Lecture 1</h1>
-  </div>
-    <h3 style="color: #FFFFFF">Introduction</h3>
-    <div class="col-90">
-      <p class="smaller push-right">Guillaume Calmettes</p>
-  </div>
-</section>
-
-<section class="title-slide">
-  <h1>Statistics?</h1>
   <aside class="notes">
-    What are statistics?
-    What is it used for?
-    <p>=> Analyze (complex) datasets, tell something with data</p>
-    <p>Formula</p>
+    Piazza forum: if you know an answer (or think you do know an answer), please help your colleague.
+    <br>
+    1- Will help your colleague (it's always nice and feel good) <br>
+    2- Will help you to formulate what you think you understood <br>
+    3- If this is not correct, Brooke and I will intervene and re-explain, so you'll learn 
   </aside>
 </section>
 
 <section>
   <h3>Understanding > knowing</h3>
-  <!-- <div class="col-50"> -->
-    <img class="unbordered" src="assets/img/lec/answer.jpg" width="48%">
-  <!-- </div> -->
+  <div class="row">
+    <div class="col-50">
+      <img class="unbordered" src="assets/img/lec/answer.jpg" width="100%">
+    </div>
+    <div class="col-50">
+      <p>
+        Getting an answer is very different from knowing <span class="warning">WHY</span> 
+        we get this answer.</p>
+      <p style="margin-bottom: 0;">
+        Understanding statistics implies understanding the
+        <span class="warning">underlying process</span> leading to the answer we get.
+      </p>
+      <img src="assets/img/lec/push-button.svg" class="unbordered fragment" width=65% style="margin-top:0;">
+    </div>
+  </div>
   <aside class="notes">
     <p>
       This class is a bit different => RESAMPLING & SIMULATIONS.
@@ -113,6 +123,65 @@
       I am here is to train the next generation of scientists, the next generation of entrepreneurs,
       the next generation of leader, who will be able to understand to analyze any kind of new data they encounter.
     </p>
+  </aside>
+</section>
+
+<section>
+  <h3>Motivation for this class</h3>
+  <p class="quoted" style="font-size: 0.8em; margin-top:0;">
+    What we teach is largely the technical machinery of numerical approximations based on the normal
+    distribution and its many subsidiary cogs. 
+    This machinery was once necessary, because 
+    <span class="fragment highlight-yellow-gc"> the conceptually simpler alternative based on permutations was computationally beyond our reach</span> [...]
+    <br>
+    <br>
+    Before computers statisticians had no choice. These days we have no excuse. 
+    <span class="fragment highlight-bckg-blue">Randomization-based
+    inference makes a direct connection between data production and the logic of inference</span> that
+    deserves to be at the core of every introductory course.”
+  </p>
+  <p class="push-right em" style="margin-top: 0;">
+   <span class="u">George W. Cobb </span><br> (2005 USCOTS presentation)</p>
+
+   <aside class="notes">
+     Cobb is a Professor Emeritus of Statistics.
+     <br>
+     He served as vice-president of American Statistical Association
+     <br>
+     He has published numerous books.
+   </aside>
+
+</section>
+
+<section class="title-slide" data-background='assets/img/shared/bckg2.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 1</h1>
+  </div>
+    <h3 style="color: #FFFFFF">Introduction</h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+  <aside class="notes">
+    This week will be all about introducing all the basic notions and terminology we will
+    use during the full quarter.
+    <br>
+    (unfortunately we have to do this so everyone is on the same page and you'll be able to
+    talk with statisticians)
+    <br>
+    Don't worry if you find the first 2 lectures boring, nex
+  </aside>
+</section>
+
+<section class="title-slide">
+  <h1>Statistics?</h1>
+  <aside class="notes">
+    What are statistics? <br>
+    What is it used for? <br>
+    If I tell you the word "Statistics", what comes to your mind? <br>
+
+    <p>=> Analyze (complex) datasets, tell something with data</p>
+    <p>Formula</p>
   </aside>
 </section>
 
@@ -139,8 +208,8 @@
     </div>
     <div class="col-35" style="margin-top: 3%;">
       <p>
-      to assist
-      in <br><span class="fragment highlight-bckg-yellow">making more effective decisions</span>.
+      to <span class="fragment highlight-bckg-blue" data-fragment-index=2>assist</span>
+      in <br><span class="fragment highlight-bckg-yellow" data-fragment-index=1>making more effective decisions</span>.
       </p>
     </div>
   </div>
@@ -152,8 +221,65 @@
       decisions someone else has made based on data.
       <br>
       Statistics is basically the science of how to deal with all those data, and what information can I extract from them.
+      <br>
+      Use to make predictions
+      <br>
+      key word here is "assist". It won't give you the right answer. It will help you choose one.
     </p>
   </aside>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Statistics is not an exact science</h3>
+  <p class="u" style="margin-top: 0;">2017 NCAA Finale (Apr 3)</p>
+  <img src="assets/img/lec/statistics-ncaa-win.png" class="unbordered" width=85%>
+</section>
+
+<section data-transition="none">
+  <h3>Statistics is not an exact science</h3>
+  <p class="u" style="margin-top: 0;">2017 NCAA Finale (Apr 3)</p>
+  <div class="row">
+    <div class="col-50">  
+      <img src="assets/img/lec/statistics-ncaa-article-title.png" class="unbordered" width=100%>
+      <img src="assets/img/lec/statistics-ncaa-article-paragraph.png" class="unbordered" width=100%>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/statistics-ncaa-twitter.png" class="unbordered push-left" width=90%>
+      <p class="fragment">
+        <span class="u">Statistics:</span><br>
+        <span class="info">Numbers</span> 
+          (players' height, offensive points, opposite team score, ...)
+      </p>
+      <p class="fragment">
+        <span class="u">Bookmakers:</span><br>
+        <span class="warning">Numbers + history</span> <br>("team experience")
+      </p>
+    </div>
+  </div>
+  <aside class="notes">
+    Stats only numbers <br>
+    Vegas took in account what was the team experience playing a finale, can they handle pressure? <br>
+    Implication is that when you hear/read "the groups are different", it is in fact "most likely different", the opposite can be true (but with less certitude).
+  </aside>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Statistics is not an exact science</h3>
+  <p class="u" style="margin-top: 0;">2017 NCAA Finale (Apr 3)</p>
+  <div class="row" style="margin-bottom: 0;">
+    <div class="col-50">
+      <img src="assets/img/lec/statistics-ncaa-score-ingame.png" class="unbordered" width=100% style="margin-bottom: 0;">
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/statistics-ncaa-score-final.png" class="unbordered fragment" width=100% style="margin-bottom: 0;">
+    </div>
+  </div>
+  <p class="fragment sided" style="margin-top: 0;">
+    There is no <span class="success">RIGHT</span> or <span class="danger">WRONG</span> in Statistics, <br>
+    there is only 
+      <span class="u" style="text-decoration-color: #5cb85c;-webkit-text-decoration-color: #5cb85c;">(most) likely</span> or 
+      <span class="u" style="text-decoration-color: #d9534f;-webkit-text-decoration-color: #d9534f;">(most) unlikely</span>
+  </p>
 </section>
 
 <section>
@@ -266,13 +392,15 @@
     <use class="fragment fade-out" xlink:href="assets/img/lec/london-thames.svg#letters"></use>
   </svg>
  -->  <aside class="notes">
-    During the 19th century, drinking water was supplied to an increasing number of houses by private, profit-making companies via a network of pipes, but many households still depended on drawing water from street pumps. 
-    <br>
+    Thames was very polluted <br>
     By the arrival of the 19th century, the River Thames had become the most contaminated river in the world.  
     <br>
     Toilets were widely introduced in London between 1830 and 1850: main sewers were introduced in the 1840s.  
     <br>
     The sewers, elongated cesspools with overflows at the end emptied into the River Thames, which was also a dumping ground for animal and industrial wastes.  
+    <br>
+    <br>
+    When ship were coming to harbor, crew started to develop cholera symptom only when they were going in contact with people of the city.
   </aside>
 </section>
 
@@ -527,7 +655,7 @@
       Usually data is stored and presented in a dataset,
       comprised of variables measured on observational units (or cases).
       <br>
-      In any dataset, it is important to understand exactly what each variable is mea- suring and how the values are coded. First column is usually used to provide an identier for each of the individuals in the study (House number).
+      In any dataset, it is important to understand exactly what each variable is measuring and how the values are coded. First column is usually used to provide an identier for each of the individuals in the study (House number).
       <br>
       We see that there are different types of variables. Categories and numbers.
     </p>
@@ -732,8 +860,8 @@
     <p style="font-size: 0.7em;">Snow analyzed the spatial pattern of the disease based on:
       <br>
       <ul style="font-size: 0.7em;">
-        <li>Water sources</li>
         <li>Cholera fatal attacks</li>
+        <li>Water sources</li>
       </ul>
     </p>
     <p class="fragment sided border-success" data-fragment-index="1">
@@ -756,17 +884,10 @@
       Deaths concentrated around Broad Street pump. Dr. Snow worked around the clock to track down information from hospital and public records on when the outbreak began and whether the victims drank water from the Broad Street pump. Snow suspected that those who lived or worked near the pump were the most likely to use the pump and thus, contract cholera.
       <br>
       But they are also data that are a bit different. Anomalies.
-      Snow also investigated groups of people who did not get cholera and tracked down whether they drank pump water. That information was important because it helped Snow rule out other possible sources of the epidemic besides pump water.
       <br>
-      A workhouse, or prison, near Soho had 535 inmates but almost no cases of cholera. Snow discovered the workhouse had its own well and bought water from the Grand Junction Water Works.
+      None of the workers at the Broad Street brewery had cholera: they were very close to Broad street pump.
       <br>
-      The men who worked in a brewery on Broad Street which made malt liquor also escaped getting cholera. The proprietor of the brewery, Mr. Huggins, told Snow that the men drank the liquor they made or water from the brewery’s own well and not water from the Broad Street pump. it had no cases among its 70 workers.
-      <br>
-      None of the workers at the Broad Street brewery had cholera: they were very close to pump A, but tended to drink beer rather than water. The brewery also had its own well.
-      <br>
-      Likewise the Poland Street Workhouse only recorded five deaths among its inmates.
-      <br>
-      An elderly widow in West Hampstead (an area some distance away, which was free of cholera) liked the taste of Broad Street water, so she had a bottle brought to them every day from the pump. The fact that she and her visiting niece died of cholera was in Snow’s view “the most conclusive”.  
+      Likewise the Poland Street Workhouse only recorded five deaths among its 535 inmates. 
     </p>
   </aside>
 </section>
@@ -788,6 +909,26 @@
   </aside>
 </section>
 
+<section> 
+  <h3>Outliers in Snow's Soho investigation</h3>
+  <p style="margin-top: 0;">
+    The information given by the outliers was important: it helped Snow rule out other possible sources of the epidemic besides pump water.
+  </p>
+  <p class="sided border-warning">A workhouse had 535 inmates but almost no cases of cholera.<br>
+   => Snow discovered the workhouse had its own well
+  </p>
+  <p class=" fragment sided border-warning">
+    The 70 workers of the brewery on Broad Street also escaped cholera.<br>
+    => Mr. Huggins (owner) told Snow that the men drank the liquor they made or water 
+    from the brewery’s own well.
+  </p>
+  <p class="fragment sided border-info">
+    An elderly widow in West Hampstead (an area some distance away, which was free of cholera)
+    and her niece died from cholera. <br>
+    => She liked the taste of Broad Street water, and she had a bottle brought to them every day from the pump
+  </p>
+</section>
+
 <section>
   <h3>The Broad street pump area</h3>
   <div class="row">
@@ -795,7 +936,7 @@
       <p class="fragment success" data-fragment-index=1 style="font-size: 0.6em;">Area for which the Broad Street pump is the fastest trip to water <br>(on foot).</p>
     </div>
     <div class="col-80">
-      <svg width=100% viewbox="550 300 1700 1300">
+      <svg width=100% viewbox="550 300 1500 1100">
         <use xlink:href="assets/img/lec/london_soho-slide.svg#Layer1"></use>
         <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/london_soho-slide.svg#nearest"></use>
       </svg>
@@ -823,7 +964,7 @@
   </div>
   <div class="col-30" style="position: relative; margin-top: 3% !important;">
     <p class="framed border-danger fragment">Still, the scientific community was reluctant to
-    believe his theory ...</p>
+    believe his theory</p>
   </div>
   </div>
   <aside class="notes">
@@ -843,16 +984,30 @@
   <span style="margin-left: 2em;">=> He needed <span class="warning">stronger</span> evidences.</span></div>
   <p class="sided"><span class="u">Research question:</span><br>
    Is there a causal relationship between water supply and cholera?</p>
-  <div class="fragment">
+  <div>
     <hr>
-    <p>What should Snow do to get "stronger" evidences? </p>
+    <p>What should Snow do to get "stronger" evidences?</p>
+    <p class="fragment" data-fragment-index=1>
+      <span style="margin-left: 0.8em">
+        - Bigger scale study? (generalization)</span> 
+        <br>
+        <span style="margin-left: 0.8em">
+        - More systematic comparison? ("Control" population)</span> 
+
+    </p>
   </div>
 
 
 <aside class="notes">
   Snow was still eager to prove his theory.
   <br>
-  Went back to work at a bigger scale.
+  What would the study need to be more convincing?
+  <br>
+  <br>
+  Bigger scale study, study more people
+  <br>
+  Real "control" population. (even if this is shortest path on foot, we cannot be 100% certain
+  that people actually went to Broad Street pump.)
 </aside>
 </section>
 
@@ -863,6 +1018,11 @@
     A <span class="warning">sample</span> is a <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">subset of the population</span> on which we record data.</p>
   <p class="quoted" style="font-size: 0.7em; margin-top: 0; margin-bottom: 0;">Numerical summaries about a population are called <span class="info">parameters</span>, and numerical summaries calculated from a sample are called <span class="warning">statistics</span>.</p>
   <img class="unbordered" width="73%" src="assets/img/lec/distribution-sample.svg">
+  <aside class="notes">
+    The size of the sample is important. <br>
+    The bigger the sample size, the more likely the data we collect can be generalized to
+    the full population.
+  </aside>
 </section>
 
 <section id="london-waterworks">
@@ -1122,11 +1282,6 @@
       On the basis of these figures, which company is more likely to be transmitting "morbid matter" causing cholera? 
       <br>
       Cannot tell: Correct. Although there were more deaths in houses supplied by the Southwark and Vauxhall Company, this could just be because this company supplied water to a greater number of people. In order to know whether one company is more likely to transmit contaminated water, we need to know, for each company, the number of deaths as a proportion of the number of people supplied with water.
-      <br>
-      Summary of data in a table.
-      <br>
-      Here we see that more deaths in Rest of London. But there is also probably way more houses.
-      <br>
       => Need to normalize to be able to directly compare data.
       <br>
       In order to estimate the denominator, Snow obtained information on the number of houses in London whose water was supplied by each of the two water companies.
@@ -1153,6 +1308,8 @@
     </div>
   </div>
   <aside class="notes">
+    Data lead to concrete actions/decisions
+    <br>
     Germ theory started to be taken seriously.
     <br>
     Preventive measures were developped.
@@ -1205,12 +1362,12 @@
       </div>
       <div class="row fragment" data-fragment-index="4"
         style="font-size: 0.6em; margin-top: 0.8em;">
-        Contamined water is most likely a source of cholera infection. Cholera is a waterborne disease.
+        Contamined water is most likely a source of cholera infection. <span class="warning">Cholera is a waterborne disease</span>.
       </div>
       <div class="row fragment framed border-danger" data-fragment-index="5"
         style="font-size: 0.6em; margin-top: 0.75em;">
-        Boiling water mandatory during cholera epidemics. <br>
-        Need for analyzing water samples (identify "germ").
+        Need for analyzing water samples (identify "germ"). <br>
+        Boiling water mandatory during cholera epidemics.
       </div>
     </div>
   </div>
@@ -1233,9 +1390,15 @@
     <li style="margin: 0.3em 0;">Data can be used to provide information about essentially anything we are interested in and want to  collect data on!</li>
     <li style="margin: 0.3em 0;">Statistics is a powerful tool to draw inferences and make decisions.</li>
     <li>Don't say that the hypothesis has been proven right or wrong, but rather say that evidence is either strong or weak.  
-
-</li>
+    </li>
   </ul>
+
+  <aside class="notes">
+    Note that here we didn't quantify how strong were the evidences.
+    <br>
+    During this class we will learn what is considered strong or weak,
+    what tests we should use to plaid our case.
+  </aside>
 </section>
 
 
