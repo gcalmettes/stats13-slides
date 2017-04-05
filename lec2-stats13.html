@@ -52,11 +52,23 @@
 
 <section>
   <h3>Last time</h3>
-  <p class="sided">How to make decisions with statistics</p>
-  <p class="sided">Basic statistical terminology <br>
-    <span style="margin-left: 1em">Data, dataset, statistical study, observational units, variables, outliers, population, sample</span></p>
-  <p class="sided">Importance of visualisation to better understand data<br>
-    <span style="margin-left: 1em">=> Soho epidemics map</span></p></p>
+  <svg width="80%" viewBox="0 0 381.6 244.75" style="margin-top: 0; margin-bottom: 0;">
+    <use xlink:href="assets/img/lec/summary-lec1.svg#investigation"></use>
+    <use class="fragment" xlink:href="assets/img/lec/summary-lec1.svg#population"></use>
+    <use class="fragment" xlink:href="assets/img/lec/summary-lec1.svg#datasample"></use>
+    <use class="fragment" xlink:href="assets/img/lec/summary-lec1.svg#variables"></use>
+    <use class="fragment" xlink:href="assets/img/lec/summary-lec1.svg#type1"></use>
+    <use class="fragment" xlink:href="assets/img/lec/summary-lec1.svg#type2"></use>
+  </svg>
+  <p class="sided fragment border-warning" style="font-size: 0.6em; margin-top: 0;">Importance of visualization to better understand data<br>
+    <span style="margin-left: 1em">=> e.g. Soho epidemics map</span></p></p>
+    <aside class="notes">
+      What are statistics, how can they be useful to make data-driven decisions.
+      <br>
+      Basic terminology/jargon
+      <br>
+      Importance of "seeing" the data, not just table (pattern)
+    </aside>
 </section>
 
 
@@ -918,11 +930,42 @@ data-transition="none-in slide-out">
 
 <section>
   <h3>Resistance</h3>
-  <p class="quoted">The term <span class="warning">resistance</span> is related to the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">impact of outliers</span> on a statistic.
+  <p class="quoted" style="margin-top:0;">The term <span class="warning">resistance</span> is related to the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">impact of outliers</span> on a statistic.
   In general, we say that a statistic is resistant if it is relatively <span class="warning">unaffected by extreme values</span>.
   </p>
-  <p>The median and the mode are resistant, while the mean is not.</p>
-  <img class="unbordered" width="100%" src="assets/img/lec/mean-median-mode.svg">
+  <p style="margin-top:0;">The median and the mode are resistant, while the mean is not.</p>
+  <div class="row">
+    <div class="col-70">
+      <table class="fragment push-left" data-fragment-index=0 style="font-size: 1em; border-top: solid 1px #d2d2d2; border-bottom: solid 1px #d2d2d2;">
+        <tr class="with-top">
+          <td>2.5</td>
+          <td>3.2</td>
+          <td>3.5</td>
+          <td>3.9</td>
+          <td>4.0</td>
+          <td>4.4</td>
+          <td>5.3</td>
+          <td>5.9</td>
+          <td>6.1</td>
+          <td>6.4</td>
+          <td class="fragment highlight-bckg-yellow" data-fragment-index=2><span class="fragment" data-fragment-index=2>30</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-15">
+      <p class="fragment" data-fragment-index=1 style="font-size: 0.6em; margin-top: 0;">
+        <span class="em u">Mean:</span> 4.52 <br>
+        <span class="em u">Median:</span> 4.2
+      </p>
+    </div>
+    <div class="col-15">
+      <p class="fragment" data-fragment-index=3 style="font-size: 0.6em; margin-top: 0;">
+        <span class="em u">Mean:</span> <span class="fragment highlight-bckg-yellow" data-fragment-index=3>6.84</span> <br>
+        <span class="em u">Median:</span> <span class="fragment highlight-bckg-yellow" data-fragment-index=3>4.4</span>
+      </p>
+    </div>
+  </div>  
+  <img class="unbordered" style="margin-top:0;" width="100%" src="assets/img/lec/mean-median-mode.svg">
   <aside class="notes">
     What about the minimum and maximum?
   </aside>
