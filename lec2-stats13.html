@@ -307,6 +307,11 @@ data-transition="none-in slide-out">
     <p>
       But there are in fact 4 distinct stories here.
       <br>
+      And you would see that some mistakes have been made (linear fit for non-linear data, etc ...)
+      <br>
+      So visualization is a pre-required set to guide you to know which kind of data analysis you
+      can apply, which kind of statistical set you'll be able to apply.
+      <br>
       So it is important to know how to describe and represent data (transition).
     </p>
   </aside>  
@@ -368,7 +373,14 @@ data-transition="none-in slide-out">
   A <span class="success">uniform</span> distribution is a specific symmetric distribution in which all outcomes are equally likely.
   </p>
   </div>
-  <img class="unbordered" width="80%" src="assets/img/lec/shape-distribution.svg">
+  <svg width="80%" viewBox="0 0 720 216" style="margin-top: 0;">
+    <use xlink:href="assets/img/lec/distribution-shape.svg#axes_1"></use>
+    <use class="fragment" xlink:href="assets/img/lec/distribution-shape.svg#axes_2"></use>
+    <use class="fragment" xlink:href="assets/img/lec/distribution-shape.svg#axes_3"></use>
+    <use class="fragment" xlink:href="assets/img/lec/distribution-shape.svg#axes_4"></use>
+    <use class="fragment" xlink:href="assets/img/lec/distribution-shape.svg#axes_5"></use>
+  </svg>
+  <!-- <img class="unbordered" width="80%" src="assets/img/lec/distribution-shape.svg"> -->
 </section>
 
 <section>
@@ -420,11 +432,11 @@ data-transition="none-in slide-out">
       </table>
     </div>
   </div>
-  <p class="sided">
+  <p class="sided fragment">
     <span class="u em">Notation for a proportion:</span><br>
-    The proportion for a sample is denoted <span class="info">$\overset{\hat{}}{p}$</span> (read “p-hat”)
+    The proportion for a population is denoted <span class="info">$p$</span>
     <br>
-    The proportion for a population is denoted <span class="info">$p$</span>.
+    The proportion for a sample is denoted <span class="info">$\overset{\hat{}}{p}$</span> (read “p-hat”)
   </p>
   <aside class="notes">
     <p>
@@ -617,7 +629,7 @@ data-transition="none-in slide-out">
       <p></p>
     </div>
     <div class="col-65">
-      <svg width="100%" viewBox="0 65 360 216" style="margin-top: 0;">
+      <svg class="fragment" width="100%" viewBox="0 65 360 216" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/mammals-longevity-dotplot.svg#axes_1"></use>      
       </svg>
     </div>
@@ -632,7 +644,7 @@ data-transition="none-in slide-out">
 
 <section>
   <h3>Simplifying a dotplot</h3>
-  <p style="margin-top: 0;">A dotplot can be hard to build, and visually dots can overlap if the values are very similar.</p>
+  <p style="margin-top: 0;">A dotplot can be hard to build, and dots can overlap (visually) if the values are very similar and a lots of values are represented.</p>
   <div class="row">
     <div class="col-65">
       <svg width="100%" viewBox="40 20 380 288" style="margin-top: 0;">
@@ -878,7 +890,36 @@ data-transition="none-in slide-out">
   <h3>The trimmed mean</h3>
   <p class="quoted">A <span class="warning">trimmed mean</span> refers to the calculation of the mean after discarding given parts of a sample (or distribution) at the high and low end (typically discarding an equal amount of both).
   </p>
-  <p>The use of a trimmed mean "helps" eliminate the influence of data points on the tails that may affect the traditional mean.</p>
+  <p>Some people consider that the use of a trimmed mean "helps" eliminate the influence of data points on the tails that may affect the traditional mean.</p>
+
+  <table style="font-size: 1.5em;">
+    <tr>
+      <td class="fragment highlight-bckg-yellow" data-fragment-index=2>1</td>
+      <td>23</td>
+      <td>19</td>
+      <td>24</td>
+      <td>17</td>
+      <td>26</td>
+      <td>20</td>
+      <td>23</td>
+      <td class="fragment highlight-bckg-yellow" data-fragment-index=2>89</td>
+      <td class="fragment highlight-bckg-yellow" data-fragment-index=2>82</td>
+    </tr>
+  </table>
+  <div class="row">
+    <div class="col-66">
+      <p class="fragment" data-fragment-index=1>
+        $\bar{x}=\frac{1+23+19+24+17+26+20+23+89+82}{10}=32.4$
+      </p>
+       <p class="fragment" data-fragment-index=3>
+        $\bar{x}_{trimmed}=\frac{23+19+24+17+26+20+23}{7}=21.7$
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="fragment danger" data-fragment-index=4 style="font-size: 1.2em">Never use it!</p>
+    </div>
+  </div>
+
   <aside class="notes">
     We'll talk about that later.
     <br>
@@ -894,11 +935,25 @@ data-transition="none-in slide-out">
     <span style="margin-left: 1.5em;">- the average of the middle 2 values (for an even number</span> <br>
       <span style="margin-left: 1.5em;">of entries)</span>
   </p>
-  <svg width="75%" viewBox="0 0 239.5 109.5" style="margin-top: 1%;">
-    <use xlink:href="assets/img/lec/median.svg#median1"></use>
-    <use xlink:href="assets/img/lec/median.svg#median2"></use>
-  </svg>
+  <div class="row">
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 239.5 109.5" style="margin-top: 1%;">
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/median.svg#median1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/median.svg#median2"></use>
+      </svg>
+    </div>
+    <div class="col-40">
+      <p class="fragment warning" data-fragment-index=2> 
+        mean of $(\frac{n}{2})^{th}$ and $(\frac{n}{2}+1)^{th}$ observations</p>
+      <br>
+      <p class="fragment warning" data-fragment-index=1> $(\frac{n+1}{2})^{th}$ observation</p>
+    </div>
+  </div>
   <aside class="notes">
+    Sometimes referred to as a measure of location as it tells us where the data are.
+    <br>
+    Median is the value which occupies the middle position when all the observations are arranged in an ascending/descending order. It divides the frequency distribution exactly into two halves. Fifty percent of observations in a distribution have scores at or below the median. Hence median is the 50th percentile.[2] Median is also known as ‘positional average’
+    <br>
     To find the median, your numbers have to be listed in numerical order from smallest to largest, so you may have to rewrite your list before you can find the median.
   </aside>
 </section>
@@ -926,6 +981,18 @@ data-transition="none-in slide-out">
       <td>12</td>
     </tr>
   </table>
+</section>
+
+<section>
+  <h3>Multimodal distribution</h3>
+  <div class="row">
+    <div class="col-60">
+      <img src="assets/img/lec/distribution-multimodal.svg" class="unbordered" width=100%>
+    </div>
+    <div class="col-40">
+      <p>In a bimodal distribution, the taller peak is called the major mode and the shorter one is the minor mode.</p>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -967,6 +1034,10 @@ data-transition="none-in slide-out">
   </div>  
   <img class="unbordered" style="margin-top:0;" width="100%" src="assets/img/lec/mean-median-mode.svg">
   <aside class="notes">
+    In positively skewed distributions, the mean is greater than the median
+    <br>
+    In negatively skewed distributions, the mean is smaller than the median
+    <br>
     What about the minimum and maximum?
   </aside>
 </section>
@@ -1006,6 +1077,7 @@ data-transition="none-in slide-out">
 </section>
 
 
+
 <section>
   <h3>Other locations</h3>
   <p class="quoted">The <span class="warning">minimum</span> is the <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">smallest number</span> in the (sorted) dataset.
@@ -1028,7 +1100,7 @@ data-transition="none-in slide-out">
   </div>
 </section>
 
-<section>
+<section data-transition="slide-in">
   <h3>The standard deviation</h3>
   <p class="quoted" style="margin-bottom: 0;">A common measure of data variability is <br>the <span class="warning">standard deviation</span> (SD). It measures the spread of the data in a sample</p>
   <div class="row">
@@ -1041,13 +1113,80 @@ data-transition="none-in slide-out">
       <span class="info">$\sigma$</span> for a population</p>
     </div>
   </div>
-    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{(x_{1}-\bar{x})+(x_{2}-\bar{x})+...+(x_{n}-\bar{x})}{n-1}}$</p>
+    <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{(x_{1}-\bar{x})^2+(x_{2}-\bar{x})^2+...+(x_{n}-\bar{x})^2}{n-1}}$</p>
     <p style="margin-left: 1em; font-size: 0.8em;">$s=\sqrt{\frac{\textrm{sum of observed squared difference from sample mean}}{\textrm{number of observations - 1}}}$</p>
   <aside class="notes">
     <p>The SD can be loosely interpreted as the typical distance (in absolute value) between the data values and the mean of the distribution.</p>
     <p>The larger the standard deviation, the more variability there is in the data and the more spread out the data are.</p>
     <p>In practice, we generally compute the standard deviation using a calculator or computer software. The units for the standard deviation are the same as the units for the original data.</p>
+    <p>
+      We would want the average of the sample variances for all possible samples
+      to equal the population variance.
+      It seems like a logical property and a reasonable thing to happen. This is called “unbiased”
+      When we divide by (n −1) when calculating the sample variance, then it turns out that
+      the average of the sample variances for all possible samples is equal the population variance.
+      So the sample variance is what we call an unbiased estimate of the population variance.
+      If instead we were to divide by n (rather than n −1) when calculating the sample variance, then
+      the average for all possible samples would NOT equal the population variance. Dividing by n 
+      does not give an “unbiased” estimate of the population standard deviation.
+      Dividing by n−1 satisfies this property of being “unbiased”, but dividing by n does not.
+      Therefore we prefer to divide by n-1 when calculating the sample variance.
+    </p>
   </aside>
+</section>
+
+<section data-transition="slide-out">
+  <h3>The standard deviation</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="sided">Let's consider 2 sets of data, both have a mean of 100</p>
+    </div>
+    <div class="col-50">
+      <table>
+        <thead>
+          <th style="background: #636c72;">Numbers</th>
+          <th style="background: #636c72;">Mean</th>
+          <th style="background: #636c72;">SD</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>100, 100, 100, 100, 100</td>
+            <td>100</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>90, 90, 100, 110, 110</td>
+            <td>100</td>
+            <td>10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-35">
+      <p style="font-size: 0.6em;"><span class="em u">Set 1:</span> all values are equal to the mean, so there is no variablility at all</p>
+    </div>
+    <div class="col-2">
+      <p></p>
+    </div>
+    <div class="col-63">
+      <p style="font-size: 0.6em;"><span class="em u">Set 2:</span> one value equals the mean and
+       other four values are 10 points away from the mean. So the 
+       <span class="warning">average distance away from the
+      mean</span> is about 10</p>
+    </div>
+  </div>
+  <p class="u em fragment" data-fragment-index=1 style="font-size: 0.5em; margin-bottom: 0;">Example for Set 2:</p>
+  <ol class="push-left fragment" data-fragment-index=1 style="font-size: 0.5em;">
+    <li>Calculate the sample mean: $\bar{x}=100$</li>
+    <li>For each observation, calculate the difference between the data value <br> and the mean:
+      [-10, -10, 0, 10, 10]</li>
+    <li>Square each difference in step 2: [100, 100, 0, 100, 100]</li>
+    <li>Sum the squared differences in step 3, and then divide this sum by $(n-1)$: <br>
+      variance $s^2=\frac{400}{5-1}=\frac{400}{4}=100$</li>
+    <li>Take the square root of the value in step 4: $s=\sqrt{100}=10$</li>
+  </ol>
 </section>
 
 <section>
@@ -1071,7 +1210,33 @@ data-transition="none-in slide-out">
 
 <section>
   <h3>The SD is only useful in the context of the normal distribution</h3>
-  <img src="assets/img/lec/sd-normal.svg" class="unbordered" width=80%>
+  <div class="row">
+    <div class="col-60">
+      <img src="assets/img/lec/sd-normal.svg" class="unbordered" width=100%>
+    </div>
+    <div class="col-40">
+      <p style="font-size: 0.5em;">
+        <span class="u em">The Empirical Rule:</span>
+        For any bell-shaped curve, approximately <br>
+        <span style="margin-left:0.9em;">- 68% of the values fall within 1 SD of 
+          the mean in either direction</span> <br>
+        <span style="margin-left:0.9em;">- 95% of the values fall within 2 SD of 
+          the mean in either direction</span> <br>
+        <span style="margin-left:0.9em;">- 99.7% of the values fall within 3 SD of 
+          the mean in either direction</span>
+      </p>
+      
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Misuse of SD is everywhere</h3>
+  <svg width="90%" viewBox="0 0 813.114 458.502" style="margin-top: 1%;">
+    <use xlink:href="assets/img/lec/barplot-sd.svg#fig"></use>
+    <use class="fragment" xlink:href="assets/img/lec/barplot-sd.svg#inset"></use>
+    <use class="fragment" xlink:href="assets/img/lec/barplot-sd.svg#range"></use>
+  </svg>
 </section>
 
 <section>
@@ -1082,7 +1247,6 @@ data-transition="none-in slide-out">
     <use class="fragment" xlink:href="assets/img/lec/min-max.svg#range"></use>
   </svg>
 </section>
-
 
 <section>
   <h3>Interquantile range</h3>
@@ -1108,6 +1272,29 @@ data-transition="none-in slide-out">
   <aside class="notes">
     Consider again the data on mammal longevity in Data 2.2 on page 64. Our intuition suggests that the longevity of 40 years for the elephant is an unusually high value compared to the other lifespans in this sample. How do we determine objec- tively when such a value is an outlier? The criteria should depend on some measure of location for “typical” values and a measure of spread to help us judge when a data point is “far” from those typical cases. One approach, typically used for identifying outliers for boxplots, uses the quartiles and interquartile range. As a rule, most data values will fall within about 1.5(IQR)’s of the quartiles.
   </aside>
+</section>
+
+<section>
+  <h3>Percentiles</h3>
+  <p class="quoted">
+    The <span class="warning">$k^{th}$ percentile</span> is a value in
+    the dataset that has $k\%$ of the data values at or below it and $(100 – k)\%$
+    of the data values at or above it.
+  </p>
+  <div class="row">
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 576 252" style="margin-top: 1%;">
+        <use xlink:href="assets/img/lec/quartiles.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-45">
+      <p style="font-size: 0.5em; margin-bottom: 0;">
+        <span class="u em">Note:</span> <br>
+        Here our dataset contains 40 data points.
+        So each data point correspond to $\frac{100}{40}=2.5\%$ of the data.</p>
+    </div>
+  </div>
+</p>
 </section>
 
 <section class="title-slide fullwidth">
@@ -1144,7 +1331,7 @@ data-transition="none-in slide-out">
   </div>
 </section> -->
 
-<section data-transition="none-in slide-out">
+<section data-transition="none">
   <h3>Bar graphs are evil</h3>
   <p class="em warning col-80">2) They conceal the variance and the underlying distribution of the data</p>
   <div class="row">
@@ -1156,6 +1343,27 @@ data-transition="none-in slide-out">
       <use xlink:href="assets/img/lec/barplot-same-side.svg#axes_1"></use>
       <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/barplot-same-side.svg#axes_2"></use>
     </svg>
+  </div>
+</section>
+
+<section data-transition="slide-out" data-state="showFooterRight" 
+  data-footer="Source - Cumming, G. et al. (2007). 'Error bars in experimental biology'. J Cell Biol 177 (1): 7–11">
+  <h3>Bar graphs are evil</h3>
+  <p class="em warning col-100" style="margin-bottom: 0;">
+    3) They are associated with (usually not defined) error bars</p>
+  <div class="row">
+    <div class="col-50">
+      <p style="font-size: 0.5em;">Different types, different meanings: <br>
+      <span style="margin-left:0.8em;">
+        - <span class="info">Descriptive</span> statistics (SD, range)</span> <br>
+      <span style="margin-left:0.8em;">
+        - <span class="info">Inferential</span> statistics (SEM, CI)</span>
+      </p>
+      <img src="assets/img/lec/barplot-cartoon.svg" class="unbordered" width=100%>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/error-bars.png" class="unbordered" width=80%>
+    </div>
   </div>
 </section>
 
@@ -1271,8 +1479,30 @@ data-transition="none-in slide-out">
   </aside>
 </section>
 
-<section>
+<section data-transition="slide-in">
   <h3>Boxplot</h3>
+  <p class="sided" style="margin-top:0; font-size: 0.7em;">
+    A boxplot is a graphical display of the <span class="warning">five number summary</span> for a quantitative variable. It shows the general shape of the distribution, identifies the middle 50% of the data, and highlights any outliers.
+  </p>
+  <div class="row">
+    <div class="col-55">
+      <img class="unbordered" src="assets/img/lec/boxplot-general.svg" width=100%></img>
+    </div>
+    <div class="col-45">
+      <p style="margin-bottom: 0.3;" class="u em">A boxplot includes:
+      <ul style="font-size: 0.6em; margin-top: 0;">
+        <li>A box stretching from <span class="warning">Q1</span> to <span class="warning">Q3</span></li>
+        <li>A line that divides the box drawn at the <span class="warning">median</span></li>
+        <li>A line from each quartile to the <span class="warning">most extreme data value</span> <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">that is not an outlier</span>. (if no outliers minimum and maxixum)</li>
+        <li>Each <span class="warning">outlier</span> plotted individually</li>
+      </ul>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Boxplot (example)</h3>
   <p class="sided" style="margin-top:0; font-size: 0.7em;">
     A boxplot is a graphical display of the <span class="warning">five number summary</span> for a quantitative variable. It shows the general shape of the distribution, identifies the middle 50% of the data, and highlights any outliers.
   </p>
@@ -1281,14 +1511,120 @@ data-transition="none-in slide-out">
       <img class="unbordered" src="assets/img/lec/boxplot-ex.svg" width=100%></img>
     </div>
     <div class="col-45">
-      <p style="margin-bottom: 0.3;">A boxplot includes:
-      <ul style="font-size: 0.6em; margin-top: 0;">
-        <li>A box stretching from <span class="warning">Q1</span> to <span class="warning">Q3</span></li>
-        <li>A line that divides the box drawn at the <span class="warning">median</span></li>
-        <li>A line from each quartile to the <span class="warning">most extreme data value</span> <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">that is not an outlier</span>. (if no outliers minimum and maxixum)</li>
-        <li>Each <span class="warning">outlier</span> plotted individually</li>
-      </ul>
-      </p>
+      <img class="unbordered fragment" src="assets/img/lec/boxplot-ex-distributions.svg" width=100%></img>
+    </div>
+  </div>
+</section>
+
+
+<section class="title-slide fullwidth">
+  <h1 class="center">The gallery of<br> bad data reporting</h1>
+  <div>
+    <img src="assets/img/lec/fox-tv.jpg" width=60% class="rounded">
+  </div>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Common mistakes in data reporting</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="sided">Relative frequencies <span class="warning">MUST sum up to 1</span> (100%)</p>
+    </div>
+    <div class="col-65">
+      <img src="assets/img/lec/fox-pie-chart.png" class="unbordered", width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="none">
+  <h3>Common mistakes in data reporting</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="sided">Relative frequencies <span class="warning">MUST sum up to 1</span> (100%)</p>
+      <p class="sided">Data in pie-chart are hard to interpret</p>
+      <img src="assets/img/lec/steve-bar-chart.svg" class="unbordered">
+    </div>
+    <div class="col-65">
+      <img src="assets/img/lec/steve-pie-chart.jpg" class="unbordered", width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="none">
+  <h3>Common mistakes in data reporting</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="sided">Relative frequencies <span class="warning">MUST sum up to 1</span> (100%)</p>
+      <p class="sided">Data in pie-chart are hard to interpret</p>
+      <p class="sided">3D graphs are misleading</p>
+    </div>
+    <div class="col-65">
+      <img src="assets/img/lec/bar-3d.svg" class="unbordered", width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="none">
+  <h3>Common mistakes in data reporting</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="sided">Relative frequencies <span class="warning">MUST sum up to 1</span> (100%)</p>
+      <p class="sided">Data in pie-chart are hard to interpret</p>
+      <p class="sided">3D graphs are misleading</p>
+      <p class="sided">Zero your scale</p>
+    </div>
+    <div class="col-65">
+      <img src="assets/img/lec/fox-zero-scale.png" class="unbordered" width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="none">
+  <h3>Common mistakes in data reporting</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="sided">Relative frequencies <span class="warning">MUST sum up to 1</span> (100%)</p>
+      <p class="sided">Data in pie-chart are hard to interpret</p>
+      <p class="sided">3D graphs are misleading</p>
+      <p class="sided">Zero your scale</p>
+    </div>
+    <div class="col-65">
+      <img src="assets/img/lec/zero-scale-poll.svg" class="unbordered" width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="none">
+  <h3>Common mistakes in data reporting</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="sided">Relative frequencies <span class="warning">MUST sum up to 1</span> (100%)</p>
+      <p class="sided">Data in pie-chart are hard to interpret</p>
+      <p class="sided">3D graphs are misleading</p>
+      <p class="sided">Zero your scale</p>
+      <p class="sided">Labels MUST correspond to data</p>
+    </div>
+    <div class="col-65">
+      <img src="assets/img/lec/nbc-proportion.jpg" class="unbordered", width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Common mistakes in data reporting</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="sided">Relative frequencies <span class="warning">MUST sum up to 1</span> (100%)</p>
+      <p class="sided">Data in pie-chart are hard to interpret</p>
+      <p class="sided">3D graphs are misleading</p>
+      <p class="sided">Zero your scale</p>
+      <p class="sided">Labels MUST correspond to data</p>
+    </div>
+    <div class="col-65">
+      <svg width="100%" viewBox="0 0 590 356" style="margin-top: 5%;">
+        <use xlink:href="assets/img/lec/fox-line-plot.svg#image"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/fox-line-plot.svg#lines"></use>
+      </svg>
     </div>
   </div>
 </section>
