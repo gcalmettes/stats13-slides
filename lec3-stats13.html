@@ -137,12 +137,14 @@
     <div class="col-50">
       <p style="font-size: 0.65em;" class="framed border-info">
         Buzz is <span class="info">just guessing</span> (his probability of a correct button push is 0.50) and he 
-        <span class="info">got really lucky</span> in these 16 attempts
+        <span class="info">got really lucky</span> in these 16 attempts.
+        <span class="info">$\pi=0.5$</span>
       </p>
     </div>
     <div class="col-50">
       <p style="font-size: 0.65em;" class="framed border-danger">
-        Buzz is <span class="danger">doing something other than just guessing</span> (his probability of a correct button push is more than 0.50)
+        Buzz is <span class="danger">doing something other than just guessing</span> (his probability of a correct button push is more than 0.50).
+        <span class="danger">$\pi\neq0.5$</span>
       </p>
     </div>
   </div>
@@ -292,7 +294,7 @@
   </aside>
 </section>
 
-<section data-transition="slide-in">
+<section>
   <h3>Long-run pattern for 16 coin-flips</h3>
   <p style="margin-top: 0; font-size: 0.6em;">
     We really need to simulate this random selection process hundreds, preferably 
@@ -303,12 +305,11 @@
     <div class="col-30">
       <p style="font-size: 0.55em; margin-top: 0;" class="sided fragment border-warning" data-fragment-index=5>
         How many of these 1000 simulations produced 15 or more correct choices by Buzz? <br>
-        <span style="margin-left: 0.8em;" class="fragment warning" data-fragment-index=6>2 out of 1000</span>
+        <span style="margin-left: 0.8em;" class="fragment warning" data-fragment-index=6>1 out of 1000</span>
       </p>
-
       <p style="font-size: 0.55em; margin-top: 0;" class="sided fragment border-info">
         What is the corresponding proportion of simulations that produced such an extreme result? <br>
-        <span style="margin-left: 0.8em;" class="fragment info">$p=\frac{2}{1000}=0.002$</span>
+        <span style="margin-left: 0.8em;" class="fragment info">$p=\frac{1}{1000}=0.001$</span>
       </p>
     </div>
     <div class="col-70">
@@ -318,7 +319,7 @@
         <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/simulation-graph-coinflip.svg#axes_2"></use>
         <use xlink:href="assets/img/lec/simulation-graph-coinflip.svg#axes_1"></use>
         <use class="fragment" data-fragment-index=4 xlink:href="assets/img/lec/simulation-graph-coinflip.svg#axes_6"></use>
-        <use class="fragment" data-fragment-index=5 xlink:href="assets/img/lec/simulation-graph-coinflip.svg#axes_5"></use>
+        <use class="fragment" data-fragment-index=6 xlink:href="assets/img/lec/simulation-graph-coinflip.svg#axes_5"></use>
       </svg>
     </div>
   </div>
@@ -328,79 +329,176 @@
   </aside>
 </section>
 
-<section data-transition="slide-out">
-  <h3>Long-run pattern for 16 coin-flips</h3>
-  <p style="margin-top: 0; font-size: 0.6em;">
-    We really need to simulate this random selection process hundreds, preferably 
-    <span class="info">thousands of times</span>.
-    This would be very tedious and time-consuming with coins, so we'll turn to technology.
-  </p>
-  <div class="row">
-    <div class="col-30">
-      <p style="font-size: 0.55em; margin-top: 0;" class="sided">
-        How many of these 1000 simulations produced 15 or more correct choices by Buzz?
-      </p>
-      <p style="font-size: 0.55em; margin-top: 0;" class="sided">
-        What is the corresponding proportion of simulations that produced such an extreme result?
-      </p>
-    </div>
-    <div class="col-70">
-      <svg width="100%" viewBox="0 0 440 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/simulation-graph-coinflip-prop.svg#axes_1"></use>
-      </svg>
-    </div>
-  </div>
-</section>
-
 <section>
   <h3>p-value</h3>
-  <p class="quoted">
+  <p class="quoted" style="margin-top: 0;">
     A p-value is the <span class="warning">probability</span> of obtaining a result
     <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">as extreme as</span> the one observed,
     assuming that the
     <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> null hypothesis is true</span>.
   </p>
-  <p>
+  <p class="fragment" style="margin-top: 0;">
     A <span class="u em">small</span> p-value casts doubt on the null hypothesis/model
-    used to perform the calculation (in this case, that Buzz was chosing a button randomly).
+    used to perform the calculation (in this case, that Buzz was just guessing which button to push).
   </p>
   
-  <div class="row">
-    <div class="col-15" style="margin-top: 6%;">
+  <div class="row fragment" style="margin-top: 0;">
+    <div class="col-15" style="margin-top: 4%;">
       <p style="text-align: right;">A p-value</p>
     </div>
-    <div class="col-15">
-      <p>
-      <!-- <p style="border-style: solid; border-left-color: #f0ad4e; border-left-width: 0.1em;"> -->
-        <span class="warning" style="margin-left: 0.2em;">$\leq{0.10}$</span> <br>
-        <span class="warning" style="margin-left: 0.2em;">$\leq{0.05}$</span> <br>
+    <div class="col-15" style="margin-top: 0;">
+      <p style="margin-top: 0;">
+        <span class="info" style="margin-left: 0.2em;">$\leq{0.10}$</span> <br>
+        <span class="success" style="margin-left: 0.2em;">$\leq{0.05}$</span> <br>
         <span class="warning" style="margin-left: 0.2em;">$\leq{0.01}$</span> <br>
-        <span class="warning" style="margin-left: 0.2em;">$\leq{0.001}$</span>
+        <span class="danger" style="margin-left: 0.2em;">$\leq{0.001}$</span>
       </p>
     </div>
-    <div class="col-20" style="margin-top: 2%; margin-left:0;">
+    <div class="col-20" style="margin-left:0;">
       <p>is generally considered <br>to be</p>
     </div>
-    <div class="col-30">
-      <p>
-        <span class="warning" style="margin-left: 0.2em;">some</span> <br>
-        <span class="warning" style="margin-left: 0.2em;">fairly strong</span> <br>
+    <div class="col-30" style="margin-top: 0;">
+      <p style="margin-top: 0;">
+        <span class="info" style="margin-left: 0.2em;">some</span> <br>
+        <span class="success" style="margin-left: 0.2em;">fairly strong</span> <br>
         <span class="warning" style="margin-left: 0.2em;">very strong</span> <br>
-        <span class="warning" style="margin-left: 0.2em;">extremely strong</span>
+        <span class="danger" style="margin-left: 0.2em;">extremely strong</span>
       </p>
     </div>
     <div class="col-20">
       <p>
-        evidence against the null
+        <span class="u">evidence</span> against the null
       </p>
     </div>
-
   </div>
-
+  <p class="fragment framed border-danger" style="margin-top: 0;">The results mean our evidence is strong enough to be considered
+  <span class="warning">statistically significant</span>.
+  That is, we don't think our study result (15 out of 16 correct) 
+  happened by chance alone, but rather, something other than 
+  "random chance" was at play.</p>
 </section>
 
+<section>
+  <h3>Follow up study</h3>
+  <p class="sided" style="margin-top: 0;">One goal of statistical significance testing is to rule out random
+  chance as <span class="warning">plausible</span> (believable)
+  explanation for what we have observed. We still need to worry
+  about <span class="em u">how well the study was conducted</span>.</p>
+  <p style="font-size: 0.6em; margin-top: 0;">
+    <span style="margin-left: 0.7em;">
+      - Could Buzz see the light through the curtain?
+    </span>
+    <br>
+    <span style="margin-left: 0.7em;">
+      - Could Buzz have detected a pattern in the succession of light signal?
+    </span>
+    <br>
+    <span style="margin-left: 0.7em;">
+      - We haven't completely rule out random chance (but probability is very small)
+    </span>
+  </p>
+  <p class="fragment framed border-info">
+    One option that Dr. Bastian pursued was to redo
+    the study except
+    now he replaced the curtain with a wooden barrier between the two
+    sides of the tank in order to ensure more complete separation
+    between Doris and Buzz. <br>
+    => In this case, Buzz pushed the correct button only 
+    <span class="info">16 out of 28 times</span>.
+  </p>
+</section>
 
+<section data-transition="slide-in">
+  <h3>Follow up study</h3>
+  <p class="sided" style="margin-top: 0;">
+    Buzz' successes: 16 out of 28 <span class="info">
+    ($\overset{\hat{}}{p} = \frac{16}{28} = 0.57$)</span>
+  </p>
+  <p class="sided border-danger fragment" style="margin-top: 0;">
+    <span class="u em">Simulations:</span> <br>
+    This time we need to do repetitions of
+    <span class="danger">28</span> coin flips, not just 16.
+  </p>
+  <div class="row">
+    <div class="col-66">
+      <svg class="fragment" width="100%" viewBox="0 0 440 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/simulation-graph-coinflip2.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
 
+<section data-transition="none">
+  <h3>Follow up study</h3>
+  <p class="sided" style="margin-top: 0;">
+    Buzz' successes: 16 out of 28 <span class="info">
+    ($\overset{\hat{}}{p} = \frac{16}{28} = 0.57$)</span>
+  </p>
+  <p class="sided border-danger" style="margin-top: 0;">
+    <span class="u em">Simulations:</span> <br>
+    This time we need to do repetitions of
+    <span class="danger">28</span> coin flips, not just 16.
+  </p>
+  <div class="row">
+    <div class="col-66">
+      <svg width="100%" viewBox="0 0 440 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/simulation-graph-coinflip2-prop.svg#axes_1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/simulation-graph-coinflip2-prop.svg#axes_2"></use>
+      </svg>
+    </div>
+    <div class="col-33">
+      <p class="fragment">
+        p-value: <br> <br>
+        $\frac{2900}{10000}=0.29$
+        <br><br>
+        Not enough evidence that the "by-chance-alone" model
+        is wrong.
+      </p>
+    </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Follow up study</h3>
+  <p class="framed border-info" style="margin-bottom: 0;">
+  In fact, Dr. Bastian soon discovered that in this set of 
+  attempts the equipment malfunctioned and the food dispenser
+  for Doris did not operate and so Doris was not receiving
+  her fish rewards during the study.</p>
+  <div class="row">
+    <div class="col-5">
+      <p>=></p>
+    </div>
+    <div class="col-80">
+      <p>It is not so surprising that removing the incentive
+      hindered the communication between the dolphins and we
+      cannot refute that Buzz was not guessing.</p>
+    </div>
+  </div>
+  <p>Dr. Bastian fixed the equipment and ran the study again.
+  This time he found convincing evidence that Buzz was not
+  guessing.</p>
+</section>
+
+<section>
+  <h3>Theory: one proportion z-test</h3>
+  <p>
+    In the early 1900s, and even earlier, computers weren't available to
+    do simulations, and as peole didn't want to sit around and flip coins
+    all day long, they focused their attention on mathematical and 
+    probabilistic rules and theories that could predict what would happen
+    if someone did simulate.
+  </p>
+  <p>$z=\frac{\textrm{observed statistic-mean of null distribution}}{\textrm{standard deviation of null distribution}}$</p>
+  <p class="sided">
+    <span class="u em info">Central limit theorem:</span><br>
+    If the sample size (n) is large enough, the distribution of sample 
+    proportion will be bell-shaped (or normal), centered at the long-run
+    proportion ($\pi$), with a standard deviation of 
+    $\sqrt{\frac{\pi(1-\pi)}{n}}$
+  </p>
+  <p>$z=\frac{\overset{\hat{}}{p}-p}{\sqrt{\frac{p(1-p)}{n}}}$</p>
+
+</section>
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
