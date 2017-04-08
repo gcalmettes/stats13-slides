@@ -102,33 +102,71 @@
   </aside>
 </section>
 
-<section data-transition="slide-out">
+<section data-transition="none">
   <h3>Can dolphins communicate?</h3>
   <p style="font-size: 0.7em;">
     In one phase of the study, Dr. Bastian had Buzz attempt to push the correct button 
     a total of 16 different times. <br>
     <span style="font-size: 0.9em;">
       => Buzz pushed the correct button 
-      <span class="warning">15 out of 16 times</span>. <span class="fragment info">($\overset{\hat{}}{p} = \frac{15}{16} = 0.938$)</span> 
+      <span class="warning">15 out of 16 times</span>. <span class="fragment info" data-fragment-index=1>($\overset{\hat{}}{p} = \frac{15}{16} = 0.938$)</span> 
     </span>
   </p>
-  <p class="sided fragment">
+  <p class="sided fragment" data-fragment-index=2>
     <span class="u">Think about it:</span><br>
     Based on these data, do you think Buzz somehow knew which button to push? <br>
     Is 15 out of 16 correct pushes convincing to you? <br>
     Or do you think that Buzz could have just been guessing? <br>
   </p>
-  <div class="row">
-    <div class="sided fragment left col-66 border-danger" style="font-size: 0.7em;">
-      <ul>
-        <li>Buzz is doing something other than just guessing (his probability of a correct button push is more than 0.50)</li>
-        <li>Buzz is just guessing (his probability of a correct button push is 0.50) and he got really lucky in these 16 attempts</li>
-      </ul>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Can dolphins communicate?</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-33">
+      <p></p>
     </div>
-    <div class="col-33 fragment" style="font-size: 0.7em;">
-      <span class="danger">How could we test our hypothesis?</span>
+    <div class="col-33" style="font-size: 0.8em;">
+      2 possible explanations
+    </div>
+    <div class="col-33">
+      <p></p>
     </div>
   </div>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-50">
+      <p style="font-size: 0.65em;" class="framed border-info">
+        Buzz is <span class="info">just guessing</span> (his probability of a correct button push is 0.50) and he 
+        <span class="info">got really lucky</span> in these 16 attempts
+      </p>
+    </div>
+    <div class="col-50">
+      <p style="font-size: 0.65em;" class="framed border-danger">
+        Buzz is <span class="danger">doing something other than just guessing</span> (his probability of a correct button push is more than 0.50)
+      </p>
+    </div>
+  </div>
+  <p style="margin-top: 0;">
+    The key question here is to determine 
+    <span class="info">what results would occur in
+    the long-run under the assumption that Buzz is 
+    just guessing.</span>
+  </p>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-10">
+      <p style="margin-top: 0;" class="push-right fragment" data-fragment-index=1>
+        =>
+      </p>
+    </div>
+    <div class="col-75">
+      <p style="margin-top: 0;" class="fragment" data-fragment-index=1>
+      We call this assumption of random guess by Buzz the 
+      <span style="background-color: #5bc0de;
+  color: black;">null hypothesis</span> (or null model)
+      </p>
+    </div>
+  </div>
+  <p class="fragment">How could we decide between our 2 hypotheses?</p>
 </section>
 
 <section>
@@ -140,11 +178,14 @@
   <div class="row">
     <div class="col-50 fragment" data-fragment-index=1>
       <p>
-      What would be a good simulation model for Buzz & Doris communication experiment?
+      What probability do we need to simulate to test our hypothesis?
       <br>
       <span class="fragment" data-fragment-index=2>
         => <span class="info">50/50 chance model</span>
       </span>
+      </p>
+      <p>
+      What would be a good simulation model for Buzz & Doris communication experiment?
       </p>
     </div>
     <div class="col-50">
@@ -165,7 +206,7 @@
             <td>Correct button</td>
           </tr>
           <tr>
-            <td>Tail</td>
+            <td>Tails</td>
             <td>Wrong button</td>
           </tr>
           <tr>
@@ -185,40 +226,85 @@
   </div>
 </section>
 
-<!-- <section id="liveplotcoinflip"> -->
-<section>
+
+<!-- <section id="liveplotcoinflip" data-transition="slide-in"> -->
+<section data-transition="slide-in">
   <h3>In class simulation - Live data</h3>
   <p style="margin-top: 0;">
     If Buzz was just guessing which button to push each time, what would be the
     number of correct choices we would observe for 16 attempts?
   </p>
   <div class="row">
-    <div class="col-50 sided"> 
+    <div class="col-45 sided"> 
+      <p class="info">https://goo.gl/cYUbFn</p>
       <p style="font-size: 0.6em;">
         1- Flip a coin <span class="warning">16 times</span>
       </p>
       <p style="font-size: 0.6em;">
-        2- Record the <span class="warning">number of heads</span> that you obtain,
-        which represents the number of correct choice that Buzz got by chance in 
-        his hypothetical 16 attempts
+        2- Record the <span class="warning">number of heads</span> that you obtain
+        <!-- which represents the number of correct choice that Buzz got by chance in 
+        his hypothetical 16 attempts -->
       </p>
       <p style="font-size: 0.6em;">
-        3- Enter this number in the spreedsheet in front of your name <br>
-         (please only fill up the value for your name!)
+        3- Enter this value in the spreedsheet in the cell assigned to your name 
+        (please only fill up the value for your name!)
       </p>
-      <p class="info">https://goo.gl/cYUbFn</p>
     </div>
-    <div class="col-40">
+    <div class="col-55">
       <div class="placeholder"></div>
     </div>
   </div>  
 </section>
 
-<section data-transition="slide-in">
-  <h3>Simulating coin-flip</h3>
+<!-- <section id="liveplotcoinflip2" data-transition="slide-out"> -->
+<section data-transition="slide-out">
+  <h3>Analysis of the dotplot</h3>
+  <div class="row" style="margin-top: 0;">
   <div class="row">
-    <div class="col-100">
-      <svg width="80%" viewBox="0 0 440 288" style="margin-top: 0;">
+    <div class="col-45" style="margin-top: 0;"> 
+      <p>
+        What are the: <br>
+        <span style="margin-left:0.8em;" class="warning">observational units</span>? <br>
+        <span style="margin-left:0.8em;" class="info">variables</span>? <br>
+        <span class="u em">Hint:</span> what does each data point represent?
+      </p>
+      <p class="fragment">
+        Each dot represents the <br>
+        <span style="background-color: #5bc0de; color: black;">
+        number of heads</span> 
+        in <br>
+        <span style="background-color: #f0ad4e; color: black;">
+        one set of 16 coin tosses</span>
+      </p>
+    </div>
+    <div class="col-55" style="margin-top: 0;">
+      <div class="placeholder" style="margin-top: 0;"></div>
+    </div>
+  </div> 
+  <p style="margin-top: 0;" class="fragment sided border-danger">
+    Does it seem that the number of correct button choices by Buzz would have been surprising if in fact he was just guessing?
+  </p>
+  <aside class="notes">
+    <p>
+      Where is the distribution centered? <br>
+      Why this makes sense? <br>
+    </p>
+  </aside>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Long-run pattern for 16 coin-flips</h3>
+  <p style="margin-top: 0; font-size: 0.6em;">
+    We really need to simulate this random selection process hundreds, preferably 
+    <span class="info">thousands of times</span>.
+    This would be very tedious and time-consuming with coins, so we'll turn to technology.
+  </p>
+  <div class="row">
+    <div class="col-30">
+      <p></p>
+    </div>
+    <div class="col-70">
+      <svg width="100%" viewBox="0 0 440 288" style="margin-top: 0;">
         <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/simulation-graph-coinflip.svg#axes_4"></use>
         <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/simulation-graph-coinflip.svg#axes_3"></use>
         <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/simulation-graph-coinflip.svg#axes_2"></use>
@@ -227,17 +313,81 @@
       </svg>
     </div>
   </div>
+  <aside class="notes">
+    1000 is a number large enough to give us a fairly accurate sense
+    of the long-run behavior for the number of heads in 16 tosses.
+  </aside>
 </section>
 
 <section data-transition="slide-out">
-  <h3>Simulating coin-flip</h3>
+  <h3>Long-run pattern for 16 coin-flips</h3>
+  <p style="margin-top: 0; font-size: 0.6em;">
+    We really need to simulate this random selection process hundreds, preferably 
+    <span class="info">thousands of times</span>.
+    This would be very tedious and time-consuming with coins, so we'll turn to technology.
+  </p>
   <div class="row">
-    <div class="col-100">
-      <svg width="80%" viewBox="0 0 440 288" style="margin-top: 0;">
+    <div class="col-30">
+      <p style="font-size: 0.6em; margin-top: 0;" class="sided fragment">
+        How many of these 1000 simulations produced 15 or more correct choices by Buzz?
+      </p>
+      <p style="font-size: 0.6em; margin-top: 0;" class="sided fragment">
+        What is the corresponding proportion of simulations that produced such an extreme result?
+      </p>
+    </div>
+    <div class="col-70">
+      <svg width="100%" viewBox="0 0 440 288" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/simulation-graph-coinflip-prop.svg#axes_1"></use>
       </svg>
     </div>
   </div>
+</section>
+
+<section>
+  <h3>p-value</h3>
+  <p class="quoted">
+    A p-value is the <span class="warning">probability</span> of obtaining a result
+    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">as extreme as</span> the one observed,
+    assuming that the
+    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> null hypothesis is true</span>.
+  </p>
+  <p>
+    A <span class="u em">small</span> p-value casts doubt on the null hypothesis/model
+    used to perform the calculation (in this case, that Buzz was chosing a button randomly).
+  </p>
+  
+  <div class="row">
+    <div class="col-15" style="margin-top: 6%;">
+      <p style="text-align: right;">A p-value</p>
+    </div>
+    <div class="col-15">
+      <p>
+      <!-- <p style="border-style: solid; border-left-color: #f0ad4e; border-left-width: 0.1em;"> -->
+        <span class="warning" style="margin-left: 0.2em;">$\leq{0.10}$</span> <br>
+        <span class="warning" style="margin-left: 0.2em;">$\leq{0.05}$</span> <br>
+        <span class="warning" style="margin-left: 0.2em;">$\leq{0.01}$</span> <br>
+        <span class="warning" style="margin-left: 0.2em;">$\leq{0.001}$</span>
+      </p>
+    </div>
+    <div class="col-20" style="margin-top: 2%; margin-left:0;">
+      <p>is generally considered <br>to be</p>
+    </div>
+    <div class="col-30">
+      <p>
+        <span class="warning" style="margin-left: 0.2em;">some</span> <br>
+        <span class="warning" style="margin-left: 0.2em;">fairly strong</span> <br>
+        <span class="warning" style="margin-left: 0.2em;">very strong</span> <br>
+        <span class="warning" style="margin-left: 0.2em;">extremely strong</span>
+      </p>
+    </div>
+    <div class="col-20">
+      <p>
+        evidence against the null
+      </p>
+    </div>
+
+  </div>
+
 </section>
 
 
@@ -259,7 +409,7 @@
   <script src="assets/js/jquery.js"></script>
 
   <!-- Google spreadsheet to javascript -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
 
   <!-- D3 -->
   <script src="assets/js/d3.v4.min.js"></script>
@@ -270,6 +420,7 @@
     <!-- The D3 config & animations -->
     <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
     <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip.js"></script>
+    <!-- <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip2.js"></script> -->
 
 
 </body>
