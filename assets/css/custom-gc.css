@@ -340,6 +340,7 @@ body section .circled { border-radius: 50%; }
 body section .flat { box-shadow: none; }
 
 
+body section .border-light { border-color: #d2d2d2; }
 body section .border-muted { border-color: #636c72; }
 body section .border-info { border-color: #5bc0de; }
 body section .border-warning { border-color: #f0ad4e; }

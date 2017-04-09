@@ -136,14 +136,14 @@
   <div class="row" style="margin-top: 0;">
     <div class="col-50">
       <p style="font-size: 0.65em;" class="framed border-info">
-        Buzz is <span class="info">just guessing</span> (his probability of a correct button push is 0.50) and he 
+        Buzz is <span class="info">just guessing</span> (his probability of choosing the correct button is 0.50) and he 
         <span class="info">got really lucky</span> in these 16 attempts.
         <span class="info">$\pi=0.5$</span>
       </p>
     </div>
     <div class="col-50">
       <p style="font-size: 0.65em;" class="framed border-danger">
-        Buzz is <span class="danger">doing something other than just guessing</span> (his probability of a correct button push is more than 0.50).
+        Buzz is <span class="danger">doing something other than just guessing</span> (his probability of choosing the correct button is more than 0.50).
         <span class="danger">$\pi\neq0.5$</span>
       </p>
     </div>
@@ -204,26 +204,26 @@
             <td>Button choice by Buzz</td>
           </tr>
           <tr>
-            <td>Heads</td>
-            <td>Correct button</td>
+            <td class="fragment highlight-current-bckg-blue" data-fragment-index=4>Heads</td>
+            <td class="fragment highlight-current-bckg-blue" data-fragment-index=4>Correct button</td>
           </tr>
           <tr>
             <td>Tails</td>
             <td>Wrong button</td>
           </tr>
           <tr>
-            <td class="fragment highlight-current-bckg-blue" data-fragment-index=4 style="vertical-align: middle;">Chance of heads</td>
-            <td class="fragment highlight-current-bckg-blue" data-fragment-index=4>Probability of Buzz <br>pressing the correct button</td>
+            <td class="fragment highlight-current-bckg-blue" data-fragment-index=5 style="vertical-align: middle;">Chance of heads</td>
+            <td class="fragment highlight-current-bckg-blue" data-fragment-index=5>Probability of Buzz <br>pressing the correct button</td>
           </tr>
           <tr>
-            <td class="fragment highlight-bckg-blue" data-fragment-index=5>One set of <br>16 coin flips</td>
-            <td class="fragment highlight-bckg-blue" data-fragment-index=5>One set of <br>16 experiments</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=6>One set of <br>16 coin flips</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=6>One set of <br>16 experiments</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="left fragment success" data-fragment-index=6>
+  <div class="left fragment success" data-fragment-index=7>
   Let's simulate it!
   </div>
 </section>
@@ -449,7 +449,7 @@
     <div class="col-33">
       <p class="fragment">
         p-value: <br> <br>
-        $\frac{2900}{10000}=0.29$
+        $\frac{2845}{10000}=0.285$
         <br><br>
         Not enough evidence that the "by-chance-alone" model
         is wrong.
@@ -479,25 +479,152 @@
   guessing.</p>
 </section>
 
-<section>
+<section data-transition="slide-in">
   <h3>Theory: one proportion z-test</h3>
-  <p>
-    In the early 1900s, and even earlier, computers weren't available to
+  <p style="margin-top: 0;" class="sided">
+    Another way (than p-value) to measure strength of evidence is to 
+    <span class="warning">standardize the observed statistic</span> by
+    measuring <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">how far it is from the mean of the
+    null distribution using standard deviation units</span>. <br>
+    This measure is commonly noted <span class="warning">$z$</span>.
+  </p>
+  <div class="row">
+    <div class="col-40">
+      <p style="margin-top: 2em;" class="fragment" data-fragment-index=2>
+      $z=\frac{\textrm{observed statistic-}\fragindex{2}{\fraglight{highlight-blue-gc}{\textrm{mean of null distribution}}}}{\fragindex{4}{\fraglight{highlight-red-gc}{\textrm{standard deviation of null distribution}}}}$
+      <span class="fragment" data-fragment-index=3></span>
+      <span class="fragment" data-fragment-index=5</span>
+      </p>
+      <p style="margin-top: 1em;" class="fragment sided border-info" data-fragment-index=4>
+        Mean of null distribution: <br>
+        <span style="margin-left: 1.2em;">$\mu = 0.5$ ($\pi$)</span>
+      </p>
+      <p class="fragment sided border-danger" data-fragment-index=6>
+        SD of null distribution: <br>
+        <span style="margin-left: 1.2em;">???</span>
+      </p>
+    </div>
+    <div class="col-60">
+      <img src="assets/img/lec/sd-normal.svg" class="unbordered fragment"
+      data-fragment-index=1 width=100%>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>
+      Using p-value is the most common way of assessing the strength of evidence by indicating the probability, under the null hypothesis, of getting a statistic at least as extreme the the one observed.
+    </p>
+  </aside>
+</section>
+
+<section data-transition="none">
+  <h3>Theory: one proportion z-test</h3>
+  <p style="margin-top: 0; font-size: 0.65em;">
+    In the early 1900s (and even earlier), computers weren't available to
     do simulations, and as peole didn't want to sit around and flip coins
     all day long, they focused their attention on mathematical and 
     probabilistic rules and theories that could predict what would happen
     if someone did simulate.
   </p>
-  <p>$z=\frac{\textrm{observed statistic-mean of null distribution}}{\textrm{standard deviation of null distribution}}$</p>
+  <p <p style="margin-top: 0; font-size: 0.65em;">
+    They proved the following result:
+  </p>
   <p class="sided">
     <span class="u em info">Central limit theorem:</span><br>
     If the sample size (n) is large enough, the distribution of sample 
     proportion will be bell-shaped (or normal), centered at the long-run
-    proportion ($\pi$), with a standard deviation of 
-    $\sqrt{\frac{\pi(1-\pi)}{n}}$
+    proportion, with a standard deviation of 
+    <span class="warning">$\sqrt{\frac{p(1-p)}{n}}$</span>
   </p>
-  <p>$z=\frac{\overset{\hat{}}{p}-p}{\sqrt{\frac{p(1-p)}{n}}}$</p>
 
+  <!-- <p>$z=\frac{\textrm{observed statistic-mean of null distribution}}{\textrm{standard deviation of null distribution}}$</p> -->
+</section>
+
+
+<section data-transition="none">
+  <h3>Theory: one proportion z-test</h3>
+  <div style="margin-top: 1em;">
+    $z=\frac{\textrm{observed statistic-mean of null distribution}}{\textrm{standard deviation of null distribution}}$
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-55 fragment" data-fragment-index=1>
+      <p style="text-align: right;">
+        Applied to the coin flip model, this correspond to:
+      </p>
+    </div>
+    <div class="col-40 fragment" data-fragment-index=1>
+      $z=\frac{\overset{\hat{}}{p}-\pi}{\sqrt{\frac{\pi(1-\pi)}{n}}}$
+    </div>
+  </div>
+  <div class="row" style="margin-top: 1em;">
+    <div class="col-55 fragment" data-fragment-index=2>
+      <p style="text-align: right;">
+        In the second experiment, Buzz got 16 correct choices
+        out of 28 attempts.
+      </p>
+    </div>
+    <div class="col-40 fragment" data-fragment-index=2>
+      $z=\frac{\frac{16}{28}-0.5}{\sqrt{\frac{0.5(1-0.5)}{28}}}$
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-55 fragment" data-fragment-index=3>
+      <p ></p>
+    </div>
+    <div class="col-40 fragment" data-fragment-index=3>
+      $z=0.756$
+    </div>
+  </div>
+</section>
+
+<section data-transition="none">
+  <h3>Theory: one proportion z-test</h3>
+  <div class="row">
+    <div class="col-30">
+      <p style="font-size: 0.65em;">
+        Buzz got 16 correct choices
+        out of 28 attempts
+      </p>
+      <span class="framed border-success">$z=0.756$</span>
+      <p style="font-size: 0.65em;">
+        the number of correct choices is 0.756 SD away from the mean of the null distribution
+      </p>
+    </div>
+    <div class="col-70">
+      <svg width="100%" viewBox="34 0 410 288" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_1"></use>
+        <use  class="fragment" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_2"></use>
+        <use  class="fragment" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Theory: one proportion z-test</h3>
+  <div class="row">
+    <div class="col-30">
+      <p style="font-size: 0.65em; margin-bottom: 0;">
+        <span class="u em">Note:</span><br>
+        Mathematically, it is possible to calculate the exact probability of getting $\geq16$ heads in 28 tosses using the binomial distribution.
+      </p>
+      <p class="warning" style="margin-top: 0;">
+        p = 0.2858
+      </p>
+      <p class="sided fragment">Which method gave the p-value closest to the true probability? Why?</p>
+    </div>
+    <div class="col-70">
+      <svg width="100%" viewBox="34 0 410 288" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_1"></use>
+        <use  xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_2"></use>
+        <use  xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  
 </section>
 
 
