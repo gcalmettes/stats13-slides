@@ -97,18 +97,19 @@
 </section>
 
 <section data-transition="slide-in">
-  <h3>Drug detection by police dogs</h3>
+  <h3>Detection tasks by police dogs</h3>
   <div class="row">
+    <div class="col-30">
+    <svg width="100%" viewBox="0 0 270 281" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/police-dog-luggages.svg#dog"></use>
+    </svg>
+    </div>
     <div class="col-70">
       <p>
         There are at least 30 different sets of 
         detection tasks that trained dogs can perform, but the most common use of detection dogs by
         law enforcement all over the world is for narcotics and explosives detection.
       </p>
-    </div>
-    <div class="col-30">
-      <img src="assets/img/lec/police-dog.png" class="unbordered"
-       style="width: 100%;">
     </div>
   </div>
   <p>
@@ -119,29 +120,55 @@
   </p>
 </section>
 
-<section data-transition="slide-out">
-  <h3>Drug detection by police dogs</h3>
+<section data-transition="none">
+  <h3>Explosive detection training</h3>
   <div class="row">
-    <div class="col-70">
-      <p>
-        A dog is trained to detect the scent of explosives.
-        When presented in front of 3 bags, <span class="strong warning">15</span> out of
-        <span class="strong warning">21</span> times
-        the dog successfully detected the bag containing the explosives.
-      </p>
-      <p>
-        Did the training have an effect on this dog or could this result be explained
-        by random chance?
-      </p>
-    </div>
     <div class="col-30">
-      <img src="assets/img/lec/police-dog.png" class="unbordered"
-       style="width: 100%;">
+    <svg width="100%" viewBox="0 0 270 281" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/police-dog-luggages.svg#dog"></use>
+    </svg>
+    </div>
+    <div class="col-70">
+      <svg width="100%" viewBox="270 20 570 240" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/police-dog-luggages.svg#luggages"></use>
+    </svg>
     </div>
   </div>
   <p>
-    $\overset{\hat{}}{p}=\frac{15}{21}=0.71$
+    A dog is trained to detect the scent of explosives. <br>
+    When presented in front of <span class="info u">3 bags</span>,
+    <span class="strong warning">15</span> out of
+    <span class="strong warning">21</span> times
+    the dog successfully detected the bag containing the explosives.
   </p>
+  <p>
+    Did the training have an effect on this dog or could this 
+    result be explained by random chance?
+  </p>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Explosive detection training</h3>
+  <p>
+    When presented in front of <span class="info u">3 bags</span>,
+    <span class="strong warning">15</span> out of
+    <span class="strong warning">21</span> times
+    the dog successfully detected the bag containing the explosives
+  </p>
+  <p class="sided border-danger">
+    Null hypothesis:<br>
+    <span class="info">$\pi=\frac{1}{3}$</span> (3 bags)
+  </p>
+  <p class="sided border-warning">
+    Simulation:<br>
+    Simulations of 21 trials with probability of 
+    success $\frac{1}{3}$ <br>
+    10000 simulations
+  </p>
+</section>
+
+<section>
+  
 </section>
 
 
