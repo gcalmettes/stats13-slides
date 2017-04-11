@@ -96,26 +96,54 @@
   </div>  
 </section>
 
-
-<section>
-  <h3>One sided vs two sided test</h3>
-  <p>As we have seen, we create the randomization distribution by assuming the null hypothesis
-   is true.</p>
-  <p>The alternative hypothesis does not play any role for creating the randomization distribution,
-    as the randomization samples depend only on the null hypothesis, but not the alternative.
-  </p>
+<section data-transition="slide-in">
+  <h3>Drug detection by police dogs</h3>
+  <div class="row">
+    <div class="col-70">
+      <p>
+        There are at least 30 different sets of 
+        detection tasks that trained dogs can perform, but the most common use of detection dogs by
+        law enforcement all over the world is for narcotics and explosives detection.
+      </p>
+    </div>
+    <div class="col-30">
+      <img src="assets/img/lec/police-dog.png" class="unbordered"
+       style="width: 100%;">
+    </div>
+  </div>
   <p>
-    However, the alternative hypothesis is important in determining the p-value because it 
-    determines which tail(s) to use to calculate the p-value. In some tests, the alternative
-    hypothesis specifies a particular direction (greater than or less than).
-    We refer to these as right-tailed or left-tailed tests, depending on whether the 
-    alternative hypothesis is greater than or less than, respectively.</p>
-  <p>In other cases, we are only looking to see if there is a difference without specifying in
-    advance in which direction it might lie. These are called two-tailed tests.
-    The de nition of “more extreme” when computing a p-value depends on whether the 
-    alternative hypothesis yields a test that is right-, left-, or two-tailed.</p>
-  
+    Police accounts concerning the effectiveness of dogs in sniffing out narcotics reveal
+    impressive results, with a famous example of 12 drug-sniffing dogs at the US Border Patrol 
+    Station in El Paso, Texas, that detected $100 million in narcotics in a nine-month period
+    in 1988-1989.
+  </p>
 </section>
+
+<section data-transition="slide-out">
+  <h3>Drug detection by police dogs</h3>
+  <div class="row">
+    <div class="col-70">
+      <p>
+        A dog is trained to detect the scent of explosives.
+        When presented in front of 3 bags, <span class="strong warning">15</span> out of
+        <span class="strong warning">21</span> times
+        the dog successfully detected the bag containing the explosives.
+      </p>
+      <p>
+        Did the training have an effect on this dog or could this result be explained
+        by random chance?
+      </p>
+    </div>
+    <div class="col-30">
+      <img src="assets/img/lec/police-dog.png" class="unbordered"
+       style="width: 100%;">
+    </div>
+  </div>
+  <p>
+    $\overset{\hat{}}{p}=\frac{15}{21}=0.71$
+  </p>
+</section>
+
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->

@@ -51,9 +51,26 @@
 
 <section>
   <h3>Last time</h3>
-  <p class="sided">Importance of visualizing our data</p>
-  <p class="sided">Know your dataset: <br>Distribution / descriptors for central tendency / spread</p>
-  <p class="sided">How to present categorical and quantitative variables</p>
+
+  <p class="sided">Importance of visualizing your data</p>
+  <p class="sided">Know your dataset
+  <p class="sided">How to present <span class="info">categorical</span> and
+   <span class="info">quantitative</span> variables</p>
+
+  <div class="row">
+    <div class="col-25">
+      <p class="fragment warning" data-fragment-index=1 style="font-size: 0.6em;">Shape</p>
+      <p class="fragment danger" data-fragment-index=2 style="font-size: 0.6em;">Central tendency</p>
+      <p class="fragment success" data-fragment-index=3 style="font-size: 0.6em;">Spread</p>
+    </div>
+    <div class="col-75">
+      <svg width="100%" viewBox="0 42 576 216" style="margin-top: 5%;">
+        <use xlink:href="assets/img/lec/dotplot-distribution.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/dotplot-distribution.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/dotplot-distribution.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/dotplot-distribution.svg#axes_4"></use>
+      </svg>
+    </div>
 </section>
 
 <section>
@@ -491,7 +508,7 @@
     <div class="col-55">
       <p style="margin-top: 0; font-size: 0.55em;">
         1- Collect your sample and calculate your statistic
-        of interest (ex: <span class="warning">$\overset{\hat{}}{p}=\frac{15}{16}=0.957$</span>)
+        of interest (ex: <span class="warning">$\overset{\hat{}}{p}=\frac{17}{24}=0.708$</span>)
       </p>
       <p class="fragment" data-fragment-index=1 style="margin-top: 0; font-size: 0.55em;">
         2- State your null and alternative hypothesis <br>
@@ -504,7 +521,7 @@
       <p class="fragment" data-fragment-index=3 style="margin-top: 0; font-size: 0.55em;">
         4- Calculate the proportion of samples that resulted in cases at least as extreme
         as your initial observed statistic. This is your p-value. <br>
-        (ex: <span class="warning">$\textrm{p-value}=\frac{1}{1000}=0.001$</span>)
+        (ex: <span class="warning">$\textrm{p-value}=\frac{289}{10000}=0.029$</span>)
       </p>
       <p class="fragment" data-fragment-index=4 style="margin-top: 0; font-size: 0.55em;">
         5- Conclude about weither your have evidence <span class="warning">in favor</span>
@@ -714,7 +731,7 @@
       </tr>
       <tr>
         <td style="border-left: none;" class="fragment" data-fragment-index=3>
-          Directly simulate your null hypothesis distribution
+          <span class="info">Directly simulate</span> your null hypothesis distribution
         (you end up with a resampling distribution <span class="warning">centered at the stated H$_0$ proportion $\pi$</span>)
         </td>
         <td style="border-right: none;" class="fragment" data-fragment-index=3>
@@ -772,7 +789,6 @@
     <!-- The D3 config & animations -->
     <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
     <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip.js"></script>
-    <!-- <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip2.js"></script> -->
 
 
 </body>

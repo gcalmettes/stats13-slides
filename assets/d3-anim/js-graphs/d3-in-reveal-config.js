@@ -56,6 +56,12 @@ gc.slideIdToFunctions = {
       gc.liveplotcoinflip.init();
     }
   },
+  'liveplotcoinflip2': {
+    'init': function() {
+      'use strict';
+      gc.liveplotcoinflip.init2();
+    }
+  },
 
   'soho': {
     'init': function() {
