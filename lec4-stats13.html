@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 4 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <!-- <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" /> -->
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg6.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 4</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">Introduction to <br>confidence intervals</h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h3>Last time</h3>
+  
+</section>
+
+
+<section>
+  <h3>One sided vs two sided tests</h3>
+  <p class="sided" style="margin-top: 0; margin-bottom: 0.3em; font-size: 0.55em;">
+    We create the <span class="warning">randomization distribution</span>
+    by assuming the <span class="warning">null hypothesis</span> is true.
+    The alternative hypothesis does not play any role in this process
+    as the randomization samples depend only on the null hypothesis. <br>
+    However, the <span class="danger">alternative hypothesis</span> is important 
+    in determining the p-value because it determines 
+    <span class="danger">which tail(s) to use to calculate the p-value</span>. 
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="fragment" data-fragment-index=1 style="margin-top: 0; margin-bottom: 0.3em; font-size: 0.55em;">
+        If the alternative hypothesis specifies a <span class="info">particular direction</span>,
+        we refer to these as <span class="info">right-tailed</span> or 
+        <span class="info">left-tailed tests</span>, depending on whether the 
+        alternative hypothesis is <span class="info">greater than</span> or 
+        <span class="info">less than</span>, respectively.
+      </p>
+      <p class="fragment" data-fragment-index=2 style="margin-top: 0; margin-bottom: 0.3em; font-size: 0.55em;">
+        Otherwise, we are only looking to see if there is a <span class="info">difference 
+        without specifying in
+        advance in which direction</span> it might lie. 
+        These are called <span class="info">two-tailed</span> tests.
+      </p>
+      <p class="fragment framed border-light" data-fragment-index=3 style="margin-top: 0; font-size: 0.55em;">
+        The definition of <span class="em u">“more extreme”</span> to compute a p-value depends on whether the 
+        alternative hypothesis yields a test that is right-, left-, or two-tailed.
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="34 0 375 285" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/simulation-graph-two-tails.svg#axes_1"></use>
+        <use  class="fragment current-visible" data-fragment-index=1 xlink:href="assets/img/lec/simulation-graph-two-tails.svg#axes_2"></use>
+        <use  class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/simulation-graph-two-tails.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>  
+</section>
+
+
+<section>
+  <h3>One sided vs two sided test</h3>
+  <p>As we have seen, we create the randomization distribution by assuming the null hypothesis
+   is true.</p>
+  <p>The alternative hypothesis does not play any role for creating the randomization distribution,
+    as the randomization samples depend only on the null hypothesis, but not the alternative.
+  </p>
+  <p>
+    However, the alternative hypothesis is important in determining the p-value because it 
+    determines which tail(s) to use to calculate the p-value. In some tests, the alternative
+    hypothesis specifies a particular direction (greater than or less than).
+    We refer to these as right-tailed or left-tailed tests, depending on whether the 
+    alternative hypothesis is greater than or less than, respectively.</p>
+  <p>In other cases, we are only looking to see if there is a difference without specifying in
+    advance in which direction it might lie. These are called two-tailed tests.
+    The de nition of “more extreme” when computing a p-value depends on whether the 
+    alternative hypothesis yields a test that is right-, left-, or two-tailed.</p>
+  
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <script src="assets/js/d3.v4.min.js"></script>
+  <script src="assets/js/d3-selection-multi.v0.4.min.js"></script>
+
+    <!-- D3 in REVEAL -->
+  <script src="assets/js/d3-in-reveal.js"></script>
+    <!-- The D3 config & animations -->
+    <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip.js"></script>
+    <!-- <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip2.js"></script> -->
+
+
+</body>
+</html>

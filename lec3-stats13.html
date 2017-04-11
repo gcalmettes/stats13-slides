@@ -144,7 +144,7 @@
     <div class="col-50">
       <p style="font-size: 0.65em;" class="framed border-danger">
         Buzz is <span class="danger">doing something other than just guessing</span> (his probability of choosing the correct button is more than 0.50).
-        <span class="danger">$\pi\neq0.5$</span>
+        <span class="danger">$\pi>0.5$</span>
       </p>
     </div>
   </div>
@@ -229,9 +229,9 @@
 </section>
 
 
-<!-- <section id="liveplotcoinflip" data-transition="slide-in"> -->
-<section data-transition="slide-in">
-  <h3>In class simulation - Live data</h3>
+<section id="liveplotcoinflip" data-transition="slide-in">
+<!-- <section data-transition="slide-in"> -->
+  <h3>In-class simulation - Live data</h3>
   <p style="margin-top: 0;">
     If Buzz was just guessing which button to push each time, what would be the
     number of correct choices we would observe for 16 attempts?
@@ -258,8 +258,8 @@
   </div>  
 </section>
 
-<!-- <section id="liveplotcoinflip2" data-transition="slide-out"> -->
-<section data-transition="slide-out">
+<section id="liveplotcoinflip2" data-transition="slide-out">
+<!-- <section data-transition="slide-out"> -->
   <h3>Analysis of the dotplot</h3>
   <div class="row" style="margin-top: 0;">
   <div class="row">
@@ -309,7 +309,7 @@
       </p>
       <p style="font-size: 0.55em; margin-top: 0;" class="sided fragment border-info">
         What is the corresponding proportion of simulations that produced such an extreme result? <br>
-        <span style="margin-left: 0.8em;" class="fragment info">$p=\frac{1}{1000}=0.001$</span>
+        <span style="margin-left: 0.8em;" class="fragment info">$\frac{1}{1000}=0.001$</span>
       </p>
     </div>
     <div class="col-70">
@@ -337,7 +337,7 @@
     assuming that the
     <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> null hypothesis is true</span>.
   </p>
-  <p class="fragment" style="margin-top: 0;">
+  <p class="fragment" style="margin-top: 0; margin-bottom: 0;">
     A <span class="u em">small</span> p-value casts doubt on the null hypothesis/model
     used to perform the calculation (in this case, that Buzz was just guessing which button to push).
   </p>
@@ -371,7 +371,7 @@
       </p>
     </div>
   </div>
-  <p class="fragment framed border-danger" style="margin-top: 0;">The results mean our evidence is strong enough to be considered
+  <p class="fragment framed border-danger" style="margin-top: 0; font-size: 0.6em;">The results ($\textrm{p-value}=\frac{1}{1000}=0.001$) mean our evidence is strong enough to be considered
   <span class="warning">statistically significant</span>.
   That is, we don't think our study result (15 out of 16 correct) 
   happened by chance alone, but rather, something other than 
@@ -411,7 +411,7 @@
 <section data-transition="slide-in">
   <h3>Follow up study</h3>
   <p class="sided" style="margin-top: 0;">
-    Buzz' successes: 16 out of 28 <span class="info">
+    Buzz' successes: 16 out of 28 <span class="info fragment">
     ($\overset{\hat{}}{p} = \frac{16}{28} = 0.57$)</span>
   </p>
   <p class="sided border-danger fragment" style="margin-top: 0;">
@@ -449,17 +449,19 @@
     <div class="col-33">
       <p class="fragment">
         p-value: <br> <br>
-        $\frac{2845}{10000}=0.285$
+        $\frac{2864}{10000}=0.286$
         <br><br>
+        <span class="fragment">
         Not enough evidence that the "by-chance-alone" model
         is wrong.
+        </span>
       </p>
     </div>
 </section>
 
 <section data-transition="slide-out">
   <h3>Follow up study</h3>
-  <p class="framed border-info" style="margin-bottom: 0;">
+  <p class="framed border-info" style="margin-bottom: 0; font-size: 0.65em;">
   In fact, Dr. Bastian soon discovered that in this set of 
   attempts the equipment malfunctioned and the food dispenser
   for Doris did not operate and so Doris was not receiving
@@ -469,18 +471,57 @@
       <p>=></p>
     </div>
     <div class="col-80">
-      <p>It is not so surprising that removing the incentive
+      <p style="font-size: 0.65em;">It is not so surprising that removing the incentive
       hindered the communication between the dolphins and we
       cannot refute that Buzz was not guessing.</p>
     </div>
   </div>
-  <p>Dr. Bastian fixed the equipment and ran the study again.
+  <p style="font-size: 0.65em;">Dr. Bastian fixed the equipment and ran the study again.
   This time he found convincing evidence that Buzz was not
   guessing.</p>
+  <p class="fragment warning">
+    <span class="em u">Conclusion/Generalization:</span><br>
+    Dolphins can communicate at least simple concepts!
+  </p>
+</section>
+
+<section>
+  <h3>Resampling p-value</h3>
+  <div class="row">
+    <div class="col-55">
+      <p style="margin-top: 0; font-size: 0.55em;">
+        1- Collect your sample and calculate your statistic
+        of interest (ex: <span class="warning">$\overset{\hat{}}{p}=\frac{15}{16}=0.957$</span>)
+      </p>
+      <p class="fragment" data-fragment-index=1 style="margin-top: 0; font-size: 0.55em;">
+        2- State your null and alternative hypothesis <br>
+        (ex: <span class="warning">H$_0$ $\pi=0.5$</span> / <span class="warning">H$_a$ $\pi>0.5$</span>)
+      </p>
+      <p class="fragment" data-fragment-index=2 style="margin-top: 0; font-size: 0.55em;">
+        3- Simulate your null hypothesis distribution. 
+        (it should be <span class="warning">centered at the stated H$_0$ parameter of interest</span>)
+      </p>
+      <p class="fragment" data-fragment-index=3 style="margin-top: 0; font-size: 0.55em;">
+        4- Calculate the proportion of samples that resulted in cases at least as extreme
+        as your initial observed statistic. This is your p-value. <br>
+        (ex: <span class="warning">$\textrm{p-value}=\frac{1}{1000}=0.001$</span>)
+      </p>
+      <p class="fragment" data-fragment-index=4 style="margin-top: 0; font-size: 0.55em;">
+        5- Conclude about weither your have evidence <span class="warning">in favor</span>
+        or <span class="warning">against</span> the null hypothesis.
+      </p>
+    </div>
+    <div class="col-45">
+      <svg width="100%" viewBox="34 0 375 285" style="margin-top: 0;">
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/simulation-graph-two-tails.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/simulation-graph-two-tails.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section data-transition="slide-in">
-  <h3>Theory: one proportion z-test</h3>
+  <h3>Theory: Standardized statistic</h3>
   <p style="margin-top: 0;" class="sided">
     Another way (than p-value) to measure strength of evidence is to 
     <span class="warning">standardize the observed statistic</span> by
@@ -506,7 +547,8 @@
     </div>
     <div class="col-60">
       <img src="assets/img/lec/sd-normal.svg" class="unbordered fragment"
-      data-fragment-index=1 width=100%>
+      data-fragment-index=1 width=100% style="margin-bottom: 0;">
+      <div style="font-size: 0.65em; margin-top: 0;" class="fragment em" data-fragment-index=1>Normal distribution</div>
     </div>
   </div>
   <aside class="notes">
@@ -517,8 +559,8 @@
 </section>
 
 <section data-transition="none">
-  <h3>Theory: one proportion z-test</h3>
-  <p style="margin-top: 0; font-size: 0.65em;">
+  <h3>Theory: Central limit theorem</h3>
+  <p style="margin-top: 0; font-size: 0.6em;">
     In the early 1900s (and even earlier), computers weren't available to
     do simulations, and as peole didn't want to sit around and flip coins
     all day long, they focused their attention on mathematical and 
@@ -530,13 +572,18 @@
   </p>
   <p class="sided">
     <span class="u em info">Central limit theorem:</span><br>
-    If the sample size (n) is large enough, the distribution of sample 
+    If the sample size (n) is <span class="u">large enough</span>, the distribution of sample 
     proportion will be bell-shaped (or normal), centered at the long-run
     proportion, with a standard deviation of 
-    <span class="warning">$\sqrt{\frac{p(1-p)}{n}}$</span>
+    <span class="warning">$\sqrt{\frac{\pi(1-\pi)}{n}}$</span>
   </p>
-
-  <!-- <p>$z=\frac{\textrm{observed statistic-mean of null distribution}}{\textrm{standard deviation of null distribution}}$</p> -->
+  <p class="fragment" style="font-size: 0.6em;">
+    <span class="u em">Validity conditions:</span><br>
+    The normal approximation can be thought of as a prediction of what would occur if 
+    simulation was done. Many times this prediction is valid, but
+    <span class="danger">not always</span>. The prediction is considered valid when there
+    are at least 10 successes and 10 failures in the sample.
+  </p>
 </section>
 
 
@@ -585,16 +632,20 @@
         Buzz got 16 correct choices
         out of 28 attempts
       </p>
-      <span class="framed border-success">$z=0.756$</span>
-      <p style="font-size: 0.65em;">
-        the number of correct choices is 0.756 SD away from the mean of the null distribution
+      <span class="fragment framed border-success" data-fragment-index=2>$z=0.756$</span>
+      <p style="font-size: 0.65em;" class="fragment" data-fragment-index=2>
+        the number of correct choices is 0.756 SD away from the mean of the null 
+        <span class="u">normal</span> distribution
       </p>
     </div>
     <div class="col-70">
       <svg width="100%" viewBox="34 0 410 288" style="margin-top: 2%;">
         <use xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_3"></use>
+        <use  class="fragment current-visible" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_4"></use>
+        <use  class="fragment current-visible" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_6"></use>
+        <use  class="fragment" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_5"></use>
         <use  class="fragment" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_2"></use>
-        <use  class="fragment" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_3"></use>
       </svg>
     </div>
   </div>
@@ -604,29 +655,96 @@
   <h3>Theory: one proportion z-test</h3>
   <div class="row">
     <div class="col-30">
-      <p style="font-size: 0.65em; margin-bottom: 0;">
+      <p class="framed border-light" style="font-size: 0.65em; margin-bottom: 0;">
         <span class="u em">Note:</span><br>
         Mathematically, it is possible to calculate the exact probability of getting $\geq16$ heads in 28 tosses using the binomial distribution.
-      </p>
-      <p class="warning" style="margin-top: 0;">
-        p = 0.2858
-      </p>
-      <p class="sided fragment">Which method gave the p-value closest to the true probability? Why?</p>
+      <br>
+      <span class="warning">p = 0.2858</span>
+      <p class="sided fragment" style="font-size: 0.6em;">Which method gives the p-value closest to the true probability? Why?</p>
     </div>
     <div class="col-70">
       <svg width="100%" viewBox="34 0 410 288" style="margin-top: 2%;">
         <use xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_1"></use>
-        <use  xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_2"></use>
-        <use  xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_2"></use>
       </svg>
     </div>
   </div>
 </section>
 
 <section>
-  
+  <h3>Hypothesis testing for one proportion</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-50">
+      <p></p>
+    </div>
+    <div class="col-50">
+      <p class="fragment danger" data-fragment-index=6 style="text-align: center;">
+        Lots of assumptions &
+        required validity conditions!
+      </p>
+    </div>
+  </div>
+  <table style="font-size: 0.9em; margin-top: 0;">
+    <thead class="table-vert">
+      <tr>
+        <th bgcolor="#636c72" style="border-left: none;">
+          Resampling simulation
+        </th>
+        <th bgcolor="#636c72" style="border-right: none;">
+          Normal approximation (Z-test)
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table-vert">
+      <tr>
+        <td colspan="2" style="border-left: none; border-right: none;" 
+          class="fragment" data-fragment-index=1>
+          Collect your sample and calculate your statistic of interest 
+          (<span class="info">$\overset{\hat{}}{p}$</span>)
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="border-left: none; border-right: none;"
+          class="fragment" data-fragment-index=2>
+          State your null (<span class="info">H$_0$</span>) and 
+          alternative (<span class="info">H$_a$</span>) hypotheses
+        </td>
+      </tr>
+      <tr>
+        <td style="border-left: none;" class="fragment" data-fragment-index=3>
+          Directly simulate your null hypothesis distribution
+        (you end up with a resampling distribution <span class="warning">centered at the stated H$_0$ proportion $\pi$</span>)
+        </td>
+        <td style="border-right: none;" class="fragment" data-fragment-index=3>
+            <div class="fragment highlight-bckg-red" data-fragment-index=6>
+            Consider the normal distribution <span class="warning">centered at the long-run
+            H$_0$ proportion $\pi$</span>, with a standard deviation of 
+            <span class="warning">$\sqrt{\frac{\pi(1-\pi)}{n}}$</div>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td style="border-left: none;" class="fragment" data-fragment-index=4>
+          Calculate the proportion of resampling samples that resulted in cases at least as extreme
+          as your initial observed statistic. <br> This is your p-value
+        </td>
+        <td style="border-right: none;" class="fragment" data-fragment-index=4>
+          Determine the proportion of area under the curve that is at least as extreme
+        as your initial observed statistic. <br> This is your p-value
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="border-left: none; border-right: none;"
+          class="fragment" data-fragment-index=5>
+          Conclude about weither your have evidence <span class="warning">in favor</span>
+          or <span class="warning">against</span> the null hypothesis
+        </td>
+      </tr>
+    </tbody>
+    </table>
 </section>
-
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
