@@ -43,7 +43,7 @@
     <h2>Stats 13</h2>
     <h1 style="color: #FFFFFF">Lecture 4</h1>
   </div>
-    <h3 style="color: #FFFFFF; text-align: center;">Introduction to <br>confidence intervals</h3>
+    <h3 style="color: #FFFFFF; text-align: center;">Introduction to Bootstrap <br> and confidence intervals</h3>
     <div class="col-90">
       <p class="smaller push-right">Guillaume Calmettes</p>
   </div>
@@ -158,20 +158,25 @@
   <p class="sided border-danger fragment">
   We are interested in investigating whether the UCLA Bruins are better
   than the USC Trojans at
-  basketball (<span class="danger">alternative hypothesis</span>).
+  basketball, and we think they are. <br>
+  <span class="fragment">
+    <span class="danger u em">Alternative hypothesis:</span>When they are playing against
+    the Trojans, the Bruins are more likely to win a game
+    (<span class="danger">$\pi>0.5$</span>).
+  </span>
   </p>
   <p class="fragment sided">
     <span class="em u">What is the null hypothesis in this investigation?</span><br>
     <span class="fragment">
-      UCLA and USC are equally likely to win a game.<br>
+      UCLA and USC are equally likely to win a game ($\pi=0.5$).<br>
       The recorded proportion of victories of the Bruins over the 249 games
       could be explained by chance alone.
     </span>
   </p>
 </section>
 
-<section>
-  <h3>Simulations of UCLA-USC games</h3>
+<section data-transition="slide-in">
+  <h3>UCLA-USC games simulation</h3>
   <p>
     We know that the Bruins won <span class="warning">140 out of 249</span>
     games against USC.
@@ -196,7 +201,7 @@
   <div class="row fragment" data-fragment-index=3>
     <div class="col-33">
       <p class="sided border-info">
-        Single simulation? <br>
+        <span class="em">Single simulation?</span><br>
         <span class="fragment">
           249 random drawings of 0 or 1
         </span>
@@ -204,15 +209,15 @@
     </div>
     <div class="col-33">
       <p class="sided border-info">
-        Statistic of interest? <br>
+        <span class="em">Statistic of interest?</span> <br>
         <span class="fragment">
-          proportion of 1 in the sample
+          proportion of 1 (win) in the sample
         </span>
       </p>
     </div>
     <div class="col-33">
       <p class="sided border-info">
-        Number of simulations? <br>
+        <span class="em">Number of simulations?</span> <br>
         <span class="fragment">
           10000
         </span>
@@ -221,8 +226,109 @@
   </div>
 </section>
 
+<section data-transition="slide-out">
+  <h3>UCLA-USC games simulation</h3>
+  <p>
+    We know that the Bruins won <span class="warning">140 out of 249</span>
+    games against USC.
+  </p>
+  <p class="sided" data-fragment-index=1>
+    <span>What is the observed statistic?</span>: <br>
+    <span>
+      Proportion of UCLA wins:
+      <span class="warning">$\overset{\hat{}}{p}=\frac{140}{249}=0.562$</span>
+    </span>
+  </p>
+  <p class="quoted">
+    If UCLA and USC were equally likely to win a game,
+    would it be surprising to observe $\overset{\hat{}}{p}\geq0.562$ 
+    for UCLA over 249 games?
+  </p>
+  <div class="row">
+    <div class="col-40">
+      <p>10000 simulations <br> of 249 games outcomes <br> (win, $\pi=0.5$)</p>
+    </div>
+    <div class="col-55">
+      <table style="font-size: 0.65em;">
+        <thead>
+          <th style="background-color: #636c72; border-right: solid 1px #d2d2d2;">Simulation #</th>
+          <th style="background-color: #636c72; border-right: solid 1px #d2d2d2;" colspan="8">Random sample ($n=249$)</th>
+          <th style="background-color: #636c72; border-right: solid 1px #d2d2d2;">sample $\overset{\hat{}}{p}$</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>...</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.504</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>...</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td style="border-right: solid 1px #d2d2d2;">0</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.531</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">3</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>...</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.486</td>
+          </tr>
+          <tr class="vertical-align">
+            <td style="border-right: solid 1px #d2d2d2;">...</td>
+            <td style="border-right: solid 1px #d2d2d2;" colspan=8>...</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>...</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">9999</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>...</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.497</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">10000</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>...</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td style="border-right: solid 1px #d2d2d2;">0</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.519</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <section>
-  <h3>UCLA-USC games record simulation</h3>
+  <h3>UCLA-USC games simulation results</h3>
   <div class="row">
     <div class="col-35">
       <p class="sided">
@@ -247,10 +353,10 @@
     </div>
   </div>
   <p style="margin-top: 0;" class="fragment" data-fragment-index=4>
-    Out of the 10000 simulations, <span class="warning">269</span>
+    Out of the 10000 simulations, <span class="warning">272</span>
     resulted in $\overset{\hat{}}{p}\geq0.562$
   <br>
-    <span style="margin-left: 0.9em;">$\textrm{p-value}=\frac{269}{10000}=0.00269$</span> <br>
+    <span style="margin-left: 0.9em;">$\textrm{p-value}=\frac{272}{10000}=0.00272$</span> <br>
     <span class="fragment danger">
     => We have strong evidence against the chance model
     </span>
@@ -296,7 +402,7 @@
     <div class="col-44 framed border-info fragment" style="height: 4.5em;">
       <p style="text-align: center;">
         Difference between the observed statistic and
-        the null hypothesis parameter value
+        the null hypothesis parameter value ($\overset{\hat{}}{p}-\pi_0$)
       </p>
     </div>
   </div>  
@@ -316,8 +422,7 @@
   </p>
   <p class="fragment framed border-danger">
     => Intuitively, the more extreme the observed statistic,
-    the more evidence there is 
-    against the null hypothesis. 
+    the more evidence there is against the null hypothesis. 
   </p>
 </section>
 
@@ -325,7 +430,8 @@
   <h3>Difference between statistic and null hypothesis parameter value</h3>
   <div class="row">
     <div class="col-35">
-      <p class="sided border-warning fragment" data-fragment-index=1 style="margin-top: 0;">
+      <p class="sided border-warning fragment" data-fragment-index=1
+       style="margin-top: 0; font-size: 0.65em;">
         If UCLA had won 155 games that is a success rate of 
         $\overset{\hat{}}{p}=\frac{155}{249}=0.622$ <br>
         <span class="fragment" data-fragment-index=3>
@@ -333,7 +439,8 @@
           (p-value < 0.0001)
         </span>
       </p>
-      <p class="sided border-danger fragment" data-fragment-index=4, style="margin-top: 0;">
+      <p class="sided border-danger fragment" data-fragment-index=4, 
+        style="margin-top: 0; font-size: 0.65em;">
         If UCLA had only won 135 games that is a success rate of 
         $\overset{\hat{}}{p}=\frac{135}{249}=0.542$ <br>
         <span class="fragment" data-fragment-index=6>
@@ -379,7 +486,7 @@
     <div class="col-44 framed border-info" style="height: 4.5em;">
       <p style="text-align: center;">
         Difference between the observed statistic and
-        the null hypothesis parameter value
+        the null hypothesis parameter value ($\overset{\hat{}}{p}-\pi_0$)
       </p>
     </div>
     <div class="col-1">
@@ -398,7 +505,7 @@
   <p style="margin-top: 0;">
     What if the relative proportion of basketball wins of UCLA 
     over USC (0.562) was the result of 124 games instead of 249?
-    Or what if we it was obtained from twice as many games?
+    Or what if we it was obtained from 498 games (twice as many)?
   </p>
   <p class="quoted" style="margin-top: 0;">
     How would the sample size, for the same observed statistic,
@@ -433,7 +540,7 @@
     Effect of changing the sample size (number of UCLA-USC games played)
     on the null distribution. <br>
     <span class="fragment">
-      The greater the sample size, the less variability of a sample
+      The greater the sample size, the less variability in the sample
       statistic
     </span>
   </p>
@@ -475,7 +582,8 @@
   <h3>Notes on the sample size (1)</h3>
   <p class="sided border-warning" style="margin-top: 0; margin-bottom: 0;">
     The bigger the sample size, the more reliable ("trustable")
-    the observed statistic will be
+    the observed statistic will be (less variability in the sample statistic
+    from sample to sample)
   </p>
   <p style="font-size: 0.6em, margin-top: 0">
     If you are trying to pass a true/false test (let's say 60% or higher) but
@@ -485,7 +593,7 @@
   <ul style="font-size: 0.7em;">
     <li class="fragment info">
       YOU, the student, would rather have fewer qestions. If there was
-      only one quesiton on the test, you would have a 50% chance 
+      only one question on the test, you would have a 50% chance 
       of passing!</li>
     <li class="fragment warning">
       The teacher would rather have more questions on the test because 
@@ -506,14 +614,14 @@
   </p>
   <p>
     Importantly, we can't automatically assume that if we collect more data 
-    and have a bigger sample size the stregth of evidence would increase
+    and have a bigger sample size the strength of evidence will increase
     (smaller p-value), because 
     <span class="warning">if we collect more data, our observed statistic
     will almost always change as well</span>.
   </p>
   <p>
     If UCLA and USC are playing more games, the proportion of wins by UCLA
-    won't be forever 0.562.
+    won't be <span class="u">exactly</span> 0.562 forever.
   </p>
 </section>
 
@@ -533,7 +641,7 @@
     <div class="col-44 framed border-info" style="height: 4.5em;">
       <p style="text-align: center;">
         Difference between the observed statistic and
-        the null hypothesis parameter value
+        the null hypothesis parameter value ($\overset{\hat{}}{p}-\pi_0$)
       </p>
     </div>
     <div class="col-1">
@@ -608,7 +716,7 @@
 
 <section data-transition="none">
   <h3>One-sided vs two-sided tests</h3>
-  <p style="margin-top: 0;">
+  <p style="margin-top: 0;" class="em">
    If we only consider the possibility that UCLA can win, this way
    of formulating our altenative hypothesis could be considered too 
    narrow and too biased towards assuming that we are correct ahead 
@@ -619,11 +727,11 @@
    "<span class="danger">two-sided</span>" test, which allow all the
    possibility of the null hypothesis to be wrong.
   </p>
-  <p>
+  <p class="fragment" data-fragment-index=1>
     In this case our hypothesis would be:
   </p>
   <div class="row">
-    <div class="col-80">
+    <div class="col-75">
       <ul style="font-size: 0.65em; margin-top: 0;">
         <li class="fragment" data-fragment-index=1>
          <span class="em u">Null hypothesis:</span>
@@ -633,14 +741,14 @@
         </li>
         <li class="fragment" data-fragment-index=2>
          <span class="em u">Alternative hypothesis:</span>
-         UCLA is not better than USC
+         UCLA and USC are not equally good
          at basketball
          (UCLA and USC are 
          <span class="warning">not equally likely to win a game</span>)
         </li>
       </ul>
     </div>
-    <div class="col-20">
+    <div class="col-15">
     <p style="margin-bottom: 2em;">
      <span class="warning fragment" data-fragment-index=1>
        $\pi=0.5$</span>
@@ -677,10 +785,10 @@
         <span class="info">less than</span>, respectively.
       </p>
       <p class="fragment" data-fragment-index=3 style="margin-top: 0; margin-bottom: 0.3em; font-size: 0.55em;">
-        Otherwise, we are only looking to see if there is a <span class="info">difference 
+        Otherwise, we are only looking to see if there is a <span class="success">difference 
         without specifying in
         advance in which direction</span> it might lie. 
-        These are called <span class="info">two-tailed</span> tests.
+        These are called <span class="success">two-tailed</span> tests.
       </p>
       <p class="fragment framed border-light" data-fragment-index=7 style="margin-top: 0; font-size: 0.55em;">
         The definition of <span class="em u">“more extreme”</span> to compute a p-value depends on whether the 
@@ -688,7 +796,7 @@
       </p>
     </div>
     <div class="col-50">
-      <svg width="100%" viewBox="34 0 375 285" style="margin-top: 0;">
+      <svg width="100%" viewBox="34 0 385 285" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/ucla-usc-simulation-two-tailed.svg#axes_1"></use>
         <use  class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/ucla-usc-simulation-two-tailed.svg#axes_2"></use>
         <use  class="fragment" data-fragment-index=4 xlink:href="assets/img/lec/ucla-usc-simulation-two-tailed.svg#axes_3"></use>
@@ -712,7 +820,7 @@
 </section>
 
 <section>
-  <h3>The limits of the p-value?</h3>
+  <h3>The limits of the p-value</h3>
   <p class="sided">
     1) Lots of factors can influence the p-value
   </p>
@@ -720,7 +828,7 @@
     <div class="col-44 framed border-success" style="height: 4.5em;">
       <p style="text-align: center;">
         Difference between the observed statistic and
-        the null hypothesis parameter value
+        the null hypothesis parameter value ($\overset{\hat{}}{p}-\pi_0$)
       </p>
     </div>
     <div class="col-1">
@@ -746,7 +854,7 @@
   </p>
       <p class="framed border-info fragment" data-fragment-index=1>
         A small p-value provides evidence
-        against the null hypothesis (strength of evidence),
+        <span class="u">against</span> the null hypothesis (strength of evidence),
         but does not tell
         anything about the true value of the population parameter from which we
         obtained our sample
@@ -759,14 +867,15 @@
     If we had strong evidences that the probability of UCLA to 
     win a game against USC was larger than 0.5,
     what we would really want to know would be 
-    <span class="u em">how much larger than 0.5?</span>
+    <span class="u em">"how much larger than 0.5?"</span>,
+    not just "is it different from 0.5?"
   </p>
   <p class="sided border-warning fragment" style="margin-top: 0; font-size: 0.65em;">
     In our case, we did not find strong evidences that UCLA was more
-    likely than USC to win a game (two-tail p-value >0.05) <br>
-    But at least we would want to know about
+    likely than USC to win a game (two-tailed p-value >0.05). <br>
+    But at least it would interesting to know about
     <span class="warning">the true probability</span>
-    for UCLA to win a game against USC? <br>
+    for UCLA to win a game against USC. <br>
     In other words, if UCLA and USC 
     were to play an infinite number of basketball games,
     what parameter $\pi$ would we observe on the long-run?
@@ -780,8 +889,8 @@
 <section data-transition="none">
   <h3>Inferences about the population parameter</h3>
   <p>
-    We know how to use resampling statistics to calculate
-    a p-value against a specific parameter value for 
+    We know how to test our statistic against a 
+    <span class="u info">specific parameter value</span> for 
     our null hypothesis (0.5).
   </p>
   <p class="fragment" data-fragment-index=2>
@@ -820,6 +929,210 @@
     </div>
   </div>
 </section>
+
+<section data-transition="none">
+  <h3>Inferences about the population parameter</h3>
+  <div class="row">
+    <div class="col-5">
+      <p></p>
+    </div>
+    <div class="col-60">
+      <table style="font-size: 1.5em;">
+        <tbody>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">
+              $\overset{\hat{}}{p}$
+            </td>
+            <td colspan="7"><span class="info">0.562</span></td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">
+              $\pi_0$
+            </td>
+            <td><span>0.48</span></td>
+            <td class="info">
+              0.5</td>
+            <td><span>0.55</span></td>
+            <td><span>0.58</span></td>
+            <td><span>0.6</span></td>
+            <td><span>0.62</span></td>
+            <td><span>0.65</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-40" style="font-size: 0.5em;">
+      10000 simulations of <br> 249 games outcomes <br> (win, $\pi_0=0.48$)
+    </div>
+    <div class="col-20" style="font-size: 0.5em;">
+      
+    </div>
+    <div class="col-40" style="font-size: 0.5em;">
+      10000 simulations of <br> 249 games outcomes <br> (win, $\pi_0=0.65$)
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-40">
+      <table style="font-size: 0.55em;">
+        <thead>
+          <th style="background-color: #636c72; border-right: solid 1px #d2d2d2;">Simulation #</th>
+          <th style="background-color: #636c72; border-right: solid 1px #d2d2d2;" colspan="8">Random sample ($n=249$)</th>
+          <th style="background-color: #636c72; border-right: solid 1px #d2d2d2;">sample $\overset{\hat{}}{p}$</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>...</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.476</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>...</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td style="border-right: solid 1px #d2d2d2;">0</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.498</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">3</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>...</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.482</td>
+          </tr>
+          <tr class="vertical-align">
+            <td style="border-right: solid 1px #d2d2d2;">...</td>
+            <td style="border-right: solid 1px #d2d2d2;" colspan=8>...</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>...</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">9999</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>...</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.481</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">10000</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>...</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td style="border-right: solid 1px #d2d2d2;">0</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.509</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-20">
+      ...
+    </div>
+    <div class="col-40">
+      <table style="font-size: 0.55em;">
+        <thead>
+          <th style="background-color: #636c72; border-right: solid 1px #d2d2d2;margin-top: font-size: 0.4em !important;">Simulation #</th>
+          <th style="background-color: #636c72; border-right: solid 1px #d2d2d2; font-size: 0.4em;" colspan="8">Random sample ($n=249$)</th>
+          <th style="background-color: #636c72; border-right: solid 1px #d2d2d2; font-size: 0.4em;">sample $\overset{\hat{}}{p}$</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>...</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.649</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">2</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>...</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td style="border-right: solid 1px #d2d2d2;">0</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.682</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">3</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>...</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.628</td>
+          </tr>
+          <tr class="vertical-align">
+            <td style="border-right: solid 1px #d2d2d2;">...</td>
+            <td style="border-right: solid 1px #d2d2d2;" colspan=8>...</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>...</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">9999</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>...</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td style="border-right: solid 1px #d2d2d2;">1</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.617</td>
+          </tr>
+          <tr>
+            <td style="border-right: solid 1px #d2d2d2;">10000</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>...</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td style="border-right: solid 1px #d2d2d2;">0</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>0.696</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 
 <section data-transition="none">
   <h3>Inferences about the population parameter</h3>
@@ -879,10 +1192,13 @@
     Our observed statistic 
     would be plausible if our sample had been drawn from 
     population distributions with parameter $\pi$
-    ranging at least from $0.5$ to $0.6$.
-    <br>
+    ranging at least from $0.5$ to $0.6$ <br>
+    => null hypothesis not rejected
+    at the two-tailed 0.05 level.
+  </p>
+  <p class="fragment">
     The long-run probability $\pi$ for UCLA to win a game against USC is
-    in this range.
+    in this <span class="warning">range estimate</span>.
   </p>
 </section>
 
@@ -905,10 +1221,10 @@
     <span class="u em">Note:</span> <br>
     We can also actually use the 95%
     confidence interval as a 
-    <span class="warning">measure of the stregth of evidence</span>! <br>
+    <span class="warning">measure of the strength of evidence</span>! <br>
     => if the parameter of the
     null distribution is in the interval, then we cannot 
-    reject the null hypothesis
+    reject the null hypothesis (we cannot reject that $\pi=\pi_0$)
   </p>
 </section>
 
@@ -919,9 +1235,10 @@
     a limited quantity of plausible values).
   </p>
   <ul style="font-size: 0.65em;">
-    <li class="fragment">we could test against other values, but it would be 
-    time consuming, and still limited to the values we would test</li>
-    <li class="fragment warning">could we directly get this 95% confidence interval from our sample?</li>
+    <li class="fragment">we could test against other values. 
+    <span class="fragment em">But it would be 
+    time consuming, and still limited to the values we would test.</span></li>
+    <li class="fragment warning">what if we could directly get this 95% confidence interval from our sample?</li>
   </ul>
 </section>
 
@@ -929,7 +1246,8 @@
   <h3>The Bootstrap</h3>
   <p class="sided border-info">
     The <span class="info">bootstrap</span> is 
-    a resampling method that uses only the data in the original sample.
+    a resampling method that uses only the data in the original sample. 
+    (the only data we know about)
     <br>
     It can be used for estimating the variability
     of a statistic and to approximate
@@ -938,12 +1256,12 @@
   </p>
   <p class="sided border-warning fragment" style="margin-top: 0;">
     <span class="em u">Think about it:</span> <br>
-    The sample is the only information we know to be true about our
-    true population. <br>
-    <span>=> The best estimate for a population parameter is the relevant sample
-    statistic.</span> <br>
-    <span>=> We can expand this idea and consider the sample as our best
-    estimate for the underlying population.</span>
+    <span class="warning">The sample is the only information we know to be true</span> about
+    the population it has been drawn from. <br>
+    <span>=> The best estimate for a population parameter ($\pi$) is the relevant sample
+    statistic ($\overset{\hat{}}{p}$).</span> <br>
+    <span class="fragment">=> We can expand this idea and consider <span class="warning">the sample as our best
+    estimate for the underlying population</span>.</span>
   </p>
   <aside class="notes">
     The key idea is to perform computations on the data itself to estimate 
@@ -963,47 +1281,59 @@
   <p class="em">
     How can we make the sample data look like data from the entire population? 
   </p>
-  <div class="row">
-    <div class="col-40">
+  <div class="row fragment">
+    <div class="col-45">
     <p style="font-size: 0.65em">We assume that the population of all the
     UCLA-USC basketball games is basically just many, many copies of the games
     in our original sample (n=249).</p>
     </div>
-    <div class="col-60">
-      <img src="assets/img/lec/bootstrap-sample-distribution.svg"
-  class="unbordered flat" width=100% style="margin-top: -5%">
+    <div class="col-55">
+      <svg width="100%" viewBox="0 5 226 125.5" style="margin-top: 0; margin-bottom: 0;">
+        <use xlink:href="assets/img/lec/bootstrap-population-from-sample.svg#bootstrap"></use>
+      </svg>
     </div>
   </div>  
 </section>
 
 <section data-transition="slide-out">
   <h3>Drawing a bootstrap sample</h3>
-  <p>
+  <p style="margin-top: 0; font-size: 0.6em" class="sided">
     In practice, instead of actually making many copies of the sample and 
     sampling from that, we use a sampling technique that is equivalent:
-    we sample with replacement from the original sample.
-    Sampling with replacement means that once a UCLA-USC game has been selected
-    for the sample, it is still available to be selected again.
-    This is because we are assuming that each UCLA-USC game in the 
-    original sample actually represents many other games
-    with a similar outcome (win or loss).
+    we <span class="danger"> sample with replacement</span> from the original sample.
+  </p>
+    <div class="row">
+    <div class="col-55">
+    <p style="font-size: 0.55em">
+    Once a UCLA-USC game has been selected from the sample,
+    it is <span class="danger">still available to be selected again</span>. <br>
+    => Each UCLA-USC game in the original sample actually represents
+    many other games with a similar outcome (win or loss).
     Each sample selected in this way, with replacement from the original
     sample, is called a <span class="warning">bootstrap sample</span>.
-  </p>
-  <p>
-    Recall that the variability of a sample statistic depends on the size of
+    </p>
+    <p style="font-size: 0.5em" class="fragment framed border-info" data-fragment-index=2>
+    <span class="u em">Note:</span> Recall that the variability of a sample statistic 
+    depends on the size of
     the sample. Because we are trying to uncover the variability of the 
-    sample statistic, it is important that each bootstrap sample is the 
-    same size as the original sample. For UCLA-USC basketball game series,
-    each bootstrap sample will be of size n = 249.
+    sample statistic, it is important that <span class="info">each bootstrap sample is the 
+    same size as the original sample</span> (n=249).
   </p>
+    </div>
+    <div class="col-45">
+      <svg width="100%" viewBox="0 0 224 192.5" style="margin-top: 0; margin-bottom: 0;">
+        <use xlink:href="assets/img/lec/bootstrap-sample-from-sample.svg#bootstrap"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/bootstrap-sample-from-sample.svg#squares"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section>
   <h3>Generating a Bootstrap distribution</h3>
   <div class="row">
     <div class="col-100">
-      <img src="assets/img/lec/bootstrap-distribution.svg" width=70%
+      <img src="assets/img/lec/bootstrap-distribution-generation-process.svg" width=70%
       class="unbordered flat">
     </div>
   </div>
@@ -1012,19 +1342,131 @@
       by sampling <span class="u">with replacement</span> <br>from 
       the original sample, using the 
       <span class="warning">same sample size</span></li>
-      <li><span class="info">Compute the statistic of interest</span>,
-       called a bootstrap statistic, <br>
+      <li><span class="info">Compute the statistic of interest</span>
+       ("bootstrap statistic") <br>
       for each of the bootstrap samples</li>
       <li>Collect the statistics for many bootstrap samples <br>to create a 
       <span class="info">bootstrap distribution</span></li>
     </ol>
 </section>
 
-<section>
-  <h3>Confidence intervals > p-value</h3>
-  <p>
-    Confidence intervals more powerful than pvalue because it gives you strength of effect and the possible range if this effect, so you gain info about what the real value is, not just if this happened by chance.
+<section data-transition="slide-in">
+  <h3>Bootstrap confidence intervals</h3>
+  <p style="margin-top: 0; font-size: 0.6em" class="sided">
+    Now that we have our Bootstrap sampling distribution, we can compute the 
+    confidence intervals at the 95% level.
   </p>
+  <div class="row">
+    <div class="col-55">
+      <svg width="100%" viewBox="34 0 385 285" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/ucla-usc-bootstrap-ci95.svg#axes_1"></use>
+        <use  class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/ucla-usc-bootstrap-ci95.svg#axes_2"></use>
+        <use  class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/ucla-usc-bootstrap-ci95.svg#axes_3"></use>
+      </svg>
+    </div>
+    <div class="col-45">
+      <p class="sided" style="font-size: 0.55em;">
+        Where is it centered?<br>
+        <span class="fragment" data-fragment-index=1>
+         centered at <span class="danger">$\overset{\hat{}}{p}$</span>
+         <br>
+         (original observed statistic)
+        </span>
+      </p>
+      <p class="sided" style="font-size: 0.55em;">
+        How do we compute the 95% confidence intervals or our population parameter?<br>
+        <span class="fragment" data-fragment-index=2>
+          We consider the <span class="warning">central 95% of the bootstrap statistics</span>
+           (discard the 2.5% more extreme cases on each side)
+        </span>
+      </p>
+    </div>
+  </div>
+  <p style="font-size: 0.6em;" class="fragment framed border-info">
+    We are 95% confident that the true probability of the Bruins to win a game against the Trojans
+    (parameter $\pi$) is lying in the interval $[0.498-0.622]$ 
+  </p>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Bootstrap confidence intervals</h3>
+  <p style="margin-top: 0; font-size: 0.65em" class="quoted">
+    A bootstrap confidence interval at the <span class="warning">alpha</span>
+    level, is computed by considering the
+    <span class="warning">central (1-alpha)</span> bootstrap statistics of the
+    bootstrap sampling distribution we constructed.
+  </p>
+  <p>
+    In the <span class="u">sorted array</span> of bootstrap statistics, 
+    this correspond to the statistics at positions:
+  </p>
+    <ul style="font-size: 0.65em;">
+      <li><span class="info">$(\frac{\mathrm{alpha}}{2})^{th}$</span>, 
+        for the lower confidence interval limit, and</li>
+      <li><span class="info">$(1-\frac{\mathrm{alpha}}{2})^{th}$</span>,
+       for the upper confidence interval limit</li>
+    </ul>
+  <p style="font-size: 0.6em;" class="fragment framed border-warning">
+    If we were were able to get an unlimited number of original samples from the
+    population of UCLA-USC basketball games, and were computing each time 
+    the $alpha$-% confidence interval,
+    the true probability of the UCLA to win a game against USC
+    would be in $alpha$-% of these calculated intervals. 
+  </p>
+</section>
+
+<section>
+  <h3>Reporting confidence intervals instead of p-value</h3>
+  <p class="sided border-danger">
+    Confidence intervals provide information about both: <br>
+    <span style="margin-left: 0.9em">- <span class="danger">strength of evidence</span>
+      (<span class="em">Is the parameter value we want to test against, 
+      in the interval or not?</span> => 95% confidence interval)
+    </span> <br>
+    <span style="margin-left: 0.9em">- <span class="danger">estimate of the true 
+    parameter value</span> 
+      ($alpha$-% of the time our interval will include our true parameter)</span> 
+  </p>
+  <p class="framed border-danger fragment">
+    In that sense, reporting the $alpha$-% confidence intervals is better than
+    just reporting a p-value, since what we really want to know is the true value
+    of our population parameter,
+    not just if our true parameter is different or not from a particular value.
+  </p>
+</section>
+
+<section>
+  <h3>Versatility of the Bootstrap</h3>
+  <div class="row">
+    <div class="col-50">
+      <ul style="margin-top: 0; font-size: 0.55em">
+        <li>The bootstrap procedure <span class="warning">does not require any assumption</span> about
+        the distribution of your data <br>
+        (the data sample is the best approximation of the population)</li>
+        <li class="fragment" data-fragment-index="1">
+          The bootstrap procedure <span class="warning">can be applied to any data
+          type</span> <br>(categorical or 
+          quantitative variables)</li>
+        <li class="fragment" data-fragment-index="2">
+          The <span class="warning">bootstrap statistic can be anything</span> you're
+          interesed in <br>
+          ($\overset{\hat{}}{p}$, median, mean, ratio, correlation coefficient, etc ...)</li>
+        <li class="fragment" data-fragment-index="3">
+          The <span class="warning">bootstrap procedure can be adapted</span>
+          to replace any 
+          theoretical statistical test <br>
+          (confidence intervals generation,
+          comparison of groups, etc ...)</li>
+      </ul>
+    </div>
+    <div class="col-50">
+      <p style="font-size: 0.55em; text-align: center;" 
+        class="em fragment" data-fragment-index="2">
+        Bootstrap regression analysis</p>
+       <img src="assets/img/lec/bootstrap-showcase-regression-params.svg"
+       class="unbordered flat fragment" width="100%" data-fragment-index="2">
+    </div>
+  </div>  
 </section>
 
 
