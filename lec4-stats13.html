@@ -51,10 +51,44 @@
 
 <section>
   <h3>Last time</h3>
-  <p>
-    We started to see how we could measure strength of evidence using p-value.
+  <p class="sided" style="font-size: 0.65em;">
+    <span class="em u">Statistical significance</span> <br>
+    <span class="em">Would the observed result be surprising if the 
+    observed phenomenon
+    was only governed by random chance?</span>
   </p>
+  <p class="sided fragment" style="font-size: 0.65em;">
+    <span class="em u">Hypothesis testing for one proportion</span> <br>
+    <span class="em">How likely would we observe such an extreme
+    proportion of successes under the null hypothesis (=random chance)?</span>
+  </p>
+  <div class="row fragment">
+    <div class="col-25">
+      <svg width="100%" viewBox="0 0 270 281" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/police-dog-luggages.svg#dog"></use>
+      </svg>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="270 20 570 240" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/police-dog-luggages.svg#luggages"></use>
+      </svg>
+    </div>
+    <div class="col-10 warning fragment">
+        $\pi_0=\frac{1}{3}$
+    </div>
+  </div>
+  <aside class="notes">
+    Last time was our first encounter with statistical significance. <br>
+    We used it to investigate whether dolphins could communicate. <br>
+    We've also seen that the same result could be obtained by using a 
+    theoretical approach, in which we consider that the distribution of the different
+    probabilities to observed the different proportion of success follow a normal
+    curve. But it had some limits (it required assumptions + did not really reproduced
+    well our coin flip model, discrete, not continuous)
+  </aside>
+
 </section>
+
 
 <section>
   <h3>Investigating the UCLA - USC rivalry</h3>
@@ -84,7 +118,12 @@
     <div class="col-12" style="font-size:2em;">
       ?
     </div>
-  </div>  
+  </div>
+  <aside class="notes">
+    Everything we will do today, is exactly what you will have to do
+    for next week homework. Not the same dataset, but the exact same
+    steps and procedure.
+  </aside>
 </section>
 
 <section>
@@ -129,7 +168,7 @@
     </div>
   </div>
   <p class="fragment quoted">
-    Based on those data, can we say that the UCLA Bruins are better 
+    Based on these data, can we say that the UCLA Bruins are better 
     than the USC Trojans at Basketball? 
   </p>
 </section>
@@ -194,7 +233,7 @@
     for UCLA over 249 games?
   </p>
   <p class="fragment" data-fragment-index=3 style="font-size: 0.65em;">
-    We can use simulation to investigate whether this provides us with strong enough
+    We can use simulations to investigate whether this provides us with strong enough
     evidence against the null and if the proportion of victories of 
     the Bruins over the Trojans is statistically significant.
   </p>
@@ -246,7 +285,7 @@
   </p>
   <div class="row">
     <div class="col-40">
-      <p>10000 simulations <br> of 249 games outcomes <br> (win, $\pi=0.5$)</p>
+      <p>10000 simulations <br> of 249 game outcomes <br> (win, $\pi=0.5$)</p>
     </div>
     <div class="col-55">
       <table style="font-size: 0.65em;">
@@ -387,7 +426,7 @@
 </section>
 
 <section>
-  <h3>What influence the p-value?</h3>
+  <h3>What influences the p-value?</h3>
   <p class="sided">
     So far we've looked at a measure of the strength of evidence (p-value).
     However, we've not yet formally looked at 
@@ -409,7 +448,7 @@
 </section>
 
 <section data-transition="slide-in">
-  <h3>Difference between statistic and null hypothesis 
+  <h3>Difference between the sample statistic and the null 
   parameter value</h3>
   <p>
     What if instead of 140 wins out of the 249 games, UCLA had won
@@ -427,7 +466,8 @@
 </section>
 
 <section data-transition="none">
-  <h3>Difference between statistic and null hypothesis parameter value</h3>
+  <h3>Difference between the sample statistic and the null 
+  parameter value</h3>
   <div class="row">
     <div class="col-35">
       <p class="sided border-warning fragment" data-fragment-index=1
@@ -462,16 +502,17 @@
 </section>
 
 <section data-transition="slide-out">
-  <h3>Difference between statistic and null hypothesis parameter value</h3>
+  <h3>Difference between the sample statistic and the null 
+  parameter value</h3>
   <p class="quoted" style="font-size: 1em;">
-    The <span class="warning">farther away</span> the observed statistic is from the mean of the null distribution,
+    The <span class="warning">further away</span> the observed statistic is from the mean of the null distribution,
     the <span class="warning">more evidence</span> there is against the null
     hypothesis.
   </p>
 </section>
 
 <section>
-  <h3>What influence the p-value?</h3>
+  <h3>What influences the p-value?</h3>
   <p class="sided">
     So far we've looked at a measure of the strength of evidence (p-value).
     However, we've not yet formally looked at 
@@ -505,7 +546,7 @@
   <p style="margin-top: 0;">
     What if the relative proportion of basketball wins of UCLA 
     over USC (0.562) was the result of 124 games instead of 249?
-    Or what if we it was obtained from 498 games (twice as many)?
+    Or what if it was obtained from 498 games (twice as many)?
   </p>
   <p class="quoted" style="margin-top: 0;">
     How would the sample size, for the same observed statistic,
@@ -515,7 +556,7 @@
   <div class="row">
     <div class="col-33">
       <p style="margin-top: 0; font-size:0.6em; text-align: center;">
-    Do you think that <span class="info">increasing the sample size</span> will:
+    Do you think that <span class="info">increasing the sample size</span> would:
   </p>
     </div>
     <div class="col-66" style="border-left: solid 2px;">
@@ -571,7 +612,7 @@
 <section data-transition="none">
   <h3>Sample size</h3>
   <p class="quoted" style="font-size: 1em;">
-    As the <span class="warning">sample size increase</span>
+    As the <span class="warning">sample size increases</span>
     (and the value of the observed statistic stays the same),
     the <span class="warning">strength of evidence against the null 
     hypothesis increases.</span>
@@ -626,7 +667,7 @@
 </section>
 
 <section>
-  <h3>What influence the p-value?</h3>
+  <h3>What influences the p-value?</h3>
   <p class="sided">
     So far we've looked at a measure of the strength of evidence (p-value).
     However, we've not yet formally looked at 
@@ -812,7 +853,7 @@
   <p class="quoted" style="font-size: 1em;">
     Because the p-value for a <span class="warning">two-sided test</span>
     is about twice as large
-    as that for a one-sided test, they <span class="warning">provide less evidence against
+    as that for a one-sided test, two-sided tests <span class="warning">provide less evidence against
     the null hypothesis</span>. <br>
     However, note that two-sided tests are used more often in
     scientific practice.
@@ -863,17 +904,29 @@
 
 <section data-transition="slide-in">
   <h3>Inferences about the population parameter</h3>
+  <p style="margin-top: 0; font-size: 0.65em;" class="sided">
+    Statistical inference is the process of using data from a sample to <span class="warning">gain information about the population</span>. <br>
+    What we really want to know, is how close to the true population parameter
+    the statistic we calculated from the sample is. <br>
+    We want to know about the population parameter, not the sample statistic.
+  </p>
+  <img src="assets/img/lec/distribution-sample.svg" class="unbordered flat"
+    width=65%>
+</section>
+
+<section data-transition="none">
+  <h3>Inferences about the population parameter</h3>
   <p style="margin-top: 0;">
-    If we had strong evidences that the probability of UCLA to 
+    If we had strong evidence that the probability of UCLA to 
     win a game against USC was larger than 0.5,
     what we would really want to know would be 
     <span class="u em">"how much larger than 0.5?"</span>,
     not just "is it different from 0.5?"
   </p>
   <p class="sided border-warning fragment" style="margin-top: 0; font-size: 0.65em;">
-    In our case, we did not find strong evidences that UCLA was more
+    In our case, we did not find strong evidence that UCLA was more
     likely than USC to win a game (two-tailed p-value >0.05). <br>
-    But at least it would interesting to know about
+    But at least it would be interesting to know about
     <span class="warning">the true probability</span>
     for UCLA to win a game against USC. <br>
     In other words, if UCLA and USC 
@@ -965,13 +1018,13 @@
   <br>
   <div class="row">
     <div class="col-40" style="font-size: 0.5em;">
-      10000 simulations of <br> 249 games outcomes <br> (win, $\pi_0=0.48$)
+      10000 simulations of <br> 249 game outcomes <br> (win, $\pi_0=0.48$)
     </div>
     <div class="col-20" style="font-size: 0.5em;">
       
     </div>
     <div class="col-40" style="font-size: 0.5em;">
-      10000 simulations of <br> 249 games outcomes <br> (win, $\pi_0=0.65$)
+      10000 simulations of <br> 249 game outcomes <br> (win, $\pi_0=0.65$)
     </div>
   </div>  
   <div class="row">
@@ -1138,7 +1191,7 @@
   <h3>Inferences about the population parameter</h3>
   <div class="row">
     <div class="col-100">
-      <svg width="95%" viewBox="0 30 648 432" style="margin-top: 0;">
+      <svg width="93%" viewBox="0 20 648 432" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/ucla-usc-simulation-increasing-null.svg#axes_1"></use>
         <use  class="fragment" xlink:href="assets/img/lec/ucla-usc-simulation-increasing-null.svg#axes_2"></use>
         <use  class="fragment" xlink:href="assets/img/lec/ucla-usc-simulation-increasing-null.svg#axes_3"></use>
@@ -1179,7 +1232,7 @@
             0.58</td>
             <td class="fragment highlight-bckg-blue" data-fragment-index=1>
             0.6</td>
-            <td class="fragment highlight-bckg-red" data-fragment-index=1>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>
             0.62</td>
             <td class="fragment highlight-bckg-red" data-fragment-index=1>
             0.65</td>
@@ -1215,7 +1268,7 @@
     long-run probability for UCLA to win a game against USC. The 95% value
     is called the <span class="info">confidence level</span>, and is a 
     measure of how confident we are about our interval containing the
-    population parameter.
+    true population parameter.
   </p>
   <p class="fragment">
     <span class="u em">Note:</span> <br>
@@ -1246,8 +1299,8 @@
   <h3>The Bootstrap</h3>
   <p class="sided border-info">
     The <span class="info">bootstrap</span> is 
-    a resampling method that uses only the data in the original sample. 
-    (the only data we know about)
+    a resampling method that uses only the data in the original sample 
+    (the only data we know about).
     <br>
     It can be used for estimating the variability
     of a statistic and to approximate
@@ -1299,8 +1352,8 @@
   <h3>Drawing a bootstrap sample</h3>
   <p style="margin-top: 0; font-size: 0.6em" class="sided">
     In practice, instead of actually making many copies of the sample and 
-    sampling from that, we use a sampling technique that is equivalent:
-    we <span class="danger"> sample with replacement</span> from the original sample.
+    sampling from that, we use a sampling technique that is equivalent: <br>
+    => we <span class="danger"> sample with replacement</span> from the original sample.
   </p>
     <div class="row">
     <div class="col-55">
@@ -1329,7 +1382,7 @@
   </div>
 </section>
 
-<section>
+<section data-transition="slide-in">
   <h3>Generating a Bootstrap distribution</h3>
   <div class="row">
     <div class="col-100">
@@ -1348,6 +1401,58 @@
       <li>Collect the statistics for many bootstrap samples <br>to create a 
       <span class="info">bootstrap distribution</span></li>
     </ol>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Generating a Bootstrap distribution</h3>
+
+  <div class="row">
+    <div class="col-30">
+      <p style="font-size: 0.6em; margin-top: 0;">
+        data sample (n=249)<br>
+        $140$ ones & $109$ zeros <br>
+        <span class="info">$P(1)=0.562$</span><br>
+        $P(0)=0.438$
+      </p>
+    </div>
+    <div class="col-60">
+      <table style="font-size: 1em;">
+        <tbody style="border-top: solid 1px #d2d2d2; border-bottom: solid 1px #d2d2d2">
+          <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>...</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-10">
+      <p style="font-size: 0.6em; margin-top: 0;">
+        $\overset{\hat{}}{p}=0.562$
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-60">
+      <img src="assets/img/lec/bootstrap-ucla-usc-proportion.svg" class="unbordered flat"
+        width="100%">
+    </div>
+    <div class="col-40">
+      <svg width="100%" viewBox="34 0 385 285" style="margin-top: 0;">
+        <use class="fragment" xlink:href="assets/img/lec/ucla-usc-bootstrap-ci95.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section data-transition="slide-in">
@@ -1398,7 +1503,7 @@
   </p>
   <p>
     In the <span class="u">sorted array</span> of bootstrap statistics, 
-    this correspond to the statistics at positions:
+    this corresponds to the statistics at positions:
   </p>
     <ul style="font-size: 0.65em;">
       <li><span class="info">$(\frac{\mathrm{alpha}}{2})^{th}$</span>, 
@@ -1408,9 +1513,9 @@
     </ul>
   <p style="font-size: 0.6em;" class="fragment framed border-warning">
     If we were were able to get an unlimited number of original samples from the
-    population of UCLA-USC basketball games, and were computing each time 
-    the $alpha$-% confidence interval,
-    the true probability of the UCLA to win a game against USC
+    population of UCLA-USC basketball games, and were computing 
+    the $alpha$-% confidence interval from each of them,
+    the true probability of UCLA winning a game against USC
     would be in $alpha$-% of these calculated intervals. 
   </p>
 </section>

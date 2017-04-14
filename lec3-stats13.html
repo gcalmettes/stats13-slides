@@ -105,17 +105,25 @@
   <p class="push-right" style="font-size: 0.6em; margin-top:0;">Dr. Jarvins Bastian's experiment (1964)</p>
   <div class="col-100">
     <svg width="85%" viewBox="0 0 584.8 360" style="margin-top: 0;">
-      <use xlink:href="assets/img/lec/dorris-buzz.svg#dolphins"></use>
-      <use class="fragment" xlink:href="assets/img/lec/dorris-buzz.svg#curtain"></use>
+      <use xlink:href="assets/img/lec/doris-buzz.svg#dolphins"></use>
+      <use class="fragment" xlink:href="assets/img/lec/doris-buzz.svg#curtain"></use>
     </svg>
   </div>
-  <!-- <img src="assets/img/lec/dorris-buzz.svg" class="unbordered" width=85%> -->
   <aside class="notes">
-    In 1964, Dr. Jarvis Bastian trained two dolphins, Buzz and Doris, to push one 
-    of two switches in a pool. If he shined a constant light on them, the dolphins 
-    were trained to push the switch on the right to get a fish. If the light blinked,
-    the dolphins were trained to push the switch on the left. The
-    dolphins had no problems learning this behavior.
+    A famous study from the 1960s explored whether two dolphins (Doris and Buzz) could
+    communicate abstract ideas. Researchers believed dolphins could communicate simple
+    feelings like “Watch out!” or “I’m happy,” but Dr. Jarvis Bastian wanted to explore
+    whether they could also communicate in a more abstract way, much like humans do.
+    To investigate this, Dr. Bastian spent many years training Doris and Buzz and exploring
+    the limits of their communicative ability. <br>
+    During a training period lasting many months, Dr. Bastian placed buttons underwater on
+    each end of a large pool—two buttons for Doris and two buttons for Buzz. He then used an
+    old automobile headlight as his signal. When he turned on the headlight and let it shine
+    steadily, he intended for this signal to mean “push the button on the right.”
+    When he let the headlight blink on and off, this was meant as a signal to “push the button
+    on the left.” Every time the dolphins pushed the correct button, Dr. Bastian gave the dolphins
+    a reward of some fish. Over time Doris and Buzz caught on and could earn their fish reward 
+    every time.
   </aside>
 </section>
 
@@ -159,13 +167,13 @@
       </p>
     </div>
     <div class="col-50">
-      <p style="font-size: 0.65em;" class="framed border-danger">
+      <p style="font-size: 0.65em;" class="framed border-danger fragment" data-fragment-index=1>
         Buzz is <span class="danger">doing something other than just guessing</span> (his probability of choosing the correct button is more than 0.50).
         <span class="danger">$\pi>0.5$</span>
       </p>
     </div>
   </div>
-  <p style="margin-top: 0;">
+  <p style="margin-top: 0;" class="fragment" data-fragment-index=2>
     The key question here is to determine 
     <span class="info">what results would occur in
     the long-run under the assumption that Buzz is 
@@ -173,19 +181,19 @@
   </p>
   <div class="row" style="margin-top: 0;">
     <div class="col-10">
-      <p style="margin-top: 0;" class="push-right fragment" data-fragment-index=1>
+      <p style="margin-top: 0;" class="push-right fragment" data-fragment-index=3>
         =>
       </p>
     </div>
     <div class="col-75">
-      <p style="margin-top: 0;" class="fragment" data-fragment-index=1>
+      <p style="margin-top: 0;" class="fragment" data-fragment-index=3>
       We call this assumption of random guess by Buzz the 
       <span style="background-color: #5bc0de;
   color: black;">null hypothesis</span> (or null model)
       </p>
     </div>
   </div>
-  <p class="fragment">How could we decide between our 2 hypotheses?</p>
+  <p class="fragment" data-fragment-index=4>How could we decide between our 2 hypotheses?</p>
 </section>
 
 <section>
@@ -205,6 +213,10 @@
       </p>
       <p>
       What would be a good simulation model for Buzz & Doris communication experiment?
+      <br>
+      <span class="fragment" data-fragment-index=3>
+        => <span class="info">coin flip</span>
+      </span>
       </p>
     </div>
     <div class="col-50">
@@ -325,8 +337,7 @@
     </div>
   </div>
   <aside class="notes">
-    1000 is a number large enough to give us a fairly accurate sense
-    of the long-run behavior for the number of heads in 16 tosses.
+    Eventually, heads and tails even out.
   </aside>
 </section>
 
@@ -414,7 +425,7 @@
   "random chance" was at play.</p>
 </section>
 
-<section>
+<section data-transition="slide-in">
   <h3>Follow up study</h3>
   <p class="sided" style="margin-top: 0;">One goal of statistical significance testing is to rule out random
   chance as <span class="warning">plausible</span> (believable)
@@ -433,15 +444,32 @@
       - We haven't completely rule out random chance (but probability is very small)
     </span>
   </p>
-  <p class="fragment framed border-info">
+</section>
+
+<section data-transition="slide-out">
+  <h3>Follow up study</h3>
+  <p class="sided" style="font-size: 0.6em">
     One option that Dr. Bastian pursued was to redo
     the study except
-    now he replaced the curtain with a wooden barrier between the two
+    now he <span class="warning">replaced the curtain with a wooden barrier</span> between the two
     sides of the tank in order to ensure more complete separation
-    between Doris and Buzz. <br>
-    => In this case, Buzz pushed the correct button only 
-    <span class="info">16 out of 28 times</span>.
+    between Doris and Buzz.
   </p>
+  <div class="row">
+    <div class="col-65">
+      <svg width="100%" viewBox="0 0 584.8 360" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/doris-buzz.svg#dolphins"></use>
+        <use class="current-visible" 
+        xlink:href="assets/img/lec/doris-buzz.svg#curtain"></use>
+        <use class="fragment" 
+        xlink:href="assets/img/lec/doris-buzz.svg#wood"></use>
+      </svg>
+    </div>
+    <div class="col-35">
+    <p class="fragment">=> In this case, Buzz pushed the correct button only 
+    <span class="info">16 out of 28 times</span>.</p>
+    </div>
+  </div>
 </section>
 
 <section data-transition="slide-in">
@@ -485,7 +513,7 @@
     <div class="col-33">
       <p class="fragment">
         p-value: <br> <br>
-        $\frac{2864}{10000}=0.286$
+        $\frac{2795}{10000}=0.280$
         <br><br>
         <span class="fragment">
         Not enough evidence that the "by-chance-alone" model
@@ -517,7 +545,7 @@
   guessing.</p>
   <p class="fragment warning">
     <span class="em u">Conclusion/Generalization:</span><br>
-    Dolphins can communicate at least simple concepts!
+    Dolphins can communicate abstract concepts!
   </p>
 </section>
 
@@ -543,7 +571,7 @@
         (ex: <span class="warning">$\textrm{p-value}=\frac{289}{10000}=0.029$</span>)
       </p>
       <p class="fragment" data-fragment-index=4 style="margin-top: 0; font-size: 0.55em;">
-        5- Conclude about weither your have evidence <span class="warning">in favor</span>
+        5- Conclude about whether your have evidence <span class="warning">in favor</span>
         or <span class="warning">against</span> the null hypothesis.
       </p>
     </div>
@@ -790,12 +818,16 @@
       <tr>
         <td colspan="2" style="border-left: none; border-right: none;"
           class="fragment" data-fragment-index=5>
-          Conclude about weither your have evidence <span class="warning">in favor</span>
+          Conclude about whether your have evidence <span class="warning">in favor</span>
           or <span class="warning">against</span> the null hypothesis
         </td>
       </tr>
     </tbody>
     </table>
+</section>
+
+<section>
+  
 </section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -813,7 +845,7 @@
   <script src="assets/js/jquery.js"></script>
 
   <!-- Google spreadsheet to javascript -->
-  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 
   <!-- D3 -->
   <script src="assets/js/d3.v4.min.js"></script>

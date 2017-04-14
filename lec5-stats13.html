@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 5 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <!-- <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" /> -->
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg6.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 4</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">Introduction to <br>confidence intervals</h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+<section data-transition="slide-in">
+  <h3>Detection tasks by police dogs</h3>
+  <div class="row">
+    <div class="col-30">
+    <svg width="100%" viewBox="0 0 270 281" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/police-dog-luggages.svg#dog"></use>
+    </svg>
+    </div>
+    <div class="col-70">
+      <p>
+        There are at least 30 different sets of 
+        detection tasks that trained dogs can perform, but the most common use of detection dogs by
+        law enforcement all over the world is for narcotics and explosives detection.
+      </p>
+    </div>
+  </div>
+  <p>
+    Police accounts concerning the effectiveness of dogs in sniffing out narcotics reveal
+    impressive results, with a famous example of 12 drug-sniffing dogs at the US Border Patrol 
+    Station in El Paso, Texas, that detected $100 million in narcotics in a nine-month period
+    in 1988-1989.
+  </p>
+</section>
+
+<section data-transition="none">
+  <h3>Explosive detection training</h3>
+  <div class="row">
+    <div class="col-30">
+    <svg width="100%" viewBox="0 0 270 281" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/police-dog-luggages.svg#dog"></use>
+    </svg>
+    </div>
+    <div class="col-70">
+      <svg width="100%" viewBox="270 20 570 240" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/police-dog-luggages.svg#luggages"></use>
+    </svg>
+    </div>
+  </div>
+  <p>
+    A dog is trained to detect the scent of explosives. <br>
+    When presented in front of <span class="info u">3 bags</span>,
+    <span class="strong warning">15</span> out of
+    <span class="strong warning">21</span> times
+    the dog successfully detected the bag containing the explosives.
+  </p>
+  <p>
+    Did the training have an effect on this dog or could this 
+    result be explained by random chance?
+  </p>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Explosive detection training</h3>
+  <p>
+    When presented in front of <span class="info u">3 bags</span>,
+    <span class="strong warning">15</span> out of
+    <span class="strong warning">21</span> times
+    the dog successfully detected the bag containing the explosives
+  </p>
+  <p class="sided border-danger">
+    Null hypothesis:<br>
+    <span class="info">$\pi=\frac{1}{3}$</span> (3 bags)
+  </p>
+  <p class="sided border-warning">
+    Simulation:<br>
+    Simulations of 21 trials with probability of 
+    success $\frac{1}{3}$ <br>
+    10000 simulations
+  </p>
+</section>
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <script src="assets/js/d3.v4.min.js"></script>
+  <script src="assets/js/d3-selection-multi.v0.4.min.js"></script>
+
+    <!-- D3 in REVEAL -->
+  <script src="assets/js/d3-in-reveal.js"></script>
+    <!-- The D3 config & animations -->
+    <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip.js"></script>
+    <!-- <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip2.js"></script> -->
+
+
+</body>
+</html>
