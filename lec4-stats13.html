@@ -43,7 +43,7 @@
     <h2>Stats 13</h2>
     <h1 style="color: #FFFFFF">Lecture 4</h1>
   </div>
-    <h3 style="color: #FFFFFF; text-align: center;">Introduction to Bootstrap <br> and confidence intervals</h3>
+    <h3 style="color: #FFFFFF; text-align: center;">p-value vs confidence intervals</h3>
     <div class="col-90">
       <p class="smaller push-right">Guillaume Calmettes</p>
   </div>
@@ -53,7 +53,7 @@
   <h3>Last time</h3>
   <p class="sided" style="font-size: 0.65em;">
     <span class="em u">Statistical significance</span> <br>
-    <span class="em">Would the observed result be surprising if the 
+    <span class="em">Would the observed result be surprising if the
     observed phenomenon
     was only governed by random chance?</span>
   </p>
@@ -80,7 +80,7 @@
   <aside class="notes">
     Last time was our first encounter with statistical significance. <br>
     We used it to investigate whether dolphins could communicate. <br>
-    We've also seen that the same result could be obtained by using a 
+    We've also seen that the same result could be obtained by using a
     theoretical approach, in which we consider that the distribution of the different
     probabilities to observed the different proportion of success follow a normal
     curve. But it had some limits (it required assumptions + did not really reproduced
@@ -149,7 +149,7 @@
     <div class="col-12">
       <img src="assets/img/lec/USC_Trojans_logo.svg" class="unbordered flat">
     </div>
-  </div>  
+  </div>
   <div class="row">
     <div class="col-20">
       <p></p>
@@ -168,8 +168,8 @@
     </div>
   </div>
   <p class="fragment quoted">
-    Based on these data, can we say that the UCLA Bruins are better 
-    than the USC Trojans at Basketball? 
+    Based on these data, can we say that the UCLA Bruins are better
+    than the USC Trojans at Basketball?
   </p>
 </section>
 
@@ -188,12 +188,12 @@
       <p class="sided border-info">
       <span class="em u">
         What is the <span class="info">variable</span> measured? <br>
-        Is it Categorical or Quantitative? 
+        Is it Categorical or Quantitative?
       </span><br>
         <span class="fragment">Whether or not UCLA won the game (categorical)</span>
       </p>
     </div>
-  </div>  
+  </div>
   <p class="sided border-danger fragment">
   We are interested in investigating whether the UCLA Bruins are better
   than the USC Trojans at
@@ -229,12 +229,12 @@
   </p>
   <p class="fragment quoted" data-fragment-index=2>
     If UCLA and USC were equally likely to win a game,
-    would it be surprising to observe $\overset{\hat{}}{p}\geq0.562$ 
+    would it be surprising to observe $\overset{\hat{}}{p}\geq0.562$
     for UCLA over 249 games?
   </p>
   <p class="fragment" data-fragment-index=3 style="font-size: 0.65em;">
     We can use simulations to investigate whether this provides us with strong enough
-    evidence against the null and if the proportion of victories of 
+    evidence against the null and if the proportion of victories of
     the Bruins over the Trojans is statistically significant.
   </p>
   <div class="row fragment" data-fragment-index=3>
@@ -280,7 +280,7 @@
   </p>
   <p class="quoted">
     If UCLA and USC were equally likely to win a game,
-    would it be surprising to observe $\overset{\hat{}}{p}\geq0.562$ 
+    would it be surprising to observe $\overset{\hat{}}{p}\geq0.562$
     for UCLA over 249 games?
   </p>
   <div class="row">
@@ -429,7 +429,7 @@
   <h3>What influences the p-value?</h3>
   <p class="sided">
     So far we've looked at a measure of the strength of evidence (p-value).
-    However, we've not yet formally looked at 
+    However, we've not yet formally looked at
     <span class="warning">what factors impact the
     strength of evidence</span>.
   </p>
@@ -444,11 +444,11 @@
         the null hypothesis parameter value ($\overset{\hat{}}{p}-\pi_0$)
       </p>
     </div>
-  </div>  
+  </div>
 </section>
 
 <section data-transition="slide-in">
-  <h3>Difference between the sample statistic and the null 
+  <h3>Difference between the sample statistic and the null
   parameter value</h3>
   <p>
     What if instead of 140 wins out of the 249 games, UCLA had won
@@ -461,27 +461,27 @@
   </p>
   <p class="fragment framed border-danger">
     => Intuitively, the more extreme the observed statistic,
-    the more evidence there is against the null hypothesis. 
+    the more evidence there is against the null hypothesis.
   </p>
 </section>
 
 <section data-transition="none">
-  <h3>Difference between the sample statistic and the null 
+  <h3>Difference between the sample statistic and the null
   parameter value</h3>
   <div class="row">
     <div class="col-35">
       <p class="sided border-warning fragment" data-fragment-index=1
        style="margin-top: 0; font-size: 0.65em;">
-        If UCLA had won 155 games that is a success rate of 
+        If UCLA had won 155 games that is a success rate of
         $\overset{\hat{}}{p}=\frac{155}{249}=0.622$ <br>
         <span class="fragment" data-fragment-index=3>
           <span class="warning">$0$ simulations</span><br>
           (p-value < 0.0001)
         </span>
       </p>
-      <p class="sided border-danger fragment" data-fragment-index=4, 
+      <p class="sided border-danger fragment" data-fragment-index=4,
         style="margin-top: 0; font-size: 0.65em;">
-        If UCLA had only won 135 games that is a success rate of 
+        If UCLA had only won 135 games that is a success rate of
         $\overset{\hat{}}{p}=\frac{135}{249}=0.542$ <br>
         <span class="fragment" data-fragment-index=6>
           <span class="danger">$10005$ simulations</span><br>
@@ -502,7 +502,7 @@
 </section>
 
 <section data-transition="slide-out">
-  <h3>Difference between the sample statistic and the null 
+  <h3>Difference between the sample statistic and the null
   parameter value</h3>
   <p class="quoted" style="font-size: 1em;">
     The <span class="warning">further away</span> the observed statistic is from the mean of the null distribution,
@@ -515,7 +515,7 @@
   <h3>What influences the p-value?</h3>
   <p class="sided">
     So far we've looked at a measure of the strength of evidence (p-value).
-    However, we've not yet formally looked at 
+    However, we've not yet formally looked at
     <span class="warning">what factors impact the
     strength of evidence</span>.
   </p>
@@ -538,13 +538,13 @@
         Sample size
       </p>
     </div>
-  </div>  
+  </div>
 </section>
 
 <section data-transition="slide-in">
   <h3>Sample size</h3>
   <p style="margin-top: 0;">
-    What if the relative proportion of basketball wins of UCLA 
+    What if the relative proportion of basketball wins of UCLA
     over USC (0.562) was the result of 124 games instead of 249?
     Or what if it was obtained from 498 games (twice as many)?
   </p>
@@ -570,7 +570,7 @@
   <p class="fragment framed border-danger">
     => Intuitively, it seems reasonable to think that as we increase
     the sample size, the strength of evidence against the null hypothesis
-    will increase. If the same proportion of UCLA wins had been 
+    will increase. If the same proportion of UCLA wins had been
     observed over more games, we would have more knowledge about the truth.
   </p>
 </section>
@@ -588,7 +588,7 @@
   <div class="row">
     <div class="col-33">
       <p class="sided" style="font-size: 0.6em;">
-        sample size decreased to <span class="warning">124</span> 
+        sample size decreased to <span class="warning">124</span>
         ($\simeq$ half as many)
       </p>
     </div>
@@ -600,11 +600,11 @@
     </div>
     <div class="col-33">
       <p class="sided" style="font-size: 0.6em;">
-        sample size increased to <span class="warning">498</span> 
+        sample size increased to <span class="warning">498</span>
         (twice as many)
       </p>
     </div>
-  </div>  
+  </div>
   <img src="assets/img/lec/ucla-usc-simulation-sample-size.svg"
     class="unbordered flat">
 </section>
@@ -614,7 +614,7 @@
   <p class="quoted" style="font-size: 1em;">
     As the <span class="warning">sample size increases</span>
     (and the value of the observed statistic stays the same),
-    the <span class="warning">strength of evidence against the null 
+    the <span class="warning">strength of evidence against the null
     hypothesis increases.</span>
   </p>
 </section>
@@ -634,17 +634,17 @@
   <ul style="font-size: 0.7em;">
     <li class="fragment info">
       YOU, the student, would rather have fewer qestions. If there was
-      only one question on the test, you would have a 50% chance 
+      only one question on the test, you would have a 50% chance
       of passing!</li>
     <li class="fragment warning">
-      The teacher would rather have more questions on the test because 
-      the 
-      more questions on the test, the more likely the outcome on the test 
+      The teacher would rather have more questions on the test because
+      the
+      more questions on the test, the more likely the outcome on the test
       will be close to 50% (just guessing) and the less likely the
       students would be
       to "get lucky" and pass the test by just guessing.</li>
   </ul>
-    
+
 </section>
 
 <section data-transition="slide-out">
@@ -654,9 +654,9 @@
     as well
   </p>
   <p>
-    Importantly, we can't automatically assume that if we collect more data 
+    Importantly, we can't automatically assume that if we collect more data
     and have a bigger sample size the strength of evidence will increase
-    (smaller p-value), because 
+    (smaller p-value), because
     <span class="warning">if we collect more data, our observed statistic
     will almost always change as well</span>.
   </p>
@@ -670,7 +670,7 @@
   <h3>What influences the p-value?</h3>
   <p class="sided">
     So far we've looked at a measure of the strength of evidence (p-value).
-    However, we've not yet formally looked at 
+    However, we've not yet formally looked at
     <span class="warning">what factors impact the
     strength of evidence</span>.
   </p>
@@ -701,7 +701,7 @@
         Whether we do a one- or two-sided test
       </p>
     </div>
-  </div>  
+  </div>
 </section>
 
 <section data-transition="slide-in">
@@ -719,12 +719,12 @@
       <ul style="font-size: 0.65em; margin-top: 0;">
         <li class="fragment" data-fragment-index=1>
           The null hypothesis says that UCLA is as good as USC at basketball
-          (the two teams are 
+          (the two teams are
           <span class="warning">equally likely to win a game</span>)
         </li>
         <li class="fragment" data-fragment-index=2>
           The alternative hypothesis says that UCLA is better than USC
-           at basketball 
+           at basketball
            (UCLA <span class="warning">more likely to win a game</span>)
         </li>
         <li class="fragment" data-fragment-index=3>
@@ -749,8 +749,8 @@
     </div>
   </div>
   <p class="fragment framed border-danger" style="margin-top: 0;">
-    This type of alternative hypothesis is called 
-    "<span class="danger">one-sided</span>" because it only looks at one 
+    This type of alternative hypothesis is called
+    "<span class="danger">one-sided</span>" because it only looks at one
     of the two possible ways that the null hypothesis could be wrong.
   </p>
 </section>
@@ -759,12 +759,12 @@
   <h3>One-sided vs two-sided tests</h3>
   <p style="margin-top: 0;" class="em">
    If we only consider the possibility that UCLA can win, this way
-   of formulating our altenative hypothesis could be considered too 
-   narrow and too biased towards assuming that we are correct ahead 
+   of formulating our altenative hypothesis could be considered too
+   narrow and too biased towards assuming that we are correct ahead
    of time.
-  </p> 
+  </p>
   <p class="framed border-danger">
-   A more objective approach would be to conduct a 
+   A more objective approach would be to conduct a
    "<span class="danger">two-sided</span>" test, which allow all the
    possibility of the null hypothesis to be wrong.
   </p>
@@ -777,14 +777,14 @@
         <li class="fragment" data-fragment-index=1>
          <span class="em u">Null hypothesis:</span>
          UCLA and USC are equally good at basketball.
-         (the two teams are 
+         (the two teams are
          <span class="warning">equally likely to win a game</span>)
         </li>
         <li class="fragment" data-fragment-index=2>
          <span class="em u">Alternative hypothesis:</span>
          UCLA and USC are not equally good
          at basketball
-         (UCLA and USC are 
+         (UCLA and USC are
          <span class="warning">not equally likely to win a game</span>)
         </li>
       </ul>
@@ -811,8 +811,8 @@
     The alternative hypothesis does not play any role in this process
     as the randomization samples depend only on the null hypothesis. <br>
     <span class="fragment" data-fragment-index=0>
-    However, the <span class="danger">alternative hypothesis</span> is important 
-    in determining the p-value because it determines 
+    However, the <span class="danger">alternative hypothesis</span> is important
+    in determining the p-value because it determines
     <span class="danger">which tail(s) to use to calculate the p-value</span>.
     </span>
   </p>
@@ -820,19 +820,19 @@
     <div class="col-50">
       <p class="fragment" data-fragment-index=1 style="margin-top: 0; margin-bottom: 0.3em; font-size: 0.55em;">
         If the alternative hypothesis specifies a <span class="info">particular direction</span>,
-        we refer to these as <span class="info">right-tailed</span> or 
-        <span class="info">left-tailed tests</span>, depending on whether the 
-        alternative hypothesis is <span class="info">greater than</span> or 
+        we refer to these as <span class="info">right-tailed</span> or
+        <span class="info">left-tailed tests</span>, depending on whether the
+        alternative hypothesis is <span class="info">greater than</span> or
         <span class="info">less than</span>, respectively.
       </p>
       <p class="fragment" data-fragment-index=3 style="margin-top: 0; margin-bottom: 0.3em; font-size: 0.55em;">
-        Otherwise, we are only looking to see if there is a <span class="success">difference 
+        Otherwise, we are only looking to see if there is a <span class="success">difference
         without specifying in
-        advance in which direction</span> it might lie. 
+        advance in which direction</span> it might lie.
         These are called <span class="success">two-tailed</span> tests.
       </p>
       <p class="fragment framed border-light" data-fragment-index=7 style="margin-top: 0; font-size: 0.55em;">
-        The definition of <span class="em u">“more extreme”</span> to compute a p-value depends on whether the 
+        The definition of <span class="em u">“more extreme”</span> to compute a p-value depends on whether the
         alternative hypothesis yields a test that is right-, left-, or two-tailed.
       </p>
     </div>
@@ -845,7 +845,7 @@
         <use  class="fragment" data-fragment-index=6 xlink:href="assets/img/lec/ucla-usc-simulation-two-tailed.svg#axes_5"></use>
       </svg>
     </div>
-  </div>  
+  </div>
 </section>
 
 <section data-transition="slide-out">
@@ -890,7 +890,7 @@
     </div>
   </div>
   <p class="sided fragment" data-fragment-index=1>
-    2) The p-value does not give information about 
+    2) The p-value does not give information about
     how much different from the null our observed statistics is
   </p>
       <p class="framed border-info fragment" data-fragment-index=1>
@@ -917,9 +917,9 @@
 <section data-transition="none">
   <h3>Inferences about the population parameter</h3>
   <p style="margin-top: 0;">
-    If we had strong evidence that the probability of UCLA to 
+    If we had strong evidence that the probability of UCLA to
     win a game against USC was larger than 0.5,
-    what we would really want to know would be 
+    what we would really want to know would be
     <span class="u em">"how much larger than 0.5?"</span>,
     not just "is it different from 0.5?"
   </p>
@@ -929,7 +929,7 @@
     But at least it would be interesting to know about
     <span class="warning">the true probability</span>
     for UCLA to win a game against USC. <br>
-    In other words, if UCLA and USC 
+    In other words, if UCLA and USC
     were to play an infinite number of basketball games,
     what parameter $\pi$ would we observe on the long-run?
   </p>
@@ -942,8 +942,8 @@
 <section data-transition="none">
   <h3>Inferences about the population parameter</h3>
   <p>
-    We know how to test our statistic against a 
-    <span class="u info">specific parameter value</span> for 
+    We know how to test our statistic against a
+    <span class="u info">specific parameter value</span> for
     our null hypothesis (0.5).
   </p>
   <p class="fragment" data-fragment-index=2>
@@ -1021,12 +1021,12 @@
       10000 simulations of <br> 249 game outcomes <br> (win, $\pi_0=0.48$)
     </div>
     <div class="col-20" style="font-size: 0.5em;">
-      
+
     </div>
     <div class="col-40" style="font-size: 0.5em;">
       10000 simulations of <br> 249 game outcomes <br> (win, $\pi_0=0.65$)
     </div>
-  </div>  
+  </div>
   <div class="row">
     <div class="col-40">
       <table style="font-size: 0.55em;">
@@ -1200,7 +1200,7 @@
         <use  class="fragment" xlink:href="assets/img/lec/ucla-usc-simulation-increasing-null.svg#axes_6"></use>
       </svg>
     </div>
-  </div>  
+  </div>
 </section>
 
 <section data-transition="none">
@@ -1242,8 +1242,8 @@
     </div>
   </div>
   <p class="sided border-info fragment">
-    Our observed statistic 
-    would be plausible if our sample had been drawn from 
+    Our observed statistic
+    would be plausible if our sample had been drawn from
     population distributions with parameter $\pi$
     ranging at least from $0.5$ to $0.6$ <br>
     => null hypothesis not rejected
@@ -1262,21 +1262,21 @@
       Key idea:
     </span>
     <br>
-    This interval of <span class="em">plausible</span> values we just 
-    obtained is called a 
+    This interval of <span class="em">plausible</span> values we just
+    obtained is called a
     <span class="warning">95% confidence interval for $\pi$</span>, the
     long-run probability for UCLA to win a game against USC. The 95% value
-    is called the <span class="info">confidence level</span>, and is a 
+    is called the <span class="info">confidence level</span>, and is a
     measure of how confident we are about our interval containing the
     true population parameter.
   </p>
   <p class="fragment">
     <span class="u em">Note:</span> <br>
     We can also actually use the 95%
-    confidence interval as a 
+    confidence interval as a
     <span class="warning">measure of the strength of evidence</span>! <br>
     => if the parameter of the
-    null distribution is in the interval, then we cannot 
+    null distribution is in the interval, then we cannot
     reject the null hypothesis (we cannot reject that $\pi=\pi_0$)
   </p>
 </section>
@@ -1288,8 +1288,8 @@
     a limited quantity of plausible values).
   </p>
   <ul style="font-size: 0.65em;">
-    <li class="fragment">we could test against other values. 
-    <span class="fragment em">But it would be 
+    <li class="fragment">we could test against other values.
+    <span class="fragment em">But it would be
     time consuming, and still limited to the values we would test.</span></li>
     <li class="fragment warning">what if we could directly get this 95% confidence interval from our sample?</li>
   </ul>
@@ -1298,13 +1298,13 @@
 <section>
   <h3>The Bootstrap</h3>
   <p class="sided border-info">
-    The <span class="info">bootstrap</span> is 
-    a resampling method that uses only the data in the original sample 
+    The <span class="info">bootstrap</span> is
+    a resampling method that uses only the data in the original sample
     (the only data we know about).
     <br>
     It can be used for estimating the variability
     of a statistic and to approximate
-    a sampling distribution using just the 
+    a sampling distribution using just the
     information in that one sample.
   </p>
   <p class="sided border-warning fragment" style="margin-top: 0;">
@@ -1317,7 +1317,7 @@
     estimate for the underlying population</span>.</span>
   </p>
   <aside class="notes">
-    The key idea is to perform computations on the data itself to estimate 
+    The key idea is to perform computations on the data itself to estimate
     the variation of statistics that are themselves computed from the same data
   </aside>
 </section>
@@ -1332,7 +1332,7 @@
     calculate another value for our statistic
   </p>
   <p class="em">
-    How can we make the sample data look like data from the entire population? 
+    How can we make the sample data look like data from the entire population?
   </p>
   <div class="row fragment">
     <div class="col-45">
@@ -1345,13 +1345,13 @@
         <use xlink:href="assets/img/lec/bootstrap-population-from-sample.svg#bootstrap"></use>
       </svg>
     </div>
-  </div>  
+  </div>
 </section>
 
 <section data-transition="slide-out">
   <h3>Drawing a bootstrap sample</h3>
   <p style="margin-top: 0; font-size: 0.6em" class="sided">
-    In practice, instead of actually making many copies of the sample and 
+    In practice, instead of actually making many copies of the sample and
     sampling from that, we use a sampling technique that is equivalent: <br>
     => we <span class="danger"> sample with replacement</span> from the original sample.
   </p>
@@ -1366,10 +1366,10 @@
     sample, is called a <span class="warning">bootstrap sample</span>.
     </p>
     <p style="font-size: 0.5em" class="fragment framed border-info" data-fragment-index=2>
-    <span class="u em">Note:</span> Recall that the variability of a sample statistic 
+    <span class="u em">Note:</span> Recall that the variability of a sample statistic
     depends on the size of
-    the sample. Because we are trying to uncover the variability of the 
-    sample statistic, it is important that <span class="info">each bootstrap sample is the 
+    the sample. Because we are trying to uncover the variability of the
+    sample statistic, it is important that <span class="info">each bootstrap sample is the
     same size as the original sample</span> (n=249).
   </p>
     </div>
@@ -1392,13 +1392,13 @@
   </div>
   <ol style="font-size: 0.65em;">
       <li><span class="warning">Generate bootstrap samples</span>
-      by sampling <span class="u">with replacement</span> <br>from 
-      the original sample, using the 
+      by sampling <span class="u">with replacement</span> <br>from
+      the original sample, using the
       <span class="warning">same sample size</span></li>
       <li><span class="info">Compute the statistic of interest</span>
        ("bootstrap statistic") <br>
       for each of the bootstrap samples</li>
-      <li>Collect the statistics for many bootstrap samples <br>to create a 
+      <li>Collect the statistics for many bootstrap samples <br>to create a
       <span class="info">bootstrap distribution</span></li>
     </ol>
 </section>
@@ -1458,7 +1458,7 @@
 <section data-transition="slide-in">
   <h3>Bootstrap confidence intervals</h3>
   <p style="margin-top: 0; font-size: 0.6em" class="sided">
-    Now that we have our Bootstrap sampling distribution, we can compute the 
+    Now that we have our Bootstrap sampling distribution, we can compute the
     confidence intervals at the 95% level.
   </p>
   <div class="row">
@@ -1489,7 +1489,7 @@
   </div>
   <p style="font-size: 0.6em;" class="fragment framed border-info">
     We are 95% confident that the true probability of the Bruins to win a game against the Trojans
-    (parameter $\pi$) is lying in the interval $[0.498-0.622]$ 
+    (parameter $\pi$) is lying in the interval $[0.498-0.622]$
   </p>
 </section>
 
@@ -1502,21 +1502,21 @@
     bootstrap sampling distribution we constructed.
   </p>
   <p>
-    In the <span class="u">sorted array</span> of bootstrap statistics, 
+    In the <span class="u">sorted array</span> of bootstrap statistics,
     this corresponds to the statistics at positions:
   </p>
     <ul style="font-size: 0.65em;">
-      <li><span class="info">$(\frac{\mathrm{alpha}}{2})^{th}$</span>, 
+      <li><span class="info">$(\frac{\mathrm{alpha}}{2})^{th}$</span>,
         for the lower confidence interval limit, and</li>
       <li><span class="info">$(1-\frac{\mathrm{alpha}}{2})^{th}$</span>,
        for the upper confidence interval limit</li>
     </ul>
   <p style="font-size: 0.6em;" class="fragment framed border-warning">
     If we were were able to get an unlimited number of original samples from the
-    population of UCLA-USC basketball games, and were computing 
+    population of UCLA-USC basketball games, and were computing
     the $alpha$-% confidence interval from each of them,
     the true probability of UCLA winning a game against USC
-    would be in $alpha$-% of these calculated intervals. 
+    would be in $alpha$-% of these calculated intervals.
   </p>
 </section>
 
@@ -1525,12 +1525,12 @@
   <p class="sided border-danger">
     Confidence intervals provide information about both: <br>
     <span style="margin-left: 0.9em">- <span class="danger">strength of evidence</span>
-      (<span class="em">Is the parameter value we want to test against, 
+      (<span class="em">Is the parameter value we want to test against,
       in the interval or not?</span> => 95% confidence interval)
     </span> <br>
-    <span style="margin-left: 0.9em">- <span class="danger">estimate of the true 
-    parameter value</span> 
-      ($alpha$-% of the time our interval will include our true parameter)</span> 
+    <span style="margin-left: 0.9em">- <span class="danger">estimate of the true
+    parameter value</span>
+      ($alpha$-% of the time our interval will include our true parameter)</span>
   </p>
   <p class="framed border-danger fragment">
     In that sense, reporting the $alpha$-% confidence intervals is better than
@@ -1550,7 +1550,7 @@
         (the data sample is the best approximation of the population)</li>
         <li class="fragment" data-fragment-index="1">
           The bootstrap procedure <span class="warning">can be applied to any data
-          type</span> <br>(categorical or 
+          type</span> <br>(categorical or
           quantitative variables)</li>
         <li class="fragment" data-fragment-index="2">
           The <span class="warning">bootstrap statistic can be anything</span> you're
@@ -1558,25 +1558,25 @@
           ($\overset{\hat{}}{p}$, median, mean, ratio, correlation coefficient, etc ...)</li>
         <li class="fragment" data-fragment-index="3">
           The <span class="warning">bootstrap procedure can be adapted</span>
-          to replace any 
+          to replace any
           theoretical statistical test <br>
           (confidence intervals generation,
           comparison of groups, etc ...)</li>
       </ul>
     </div>
     <div class="col-50">
-      <p style="font-size: 0.55em; text-align: center;" 
+      <p style="font-size: 0.55em; text-align: center;"
         class="em fragment" data-fragment-index="2">
         Bootstrap regression analysis</p>
        <img src="assets/img/lec/bootstrap-showcase-regression-params.svg"
        class="unbordered flat fragment" width="100%" data-fragment-index="2">
     </div>
-  </div>  
+  </div>
 </section>
 
 
 <section>
-  
+
 </section>
 
 
