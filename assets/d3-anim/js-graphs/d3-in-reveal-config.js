@@ -131,6 +131,13 @@ gc.slideIdToFunctions = {
     }
   },
 
+  'samplingdist': {
+    'init': function() {
+      'use strict';
+      gc.samplingdist.update();
+    }
+  },
+
   'bardeaths': {
     'init': function() {
       'use strict';
@@ -154,4 +161,10 @@ gc.slideIdToFunctions = {
     }
   },
 
+  'livesamplingwords': {
+    'init': function() {
+      'use strict';
+      gc.livesamplingwords.init();
+    }
+  },
 };
