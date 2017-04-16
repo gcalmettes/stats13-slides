@@ -38,86 +38,393 @@
 
 
 
-<section class="title-slide" data-background='assets/img/shared/bckg6.jpg' data-state="alpha-04">
+<section class="title-slide" data-background='assets/img/shared/bckg5.jpg' data-state="alpha-04">
   <div class="content-box framed border-muted">
     <h2>Stats 13</h2>
-    <h1 style="color: #FFFFFF">Lecture 4</h1>
+    <h1 style="color: #FFFFFF">Lecture 5</h1>
   </div>
-    <h3 style="color: #FFFFFF; text-align: center;">Introduction to <br>confidence intervals</h3>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      Making inferences about
+      <br> the population
+    </h3>
     <div class="col-90">
       <p class="smaller push-right">Guillaume Calmettes</p>
   </div>
 </section>
+
+<section>
+  <h3>Last time</h3>
+  <p>p-value and its limit</p>
+  <p>better alternative of p-value (ci)</p>
+</section>
+
+
 <section data-transition="slide-in">
-  <h3>Detection tasks by police dogs</h3>
+  <h3>Theory: Standardized statistic</h3>
+  <p style="margin-top: 0;" class="sided">
+    In a similar way to the calculation of a $z$ statistic for a
+    proportion, it is possible to measure a 
+    <span class="warning">standardized statistic</span> for a
+    sample mean (quantitative data), by
+    measuring <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">how far it is from the mean of 
+    an hypothesized population mean in term of 
+    <span class="danger">standard error (SE)</span> units</span>. <br>
+    This measure is commonly noted <span class="info">$t$</span>.
+  </p>
   <div class="row">
-    <div class="col-30">
-    <svg width="100%" viewBox="0 0 270 281" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/police-dog-luggages.svg#dog"></use>
-    </svg>
-    </div>
-    <div class="col-70">
-      <p>
-        There are at least 30 different sets of 
-        detection tasks that trained dogs can perform, but the most common use of detection dogs by
-        law enforcement all over the world is for narcotics and explosives detection.
+    <div class="col-40">
+      <p style="margin-top: 1em;" class="fragment" data-fragment-index=2>
+      $t=\frac{\textrm{sample mean-}\fragindex{2}{\fraglight{highlight-blue-gc}{\textrm{hypothesized population mean}}}}{\fragindex{4}{\fraglight{highlight-red-gc}{\textrm{standard error of sample mean}}}}$
+      <span class="fragment" data-fragment-index=3></span>
+      <span class="fragment" data-fragment-index=5</span>
+      </p>
+      <p style="margin-top: 1em;" class="fragment sided border-info" data-fragment-index=4>
+        Hypothesized population mean: <br>
+        <span style="margin-left: 1.2em;">$\mu = \textrm{value to test}$</span>
+      </p>
+      <p class="fragment sided border-danger" data-fragment-index=6>
+        SE of sample mean: <br>
+        <span style="margin-left: 1.2em;">$SE=\frac{s}{\sqrt{n}}$</span>
       </p>
     </div>
+    <div class="col-60">
+      <img src="assets/img/lec/distribution-t-vs-z.svg" 
+      class="unbordered fragment"
+      data-fragment-index=1 width=100% style="margin-bottom: 0;">
+    </div>
   </div>
-  <p>
-    Police accounts concerning the effectiveness of dogs in sniffing out narcotics reveal
-    impressive results, with a famous example of 12 drug-sniffing dogs at the US Border Patrol 
-    Station in El Paso, Texas, that detected $100 million in narcotics in a nine-month period
-    in 1988-1989.
-  </p>
+  <aside class="notes">
+    <p>
+      Using p-value is the most common way of assessing the strength of evidence by indicating the probability, under the null hypothesis, of getting a statistic at least as extreme the the one observed.
+    </p>
+  </aside>
+</section>
+
+
+<section data-transition="none">
+  <h3>Theory: One-sample t-test</h3>
+  <div style="margin-top: 1em;">
+    $t=\frac{\textrm{sample mean-hypothesized population mean}}{\textrm{standard error of sample mean}}$
+  </div>
+  <br>
+  <!-- <div class="row">
+    <div class="col-55 fragment" data-fragment-index=1>
+      <p style="text-align: right;">
+        Applied to the coin flip model, this correspond to:
+      </p>
+    </div>
+    <div class="col-40 fragment" data-fragment-index=1>
+      $z=\frac{\overset{\hat{}}{p}-\pi}{\sqrt{\frac{\pi(1-\pi)}{n}}}$
+    </div>
+  </div>
+  <div class="row" style="margin-top: 1em;">
+    <div class="col-55 fragment" data-fragment-index=2>
+      <p style="text-align: right;">
+        In the second experiment, Buzz got 16 correct choices
+        out of 28 attempts.
+      </p>
+    </div>
+    <div class="col-40 fragment" data-fragment-index=2>
+      $z=\frac{\frac{16}{28}-0.5}{\sqrt{\frac{0.5(1-0.5)}{28}}}$
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-55 fragment" data-fragment-index=3>
+      <p ></p>
+    </div>
+    <div class="col-40 fragment" data-fragment-index=3>
+      $z=0.756$
+    </div>
+  </div> -->
 </section>
 
 <section data-transition="none">
-  <h3>Explosive detection training</h3>
-  <div class="row">
+  <h3>Theory: one sample t-test</h3>
+  <!-- <div class="row">
     <div class="col-30">
-    <svg width="100%" viewBox="0 0 270 281" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/police-dog-luggages.svg#dog"></use>
-    </svg>
+      <p style="font-size: 0.65em;">
+        Buzz got 16 correct choices
+        out of 28 attempts
+      </p>
+      <span class="fragment framed border-success" data-fragment-index=2>$z=0.756$</span>
+      <p style="font-size: 0.65em;" class="fragment" data-fragment-index=2>
+        the number of correct choices is 0.756 SD away from the mean of the null 
+        <span class="u">normal</span> distribution
+      </p>
     </div>
     <div class="col-70">
-      <svg width="100%" viewBox="270 20 570 240" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/police-dog-luggages.svg#luggages"></use>
-    </svg>
+      <svg width="100%" viewBox="34 0 410 288" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_3"></use>
+        <use  class="fragment current-visible" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_4"></use>
+        <use  class="fragment current-visible" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_6"></use>
+        <use  class="fragment" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_5"></use>
+        <use  class="fragment" xlink:href="assets/img/lec/simulation-graph-coinflip-zscore.svg#axes_2"></use>
+      </svg>
     </div>
-  </div>
-  <p>
-    A dog is trained to detect the scent of explosives. <br>
-    When presented in front of <span class="info u">3 bags</span>,
-    <span class="strong warning">15</span> out of
-    <span class="strong warning">21</span> times
-    the dog successfully detected the bag containing the explosives.
-  </p>
-  <p>
-    Did the training have an effect on this dog or could this 
-    result be explained by random chance?
+  </div> -->
+</section>
+
+<section>
+  <h3>From sample to population</h3>
+  <p class="sided">
+    One of the most important ideas in statistics is that we can learn a lot 
+    about a large group (called a <span class="warning">population</span>) by studying
+    a small piece of it (called a <span class="info">sample</span>).
+  </p> 
+  <p class="quoted">
+    <span class="danger">Statistical inference</span> is the process of using data from a sample to
+    gain information about the population.
   </p>
 </section>
 
-<section data-transition="slide-out">
-  <h3>Explosive detection training</h3>
+<!-- <section id="livesamplingwords"> -->
+<section>
+  <h3>In class activity (sampling words)</h3>
+  <p>In most studies, we do not have access to the entire population and
+  can only consider a <span class="danger">sample</span> from this population.</p>
+  <div class="row">
+    <div class="col-45 sided"> 
+      <p class="info">https://goo.gl/cYUbFn</p>
+      <p style="font-size: 0.6em;">
+        1- Select a sample of <span class="warning">10 representative words</span>
+      </p>
+      <p style="font-size: 0.6em;">
+        2- Record the <span class="warning">number of letters</span> 
+        in each of the ten words in your sample
+        <!-- which represents the number of correct choice that Buzz got by chance in 
+        his hypothetical 16 attempts -->
+      </p>
+      <p style="font-size: 0.6em;">
+        3- Calculate the average (mean) number of letters in your ten words. Enter this value in the spreedsheet in the cell assigned to your name 
+        (please only fill up the value for your name!)
+      </p>
+    </div>
+    <div class="col-55">
+      <div class="row">
+        <div class="col-80 right">
+          <label>Show population mean</label>
+        </div>
+        <div class="col-20 left">
+          <input type="checkbox" id="checkbox_showmean">
+        </div>
+      </div>
+      <div class="placeholder"></div>
+    </div>
+  </div>  
+</section>
+
+<section>
+  <h3>Human judgment is not very good at selecting representative samples 
+    from populations</h3>
+  <div class="row">
+    <div class="col-40">
+      <p>
+        <span class="u em">1948 US Presendential Elections</span> <br>
+
+        A triumphant Harry S Truman holds the Chicago
+        Tribune published with the incorrect headline
+        “Dewey defeats Truman”
+      </p>
+    </div>
+    <div class="col-60">
+      <img src="assets/img/lec/DeweyTruman.jpg" class="unbordered flat" width=100%>
+    </div>
+  </div>
+  <aside class="notes">
+    The day after the 1948 presidential election, the Chicago Tribune ran the
+    headline “Dewey Defeats Truman.” However, Harry S Truman defeated Thomas
+    E. Dewey to become the 33rd president of the United States. The newspaper
+    went to press before all the results had come in, and the headline was
+    based partly on the results of a large telephone poll which showed Dewey
+    sweeping Truman.
+    <br>
+    One reason the telephone poll may have yielded inaccurate results is that
+    people with telephones in 1948 were not representative of all American
+    voters. People with telephones tended to be wealthier and prefer Dewey
+    while people without phones tended to prefer Truman.
+  </aside>
+</section>
+
+<section>
+  <h3>Sampling bias</h3>
+  <p class="quoted">
+    <span class="warning">Sampling bias</span> occurs when the 
+    <span class="warning">method of selecting</span> a sample causes
+    the <span class="warning">sample to differ from the population</span>
+    in
+    some relevant way. If sampling bias exists, then we cannot trust
+    generalizations from the sample to the population.
+  </p>
   <p>
-    When presented in front of <span class="info u">3 bags</span>,
-    <span class="strong warning">15</span> out of
-    <span class="strong warning">21</span> times
-    the dog successfully detected the bag containing the explosives
-  </p>
-  <p class="sided border-danger">
-    Null hypothesis:<br>
-    <span class="info">$\pi=\frac{1}{3}$</span> (3 bags)
-  </p>
-  <p class="sided border-warning">
-    Simulation:<br>
-    Simulations of 21 trials with probability of 
-    success $\frac{1}{3}$ <br>
-    10000 simulations
+    To avoid sampling bias, we try to obtain a sample that is 
+    <span class="info">representative</span> of the population. 
+    A representative sample resembles the population, only in smaller 
+    numbers. 
+    The more representative a sample is, the more valuable the sample 
+    is for making inferences about the population.
   </p>
 </section>
+
+<section>
+  <h3>Simple random sample</h3>
+  <p>
+    Since a representative sample is essential for drawing valid inference
+    to the population, you are probably wondering how to select such a sample!
+    The key is <span class="random">random sampling</span>.
+  </p>
+  <p class="quoted">
+    A <span class="warning">simple random sample</span> gives every
+    observational unit in the population the <span class="u">same 
+    chance</span> of being selected. <br>
+    Taking a simple random sample avoids sampling bias.
+  </p>
+  <p>
+    Although the principle of simple random sampling is probably clear,
+    it is by no means simple to implement.
+  </p>
+</section>
+
+<section>
+  <h3>Randomness</h3>
+  <p>
+    The key to obtaining a representative sample is using some type of
+    <span class="warning">random mechanism</span> to select the 
+    observational units from the population rather than relying on 
+    <span class="info">convenience sample</span> or any type of human
+    judgment.
+  </p>
+  <p>
+    => We must use a formal random sampling method such as technology.
+    <br>
+    The first step is to obtain a <span class="danger">sampling frame</span>
+    where each observational unit of the population can be assigned a number. 
+  </p>
+</section>
+
+<section>
+  <h3>Three caveats about random sampling</h3>
+  <p>One still gets the occasional "unlucky" sample whose results
+  are not close to the population even with large sample sizes.
+  </p>
+  <p>
+    The sample size means little if the sampling method is not random.
+    In 1936, the <span class="em">Literary Digest</span> magazine had 
+    a huge sample of 2.4 million people, yet their predictions for the
+    Presidential election did not come close to the truth about the 
+    population.
+  </p>
+  <p>
+    Although the role of sample size is crucial in assessing how close the
+    sample results will be to the population results, the size of the population
+    does not affect this. As long as the population is large relative
+    to the sample size (at least 10 times as large), the precision
+    of a sample statistic depends on the sample size but not on the 
+    population size.
+  </p>
+</section>
+
+<section data-menu-title="Sampling distribution (interactive)" id="samplingdist">
+  <h3>The sampling distribution</h3>
+  <div class="row">
+    <div class="col-22 right">
+      <label>Population size: 
+    </div>
+    <div class="col-10">
+      <span id="populationsize-value" style="color: #5bc0de;">500</span></label>
+    </div>
+    <div class="col-18">
+      <input type="range" min="500" max="1000" step="1" value="500"
+       id="populationsize" style="width: 15em;">
+    </div>
+    <div class="col-20 right">
+      <label>Center: 
+    </div>
+    <div class="col-8">
+      <span id="proportion-value" style="color: #d9534f;">0.5</span></label>
+    </div>
+    <div class="col-18">
+      <input type="range" min="0" max="1" step="0.01" value="0.5"
+      id="proportion" style="width: 15em;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-22 right">
+      <label>Sample size: 
+    </div>
+    <div class="col-10">
+      <span id="samplesize-value" style="color: #f0ad4e;">25</span></label>
+    </div>
+    <div class="col-18">
+      <input type="range" min="1" max="450" step="1" value="25"
+      id="samplesize" style="width: 15em;">
+    </div>
+    <div class="col-22 right">
+      <label># of samples: 
+    </div>
+    <div class="col-8">
+      <span id="nsample-value" style="color: #f0ad4e;">100</span></label>
+    </div>
+    <div class="col-18">
+      <input type="range" min="1" max="1000" step="1" value="100"
+      id="nsample" style="width: 15em;">
+    </div>
+  </div>
+  <div class="placeholder"></div>
+</section>
+
+<section>
+  <h3>Realities of random sampling</h3>
+  <p>
+    While a random sample is ideal, often it may not be achievable. A list of the entire population may not exist, it may be impossible to contact some members of the population, or it may be too expensive or time consuming to do so. Often we must make do with whatever sample is convenient. The study can still be worth doing, but we have to be very careful when drawing inferences to the population and should at least try to avoid obvious sampling bias as much as possible.
+  </p>
+  <p>
+    When it is dif cult to take a random sample from the population of interest, we may have to rede ne the population to which we 
+    <span class="warning">generalize</span>.
+  </p>
+</section>
+
+<section>
+  <h3>Other sources of bias</h3>
+  <p>The way the question is asked</p>
+  <p>
+    The most important message is to always think critically about the way data are collec- ted and to recognize that not all methods of data collection lead to valid inferences. Recognizing sources of bias is often simply common sense, and you will instantly become a more statistically literate individual if, each time you are presented with a statistic, you just stop, inquire, and think about how the data were collected.
+  </p>
+</section>
+
+
+
+
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
 
 
 
@@ -136,8 +443,11 @@
 
   <script src="assets/js/jquery.js"></script>
 
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
   <!-- Google spreadsheet to javascript -->
-  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 
   <!-- D3 -->
   <script src="assets/js/d3.v4.min.js"></script>
@@ -147,7 +457,8 @@
   <script src="assets/js/d3-in-reveal.js"></script>
     <!-- The D3 config & animations -->
     <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
-    <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
     <!-- <script src="assets/d3-anim/js-graphs/live-dotplot-coinflip2.js"></script> -->
 
 
