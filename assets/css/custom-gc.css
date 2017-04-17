@@ -379,8 +379,8 @@ th {
 
 .table-vert td,
 .table-vert th {
-  border-right: solid 1px white; 
-  border-left: solid 1px white;
+  border-right: solid 1px #d2d2d2; 
+  border-left: solid 1px #d2d2d2;
 }
 
 .no-top td,
@@ -402,6 +402,8 @@ th {
 .col-3 { width: 3%; }
 .col-4 { width: 4%; }
 .col-5 { width: 5%; }
+.col-6 { width: 6%; }
+.col-7 { width: 7%; }
 .col-8 { width: 8%; }
 .col-9 { width: 9%; }
 .col-10 { width: 10%; }
@@ -411,6 +413,10 @@ th {
 .col-14 { width: 14%; }
 .col-15 { width: 15%; }
 .col-20 { width: 20%; }
+.col-21 { width: 21%; }
+.col-22 { width: 22%; }
+.col-23 { width: 23%; }
+.col-24 { width: 24%; }
 .col-25 { width: 25%; }
 .col-28 { width: 28%; }
 .col-29 { width: 29%; }
@@ -589,7 +595,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background: goldenrod;
+    background: #f0ad4e;
     margin-top: -4px;
 }
 input[type=range]:focus {
