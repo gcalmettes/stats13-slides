@@ -286,7 +286,7 @@
   </p>
 </section>
 
-<section data-transition="slide-in">
+<section data-transition="slide-in fade-out">
   <h3>UCLA salaries (2014)</h3>
   <svg width="100%" viewBox="0 0 720 106" style="margin-top: 0;">
     <use xlink:href="assets/img/lec/salaries-ucla2014-zoom.svg#axes_2"></use>
@@ -296,7 +296,7 @@
   </svg>
 </section>
 
-<section data-transition="none">
+<section data-transition="fade">
   <h3>UCLA salaries (2014)</h3>
   <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
     <use xlink:href="assets/img/lec/salaries-ucla2014-all.svg#axes_1"></use>
@@ -389,7 +389,7 @@
     </div>
   </div>
   <p class="framed border-warning fragment" style="margin-top: 0;">
-    <span class="warning">Repetetively drawing bootstrap
+    <span class="warning">Repetitively drawing bootstrap
     samples</span> from the data sample 
     to compute the 
     <span class="warning">95% confidence intervals</span> of the 
@@ -450,7 +450,6 @@
           <span class="danger"><span class="em">(1-alpha)</span></span>
           (higher ci limit)</li>
       </ol>
-
     </div>
   </div>
 </section>
@@ -480,6 +479,11 @@
   <div class="row" style="margin-top: 0;">
     <div class="col-40">
       <div class="placeholder"></div>
+      <p style="margin-top: 0; font-size: 0.5em;">
+        <span class="u em">Each bootstrap sample:</span> <br>
+        n=100, drawing WITH replacement <br>
+        from original sample
+      </p>
     </div>
     <div class="col-60">
       <div class="row" style="margin-top: 0;">
@@ -491,10 +495,10 @@
             Sample <br> UCLA Salaries <br> (n=100)
           </p>
         </div>
-        <div class="col-40">
-          <p style="font-size: 0.55em; margin-top: 0;">
-            <span class="danger">1 selection</span><br>
-            <span class="info">2 selections</span><br>
+        <div class="col-30">
+          <p style="font-size: 0.5em; margin-top: 0;">
+            <span class="danger">$1$ selection</span><br>
+            <span class="muted">$2$ selections</span><br>
             <span class="warning">$\geq3$ selections</span>
           </p>
         </div> 
@@ -503,12 +507,12 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 10 30" width=100%>
             <circle cx="5" cy="5" r="4" style="fill:#d9534f"/>
-            <circle cx="5" cy="15" r="4" style="fill:#5bc0de"/>
+            <circle cx="5" cy="15" r="4" style="fill:#636c72"/>
             <circle cx="5" cy="25" r="4" style="fill:#f0ad4e"/>
           </svg>
         </div>  
       </div>
-      <svg width="100%" viewBox="0 100 432 250" style="margin-top: 2%;">
+      <svg width="100%" viewBox="20 70 412 220" style="margin-top: 2%;">
         <use xlink:href="assets/img/lec/salaries-ucla2014-bootstrap-steps.svg#axes_1"></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-bootstrap-steps.svg#axes_2"
         class="fragment" data-fragment-index=1></use>
@@ -520,6 +524,10 @@
         class="fragment" data-fragment-index=4></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-bootstrap-steps.svg#axes_6"
         class="fragment" data-fragment-index=5></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-bootstrap-steps.svg#axes_7"
+        class="fragment" data-fragment-index=6></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-bootstrap-steps.svg#axes_8"
+        class="fragment" data-fragment-index=7></use>
       </svg>
     </div>
   </div>
@@ -529,160 +537,284 @@
   <h3>Bootstrap confidence intervals for a population mean</h3>
   <div class="row" style="margin-top: 0;">
     <div class="col-40">
-      <p class="sided fragment" data-fragment-index=1>
-        <span class="em u">95% CIs:</span><br>
-        [73 057, 109 448]
+      <p style="font-size: 0.6em;">
+        <span class="u em">Bootstrap distribution:</span><br>
+         10000 bootstrap $\bar{x}$
       </p>
-      <p class="sided fragment border-warning" data-fragment-index=3>
+      <p class="sided fragment" data-fragment-index=2>
+        <span class="em u">95% CIs:</span><br>
+        [72 337, 100 055]
+      </p>
+      <p class="sided fragment border-warning" data-fragment-index=4>
         <span class="em u">Inference:</span><br>
         UCLA mean salary > US mean salary
       </p>
     </div>
     <div class="col-60">
-      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 2%;">
+      <svg width="100%" viewBox="0 -25 432 313" style="margin-top: 2%;">
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_1"></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_2"
         class="fragment" data-fragment-index=1></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_3"
-        class="fragment" data-fragment-index=2>
+        class="fragment" data-fragment-index=2></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_4"
+        class="fragment" data-fragment-index=3></use>
       </svg>
     </div>
   </div>
 </section>
-
 
 <section data-transition="slide-in">
   <h3>Theory: Standardized statistic</h3>
-  <p style="margin-top: 0;" class="sided">
+  <p style="margin-top: 0; font-size: 0.65em;" class="sided">
     In a similar way to the calculation of a $z$ statistic for a
     proportion, it is possible to measure a 
-    <span class="warning">standardized statistic</span> for a
-    sample mean (quantitative data), by
+    <span class="warning">standardized statistic for a
+    sample mean</span> (quantitative data), by
     measuring <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">how far it is from the mean of 
-    an hypothesized population mean in term of 
-    <span class="danger">standard error (SE)</span> units</span>. <br>
-    This measure is commonly noted <span class="info">$t$</span>.
+    a hypothesized population mean in term of 
+    <span class="danger">standard deviation of the sampling distribution of the mean</span></span>. <br>
   </p>
   <div class="row">
-    <div class="col-40">
-      <p style="margin-top: 1em;" class="fragment" data-fragment-index=2>
-      $t=\frac{\textrm{sample mean-}\fragindex{2}{\fraglight{highlight-blue-gc}{\textrm{hypothesized population mean}}}}{\fragindex{4}{\fraglight{highlight-red-gc}{\textrm{standard error of sample mean}}}}$
+    <div class="col-60">
+      <p style="margin-top: 3em;" class="fragment" data-fragment-index=2>
+      $t=\frac{\textrm{sample mean-}\fragindex{2}{\fraglight{highlight-blue-gc}{\textrm{hypothesized population mean}}}}{\fragindex{4}{\fraglight{highlight-red-gc}{\sigma\textrm{ of
+      sampling distribution of the mean}}}}$
       <span class="fragment" data-fragment-index=3></span>
       <span class="fragment" data-fragment-index=5</span>
       </p>
-      <p style="margin-top: 1em;" class="fragment sided border-info" data-fragment-index=4>
-        Hypothesized population mean: <br>
+    </div>
+    <div class="col-40">
+      <p style="margin-top: 0.3em; font-size: 0.65em;" class="fragment sided border-info" data-fragment-index=4>
+        Hypothesized mean: <br>
         <span style="margin-left: 1.2em;">$\mu = \textrm{value to test}$</span>
       </p>
-      <p class="fragment sided border-danger" data-fragment-index=6>
-        SE of sample mean: <br>
-        <span style="margin-left: 1.2em;">$SE=\frac{s}{\sqrt{n}}$</span>
+      <p style="margin-top: 0.3em; font-size: 0.65em;" class="fragment sided border-danger" data-fragment-index=6>
+        SD of the sampling distribution of the mean (<span class="danger">Standard Error</span>)
+        <br>
+        <span style="margin-left: 1.2em;">$SE=\frac{\sigma}{\sqrt{n}}$</span>
       </p>
     </div>
-    <div class="col-60">
-      <img src="assets/img/lec/distribution-t-vs-z.svg" 
-      class="unbordered fragment"
-      data-fragment-index=1 width=100% style="margin-bottom: 0;">
-    </div>
   </div>
-  <aside class="notes">
-    <p>
-      Using p-value is the most common way of assessing the strength of evidence by indicating the probability, under the null hypothesis, of getting a statistic at least as extreme the the one observed.
-    </p>
-  </aside>
 </section>
 
-<section data-transition="none">
-  <h3>Theory: Central limit theorem</h3>
-  <p style="margin-top: 0; font-size: 0.6em;">
-    In the early 1900s (and even earlier), computers weren't available to
-    do simulations, and as peole didn't want to sit around and flip coins
-    all day long, they focused their attention on mathematical and 
-    probabilistic rules and theories that could predict what would happen
-    if someone did simulate.
-  </p>
-  <p <p style="margin-top: 0; font-size: 0.65em;">
-    They proved the following result:
-  </p>
+<section data-transition="fade">
+  <h3>Theory: central limit theorem</h3>
   <p class="sided">
-    <span class="u em info">Central limit theorem:</span><br>
-    If the sample size (n) is <span class="u">large enough</span>, the distribution of sample 
-    proportion will be bell-shaped (or normal), centered at the long-run
-    proportion, with a standard deviation of 
-    <span class="warning">$\sqrt{\frac{\pi(1-\pi)}{n}}$</span>
+    <span class="u em info">Central limit theorem for sample means:</span><br>
+    If the sample size $n$ is <span class="u">large</span>, the distribution 
+    of sample means (=sampling distribution) from a population
+    with mean $\mu$ and standard deviation $\sigma$ is approximately normally distributed
+    with mean <span class="warning">$\mu$</span> and standard deviation <span class="warning">$\frac{\sigma}{\sqrt{n}}$</span> (=standard error of the sample means).
   </p>
-  <p class="fragment" style="font-size: 0.6em;">
-    <span class="u em">Validity conditions:</span><br>
-    The normal approximation can be thought of as a prediction of what would occur if 
-    simulation was done. Many times this prediction is valid, but
-    <span class="danger">not always</span>. The prediction is considered valid when there
-    are at least 10 successes and 10 failures in the sample.
+  <p style="font-size: 0.6em;" class="framed border-danger">
+    However in practice we don't usually know the standard deviation $\sigma$
+    for the population of interest, and we usually have only the information of a 
+    sample in the population. <br>
+    We can just substitute in $s$, the standard deviation of the sample, when estimating
+    the standard error of the sample means.
+    <span class="warning">$SE=\frac{s}{\sqrt{n}}$</span>
   </p>
 </section>
 
 
-<section data-transition="none">
+<section data-transition="fade">
+  <h3>Theory: Standardized statistic (t)</h3>
+  <p style="margin-top: 0; font-size: 0.65em;" class="sided">
+    When we use the SE based on $\frac{s}{\sqrt{n}} to standardize the sample mean,
+    the distribution is no longer the standard normal, but rather the 
+    <span class="info">$t$-distribution</span>. The standardized statistic 
+    is then commonly noted <span class="info">$t$</span>.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p style="margin-top: 0; font-size: 0.55em;">
+        The shape of a $t$-distribution looks a lot like a normal distribution but it is a bit more
+        spread out than a normal distribution (more observations in the "tails", less in the middle).
+      </p>
+      <p class="fragment" style="margin-top: 0; font-size: 0.55em;">
+        A key fact about the $t$-distribution is that it depends on the size of the sample ($n$).
+        The sample size is reflected in a parameter called the 
+        <span class="success">degreees of freedom ($df$)</span> for the 
+        $t$-distribution.
+        When working with $\bar{x}$ for a sample of size $n$, 
+        we use a $t$-distribution with $df=n-1$.
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/distribution-t-vs-z.svg" 
+        class="unbordered"
+       width=100% style="margin-bottom: 0;">
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
   <h3>Theory: One-sample t-test</h3>
-  <div style="margin-top: 1em;">
-    $t=\frac{\textrm{sample mean-hypothesized population mean}}{\textrm{standard error of sample mean}}$
-  </div>
-  <br>
-  <!-- <div class="row">
-    <div class="col-55 fragment" data-fragment-index=1>
-      <p style="text-align: right;">
-        Applied to the coin flip model, this correspond to:
+  <div class="row">
+    <div class="col-45">
+      <p>
+        $t$-statistic: <span class="warning">$t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}$</span>
+      </p>
+      <p class="sided" style="font-size: 0.6em;">
+        <span class="u em muted">Salary data</span> <br>
+        US average ($\mu_0$)<br>
+          <span style="margin-left: 0.8em;">$\$62931$</span>
+        <br>
+        UCLA sample ($n=100$): <br>
+        <span style="margin-left: 0.8em;">
+         $\bar{x}=\$85294$ / $s=\$71940$</span>
+      </p>
+      <p style="margin-top: 1em;" class="fragment" data-fragment-index=1>
+        $t=\frac{85294-62931}{\frac{71940}{\sqrt{100}}}$
+      </p>
+      <p class="fragment" data-fragment-index=1>
+        $t=3.11$
       </p>
     </div>
-    <div class="col-40 fragment" data-fragment-index=1>
-      $z=\frac{\overset{\hat{}}{p}-\pi}{\sqrt{\frac{\pi(1-\pi)}{n}}}$
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" class="fragment" data-fragment-index=2>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-ttest.svg#axes_1"></use>
+      </svg>
     </div>
   </div>
-  <div class="row" style="margin-top: 1em;">
-    <div class="col-55 fragment" data-fragment-index=2>
-      <p style="text-align: right;">
-        In the second experiment, Buzz got 16 correct choices
-        out of 28 attempts.
-      </p>
-    </div>
-    <div class="col-40 fragment" data-fragment-index=2>
-      $z=\frac{\frac{16}{28}-0.5}{\sqrt{\frac{0.5(1-0.5)}{28}}}$
-    </div>
-  </div>
-    <div class="row">
-    <div class="col-55 fragment" data-fragment-index=3>
-      <p ></p>
-    </div>
-    <div class="col-40 fragment" data-fragment-index=3>
-      $z=0.756$
-    </div>
-  </div> -->
+
 </section>
 
-<section data-transition="none">
+<section>
   <h3>Theory vs resampling</h3>
   <div class="row">
-    <div class="col-30">
-      <p></p>
+    <div class="col-50">
+
+      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/salaries-ucla2014-all.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-all.svg#axes_2"></use>
+      </svg>
+      <p style="font-size: 0.55em;" class="sided border-warning fragment">
+        <span class="em u warning">Validity condition for a one-sample $t$-test</span>
+        The quantitative variable should have a symmetric distribution, or should have
+        at least 20 observations and the sample ditribution should not be strongly 
+        skewed. If the sample size is small and the data are heavily skewed or contain outliers
+        the $t$-distribution should not be used.
+      </p>
     </div>
-    <div class="col-70">
-      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 2%;">
+    <div class="col-50">
+      <svg width="100%" viewBox="30 0 390 288" style="margin-top: 2%;">
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_1"></use>
-        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_2"
-        class="fragment" data-fragment-index=2></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_2"></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_3"
         class="fragment" data-fragment-index=1></use>
-        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_4"
-        class="fragment" data-fragment-index=3></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_4"></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_5"
-        class="fragment" data-fragment-index=4></use>
+        class="fragment" data-fragment-index=2></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_6"
-        class="fragment" data-fragment-index=5></use>
+        class="fragment" data-fragment-index=3></use>
       </svg>
     </div>
   </div>
 </section>
 
+<section>
+  <h3>What about the median?</h3>
+    <div class="row" style="margin-top: -2%;">
+    <div class="col-40">
+      <p class="sided border-info" style="font-size: 0.65em;">
+        <span class="u">Sample statistic:</span> <br>
+        <span class="info">$m$</span> (sample median)
+      </p>
+      <p class="sided border-danger"
+      data-fragment-index=1 style="font-size: 0.65em;">
+        <span class="u">95% CI:</span> <br>
+        <span class="danger">central $95\%$</span> of the bootstrap 
+        $m$ distribution
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 433 204" style="margin-top: 0; margin-bottom: 0;">
+        <use xlink:href="assets/img/lec/bootstrap-distribution-generation-process.svg#bootstrap"></use>
+        <use xlink:href="assets/img/lec/bootstrap-distribution-generation-process.svg#ci"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <ol style="font-size: 0.6em;" class="push-left">
+        <li><span class="warning">Generate bootstrap samples</span>
+          by sampling <span class="u">with replacement</span> from
+          the original sample, using the
+          <span class="warning">same sample size</span></li>
+        <li><span class="info">Compute the statistic of interest</span>
+          ("bootstrap statistic") 
+          for each of the bootstrap samples</li>
+      </ol>
+    </div>
+    <div class="col-50">
+      <ol style="font-size: 0.6em;" class="push-left" start=3>
+        <li>Collect the statistics for many bootstrap samples 
+          to create a
+          <span class="info">bootstrap distribution</span></li>
+        <li>
+          Rank the bootstrap distribution statistics and take
+          the values at <span class="danger">positions
+          <span class="em">alpha</span></span>
+          (lower ci limit) and <br>
+          <span class="danger"><span class="em">(1-alpha)</span></span>
+          (higher ci limit)</li>
+      </ol>
+    </div>
+  </div>
+</section>
 
+<section>
+  <h3>What about a fancy descriptor?</h3>
+    <div class="row" style="margin-top: -2%;">
+    <div class="col-40">
+      <p class="sided border-info" style="font-size: 0.65em;">
+        <span class="u">Sample statistic:</span> <br>
+        <span class="info">[fancy descriptor]</span>
+      </p>
+      <p class="sided border-danger"
+      data-fragment-index=1 style="font-size: 0.65em;">
+        <span class="u">95% CI:</span> <br>
+        <span class="danger">central $95\%$</span> of the bootstrap 
+        [francy descriptor] distribution
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 433 204" style="margin-top: 0; margin-bottom: 0;">
+        <use xlink:href="assets/img/lec/bootstrap-distribution-generation-process.svg#bootstrap"></use>
+        <use xlink:href="assets/img/lec/bootstrap-distribution-generation-process.svg#ci"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <ol style="font-size: 0.6em;" class="push-left">
+        <li><span class="warning">Generate bootstrap samples</span>
+          by sampling <span class="u">with replacement</span> from
+          the original sample, using the
+          <span class="warning">same sample size</span></li>
+        <li><span class="info">Compute the statistic of interest</span>
+          ("bootstrap statistic") 
+          for each of the bootstrap samples</li>
+      </ol>
+    </div>
+    <div class="col-50">
+      <ol style="font-size: 0.6em;" class="push-left" start=3>
+        <li>Collect the statistics for many bootstrap samples 
+          to create a
+          <span class="info">bootstrap distribution</span></li>
+        <li>
+          Rank the bootstrap distribution statistics and take
+          the values at <span class="danger">positions
+          <span class="em">alpha</span></span>
+          (lower ci limit) and <br>
+          <span class="danger"><span class="em">(1-alpha)</span></span>
+          (higher ci limit)</li>
+      </ol>
+    </div>
+  </div>
+</section>
 
 
 
