@@ -12,8 +12,6 @@ gc.bootstrap.sampleSize = 100;
 gc.bootstrap.populationSize = 100;
 
 gc.bootstrap.pointRadius = 10;
-gc.bootstrap.red = "#d9534f";
-
 
 gc.bootstrap.init = function() {
   'use strict';
@@ -65,7 +63,7 @@ gc.bootstrap.select_sample_single_color = function(){
         .attr("cx", selected_point.attr("cx"))
         .attr("cy", selected_point.attr("cy"))
         .attr("r", gc.bootstrap.pointRadius)
-        .style("fill", gc.bootstrap.red);
+        .style("fill", "#d9534f");
 
     gc.bootstrap.svg.append("circle")
       .attr("class", "selected_point_stroke")
@@ -74,7 +72,7 @@ gc.bootstrap.select_sample_single_color = function(){
       .attr("r", gc.bootstrap.pointRadius + (2/3)*gc.bootstrap.pointRadius)
       .style("fill-opacity", 0)
       .style("stroke-width",1)
-      .style("stroke",gc.bootstrap.red);
+      .style("stroke","#d9534f");
   }
 };
 
@@ -102,7 +100,7 @@ gc.bootstrap.select_sample_multi_color = function(){
       var color = "#d9534f"
     }
     else if (selected_idx[i].freq == 2) {
-      var color = "#5bc0de"
+      var color = "#636c72"
     }
     else {
       var color = "#f0ad4e"

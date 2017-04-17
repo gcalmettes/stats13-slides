@@ -211,6 +211,14 @@ gc.slideIdToFunctions = {
       'use strict';
       gc.bootstrap.select_sample_multi_color();
     },
+    5: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    6: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
   }
 
 };
