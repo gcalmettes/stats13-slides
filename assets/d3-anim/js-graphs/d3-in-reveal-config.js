@@ -167,4 +167,50 @@ gc.slideIdToFunctions = {
       gc.livesamplingwords.init();
     }
   },
+
+  'sampletable': {
+    'init': function() {
+      'use strict';
+      gc.sampletable.init();
+    }
+  },
+
+  'simplerandomsample': {
+    'init': function() {
+      'use strict';
+      gc.simplerandomsample.init();
+    }
+  },
+
+  'bootstrap': {
+    'init': function() {
+      'use strict';
+      gc.bootstrap.init();
+    },
+    '-1': function() {
+      'use strict';
+      gc.bootstrap.reset_color();
+    },
+    0: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    1: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    2: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    3: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    4: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+  }
+
 };
