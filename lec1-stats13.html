@@ -34,26 +34,60 @@
 
 <div class="slides">
 
-  <section class="title-slide" data-background='assets/img/shared/bckg2.jpg' data-state="alpha-04">
-    <div class="content-box framed border-muted">
-      <h2>Stats 13</h2>
-      <h1 style="color: #FFFFFF">Lecture 1</h1>
-    </div>
-      <h3 style="color: #FFFFFF">Statistical investigation</h3>
-      <div class="col-90">
-        <p class="smaller push-right">Guillaume Calmettes</p>
-    </div>
-    <aside class="notes">
-      This week will be all about introducing all the basic notions and terminology we will
-      use during the full quarter.
-      <br>
-      (unfortunately we have to do this so everyone is on the same page and you'll be able to
-      talk with statisticians)
-      <br>
-      Don't worry if you find the first 2 lectures boring, nex
-    </aside>
-  </section>
 
+<section class="title-slide" data-menu-title="STATS 13">
+  <div class="big-title-passionone"> STATS 13</div>
+  <p class="muted" style="text-align: center; font-size: 1.1em">Introduction to statistical methods <br>
+     for the life and health sciences</p>
+</section>
+
+<section>
+  <h3>Bonjour, I'm Guillaume</h3>
+  <img class="unbordered" width=65% src="assets/img/lec/french.svg">
+</section>
+
+<section>
+  <h3>The administrative stuff</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="sided border-warning">
+        <span class="u warning strong">Lectures:</span><br>
+         Tuesdays & Thursdays<br>
+         3:30-4:45PM</p>
+      <p class="sided border-info">
+        <span class="u info strong">Labs:</span><br>
+        Mondays & Wednesdays<br>
+        10:00-10:50AM</p>
+      <p> <span class="u">Grading:</span><br>
+        Homeworks (25%)<br>
+        Midterm (35%)<br>
+        Final (35%)<br>
+        Participation (5%)
+        </p>
+    </div>
+    <div class="col-50">
+      <p>No official textbook</p>
+      <p class="framed">
+        <span class="u strong">Homeworks:</span><br> assigned Mondays (11:00AM)<br>
+        due before the next Monday (10:00AM)</p>
+      <p>
+        <span class="u">Office hours:</span><br>
+        W/F: 1:30-3:30PM (MRL 3761)
+      </p>
+      <p class="fragment">
+        <span class="u">Class-related communication:</span><br>
+        Piazza forum (peer learning)
+      </p>
+    </div>
+  </div>
+  <aside class="notes">
+    Piazza forum: if you know an answer (or think you do know an answer), please help your colleague.
+    <br>
+    1- Will help your colleague (it's always nice and feel good) <br>
+    2- Will help you to formulate what you think you understood <br>
+    3- If this is not correct, Brooke and I will intervene and re-explain, so you'll learn 
+  </aside>
+</section>
 
 <section>
   <h3>Understanding > knowing</h3>
@@ -63,7 +97,7 @@
     </div>
     <div class="col-50">
       <p>
-        Getting an answer is very different from knowing <span class="warning">WHY</span>
+        Getting an answer is very different from knowing <span class="warning">WHY</span> 
         we get this answer.</p>
       <p style="margin-bottom: 0;">
         Understanding statistics implies understanding the
@@ -96,12 +130,12 @@
   <h3>Motivation for this class</h3>
   <p class="quoted" style="font-size: 0.7em; margin-top:0;">
     What we teach is largely the technical machinery of numerical approximations based on the normal
-    distribution and its many subsidiary cogs.
-    This machinery was once necessary, because
+    distribution and its many subsidiary cogs. 
+    This machinery was once necessary, because 
     <span class="fragment highlight-yellow-gc"> the conceptually simpler alternative based on permutations was computationally beyond our reach</span> [...]
     <br>
     <br>
-    Before computers statisticians had no choice. These days we have no excuse.
+    Before computers statisticians had no choice. These days we have no excuse. 
     <span class="fragment highlight-bckg-blue">Randomization-based
     inference makes a direct connection between data production and the logic of inference</span> that
     deserves to be at the core of every introductory course.”
@@ -117,6 +151,26 @@
      He has published numerous books.
    </aside>
 
+</section>
+
+<section class="title-slide" data-background='assets/img/shared/bckg2.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 1</h1>
+  </div>
+    <h3 style="color: #FFFFFF">Introduction</h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+  <aside class="notes">
+    This week will be all about introducing all the basic notions and terminology we will
+    use during the full quarter.
+    <br>
+    (unfortunately we have to do this so everyone is on the same page and you'll be able to
+    talk with statisticians)
+    <br>
+    Don't worry if you find the first 2 lectures boring, nex
+  </aside>
 </section>
 
 <section class="title-slide">
@@ -186,7 +240,7 @@
   <h3>Statistics is not an exact science</h3>
   <p class="u" style="margin-top: 0;">2017 NCAA Finale (Apr 3)</p>
   <div class="row">
-    <div class="col-50">
+    <div class="col-50">  
       <img src="assets/img/lec/statistics-ncaa-article-title.png" class="unbordered" width=100%>
       <img src="assets/img/lec/statistics-ncaa-article-paragraph.png" class="unbordered" width=100%>
     </div>
@@ -194,7 +248,7 @@
       <img src="assets/img/lec/statistics-ncaa-twitter.png" class="unbordered push-left" width=90%>
       <p class="fragment">
         <span class="u">Statistics:</span><br>
-        <span class="info">Numbers</span>
+        <span class="info">Numbers</span> 
           (players' height, offensive points, opposite team score, ...)
       </p>
       <p class="fragment">
@@ -223,8 +277,8 @@
   </div>
   <p class="fragment sided" style="margin-top: 0;">
     There is no <span class="success">RIGHT</span> or <span class="danger">WRONG</span> in Statistics, <br>
-    there is only
-      <span class="u" style="text-decoration-color: #5cb85c;-webkit-text-decoration-color: #5cb85c;">(most) likely</span> or
+    there is only 
+      <span class="u" style="text-decoration-color: #5cb85c;-webkit-text-decoration-color: #5cb85c;">(most) likely</span> or 
       <span class="u" style="text-decoration-color: #d9534f;-webkit-text-decoration-color: #d9534f;">(most) unlikely</span>
   </p>
 </section>
@@ -236,9 +290,9 @@
     <p>
       Cholera has been one of most virulent killers in history.
       <br>
-      Millions succumbed to the 7 cholera pandemics since the first in 1817.
+      Millions succumbed to the 7 cholera pandemics since the first in 1817. 
       <br>
-      It became the first truly global disease and also the most feared.
+      It became the first truly global disease and also the most feared. 
       <br>
       Symptoms of this disease include nausea, vomiting, abdominal pain and a horribly violent case of diarrhea that can cause one to lose as much as 20 liters of fluid and electrolytes per day, leading to extremely severe dehydration.
     </p>
@@ -326,7 +380,7 @@
       </p>
     </div>
   </div>
-
+  
 </section>
 
 <section data-state="showFooterRight" data-footer="Source - <a href='http://www.ph.ucla.edu/epi/snow.html' target='_blank'>UCLA John Snow Website</a>">
@@ -340,11 +394,11 @@
   </svg>
  -->  <aside class="notes">
     Thames was very polluted <br>
-    By the arrival of the 19th century, the River Thames had become the most contaminated river in the world.
+    By the arrival of the 19th century, the River Thames had become the most contaminated river in the world.  
     <br>
-    Toilets were widely introduced in London between 1830 and 1850: main sewers were introduced in the 1840s.
+    Toilets were widely introduced in London between 1830 and 1850: main sewers were introduced in the 1840s.  
     <br>
-    The sewers, elongated cesspools with overflows at the end emptied into the River Thames, which was also a dumping ground for animal and industrial wastes.
+    The sewers, elongated cesspools with overflows at the end emptied into the River Thames, which was also a dumping ground for animal and industrial wastes.  
     <br>
     <br>
     When ship were coming to harbor, crew started to develop cholera symptom only when they were going in contact with people of the city.
@@ -834,7 +888,7 @@
       <br>
       None of the workers at the Broad Street brewery had cholera: they were very close to Broad street pump.
       <br>
-      Likewise the Poland Street Workhouse only recorded five deaths among its 535 inmates.
+      Likewise the Poland Street Workhouse only recorded five deaths among its 535 inmates. 
     </p>
   </aside>
 </section>
@@ -856,7 +910,7 @@
   </aside>
 </section>
 
-<section>
+<section> 
   <h3>Outliers in Snow's Soho investigation</h3>
   <p style="margin-top: 0;">
     The information given by the outliers was important: it helped Snow rule out other possible sources of the epidemic besides pump water.
@@ -866,7 +920,7 @@
   </p>
   <p class=" fragment sided border-warning">
     The 70 workers of the brewery on Broad Street also escaped cholera.<br>
-    => Mr. Huggins (owner) told Snow that the men drank the liquor they made or water
+    => Mr. Huggins (owner) told Snow that the men drank the liquor they made or water 
     from the brewery’s own well.
   </p>
   <p class="fragment sided border-info">
@@ -938,10 +992,10 @@
     <p>What should Snow do to get "stronger" evidence?</p>
     <p class="fragment" data-fragment-index=1>
       <span style="margin-left: 0.8em">
-        - Bigger scale study? (generalization)</span>
+        - Bigger scale study? (generalization)</span> 
         <br>
         <span style="margin-left: 0.8em">
-        - More systematic comparison? ("Control" population)</span>
+        - More systematic comparison? ("Control" population)</span> 
 
     </p>
   </div>
@@ -1001,7 +1055,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="fragment quoted" data-fragment-index=3 style="font-size: 0.7em;">
+      <p class="fragment quoted" data-fragment-index=3 style="font-size: 0.7em;"> 
         What are the two groups tested? <br>
         What are the different variables? <br>
         What results are we anticipating?</p>
@@ -1225,10 +1279,10 @@
     </div>
     <div class="fragment" data-fragment-index=3></div>
   </div>
-
+  
   <aside class="notes">
     <p>
-      On the basis of these figures, which company is more likely to be transmitting "morbid matter" causing cholera?
+      On the basis of these figures, which company is more likely to be transmitting "morbid matter" causing cholera? 
       <br>
       Cannot tell: Correct. Although there were more deaths in houses supplied by the Southwark and Vauxhall Company, this could just be because this company supplied water to a greater number of people. In order to know whether one company is more likely to transmit contaminated water, we need to know, for each company, the number of deaths as a proportion of the number of people supplied with water.
       => Need to normalize to be able to directly compare data.
@@ -1237,8 +1291,8 @@
       <br>
       Are there are problems with using a general total of houses supplied by each
       company as a denominator?
-      <br>
-      - Ideally, the denominator should be all people supplied by water from each company, not houses. Different houses may contain different numbers of people. If, for example, the Lambeth company supplied an area where there were consistently more people per house than the area supplied by the Southwark and Vauxhall company, then we might be misled by using the number of houses as a denominator.
+      <br> 
+      - Ideally, the denominator should be all people supplied by water from each company, not houses. Different houses may contain different numbers of people. If, for example, the Lambeth company supplied an area where there were consistently more people per house than the area supplied by the Southwark and Vauxhall company, then we might be misled by using the number of houses as a denominator. 
       <br>
       - Ideally, the denominator should be houses in the areas of mixed supply only, not all households supplied by the companies, because the patrons could differ substantially over the larger area.
     </p>
@@ -1338,7 +1392,7 @@
     </li>
     <li style="margin: 0.3em 0;">Data can be used to provide information about essentially anything we are interested in and want to  collect data on!</li>
     <li style="margin: 0.3em 0;">Statistics is a powerful tool to draw inferences and make decisions.</li>
-    <li>Don't say that the hypothesis has been proven right or wrong, but rather say that evidence is either strong or weak.
+    <li>Don't say that the hypothesis has been proven right or wrong, but rather say that evidence is either strong or weak.  
     </li>
   </ul>
 
