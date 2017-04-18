@@ -13,7 +13,7 @@
   <!-- Theme used for syntax highlighting of code -->
   <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
   <!-- Custom css -->
-  <!-- <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" /> -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
   <link rel="stylesheet" href="assets/css/custom-gc.css" />
   <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
 
@@ -35,9 +35,6 @@
 <div class="slides">
 
 
-
-
-
 <section class="title-slide" data-background='assets/img/shared/bckg5.jpg' data-state="alpha-04">
   <div class="content-box framed border-muted">
     <h2>Stats 13</h2>
@@ -52,10 +49,56 @@
   </div>
 </section>
 
-<section>
+<section data-transition="slide-in">
   <h3>Last time</h3>
-  <p>p-value and its limit</p>
-  <p>better alternative of p-value (ci)</p>
+  <p class="sided border-info">
+    Null Hypothesis Significance Testing (NHST) for
+    one proportion<br>
+    - Resampling p-value<br>
+    - One proportion z-test (p-value)<br>
+  <p class="sided border-danger">
+  Limits of the p-value <br>
+  Lots of factors can influence p-value (sample size,
+  one-sided/two-sided considerations, etc...)</p>
+  <p class="sided border-warning">
+  Confidence Intervals (CI) as a more informative alternative of the p-value (95%) <br>
+  It can be obtained directly using the characteristics of the data sample we
+  have (one way: Bootstrap, the data is our population)</p>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Last time</h3>
+  <p style="margin-top: 0; font-size: 0.6em;">
+    Two ways at looking at the same thing.
+  </p>
+  <div class="row">
+    <div class="col-85">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_4"
+          class="fragment current-visible" data-fragment-index=2></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_3"
+          class="fragment" data-fragment-index=3></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_2"
+          class="fragment current-visible" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_5"
+          class="fragment" data-fragment-index=4></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_6"
+          class="fragment" data-fragment-index=5></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-15">
+      <p>
+      <span class="info">NHST</span><br>
+      <span class="warning">95% CIs</span>
+      </p>
+    </div>
+  </div>
+  <aside class="notes">
+    But it means that if we are going to use the sample
+    to infer about the population, we need to be sure 
+    our sample is representative.
+  </aside>
 </section>
 
 <section>
@@ -65,9 +108,18 @@
     about a large group (called a <span class="warning">population</span>) by studying
     a small piece of it (called a <span class="info">sample</span>).
   </p> 
-  <p class="quoted">
+  <p class="sided border-danger">
     <span class="danger">Statistical inference</span> is the process of using data from a sample to
     gain information about the population.
+    If we are using the sample to infer about the 
+    population, we have to take precautions to ensure
+    our sample is representative of our population.
+  </p>
+  <p class="quoted">
+    How can we <span class="info">obtain a statistic that we trust</span> to be reasonably close to the actual (but unknown to us) value of the parameter?
+  </p>
+  <p class="success fragment">
+    Let's do a little experiment!
   </p>
 </section>
 
@@ -86,8 +138,6 @@
       <p style="font-size: 0.6em;">
         2- Record the <span class="warning">number of letters</span> 
         in each of the ten words in your sample
-        <!-- which represents the number of correct choice that Buzz got by chance in 
-        his hypothetical 16 attempts -->
       </p>
       <p style="font-size: 0.6em;">
         3- Calculate the average (mean) number of letters in your ten words. Enter this value in the spreedsheet in the cell assigned to your name 
@@ -108,17 +158,28 @@
   </div>  
 </section>
 
-<section>
-  <h3>Human judgment is not very good at selecting representative samples 
-    from populations</h3>
+<section data-transition="slide-in">
+  <h3>Human judgment is not very good at selecting 
+  representative samples from populations</h3>
   <div class="row">
     <div class="col-40">
-      <p>
+            <p class="sided" style="font-size: 0.6em; 
+  margin-top: 0;">
+    The day after the 1948 presidential election, 
+    the <span class="em">Chicago Tribune</span> ran the
+    headline “Dewey Defeats Truman”.
+    However, Harry S Truman defeated Thomas
+    E. Dewey to become the 33rd president of the 
+    United States. 
+  </p>
+      <!-- <p>
         <span class="u em">1948 US Presendential Elections</span> <br>
-
         A triumphant Harry S Truman holds the Chicago
         Tribune published with the incorrect headline
         “Dewey defeats Truman”
+      </p> -->
+      <p class="quoted fragment">
+        What problem could have occured?
       </p>
     </div>
     <div class="col-60">
@@ -132,12 +193,64 @@
     went to press before all the results had come in, and the headline was
     based partly on the results of a large telephone poll which showed Dewey
     sweeping Truman.
-    <br>
-    One reason the telephone poll may have yielded inaccurate results is that
-    people with telephones in 1948 were not representative of all American
-    voters. People with telephones tended to be wealthier and prefer Dewey
-    while people without phones tended to prefer Truman.
   </aside>
+</section>
+
+<section data-transition="slide-out">
+  <h3>The 1948 presidential election</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="framed border-danger" 
+        style="font-size: 0.6em; margin-top: 0;">
+        The newspaper went to press before all the results 
+        had come in, and the headline was
+        based partly on the results of a 
+        <span class="danger">large telephone 
+        poll</span> which showed Dewey
+        sweeping Truman.
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="framed border-success" 
+        style="font-size: 0.6em; margin-top: 0;">
+        But when the dust settled, Truman easily defeated
+        Dewey in the Electoral College, by a 
+        <span class="success">303 to 189</span>
+        margin. Truman also won by a 
+        <span class="success">50-45</span> percent 
+        popular vote.
+      </p>
+    </div>
+  </div>
+  <p style="margin-top: 0; font-size: 0.6em;">
+    <span class="u em">
+    What is the <span class="warning">sample</span> and what is the <span class="info">population</span>? </span><br>
+    <span class="fragment">
+      The sample is <span class="highlight-bckg-warning">all the people who participated in 
+      the telephone poll</span>. The population is 
+      <span class="highlight-bckg-info">all voting
+      Americans
+    </span>.
+    </span>
+  </p>
+  <p style="margin-top: 0; font-size: 0.6em;">
+    <span class="u em">
+    What did the pollsters want to infer about the population based on the sample?</span><br>
+    <span class="fragment">
+      To estimate the percentage of <span class="info">all</span> voting Americans who would vote for each candidate.
+    </span>
+  </p>
+  <p style="margin-top: 0; font-size: 0.6em;">
+    <span class="u em">
+    Why do you think the telephone poll yielded such inaccurate results?</span> <br>
+    <span class="fragment">
+      People with telephones in 1948 were <span class="warning">not
+      representative of all</span> American voters. <br>
+      People with telephones tended to be wealthier
+      and prefer Dewey
+      while people without phones tended to prefer Truman.
+    </span>
+  </p>
 </section>
 
 <section>
@@ -150,13 +263,13 @@
     some relevant way. If sampling bias exists, then we cannot trust
     generalizations from the sample to the population.
   </p>
-  <p>
+  <p class="framed border-light">
     To avoid sampling bias, we try to obtain a sample that is 
     <span class="info">representative</span> of the population. 
     A representative sample resembles the population, only in smaller 
     numbers. 
     The more representative a sample is, the more valuable the sample 
-    is for making inferences about the population.
+    is for <span class="info">making inferences about the population</span>.
   </p>
 </section>
 
@@ -165,18 +278,27 @@
   <p>
     Since a representative sample is essential for drawing valid inference
     to the population, you are probably wondering how to select such a sample!
-    The key is <span class="random">random sampling</span>.
+    The key is <span class="info">random sampling</span>.
   </p>
   <p class="quoted">
     A <span class="warning">simple random sample</span> gives every
-    observational unit in the population the <span class="u">same 
-    chance</span> of being selected. <br>
+    observational unit in the population the <span class="u info">same 
+    chance of being selected</span>. <br>
     Taking a simple random sample avoids sampling bias.
   </p>
-  <p>
-    Although the principle of simple random sampling is probably clear,
-    it is by no means simple to implement.
-  </p>
+  <div class="row fragment" style="margin-top: 1em;">
+    <div class="col-20">
+     <i class= "fa fa-exclamation-triangle fa-3x danger"></i>
+    </div>
+    <div class="col-80">
+      <p>
+        Although the principle of simple random 
+        sampling is probably clear,
+        it is <span class="danger">by no means simple to implement</span>.
+      </p>
+    </div>
+  </div>  
+  
 </section>
 
 <section>
@@ -196,25 +318,52 @@
   </p>
 </section>
 
+<section id="samplingframe" data-transition="slide-in">
+  <h3>Sampling frame</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-100">
+      <div class="placeholder"></div>
+    </div>
+  </div>
+</section>
+
+<section id="samplingframe" data-transition="slide-out">
+  <h3>Sampling frame</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-100">
+      <img src="assets/img/lec/sampling-words-samples.svg"
+      class="unbordered flat">
+    </div>
+  </div>
+</section>
+
 <section>
-  <h3>Three caveats about random sampling</h3>
-  <p>One still gets the occasional "unlucky" sample whose results
-  are not close to the population even with large sample sizes.
+  <h3>Three important points about random sampling</h3>
+  <p class="sided" style="font-size: 0.65em;">
+    One still gets the <span class="warning">occasional "unlucky" sample</span>
+    whose results are not close to the population 
+    even with large sample sizes.
   </p>
-  <p>
-    The sample size means little if the sampling method is not random.
+  <p class="sided fragment" style="font-size: 0.65em;">
+    The <span class="warning">sample size means little if the sampling method
+    is not random</span>. <br>
+
     In 1936, the <span class="em">Literary Digest</span> magazine had 
     a huge sample of 2.4 million people, yet their predictions for the
     Presidential election did not come close to the truth about the 
     population.
   </p>
-  <p>
-    Although the role of sample size is crucial in assessing how close the
-    sample results will be to the population results, the size of the population
-    does not affect this. As long as the population is large relative
-    to the sample size (at least 10 times as large), the precision
-    of a sample statistic depends on the sample size but not on the 
-    population size.
+  <p class="sided fragment" style="font-size: 0.65em;">
+    Although the role of sample size is crucial 
+    in assessing how close the
+    sample results will be to the population results,
+    the size of the population
+    does not affect this. As long as the population 
+    is large relative
+    to the sample size (at least 10 times as large),
+    <span class="warning">the precision
+    of a sample statistic depends on the sample size
+    but not on the population size</span>.
   </p>
 </section>
 
@@ -270,45 +419,108 @@
 <section>
   <h3>Realities of random sampling</h3>
   <p>
-    While a random sample is ideal, often it may not be achievable. A list of the entire population may not exist, it may be impossible to contact some members of the population, or it may be too expensive or time consuming to do so. Often we must make do with whatever sample is convenient. The study can still be worth doing, but we have to be very careful when drawing inferences to the population and should at least try to avoid obvious sampling bias as much as possible.
+    <span class="warning">While a random sample is ideal, often it may not be achievable</span>:
+    <br>
+    <span style="margin-left: 0.9em;">
+      - a list of the entire population may not exist
+    </span>
+    <br>
+    <span style="margin-left: 0.9em;">
+      - it may be impossible to contact some members of the population
+    </span>
+    <br>
+    <span style="margin-left: 0.9em;">
+      - or it may be too expensive or time consuming to do so
+    </span>
+    </p>
+    <p>
+    Often we must <span class="u">make do with whatever sample is convenient</span>. The study can still be worth doing, but <span class="info">we have to be very careful when drawing inferences to the population</span> and should at least try to avoid obvious sampling bias as much as possible.
   </p>
-  <p>
-    When it is dif cult to take a random sample from the population of interest, we may have to rede ne the population to which we 
-    <span class="warning">generalize</span>.
+  <p class="framed border-danger fragment">
+    When it is difficult to take a random sample from the population of interest, we may have to 
+    <span class="danger">redefine the population to which we 
+    generalize</span>.
   </p>
 </section>
 
-<section>
+<section data-transition="slide-in">
   <h3>Other sources of bias</h3>
-  <p>The way the question is asked</p>
-  <p>
-    The most important message is to always think critically about the way data are collec- ted and to recognize that not all methods of data collection lead to valid inferences. Recognizing sources of bias is often simply common sense, and you will instantly become a more statistically literate individual if, each time you are presented with a statistic, you just stop, inquire, and think about how the data were collected.
+  <p class="sided border-warning" style="margin-top: 0;">
+    <span class="warning">Bias</span> exists when the method of collecting data causes the sample data to inaccurately re ect the population.
+  </p> 
+  <div class="row fragment" style="margin-top: 0;">
+    <div class="col-10">
+     <i class= "fa fa-2x fa-exclamation-triangle warning"></i>
+    </div>
+    <div class="col-90">
+      <p style="margin-top: 0em; font-size: 0.6em">
+        Bias can occur when <span class="warning">people we have selected to be in our sample choose not to
+        participate</span>.<br>
+        If the people who choose to respond would answer differently than the people who choose not to respond, results will be biased.
+      </p>
+    </div>
+  </div> 
+  <div class="row fragment" style="margin-top: 0;">
+    <div class="col-10">
+     <i class= "fa fa-2x fa-exclamation-triangle warning"></i>
+    </div>
+    <div class="col-90">
+      <p style="margin-top: 0em; font-size: 0.6em">
+        The <span class="warning">way questions are worded</span> can also bias the results. 
+        <br>
+        <span class="muted">In 1941 Daniel Rugg asked people the same question in two different ways.</span>
+        <br>
+        <span class="fragment">
+        “<span class="em info">Do you think that the United States should allow public speeches against democracy?</span>“
+        => 21% said the speeches should be allowed.
+        </span>
+        <br>
+        <span class="fragment">
+        “<span class="em info">Do you think that the United States should forbid public speeches against democracy?</span>“
+        => 39% said the speeches should not be forbidden.
+        </span>
+        <br>
+        <span class="fragment">
+        => Merely changing the wording of the question nearly doubled the percentage of people in favor of allowing (not forbidding) public speeches against democracy.
+        </span>
+      </p>
+    </div>
+  </div>  
+</section>
+
+<section data-transition="slide-out">
+  <h3>Other sources of bias</h3>
+  <p class="sided border-warning">
+    <span class="warning">Bias</span> exists when the method of collecting data causes the sample data to inaccurately re ect the population.
+  </p> 
+  <p class="framed border-info">
+    The most important message is to <span class="info">always think critically about the way data are collected</span> and to recognize that not all methods of data collection lead to valid inferences. Recognizing sources of bias is often simply common sense.
   </p>
 </section>
 
 <section data-transition="slide-in fade-out">
-  <h3>UCLA salaries (2014)</h3>
-  <svg width="100%" viewBox="0 0 720 106" style="margin-top: 0;">
-    <use xlink:href="assets/img/lec/salaries-ucla2014-zoom.svg#axes_2"></use>
-  </svg>
-  <svg width="100%" viewBox="0 115 720 288" style="margin-top: 0;">
-    <use xlink:href="assets/img/lec/salaries-ucla2014-zoom.svg#axes_1"></use>
-  </svg>
-</section>
-
-<section data-transition="fade">
-  <h3>UCLA salaries (2014)</h3>
+  <h3>Studying a quantitative variable</h3>
+  <p>
+    UCLA salaries (full time employee, 2014) <br>Population data (n=32578)
+  </p>
   <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
     <use xlink:href="assets/img/lec/salaries-ucla2014-all.svg#axes_1"></use>
-    <use xlink:href="assets/img/lec/salaries-ucla2014-all.svg#axes_2"
-      class="fragment" data-fragment-index=1></use>
-    <use xlink:href="assets/img/lec/salaries-ucla2014-all.svg#axes_3"
-      class="fragment" data-fragment-index=2></use>
   </svg>
 </section>
 
 <section data-transition="slide-out">
-  <h3>UCLA salaries (2014)</h3>
+  <h3>Studying a quantitative variable</h3>
+  <p>
+    UCLA salaries (full time employee, 2014) <br>Population data (n=32578)
+  </p>
+  <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+    <use xlink:href="assets/img/lec/salaries-ucla2014-zoom.svg#axes_1"></use>
+    <use class="fragment" xlink:href="assets/img/lec/salaries-ucla2014-zoom.svg#axes_2"></use>
+  </svg>
+</section>
+
+<section>
+  <h3>UCLA salaries (2014) - sample</h3>
   <p class="sided" style="margin-top: 0;">
     We've seen that usually, we do not have the luxury of 
     getting access to the full true
@@ -479,10 +691,11 @@
   <div class="row" style="margin-top: 0;">
     <div class="col-40">
       <div class="placeholder"></div>
-      <p style="margin-top: 0; font-size: 0.5em;">
+      <p style="margin-top: -4%; font-size: 0.5em;">
         <span class="u em">Each bootstrap sample:</span> <br>
         n=100, drawing WITH replacement <br>
-        from original sample
+        from original sample <br>
+        Statistic calculated: mean ($\bar{x}$)
       </p>
     </div>
     <div class="col-60">
@@ -543,9 +756,9 @@
       </p>
       <p class="sided fragment" data-fragment-index=2>
         <span class="em u">95% CIs:</span><br>
-        [72 337, 100 055]
+        [69 280, 94 210]
       </p>
-      <p class="sided fragment border-warning" data-fragment-index=4>
+      <p class="sided fragment border-warning" data-fragment-index=5>
         <span class="em u">Inference:</span><br>
         UCLA mean salary > US mean salary
       </p>
@@ -558,13 +771,15 @@
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_3"
         class="fragment" data-fragment-index=2></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_4"
+        class="fragment" data-fragment-index=4></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_8"
         class="fragment" data-fragment-index=3></use>
       </svg>
     </div>
   </div>
 </section>
 
-<section data-transition="slide-in">
+<section>
   <h3>Theory: Standardized statistic</h3>
   <p style="margin-top: 0; font-size: 0.65em;" class="sided">
     In a similar way to the calculation of a $z$ statistic for a
@@ -577,20 +792,20 @@
   </p>
   <div class="row">
     <div class="col-60">
-      <p style="margin-top: 3em;" class="fragment" data-fragment-index=2>
-      $t=\frac{\textrm{sample mean-}\fragindex{2}{\fraglight{highlight-blue-gc}{\textrm{hypothesized population mean}}}}{\fragindex{4}{\fraglight{highlight-red-gc}{\sigma\textrm{ of
+      <p style="margin-top: 3em;" class="fragment" data-fragment-index=1>
+      $t=\frac{\textrm{sample mean-}\fragindex{1}{\fraglight{highlight-blue-gc}{\textrm{hypothesized population mean}}}}{\fragindex{3}{\fraglight{highlight-red-gc}{\sigma\textrm{ of
       sampling distribution of the mean}}}}$
-      <span class="fragment" data-fragment-index=3></span>
-      <span class="fragment" data-fragment-index=5</span>
+      <span class="fragment" data-fragment-index=2></span>
+      <span class="fragment" data-fragment-index=4</span>
       </p>
     </div>
     <div class="col-40">
-      <p style="margin-top: 0.3em; font-size: 0.65em;" class="fragment sided border-info" data-fragment-index=4>
+      <p style="margin-top: 0.3em; font-size: 0.65em;" class="fragment sided border-info" data-fragment-index=3>
         Hypothesized mean: <br>
         <span style="margin-left: 1.2em;">$\mu = \textrm{value to test}$</span>
       </p>
-      <p style="margin-top: 0.3em; font-size: 0.65em;" class="fragment sided border-danger" data-fragment-index=6>
-        SD of the sampling distribution of the mean (<span class="danger">Standard Error</span>)
+      <p style="margin-top: 0.3em; font-size: 0.65em;" class="fragment sided border-danger" data-fragment-index=5>
+        $\sigma$ of the sampling distribution of the mean (<span class="danger">Standard Error</span>)
         <br>
         <span style="margin-left: 1.2em;">$SE=\frac{\sigma}{\sqrt{n}}$</span>
       </p>
@@ -598,30 +813,40 @@
   </div>
 </section>
 
-<section data-transition="fade">
+<section>
   <h3>Theory: central limit theorem</h3>
-  <p class="sided">
+  <p class="sided" style="font-size: 0.65em; margin-top: 0;">
     <span class="u em info">Central limit theorem for sample means:</span><br>
     If the sample size $n$ is <span class="u">large</span>, the distribution 
     of sample means (=sampling distribution) from a population
     with mean $\mu$ and standard deviation $\sigma$ is approximately normally distributed
     with mean <span class="warning">$\mu$</span> and standard deviation <span class="warning">$\frac{\sigma}{\sqrt{n}}$</span> (=standard error of the sample means).
   </p>
-  <p style="font-size: 0.6em;" class="framed border-danger">
-    However in practice we don't usually know the standard deviation $\sigma$
-    for the population of interest, and we usually have only the information of a 
-    sample in the population. <br>
-    We can just substitute in $s$, the standard deviation of the sample, when estimating
-    the standard error of the sample means.
-    <span class="warning">$SE=\frac{s}{\sqrt{n}}$</span>
-  </p>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="40 0 390 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/central-limit-theorem-one-mean.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/central-limit-theorem-one-mean.svg#axes_2"
+        class="fragment" data-fragment-index=1></use>
+    </div>
+    <div class="col-50">
+      <p style="font-size: 0.6em;" class="framed border-danger fragment" data-fragment-index=2>
+      However in practice we don't usually know the standard deviation $\sigma$
+      for the population of interest, and we usually have only the information of a 
+      sample in the population. <br>
+      We can just substitute in <span class="warning">$s$</span>, the <span class="warning">standard deviation of the sample</span>, when estimating
+      the standard error of the sample means.
+      <span class="info">$SE=\frac{s}{\sqrt{n}}$</span>
+      </p> 
+    </div>
+  </div>
 </section>
 
 
-<section data-transition="fade">
+<section data-transition="slide-in">
   <h3>Theory: Standardized statistic (t)</h3>
   <p style="margin-top: 0; font-size: 0.65em;" class="sided">
-    When we use the SE based on $\frac{s}{\sqrt{n}} to standardize the sample mean,
+    When we use the $SE$ based on $\frac{s}{\sqrt{n}}$ to standardize the sample mean,
     the distribution is no longer the standard normal, but rather the 
     <span class="info">$t$-distribution</span>. The standardized statistic 
     is then commonly noted <span class="info">$t$</span>.
@@ -643,7 +868,7 @@
     </div>
     <div class="col-50">
       <img src="assets/img/lec/distribution-t-vs-z.svg" 
-        class="unbordered"
+        class="unbordered flat"
        width=100% style="margin-bottom: 0;">
     </div>
   </div>
@@ -652,10 +877,7 @@
 <section data-transition="slide-out">
   <h3>Theory: One-sample t-test</h3>
   <div class="row">
-    <div class="col-45">
-      <p>
-        $t$-statistic: <span class="warning">$t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}$</span>
-      </p>
+    <div class="col-50">
       <p class="sided" style="font-size: 0.6em;">
         <span class="u em muted">Salary data</span> <br>
         US average ($\mu_0$)<br>
@@ -663,37 +885,75 @@
         <br>
         UCLA sample ($n=100$): <br>
         <span style="margin-left: 0.8em;">
-         $\bar{x}=\$85294$ / $s=\$71940$</span>
+         $\bar{x}=\$80919$ / $s=\$63956$</span>
       </p>
-      <p style="margin-top: 1em;" class="fragment" data-fragment-index=1>
-        $t=\frac{85294-62931}{\frac{71940}{\sqrt{100}}}$
-      </p>
-      <p class="fragment" data-fragment-index=1>
-        $t=3.11$
-      </p>
-    </div>
-    <div class="col-55">
-      <svg width="100%" viewBox="0 0 432 288" class="fragment" data-fragment-index=2>
+      <svg width="100%" viewBox="0 0 432 288" class="fragment" data-fragment-index=3>
         <use xlink:href="assets/img/lec/salaries-ucla2014-ttest.svg#axes_1"></use>
       </svg>
     </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" data-fragment-index=2>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-ttest-hypothesized-dist.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1
+        xlink:href="assets/img/lec/salaries-ucla2014-ttest-hypothesized-dist.svg#axes_2"></use>
+      </svg>
+      <p class="fragment" data-fragment-index=1>
+        $t$-statistic: <span class="warning">$t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}$</span>
+      </p>
+      <p style="margin-top: 1em;" class="fragment" data-fragment-index=2>
+        $t=\frac{80919-62931}{\frac{63956}{\sqrt{100}}}$
+      </p>
+      <p class="fragment" data-fragment-index=2>
+        $t=2.81$
+      </p>
+    </div>
   </div>
+</section>
+
+<section>
+  <h3>Theory: 95% confidence intervals</h3>
+  <p>
+    Beacause the theoretical sampling distribution of the
+    mean follow a $t\textrm{-distribution}$ that behaves more or
+    less like a normal distribution, we expect 
+    <span class="info">$95\%$
+    of the sample means to lie 
+    within $2$ standard errors on each side of the 
+    true mean</span> (more correct number 
+    <span class="info">$1.96$</span>).
+  </p>
+  <div class="row">
+    <div class="col-40">
+      <p style="font-size: 0.65em;">
+      The theoretical $95\%$ confidence intervals
+      of the population mean can then be approximated using the sample mean ($\bar{x}$) and the lower and upper limits below: <br>
+      - lower limit: <span class="warning">$\bar{x}-1.96\times SE$</span>
+      <br>
+      - upper limit: <span class="warning">$\bar{x}+1.96\times SE$</span>
+      </p>
+    </div>
+    <div class="col-60">
+      <img src="assets/img/lec/central-limit-theorem-one-mean-ci95.svg"
+      class="unbordered flat" width=100%>
+    </div>
+  </div>  
 </section>
 
 
 <section>
   <h3>Theory vs resampling</h3>
   <div class="row" style="margin-top: -2%">
-    <div class="col-75">
+    <div class="col-80">
       <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/salaries-ucla2014-true-sampling-distribution.svg#axes_1"></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-true-sampling-distribution.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-true-sampling-distribution.svg#axes_3"></use>
       </svg>
     </div>
   </div>
   <div class="row">
     <div class="col-60">
-      <p style="font-size: 0.55em;" class="sided border-warning">
+      <p style="font-size: 0.55em;" class="sided border-warning fragment" data-fragment-index=0>
         <span class="em u warning">Validity condition for a one-sample $t$-test</span>
         The quantitative variable should have a symmetric distribution, or should have
         at least 20 observations and the sample ditribution should not be strongly 
@@ -702,22 +962,37 @@
       </p>
     </div>
     <div class="col-40">
-      <svg width="100%" viewBox="30 0 390 278" style="margin-top: 2%;">
+      <svg width="100%" viewBox="30 0 390 283" style="margin-top: 2%;" class="fragment"
+        data-fragment-index=0>
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_1"></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_2"></use>
-        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_3"
-        class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_3"></use>
         <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_4"></use>
-        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_5"
-        class="fragment" data-fragment-index=2></use>
-        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_6"
-        class="fragment" data-fragment-index=3></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_6"></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-ttest.svg#axes_8"></use>
       </svg>
     </div>
   </div>
 </section>
 
-<section>
+<section data-transition="slide-in">
+  <h3>What about the median?</h3>
+  <p class="fragment sided border-danger">
+    The median is a procedure, and cannot be described 
+    with an equation.
+    <br>
+    <span class="danger">WE CANNOT STUDY THE MEDIAN USING A THEORETICAL APPROACH</span>
+  </p>
+  <p class="fragment sided border-warning">
+    We can easily calculate the median of all
+    of our bootstrap samples.
+    <br>
+    <span class="warning">A RESAMPLING APPROACH CAN BE USED TO STUDY THE MEDIAN!</span>
+  </p>
+</section>
+
+<section data-transition="fade">
   <h3>What about the median?</h3>
     <div class="row" style="margin-top: -2%;">
     <div class="col-40">
@@ -764,6 +1039,89 @@
           <span class="danger"><span class="em">(1-alpha)</span></span>
           (higher ci limit)</li>
       </ol>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade" id="bootstrap2">
+  <h3>What about the median?</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-40">
+      <div class="placeholder"></div>
+      <p style="margin-top: 0; font-size: 0.5em;">
+        <span class="u em">Each bootstrap sample:</span> <br>
+        n=100, drawing WITH replacement <br>
+        from original sample <br>
+        Statistic calculated: median ($m$)
+      </p>
+    </div>
+    <div class="col-60">
+      <div class="row" style="margin-top: 0;">
+        <div class="col-5">
+          <p></p>
+        </div>
+        <div class="col-30">
+          <p style="margin-top: 0; font-size: 0.5em;">
+            Sample <br> UCLA Salaries <br> (n=100)
+          </p>
+        </div>
+        <div class="col-30">
+          <p style="font-size: 0.5em; margin-top: 0;">
+            <span class="danger">$1$ selection</span><br>
+            <span class="muted">$2$ selections</span><br>
+            <span class="warning">$\geq3$ selections</span>
+          </p>
+        </div> 
+        <div class="col-7">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 10 30" width=100%>
+            <circle cx="5" cy="5" r="4" style="fill:#d9534f"/>
+            <circle cx="5" cy="15" r="4" style="fill:#636c72"/>
+            <circle cx="5" cy="25" r="4" style="fill:#f0ad4e"/>
+          </svg>
+        </div>  
+      </div>
+      <svg width="100%" viewBox="20 70 412 220" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/salaries-ucla2014-bootstrap-steps-median.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-bootstrap-steps-median.svg#axes_2"
+        class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-bootstrap-steps-median.svg#axes_3"
+        class="fragment" data-fragment-index=2></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>What about the median?</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-40">
+      <p style="font-size: 0.6em;">
+        <span class="u em">Bootstrap distribution:</span><br>
+         10000 bootstrap $m$
+      </p>
+      <p class="sided fragment" data-fragment-index=2>
+        <span class="em u">95% CIs:</span><br>
+        [52 654, 67 276]
+      </p>
+      <p class="sided fragment border-warning" data-fragment-index=5>
+        <span class="em u">Inference:</span><br>
+        UCLA median salary > US median salary
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 -25 432 313" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-median.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-median.svg#axes_2"
+        class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-median.svg#axes_3"
+        class="fragment" data-fragment-index=2></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-median.svg#axes_4"
+        class="fragment" data-fragment-index=4></use>
+        <use xlink:href="assets/img/lec/salaries-ucla2014-resampling-median.svg#axes_5"
+        class="fragment" data-fragment-index=3></use>
+      </svg>
     </div>
   </div>
 </section>
@@ -819,7 +1177,9 @@
   </div>
 </section>
 
-
+<section>
+  
+</section>
 
 
 
@@ -886,6 +1246,7 @@
     <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
     <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
     <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
     <script src="assets/d3-anim/js-graphs/sample_table.js"></script>
     <script src="assets/d3-anim/js-graphs/bootstrap.js"></script>
     

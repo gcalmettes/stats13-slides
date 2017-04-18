@@ -285,6 +285,28 @@ body section .bg-success {
   color: #3c763d;
 }
 
+body section .highlight-bckg-info {
+  background-color: #5bc0de;
+  color: black;
+}
+body section .highlight-bckg-warning {
+  background-color: #f0ad4e;
+  color: black;
+}
+body section .highlight-bckg-muted {
+  background-color: #636c72;
+  color: black;
+}
+body section .highlight-bckg-danger {
+  background-color: #d9534f;
+  color: black;
+}
+body section .highlight-bckg-success {
+  background-color: #5cb85c;
+  color: black;
+}
+
+
 section .framed {
   border: 3px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
@@ -383,6 +405,15 @@ th {
   border-left: solid 1px #d2d2d2;
 }
 
+.table-leftalign td {
+  font-size: 0.6em !important;
+  text-align: left !important;
+}
+.table-leftalign th {
+  font-size: 0.6em !important;
+  text-align: left !important;
+}
+
 .no-top td,
 .no-top th {
   border-top:0 none !important;
@@ -441,7 +472,9 @@ th {
 .col-70 { width: 70%; }
 .col-75 { width: 75%; }
 .col-80 { width: 80%; }
+.col-85 { width: 85%; }
 .col-90 { width: 90%; }
+.col-95 { width: 95%; }
 .col-100 { width: 100%; }
 
 .push-5 { left: 5% !important; }
