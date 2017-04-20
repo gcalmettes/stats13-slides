@@ -41,7 +41,8 @@
     <h1 style="color: #FFFFFF">Lecture 6</h1>
   </div>
     <h3 style="color: #FFFFFF; text-align: center;">
-      Comparing two proportions
+      Comparing two proportions <br>
+      and being cautious
     </h3>
     <div class="col-90">
       <p class="smaller push-right">Guillaume Calmettes</p>
@@ -84,10 +85,594 @@
   </aside>
 </section>
 
+<section>
+  <h3>Plan</h3>
+  <p>Comparing 2 proportions (Nurse Gilbert)</p>
+  <p>But can we really conclude from those data? Could the results
+  be explained by other factors? [confounding variable, ex: night shifts, etc ...]</p>
+  <p>In the case of Gilbert, it's </p>
+  <p>Confounding variables (Home court disadvantage?)</p>
+  <p>Association is not causation!</p>
+  <p>So data are one thing, but the way you interpret them is what really matters. 
+  Stats will give you a way to analyze data, to give you a probability of the result
+  being due to chance alone, but it does not take in account all the others factors involved
+  (is sample correctly collected? are there confounding variables that could also explain
+  result?). So in the end, data are not everything. Remember the first day in class I said 
+  "help to make decision with data", the data results does not make decision, stats is all 
+  about how you interpret the results to make decision with it (considering everything
+  that is involved)</p>
+</section>
+
+<section>
+  <h3>Statistics in the Courtroom: United States v. Kristen Gilbert</h3>
+  
+</section>
+
+<section>
+  <h3>Deaths on the medical ward</h3>
+  <p style="margin-top: 0;">
+    The graph shows data from the VA hospital where Kristen Gilbert worked. Each set of three bars shows one year’s worth of data, starting in 1988, and running through 1997.
+  </p>
+  <div class="row">
+    <div class="col-84">
+      <svg width="100%" viewBox="0 0 540 288" style="margin-top: 0;">
+        <use class="fragment" xlink:href="assets/img/lec/gilbert-case-shifts-pattern.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/gilbert-case-shifts-pattern.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-16">
+      <p class="fragment" style="font-size: 0.5em;">
+        <span class="u em">Gilbert's shifts</span><br>
+        <span>1990: <br>
+          <span style="margin-left: 0.8em">Night</span>
+        </span><br>
+        <span>1991-1996: <br>
+          <span style="margin-left: 0.8em">Evening</span>
+        </span>
+      </p>
+    </div>
+  </div>
+  <aside class="notes">
+    For the first two years, ’88 and ’89, the bars are short, showing roughly ten deaths per year on each shift. 
+    Then there is a dramatic increase. <br>
+    For the years 1990 through 1995, there is one shift in each set of three with 25 to 35 deaths per year. <br>
+    Then for the last two years, the bars are all short again, a bit under ten deaths per year on each shift
+  </aside>
+</section>
+
+<section>
+  <h3>Data at the Gilbert's trial</h3>
+  <p style="margin-top: 0;">
+    Part of the evidence presented against Gilbert at her 
+    murder trial was a statistical analysis of the 
+    <span class="success">8-shift records for the eighteen months leading up to the end of February, 1996</span>.
+    <span style="font-size: 0.8em;">(That February was the month when Gilbert’s coworkers met with their supervisor to express their concerns; shortly after that, Gilbert took a medical leave.)</span>
+  </p>
+  <p class="sided">
+    With 547 days during the period in question, and three shifts per day, there were <span class="warning">1641 shifts</span> in all. 
+    Out of these 1641 shifts, there were 74 for which there was at least one death.
+  </p>
+  <p class="sided border-warning" style="margin-top: 0;">
+    <span class="u em">What are the observational units?</span>
+    <br>
+    <span class="fragment">The 1641 8h-shifts (one 8h-shift is one observational unit)</span>
+  </p>
+  <p class="sided border-info">
+    <span class="u em">What are the variables? What type are they?</span>
+    <br>
+    <span class="fragment">Response variable: was there at least one death during the shift?</span><br>
+    <span class="fragment">Explanatory variable: was Gilbert working or not during the shift?
+  </p>
+</section>
+
+<section>
+  <h3>Explanatory & Response variables</h3>
+  <p class="quoted">
+    A
+    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> response variable</span> is the variable <span class="warning">about which questions are asked</span>, it measures the outcome of the study.</p>
+  <p class="quoted">
+    An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">explanatory variable</span> is any factor that can <span class="info">influence, explain or predict</span> the response variable.</p>
+  <p class="quoted">
+    The response variable is usually called <span class="warning">dependent</span>, while the explanatory variable is sometimes called <span class="info">independent</span>.
+  </p>
+</section>
+
+<section>
+  <h3>Two-way tables</h3>
+  <!-- <p>
+    To investigate a possible relationship between two categorical variables we use a two-way table. In a two-way table, we add a second dimension to a frequency table to account for the second categorical variable. 
+  </p> -->
+  <p class="quoted">
+    A two-way table is used to <span class="warning">show the
+    relationship between two categorical variables</span>. 
+    The categories for one variable are listed down the side
+    (rows) and the categories for the second variable are listed
+    across the top (columns). Each cell of the table contains the
+    count of the number of data cases that are 
+    in both the row and column categories.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p>
+        <span class="u em">Note:</span> It is often helpful to also include the totals (both for rows and columns) in the margins of a two-way table. <br>
+        <span class="info fragment" data-fragment-index=2>Response variable</span> <br>
+        <span class="danger fragment" data-fragment-index=3>Explanatory variable</span>
+      </p>
+    </div>
+    <div class="col-50">
+      <table class="fragment" data-fragment-index=1>
+        <tbody>
+          <tr>
+            <td class=" fragment highlight-bckg-blue" 
+            data-fragment-index=2 rowspan=2 style="border-right: solid 1px;">Death <br>on shift?</td>
+            <td class=" fragment highlight-bckg-red" 
+            data-fragment-index=3 colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Gilbert present?</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td class=" fragment highlight-bckg-red" 
+            data-fragment-index=3>Yes</td>
+           <td class=" fragment highlight-bckg-red" 
+            data-fragment-index=3 style="border-right: solid 1px;">No</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td class="fragment highlight-bckg-blue" 
+           data-fragment-index=2 style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none;">40</td>
+           <td style="border-right: solid 1px; border-bottom: none;">34</td>
+           <td style="border-bottom: none;"">74</td>
+         </tr>
+         <tr>
+           <td class="fragment highlight-bckg-blue" 
+           data-fragment-index=2 style="border-right: solid 1px;">No</td>
+           <td>217</td>
+           <td style="border-right: solid 1px;">1350</td>
+           <td>1567</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>257</td>
+           <td style="border-right: solid 1px;">1384</td>
+           <td>1641</td>
+         </tr>
+       </tbody>
+      </table> 
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Deaths pattern during the 8h-shifts</h3>
+  <div class="row">
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;">Death <br>on shift?</td>
+            <td colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Gilbert present?</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td>Yes</td>
+           <td style="border-right: solid 1px;">No</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none;">40</td>
+           <td style="border-right: solid 1px; border-bottom: none;">34</td>
+           <td style="border-bottom: none;"">74</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">No</td>
+           <td>217</td>
+           <td style="border-right: solid 1px;">1350</td>
+           <td>1567</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>257</td>
+           <td style="border-right: solid 1px;">1384</td>
+           <td>1641</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 360 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+
+<section data-transition="slide-in">
+  <h3>Normalizing the data</h3>
+  <p class="sided">
+    To take account the sample sizes into your data, it is much 
+    more useful to look at the <span class="warning">conditional
+    proportions</span> of your response variable, where we compute the proportion 
+    of "positive" response separately <span class="warning">within each explanatory variable group</span>.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="u em" style="text-align: center;">
+        Raw data
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="u em fragment" data-fragment-index=1 style="text-align: center;">
+        Conditional proportions
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;">Death <br>on shift?</td>
+            <td colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Gilbert present?</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td>Yes</td>
+           <td style="border-right: solid 1px;">No</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none;">40</td>
+           <td style="border-right: solid 1px; border-bottom: none;">34</td>
+           <td style="border-bottom: none;"">74</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">No</td>
+           <td>217</td>
+           <td style="border-right: solid 1px;">1350</td>
+           <td>1567</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>257</td>
+           <td style="border-right: solid 1px;">1384</td>
+           <td>1641</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-50">
+      <table class="fragment" data-fragment-index=1>
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;">Death <br>on shift?</td>
+            <td colspan=2 style="border-bottom: none;">
+              Gilbert present?</td>
+          </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Yes</td>
+           <td>No</td>
+         </tr>
+         <tr>
+           <td style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none; border-right: solid 1px;">0.156</td>
+           <td style="border-bottom: none;">0.025</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">No</td>
+           <td style="border-right: solid 1px;">0.844</td>
+           <td>0.975</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td style="border-right: solid 1px;">1</td>
+           <td>1</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Normalizing the data</h3>
+  <div class="row" style="margin-top: -1%;">
+    <div class="col-50">
+      <p class="u em" style="text-align: center; margin-top: 0;">
+        Raw data
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="u em" style="text-align: center; margin-top:0;">
+        Conditional proportions
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-100">
+      <svg width="95%" viewBox="0 0 720 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="sided fragment" style="margin-top: -1%;">
+    The goal of our study is to see whether we can find an association between the presence of Gilbert
+    during a shift and the proportion of shifts for which at least a death occured. <br>
+    => how do the two conditional proportions compare?
+  </p>
+</section>
+
+<section>
+  <h3>Comparing 2 proportions</h3>
+  <div class="row">
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;">Death <br>on shift?</td>
+            <td colspan=2 style="border-bottom: none;">
+              Gilbert present?</td>
+          </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Yes</td>
+           <td>No</td>
+         </tr>
+         <tr>
+           <td style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none; border-right: solid 1px;">0.156</td>
+           <td style="border-bottom: none;">0.025</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">No</td>
+           <td style="border-right: solid 1px;">0.844</td>
+           <td>0.975</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td style="border-right: solid 1px;">1</td>
+           <td>1</td>
+         </tr>
+        </tbody>
+      </table>
+      <p class="fragment">
+        Arithmetic <span class="warning">difference</span> in the conditional proportions of shifts with deaths: <br>
+        $d=\overset{\hat{}}{p}_{\textrm{present}}-\overset{\hat{}}{p}_{\textrm{absent}}$<br><br>
+        <span class="fragment">
+        $d=0.156-0.025=0.131$
+        </span>
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="u em" style="text-align: center;">
+        Conditional proportions
+      </p>
+      <svg width="100%" viewBox="360 0 360 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Calculating the relative risk</h3>
+  <p class="quoted">
+    The relative risk is the <span class="warning">ratio of
+    two conditional proportions</span>. It indicates 
+    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;">how many times
+    greater the risk of an outcome is</span> for one group compared
+    to another.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;">Death <br>on shift?</td>
+            <td colspan=2 style="border-bottom: none;">
+              Gilbert present?</td>
+          </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Yes</td>
+           <td>No</td>
+         </tr>
+         <tr>
+           <td style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none; border-right: solid 1px;">0.156</td>
+           <td style="border-bottom: none;">0.025</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">No</td>
+           <td style="border-right: solid 1px;">0.844</td>
+           <td>0.975</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td style="border-right: solid 1px;">1</td>
+           <td>1</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-50">
+      <p>
+        <span class="u em">Relative risk:</span>
+      </p>
+      <div  class="fragment">
+      $RR=\frac{\overset{\hat{}}{p}_{\textrm{present}}}{\overset{\hat{}}{p}_{\textrm{absent}}}\fragment{1}{=\frac{0.156}{0.025}=6.24}$ <span class="fragment"></span>
+      </div>
+    </div>
+  </div>
+  <p class="sided border-danger fragment">
+    <span class="u em">What does it mean?</span><br>
+    <span class="fragment">It is 6.24 times more likely to observe at least one death
+    during a shift for which Gilbert is present</span>
+  </p>
+</section>
+
+<section>
+  <h3>Comparing the conditional proportions</h3>
+  <p class="framed border-warning" style="margin-top: 0;">
+    This difference of 13.1% between the conditional proportions
+    (or similarly, the relative risk of 6.24), appears quite 
+    substancial.
+  </p>
+  <p class="sided border-danger">
+  We are interested in investigating whether the presence of
+  Gilbert during a shift is associated with a higher proportion
+  of death occurence. <br>
+  <span class="fragment" data-fragment-index=2>
+    <span class="danger u em">Alternative hypothesis:</span>
+    A death is more likely to occur in a shift for which Gilbert 
+    is present
+    (<span class="danger">$d>0$</span> or <span class="danger">$RR>1$</span>).
+  </span>
+  </p>
+  <p class="sided border-info">
+    <span class="em u">What is the <span class="info">null hypothesis</span> in this investigation?</span><br>
+    <span class="fragment" data-fragment-index=1>
+    A death is as likely to occur in a shift for which Gilbert 
+    is present or not (<span class="info">$d=0$</span> or 
+    <span class="info">$RR=1$</span>).<br>
+    The observed difference in relative proportion of death occurence (or the high RR) could be explained by chance alone.
+    </span>
+  </p>
+</section>
+
+<section>
+  <h3>Resampling p-value</h3>
+  <div class="row">
+    <div class="col-55">
+      <p style="margin-top: 0; font-size: 0.55em;">
+        1- Collect your sample and calculate your statistic
+        of interest (ex: <span class="warning">$\overset{\hat{}}{p}=\frac{17}{24}=0.708$</span>)
+      </p>
+      <p class="fragment" data-fragment-index=1 style="margin-top: 0; font-size: 0.55em;">
+        2- State your null and alternative hypothesis <br>
+        (ex: <span class="warning">H$_0$ $\pi=0.5$</span> / <span class="warning">H$_a$ $\pi>0.5$</span>)
+      </p>
+      <p class="fragment" data-fragment-index=2 style="margin-top: 0; font-size: 0.55em;">
+        3- Simulate your null hypothesis distribution. 
+        (it should be <span class="warning">centered at the stated H$_0$ parameter of interest</span>)
+      </p>
+      <p class="fragment" data-fragment-index=3 style="margin-top: 0; font-size: 0.55em;">
+        4- Calculate the proportion of samples that resulted in cases at least as extreme
+        as your initial observed statistic. This is your p-value. <br>
+        (ex: <span class="warning">$\textrm{p-value}=\frac{289}{10000}=0.029$</span>)
+      </p>
+      <p class="fragment" data-fragment-index=4 style="margin-top: 0; font-size: 0.55em;">
+        5- Conclude about whether your have evidence <span class="warning">in favor</span>
+        or <span class="warning">against</span> the null hypothesis.
+      </p>
+    </div>
+    <div class="col-45">
+      <svg width="100%" viewBox="34 0 375 285" style="margin-top: 0;">
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/simulation-graph-two-tails.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/simulation-graph-two-tails.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+</section>
 
 
 <section>
+  <h3>Resampling confidence intervals</h3>
+</section>
+
+<section>
+  <h3>Theory p value (only difference not RR)</h3>
+  <p>
+  Null hypothesis distribution of the difference in proportions
+  </p>
+  $z=\frac{\textrm{observed statistic}-\textrm{hypothesized value}}{\textrm{standard error of statistic}}$
+  $z=\frac{(\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2)-0}{\sqrt{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})(\frac{1}{n_1}+\frac{1}{n_2})}}
+  =\frac{\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2}{\sqrt{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})(\frac{1}{n_1}+\frac{1}{n_2})}}$
+  <p>
+    where $\overset{\hat{}}{p}$ is the overall proportion of successes for the two groups combined (total number of successes divided by the total sample size)
+  </p>
+</section>
+
+<section>
+  <h3>Theory confidence intervals</h3>
+  <p>
+  2 margins of errors (1.96 is a bit more accurate) on each sides for 95% confidence intervals
+  </p>
+  <p>
+    Note that the SE denotes the standard error of the statistic (the estimated standard deviation of the sampling distribution of the statistic). This is slightly different than the denominator of the standardized $z$-statistic because we are estimating the size of the difference between the population proportions under the assumption that there is a difference (rather than pooling them together as we did when we assumed the null hypothesis to be true). Thus, when finding a confidence interval for a difference in population proportions:
+  </p>
   
+  $SE=\sqrt{(\frac{\overset{\hat{}}{p}_1(1-\overset{\hat{}}{p}_1)}{n_1}+\frac{\overset{\hat{}}{p}_2(1-\overset{\hat{}}{p}_2)}{n_2})}$
+</section>
+
+<section>
+  <h3>Deaths pattern during the 8h-shifts</h3>
+  <div class="row">
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;">Death <br>on shift?</td>
+            <td colspan=2 style="border-bottom: none;">
+              Gilbert present?</td>
+          </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Yes</td>
+           <td>No</td>
+         </tr>
+         <tr>
+           <td style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none; border-right: solid 1px;">0.156</td>
+           <td style="border-bottom: none;">0.025</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">No</td>
+           <td style="border-right: solid 1px;">0.844</td>
+           <td>0.975</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td style="border-right: solid 1px;">1</td>
+           <td>1</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="360 0 360 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Deaths on Gilbert's shifts</h3>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <h3>Difference in proportion</h3>
+  we consider the distribution of the difference in proportions between samples taken from two distinct groups. The parameter of interest is p1 − p2, where p1 and p2 represent the proportions in each of the two groups. Note that we are not deal- ing with two different proportions computed for the same group, such as the differ- ence in proportion of voters who choose Candidate A compared to those who choose Candidate B. Even if the data all come from a single sample, we need to identify two groups within the sample and compare the proportions between those two groups.
 </section>
 
 
