@@ -34,6 +34,223 @@
 
 <div class="slides">
 
+<section>
+  <h3>Midterm</h3>
+  <p style="margin-top: 0">Date: May 4 (Thursday)</p>
+  <p style="margin-top: 0">
+    No programming, only conceptual questions.
+  </p>
+  <p class="quoted" style="font-size: 0.65em; margin-top: 0">You give 18 students a multiple-choice question with 4 answers (only one answer is correct).
+  <br>
+  12 out of your 18 students got the answer right.
+  </p>
+  <p style="font-size: 0.6em; margin-top: 0">
+    1- What is your observational unit? What is your variable? <br>
+    2- You want to know if the students actually studied for this one-question exam, and you decide to do 
+    a simulation of what would have been the results if the students were only relying on chance to 
+    answer the question. What is your null hypothesis?<br>
+    3- You simulate 10000 times a series of 18 coin flips. You obtain a histogram. Where is it centered? <br>
+    4- You want to calculate a p-value. What do you need to do?<br>
+    5- You want to calculate a 2-tailed p-value. What are the 2 boundaries considered as "extreme"?
+  </p>
+</section>
+
+<section>
+  <h3>Even scientists don't understand stats</h3>
+  <!-- <video data-autoplay controls src="pvalue-vid-files/all.mp4"></video> -->
+  <video controls src="pvalue-vid-files/all.mp4"></video>
+</section>
+
+<section>
+  <h3>The goal of statistics</h3>
+  <div class="row">
+    <div class="col-80">
+      <img src="assets/img/lec/distribution-sample-inference.svg"
+      class="unbordered flat" width="100%">
+    </div>
+  </div>
+      <p class="sided border-warning">
+        Usually, we do not have the luxury of 
+        getting access to the full
+        population of what we want to study. <br>
+        We have to rely on a sample (from this 
+        population) to make inferences
+        about the characteristics of the full population.
+      </p>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Null Hypothesis Significance Testing</h3>
+  <p class="quoted" style="margin-top: -2%;">
+    Could my observed statistic 
+    ($\overset{\hat{}}{p}$, $\bar{x}$) be coming from a 
+    population centered at a certain value of parameter ($\pi$, $\mu$)?
+  </p>
+  <p class="sided border-warning" style="margin-top: 0;">
+    What would the distribution of samples statistics ($\overset{\hat{}}{p}$, $\bar{x}$) coming from this hypothesized population look like? What is the probability
+    of my observed statistic happening in this distribution ?
+  </p>
+  <div class="row">
+    <div class="col-40">
+      <p class="framed border-info" style="margin-top: 0;">
+        <span class="info">Resampling:</span><br>
+        Let's simulate it and see (no assumption) 
+      </p>
+    </div>
+    <div class="col-60">
+      <p class="framed border-danger" style="margin-top: 0;">
+        <span class="danger">Theory:</span> <br>
+        - For a proportion, it's a normal distribution centered at 
+        $\pi$, and with a standard deviation of $\sqrt{\frac{\pi(1-\pi)}{n}}$ <br>
+
+        - For a mean, it's a $t$-distribution centered at 
+        $\mu$, and with a standard deviation of $\frac{\sigma}{\sqrt{n}}$ (but use $\frac{s}{\sqrt{n}}$ instead). 
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Null Hypothesis Significance Testing</h3>
+  <div class="row">
+    <div class="col-85">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_2"
+          class="fragment current-visible" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_7"
+          class="fragment current-visible" data-fragment-index=2></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-15">
+    <p>
+      <span class="info fragment current-visible" data-fragment-index=1>Resampling</span><br>
+      <span class="danger fragment" data-fragment-index=2>Theory</span>
+    </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Confidence intervals</h3>
+  <p class="quoted" style="margin-top: -2%;;">
+    What would be a range of statistics values ($\overset{\hat{}}{p}$, $\bar{x}$) I am confident will contain the true value parameter ($\pi$, $\mu$) for the population my sample is coming from?
+  </p>
+  <p class="sided border-warning" style="margin-top: 0;">
+    What would be a possible range of statistics  ($\overset{\hat{}}{p}$, $\bar{x}$) I would 
+    obtain if I had access to other samples from this same distribution? <br>
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="framed border-info" style="margin-top: 0;">
+        <span class="info">Resampling:</span><br>
+        Let's use our data and draw lots of Bootstrap samples. 
+        We will keep the center $95\%$ values as the range of values we are confident is containing the true value
+        of the parameter of the population our sample is coming from.
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="framed border-danger" style="margin-top: 0;">
+        <span class="danger">Theory:</span> <br>
+        We will consider a range of values centered at our
+        observed statistic and of width $\pm2SE$ on each 
+        side. <br>
+        $SE=\sqrt{\frac{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})}{n}}$ for a sample proportion <br>
+        $SE=\frac{s}{\sqrt{n}}$ for a sample mean
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Confidence intervals</h3>
+  <div class="row">
+    <div class="col-85">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_5"
+          class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_6"
+          class="fragment" data-fragment-index=2></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_8"
+          class="fragment" data-fragment-index=3></use>
+      </svg>
+    </div>
+    <div class="col-15">
+      <p>
+      <span class="warning fragment" data-fragment-index=1>Resampling</span><br>
+      <span class="danger fragment" data-fragment-index=3>Theory</span>
+    </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in">
+  <h3>NHST vs Confidence intervals</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="info" style="text-align: center; margin-top: 0;">
+        Null Hypothesis testing
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="warning" style="text-align: center; margin-top: 0;">
+        Confidence intervals (95%)
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <p class="quoted bg-info" style="margin-top: 0; font-size: 0.65em;">
+        Could my observed statistic 
+        ($\overset{\hat{}}{p}$, $\bar{x}$) be coming from a 
+        population centered at a certain value of parameter [$\pi$, $\mu$]?
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="quoted bg-warning" style="margin-top: 0;  font-size: 0.65em;">
+        What would be a range of values I am confident will contain the true value of the population parameter my sample is coming from?
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <p class="sided border-info" style="margin-top: 0;  font-size: 0.65em;">
+        What would the distribution of samples statistics coming from this hypothesized population look like? What is the probability
+        of my observed statistic happening in this distribution ?
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="sided border-warning" style="margin-top: 0;  font-size: 0.65em;">
+        What would be a possible range of statistics I would 
+    obtain if I had access to other samples from this same distribution? The central $95\%$ of this interval is very
+    likely to contain the parameter value of the distribution
+    my sample is coming from.<br>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>NHST vs Confidence intervals</h3>
+  <div class="row">
+    <div class="col-85">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_2"
+          class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_5"
+          class="fragment" data-fragment-index=2></use>
+        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-15">
+      <p>
+      <span class="info fragment" data-fragment-index=1>NHST</span><br>
+      <span class="warning fragment" data-fragment-index=2>95% CI</span>
+    </p>
+    </div>
+  </div>
+</section>
 
 <section class="title-slide" data-background='assets/img/shared/bckg4.png' data-state="alpha-04">
   <div class="content-box framed border-muted">
@@ -49,67 +266,17 @@
   </div>
 </section>
 
-
-<section>
-  <h3>Last time</h3>
-  <p style="margin-top: 0; font-size: 0.6em;">
-    Two ways at looking at the same thing.
-  </p>
-  <div class="row">
-    <div class="col-85">
-      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_4"
-          class="fragment current-visible" data-fragment-index=2></use>
-        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_3"
-          class="fragment" data-fragment-index=3></use>
-        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_2"
-          class="fragment current-visible" data-fragment-index=1></use>
-        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_5"
-          class="fragment" data-fragment-index=4></use>
-        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_6"
-          class="fragment" data-fragment-index=5></use>
-        <use xlink:href="assets/img/lec/nhst-vs-ci.svg#axes_1"></use>
-      </svg>
-    </div>
-    <div class="col-15">
-      <p>
-      <span class="info">NHST</span><br>
-      <span class="warning">95% CIs</span>
-      </p>
-    </div>
-  </div>
-  <aside class="notes">
-    But it means that if we are going to use the sample
-    to infer about the population, we need to be sure 
-    our sample is representative.
-  </aside>
-</section>
-
-<section>
-  <h3>Plan</h3>
-  <p>Comparing 2 proportions (Nurse Gilbert)</p>
-  <p>But can we really conclude from those data? Could the results
-  be explained by other factors? [confounding variable, ex: night shifts, etc ...]</p>
-  <p>In the case of Gilbert, it's </p>
-  <p>Confounding variables (Home court disadvantage?)</p>
-  <p>Association is not causation!</p>
-  <p>So data are one thing, but the way you interpret them is what really matters. 
-  Stats will give you a way to analyze data, to give you a probability of the result
-  being due to chance alone, but it does not take in account all the others factors involved
-  (is sample correctly collected? are there confounding variables that could also explain
-  result?). So in the end, data are not everything. Remember the first day in class I said 
-  "help to make decision with data", the data results does not make decision, stats is all 
-  about how you interpret the results to make decision with it (considering everything
-  that is involved)</p>
-</section>
-
 <section>
   <h3>Statistics in the Courtroom: United States v. Kristen Gilbert</h3>
-  
+  <p class="sided">
+    Kristen Gilbert is a former nurse and an American serial killer who was convicted of four murders and two attempted murders of patients admitted to the Veterans Affairs Medical Center (VAMC) in Northampton, Massachusetts. <br>
+    She induced cardiac arrest in patients by injecting their intravenous therapy bags with massive doses of epinephrine, an untraceable heart stimulant. <br>
+    She would then respond to the coded emergency, often resuscitating the patients herself.
+  </p>
 </section>
 
 <section>
-  <h3>Deaths on the medical ward</h3>
+  <h3>Deaths in the medical ward</h3>
   <p style="margin-top: 0;">
     The graph shows data from the VA hospital where Kristen Gilbert worked. Each set of three bars shows one year’s worth of data, starting in 1988, and running through 1997.
   </p>
@@ -169,7 +336,7 @@
   <h3>Explanatory & Response variables</h3>
   <p class="quoted">
     A
-    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> response variable</span> is the variable <span class="warning">about which questions are asked</span>, it measures the outcome of the study.</p>
+    <span class="u" style="text-decoration-color: #f0ad4e;-webkit-text-decoration-color: #f0ad4e;"> response variable</span> is the variable <span class="warning">about which questions are asked</span>; it measures the outcome of the study.</p>
   <p class="quoted">
     An <span class="u" style="text-decoration-color: #5bc0de;-webkit-text-decoration-color: #5bc0de;">explanatory variable</span> is any factor that can <span class="info">influence, explain or predict</span> the response variable.</p>
   <p class="quoted">
@@ -200,7 +367,7 @@
       </p>
     </div>
     <div class="col-50">
-      <table class="fragment" data-fragment-index=1>
+      <table>
         <tbody>
           <tr>
             <td class=" fragment highlight-bckg-blue" 
@@ -295,10 +462,10 @@
 <section data-transition="slide-in">
   <h3>Normalizing the data</h3>
   <p class="sided">
-    To take account the sample sizes into your data, it is much 
+    To take into account the sample sizes into your data, it is much 
     more useful to look at the <span class="warning">conditional
     proportions</span> of your response variable, where we compute the proportion 
-    of "positive" response separately <span class="warning">within each explanatory variable group</span>.
+    of "positive" responses separately <span class="warning">within each explanatory variable group</span>.
   </p>
   <div class="row">
     <div class="col-50">
@@ -507,9 +674,9 @@
     </div>
     <div class="col-50">
       <p>
-        <span class="u em">Relative risk:</span>
+        <span class="u em fragment" data-fragment-index=1>Relative risk:</span>
       </p>
-      <div  class="fragment">
+      <div  class="fragment" data-fragment-index=1>
       $RR=\frac{\overset{\hat{}}{p}_{\textrm{present}}}{\overset{\hat{}}{p}_{\textrm{absent}}}\fragment{1}{=\frac{0.156}{0.025}=6.24}$ <span class="fragment"></span>
       </div>
     </div>
@@ -517,24 +684,24 @@
   <p class="sided border-danger fragment">
     <span class="u em">What does it mean?</span><br>
     <span class="fragment">It is 6.24 times more likely to observe at least one death
-    during a shift for which Gilbert is present</span>
+    during a shift in which Gilbert is present</span>
   </p>
 </section>
 
 <section>
-  <h3>Comparing the conditional proportions</h3>
+  <h3>Can we find an association?</h3>
   <p class="framed border-warning" style="margin-top: 0;">
     This difference of 13.1% between the conditional proportions
     (or similarly, the relative risk of 6.24), appears quite 
-    substancial.
+    substantial.
   </p>
   <p class="sided border-danger">
   We are interested in investigating whether the presence of
   Gilbert during a shift is associated with a higher proportion
-  of death occurence. <br>
+  of death occurrence. <br>
   <span class="fragment" data-fragment-index=2>
     <span class="danger u em">Alternative hypothesis:</span>
-    A death is more likely to occur in a shift for which Gilbert 
+    A death is more likely to occur in a shift in which Gilbert 
     is present
     (<span class="danger">$d>0$</span> or <span class="danger">$RR>1$</span>).
   </span>
@@ -542,128 +709,253 @@
   <p class="sided border-info">
     <span class="em u">What is the <span class="info">null hypothesis</span> in this investigation?</span><br>
     <span class="fragment" data-fragment-index=1>
-    A death is as likely to occur in a shift for which Gilbert 
+    A death is as likely to occur in a shift in which Gilbert 
     is present or not (<span class="info">$d=0$</span> or 
     <span class="info">$RR=1$</span>).<br>
-    The observed difference in relative proportion of death occurence (or the high RR) could be explained by chance alone.
+    The observed difference in relative proportion of death occurrence (or the high RR) could be explained by chance alone.
     </span>
   </p>
 </section>
 
-<section>
-  <h3>Resampling p-value</h3>
+<section data-transition="slide-in">
+  <h3>Simulating the null</h3>
+  <p class="sided">
+    Our strategy will be to determine 
+    <span class="warning">how surprising the 
+    observed result would be if the null hypothesis were true
+    </span>.
+    We can determine this by using simulation to generate a 
+    large number of "could have been" results under that null
+    hypothesis and examine the null distribution of our statistic.
+  </p>
+  <p>
+    If the observed result from our investigation falls in the
+    tail of that distribution, then we have strong evidence against 
+    the null hypothesis.
+  </p>
+</section>
+
+<section data-transition="none">
+  <h3>Simulating the null</h3>
+  <p class="sided border-warning" style="margin-top: 0;">
+    One possible choice of statistic for comparing these
+    two groups is the difference in the observed sample proportion of shifts for which a death was recorded. (The RR would have been valid too)<br>
+    $\overset{\hat{}}{p}_{\textrm{present}}-\overset{\hat{}}{p}_{\textrm{absent}}=0.131$.
+  </p>
+  <p class="sided" style="margin-top: 0;">
+    In the actual data, there were 74 shifts for which at least
+    one death occurred. <span class="info">If there was no association of death
+    with the explanatory variable</span> (presence or not of Gilbert in 
+    the shift), then <span class="info">those deaths would have occurred regardless</span> 
+    of whether or not Gilbert was present during the shift.
+    <br>
+    => if this is true, then any differences we do see between 
+    the two groups arise solely from the randomness in the
+    assignment to the explanatory variable groups.
+  </p>
+</section>
+
+<section data-transition="none">
+  <h3>Simulating the null</h3>
+  <p class="framed border-danger" style="margin-top: 0;">
+    To evaluate the statistical significance of the observed
+    difference in our groups ($\overset{\hat{}}{p}_{\textrm{present}}-\overset{\hat{}}{p}_{\textrm{absent}}=0.131$), we
+    will investigate how large the difference in conditional 
+    proportion tends to be just from the random assignment of
+    outcomes (death or not) to the explanatory variable groups.
+  </p>
   <div class="row">
     <div class="col-55">
-      <p style="margin-top: 0; font-size: 0.55em;">
-        1- Collect your sample and calculate your statistic
-        of interest (ex: <span class="warning">$\overset{\hat{}}{p}=\frac{17}{24}=0.708$</span>)
-      </p>
-      <p class="fragment" data-fragment-index=1 style="margin-top: 0; font-size: 0.55em;">
-        2- State your null and alternative hypothesis <br>
-        (ex: <span class="warning">H$_0$ $\pi=0.5$</span> / <span class="warning">H$_a$ $\pi>0.5$</span>)
-      </p>
-      <p class="fragment" data-fragment-index=2 style="margin-top: 0; font-size: 0.55em;">
-        3- Simulate your null hypothesis distribution. 
-        (it should be <span class="warning">centered at the stated H$_0$ parameter of interest</span>)
-      </p>
-      <p class="fragment" data-fragment-index=3 style="margin-top: 0; font-size: 0.55em;">
-        4- Calculate the proportion of samples that resulted in cases at least as extreme
-        as your initial observed statistic. This is your p-value. <br>
-        (ex: <span class="warning">$\textrm{p-value}=\frac{289}{10000}=0.029$</span>)
-      </p>
-      <p class="fragment" data-fragment-index=4 style="margin-top: 0; font-size: 0.55em;">
-        5- Conclude about whether your have evidence <span class="warning">in favor</span>
-        or <span class="warning">against</span> the null hypothesis.
+      <p class="sided" style="margin-top: 0;">
+        Think of this simulation as a simulation with colored balls. <br>
+        <span style="margin-left: 0.8em;" class="warning">74 yellow balls</span> <br>
+        <span style="margin-left: 0.8em;" class="info">1567 blue balls</span><br>
+      We will simulate the random assignment process of the shifts to the two groups by shuffling the balls and putting
+      257 in one bucket and 1384 in another bucket.
       </p>
     </div>
     <div class="col-45">
-      <svg width="100%" viewBox="34 0 375 285" style="margin-top: 0;">
-        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/simulation-graph-two-tails.svg#axes_1"></use>
-        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/simulation-graph-two-tails.svg#axes_4"></use>
-      </svg>
-    </div>
-  </div>
-</section>
-
-
-<section>
-  <h3>Resampling confidence intervals</h3>
-</section>
-
-<section>
-  <h3>Theory p value (only difference not RR)</h3>
-  <p>
-  Null hypothesis distribution of the difference in proportions
-  </p>
-  $z=\frac{\textrm{observed statistic}-\textrm{hypothesized value}}{\textrm{standard error of statistic}}$
-  $z=\frac{(\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2)-0}{\sqrt{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})(\frac{1}{n_1}+\frac{1}{n_2})}}
-  =\frac{\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2}{\sqrt{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})(\frac{1}{n_1}+\frac{1}{n_2})}}$
-  <p>
-    where $\overset{\hat{}}{p}$ is the overall proportion of successes for the two groups combined (total number of successes divided by the total sample size)
-  </p>
-</section>
-
-<section>
-  <h3>Theory confidence intervals</h3>
-  <p>
-  2 margins of errors (1.96 is a bit more accurate) on each sides for 95% confidence intervals
-  </p>
-  <p>
-    Note that the SE denotes the standard error of the statistic (the estimated standard deviation of the sampling distribution of the statistic). This is slightly different than the denominator of the standardized $z$-statistic because we are estimating the size of the difference between the population proportions under the assumption that there is a difference (rather than pooling them together as we did when we assumed the null hypothesis to be true). Thus, when finding a confidence interval for a difference in population proportions:
-  </p>
-  
-  $SE=\sqrt{(\frac{\overset{\hat{}}{p}_1(1-\overset{\hat{}}{p}_1)}{n_1}+\frac{\overset{\hat{}}{p}_2(1-\overset{\hat{}}{p}_2)}{n_2})}$
-</section>
-
-<section>
-  <h3>Deaths pattern during the 8h-shifts</h3>
-  <div class="row">
-    <div class="col-50">
       <table>
         <tbody>
           <tr>
             <td rowspan=2 style="border-right: solid 1px;">Death <br>on shift?</td>
-            <td colspan=2 style="border-bottom: none;">
+            <td colspan=2 style="border-bottom: none; border-right: solid 1px;">
               Gilbert present?</td>
+            <td style="border-bottom: none;"></td>
           </tr>
          <tr>
-           <td style="border-right: solid 1px;">Yes</td>
-           <td>No</td>
+           <td>Yes</td>
+           <td style="border-right: solid 1px;">No</td>
+           <td>Total</td>
          </tr>
          <tr>
            <td style="border-bottom: none; border-right: solid 1px;">
             Yes</td>
-           <td style="border-bottom: none; border-right: solid 1px;">0.156</td>
-           <td style="border-bottom: none;">0.025</td>
+           <td style="border-bottom: none;">40</td>
+           <td style="border-right: solid 1px; border-bottom: none;">34</td>
+           <td style="border-bottom: none;"">74</td>
          </tr>
          <tr>
            <td style="border-right: solid 1px;">No</td>
-           <td style="border-right: solid 1px;">0.844</td>
-           <td>0.975</td>
+           <td>217</td>
+           <td style="border-right: solid 1px;">1350</td>
+           <td>1567</td>
          </tr>
          <tr>
            <td style="border-right: solid 1px;">Total</td>
-           <td style="border-right: solid 1px;">1</td>
-           <td>1</td>
+           <td>257</td>
+           <td style="border-right: solid 1px;">1384</td>
+           <td>1641</td>
          </tr>
         </tbody>
       </table> 
     </div>
-    <div class="col-50">
-      <svg width="100%" viewBox="360 0 360 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_2"></use>
-      </svg>
-    </div>
   </div>
 </section>
 
-<section>
-  <h3>Deaths on Gilbert's shifts</h3>
+<section data-transition="none">
+  <h3>Simulating the null</h3>
   <div class="row">
     <div class="col-100">
-      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_1"></use>
-        <use xlink:href="assets/img/lec/gilbert-case-death-pattern-during-shifts.svg#axes_2"></use>
+      <svg width="100%" viewBox="0 0 620 173" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/two-groups-simulation-proportion.svg#layer1"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="sided border-muted" style="margin-top: 0;">
+    We perform this simulation 10000 times, so at the end
+    we obtain
+    10000 differences of the conditional proportions between the 2 groups. <br>
+    => 10 000 differences $\overset{\hat{}}{p}_{\textrm{1}}-\overset{\hat{}}{p}_{\textrm{2}}$ that we could have observed if the presence or absence of Gilbert during a shift 
+    did not play a role in the likelihood of observing a death
+    during the shift.
+  </p>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Simulating the null</h3>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 10 720 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/gilbert-case-resampling-differences.svg#axes_1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/gilbert-case-resampling-differences.svg#axes_2"></use>
+        <use class="fragment" xlink:href="assets/img/lec/gilbert-case-resampling-differences.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Theory: two-sample z-test</h3>
+  <p class="sided">
+    According to <span class="u em info">theory</span>
+    the distribution of the differences in sample conditional
+    proportions will be normal, centered at $0$, with a standard deviation of 
+    <span class="warning">$\sqrt{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})(\frac{1}{n_1}+\frac{1}{n_2})}$</span> 
+    where $\overset{\hat{}}{p}$ is the overall proportion of successes for the two groups combined (total number of successes divided by the total sample size)
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="sided border-warning">
+        A $z$ statistic can then be calculated using: <br>
+        $z=\frac{\textrm{observed statistic}-\textrm{hypothesized value}}{\textrm{standard error of statistic}}$
+      </p>
+      <p>
+        $z=\frac{(\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2)-0}{\sqrt{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})(\frac{1}{n_1}+\frac{1}{n_2})}}
+  =\frac{\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2}{\sqrt{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})(\frac{1}{n_1}+\frac{1}{n_2})}}$
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="90%" viewBox="50 20 350 268" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/gilbert-case-resampling-differences.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/gilbert-case-resampling-differences.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+  
+</section>
+
+<section data-transition="slide-out">
+  <h3>Theory: two-sample z-test</h3>
+  <div>
+    $z=\frac{(\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2)-0}{\sqrt{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})(\frac{1}{n_1}+\frac{1}{n_2})}}
+  =\frac{\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2}{\sqrt{\overset{\hat{}}{p}(1-\overset{\hat{}}{p})(\frac{1}{n_1}+\frac{1}{n_2})}}$
+  <p>
+    where $\overset{\hat{}}{p}$ is the overall proportion of successes for the two groups combined (total number of successes divided by the total sample size)
+  </p>
+  </div>
+  <div>
+    $z=\frac{\frac{40}{257}-\frac{34}{1384}}{\sqrt{\frac{74}{1641}(1-\frac{74}{1641})(\frac{1}{257}+\frac{1}{1384})}}=9.3$
+  </div>
+  <p class="sided border-danger">
+    9.3 > 2, so we have strong evidence to reject the null hypothesis.
+  </p>
+</section>
+
+<section>
+  <h3>Association does not mean causation</h3>
+  <p class="quoted">
+    Two variables are <span class="warning">associated</span>
+    (or related), if 
+    <span class="warning">the value of one variable gives you 
+    information about the value of the other variable</span>.
+    <br>
+    => When comparing groups, this means that the proportions 
+    or means take on different values in the different groups.
+  </p>  
+  <p class="quoted">
+    A <span class="info">confounding variable</span> is a variable that is related both
+    to the explanatory and to the response variable in such a 
+    way that <span class="info">its effects on the response variable cannot 
+    be separated from the effects of the explanatory variable</span>.
+  </p>  
+  <p class="sided border-danger">
+    Always think critically when you observe a cause-and-effect
+    conclusion.
+  </p>
+</section>
+
+<section>
+  <h3>Association does not mean causation</h3>
+  <div class="row">
+    <div class="col-100">
+      <img src="assets/img/lec/association-causation.jpeg"
+      class="unbordered flat" width=100%>
+    </div>
+  </div>
+  
+</section>
+
+
+<section data-transition="slide-in">
+  <h3>Resampling confidence intervals</h3>
+  <div class="row">
+    <div class="col-40">
+      <p>
+        1- Draw a bootstrap sample from sample 1 <br>
+        2- Draw a bootstrap sample from sample 2 <br>
+        3- Compute your statistics (ex: relative risk of the conditional proportions) and store this value. <br>
+        4- Repeat this process (steps 1-3) 10000 times
+        <br>
+        5- Determine the $\frac{\alpha}{2}$ and $(1-\frac{\alpha}{2})$ percentiles in your stored result array.
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/gilbert-case-resampling-relativerisk-ci95.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/gilbert-case-resampling-relativerisk-ci95.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/gilbert-case-resampling-relativerisk-ci95.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Resampling confidence intervals</h3>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 427 246" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/two-groups-bootstrap-ci-proportion.svg#layer1"></use>
       </svg>
     </div>
   </div>
@@ -671,11 +963,8 @@
 
 
 <section>
-  <h3>Difference in proportion</h3>
-  we consider the distribution of the difference in proportions between samples taken from two distinct groups. The parameter of interest is p1 − p2, where p1 and p2 represent the proportions in each of the two groups. Note that we are not deal- ing with two different proportions computed for the same group, such as the differ- ence in proportion of voters who choose Candidate A compared to those who choose Candidate B. Even if the data all come from a single sample, we need to identify two groups within the sample and compare the proportions between those two groups.
+  
 </section>
-
-
 
 <!-- THE END -->
 <!-- THE END -->

@@ -14,7 +14,7 @@ gc.samplingdist.height = 450 - gc.samplingdist.margin.top - gc.samplingdist.marg
 // initial dataset (array of size populationsize with proportion of 1)
 gc.samplingdist.populationsize = 500
 gc.samplingdist.proportion = 0.5
-gc.samplingdist.samplesize = 25
+gc.samplingdist.samplesize = 10
 gc.samplingdist.nsample = 100
 
 
@@ -79,6 +79,7 @@ gc.samplingdist.update = function() {
   gc.samplingdist.bins = d3.histogram()
     .domain(gc.samplingdist.xscale.domain())
     .thresholds(gc.samplingdist.xscale.ticks(Math.min(100, gc.samplingdist.samplesize)))
+    // .thresholds(d3.thresholdFreedmanDiaconis(gc.samplingdist.data, d3.min(gc.samplingdist.data), d3.max(gc.samplingdist.data)))
     (gc.samplingdist.data);
  
   // gc.samplingdist.bins = gc.samplingdist.bins.filter(function (d) {return d.length>0})
@@ -111,6 +112,16 @@ gc.samplingdist.update = function() {
       .style("stroke-width", 4)
       .style("stroke", "#d9534f")
       .style("fill", "none");
+
+  gc.samplingdist.svg.append("svg:line")
+        .attr("class", "line")
+        .attr("x1", 0.875*gc.samplingdist.width)
+        .attr("y1", gc.samplingdist.height+gc.samplingdist.margin.top)
+        .attr("x2", 0.875*gc.samplingdist.width)
+        .attr("y2", 0)
+        .style("stroke-width", 4)
+        .style("stroke", "#f0ad4e")
+        .style("fill", "none");
 
 };
 
