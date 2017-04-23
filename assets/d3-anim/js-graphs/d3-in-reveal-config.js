@@ -245,6 +245,46 @@ gc.slideIdToFunctions = {
       'use strict';
       gc.bootstrap.select_sample_multi_color2();
     }
-  }
+  },
+
+
+  'shuffling': {
+    'init': function() {
+      'use strict';
+      gc.shuffling.init();
+    },
+    '-1': function() {
+      'use strict';
+      gc.shuffling.reset_color();
+    },
+    0: function() {
+      'use strict';
+      gc.shuffling.shuffle();
+    },
+    1: function() {
+      'use strict';
+      gc.shuffling.shuffle();
+    },
+    2: function() {
+      'use strict';
+      gc.shuffling.shuffle();
+    },
+    3: function() {
+      'use strict';
+      gc.shuffling.shuffle();
+    },
+    4: function() {
+      'use strict';
+      gc.shuffling.shuffle();
+    },
+    5: function() {
+      'use strict';
+      gc.shuffling.shuffle();
+    },
+    6: function() {
+      'use strict';
+      gc.shuffling.shuffle();
+    },
+  },
 
 };

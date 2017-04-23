@@ -1,0 +1,547 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 7 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg8.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 7</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      Comparing two means <br>
+      the right way
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+
+
+<section>
+  <h3>Last time</h3>
+</section>
+
+<section>
+  <h3>Plan</h3>
+  <p>Type I / Type II errors / Power</p>
+  <p>Comparing 2 means</p>
+  <p>Big box (grps considered from same group, so they must have equal variance!)</p>
+  <p>Two box (bootstrap of differences), we don't care about equal variance</p>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Bicycle weight and commuting time</h3>  
+  <p class="sided border-warning" style="font-size:0.65em; margin-top: 0;">
+  The UK government’s Cycle to Work scheme allows an employee
+  to purchase a bicycle (up to a cost of $1560) at a significant
+  discount by using tax incentives, provided the bicycle is used
+  for commuting to and from work. The initiative aims to 
+  “<span class="warning">promote
+  healthier journeys to work and reduce environmental pollution.</span>”
+  </p>
+  <p>
+    A British researcher, Jeremy Groves, decided to take advantage of this opportunity
+    to buy a new bike.
+  </p>
+</section>
+
+<section data-transition="none">
+  <h3>Bicycle weight and commuting time</h3>  
+  <div class="row">
+    <div class="col-50">
+      <p class="quoted" style="font-size:0.6em; margin-top: 0;">
+       I purchased a bike at the top end of the cost allowed by the
+      scheme and opted for a <span class="warning">carbon frame</span> because it was significantly
+      lighter than my existing bicycle’s <span class="info">steel frame</span>. The wheels were
+      lighter and tyres narrower too. All were <span class="u">factors that made me
+      believe that the extra £950 I had spent would get me to work 
+      in a trice</span>.
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/bike-commute-grove-picture.jpg" 
+      class="unbordered flat" width=100%>
+    </div>
+  </div>
+  <p class="quoted" style="font-size: 0.6em; margin-top: 0;">
+    One sunny morning, I got to work in 43 minutes, the fastest I could recall. My steel bike was consigned to a corner of the garage to gather dust—until I had a puncture. The next day I was back on my old steel bike. I fitted the cycle computer, set off . . . and discovered I had got to work in 44 minutes. “Hang on,” I thought, “was that minute worth £950 or was it a fluke?” <span class="danger">There was only one answer: a randomised trial</span>.
+  </p>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Bicycle weight and commuting time</h3>  
+  <p class="u em">
+    Randomized experiment conducted by Jeremy Groves
+  </p>
+  <p class="sided border-warning">
+    <span class="u em">Research question:</span><br>
+    Groves wanted to know if bicycle weight affected his commute to work.
+  </p>
+  <p class="sided border-info">
+    <span class="u em">Experimental design:</span><br>
+    For 56 days (January to July) Groves tossed a coin to decide if he would bike the 27 miles to work on his 
+    <span class="fragment current-visible highlight-bckg-blue" 
+    data-fragment-index=1>carbon frame</span> bike (20.9lbs) or 
+    <span class="fragment current-visible highlight-bckg-blue"
+    data-fragment-index=1>steel frame</span> bicycle (29.75lbs). <br>
+    He recorded the 
+    <span class="fragment current-visible highlight-bckg-yellow"
+    data-fragment-index=1>commute time</span> for 
+    <span class="fragment current-visible highlight-bckg-red"
+    data-fragment-index=1>each trip</span>.
+  </p>
+  <p>
+    What are the <span class="danger">observational units</span>?
+    What are the <span class="info">varia</span><span class="warning">bles</span>? What type/kind
+    of variables are those?
+  </p>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Bicycle weight and commuting time</h3>  
+  <div class="row">
+    <div class="col-50">
+      <p class="sided border-info">
+        <span class="u em">Null hypothesis:</span><br>
+        <span class="fragment">
+          There is <span class="info">no association</span> between which bike is used and 
+          commute time. <span class="info">Commute time is not affected by which 
+          bike is used</span>.
+        </span>
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="sided border-warning">
+        <span class="u em">Alternative hypothesis:</span><br>
+        <span class="fragment">
+          There is an <span class="warning">association</span> between which bike is used and
+          commute time. <span class="warning">Commute time is affected by which bike is used</span>.
+        </span>
+      </p>
+    </div>
+  </div>
+  <p class="sided fragment" style="font-size: 0.65em; margin-top: 0;">
+    The parameters of interest are: <br>
+    <span style="margin-left: 0.8em;">
+      $\mu_{\mathrm{carbon}}$ = Long term average commute time with carbon frame bike
+    </span> <br>
+    <span style="margin-left: 0.8em;">
+      $\mu_{\mathrm{steel}}$ = Long term average commute time with steel frame bike
+    </span>
+  </p>
+  <div class="row fragment">
+    <div class="col-50">
+      <p class="sided border-info" style="margin-top: 0;">
+        <span class="info">H$_0$</span>: $\mu_{\mathrm{carbon}} = \mu_{\mathrm{steel}}$ <br>
+         ($\mu_{\mathrm{carbon}} - \mu_{\mathrm{steel}} = 0$)
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="sided border-warning" style="margin-top: 0;">
+        <span class="warning">H$_a$</span>: $\mu_{\mathrm{carbon}}\neq\mu_{\mathrm{steel}}$ <br>
+         ($\mu_{\mathrm{carbon}} - \mu_{\mathrm{steel}} \neq 0$)
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="none">
+  <h3>Bicycle weight and commuting time</h3>  
+  <div class="row">
+    <div class="col-50">
+      <p class="sided border-info" style="margin-top: 0;">
+        <span class="info">H$_0$</span>: $\mu_{\mathrm{carbon}} = \mu_{\mathrm{steel}}$ <br>
+         ($\mu_{\mathrm{carbon}} - \mu_{\mathrm{steel}} = 0$)
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="sided border-warning" style="margin-top: 0;">
+        <span class="warning">H$_a$</span>: $\mu_{\mathrm{carbon}}\neq\mu_{\mathrm{steel}}$ <br>
+         ($\mu_{\mathrm{carbon}} - \mu_{\mathrm{steel}} \neq 0$)
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <p class="sided border-danger" style="font-size: 0.65em; margin-top: 0;">
+      <span class="em u">Remember:</span><br>
+      The hypotheses are about the association between commute time 
+      and bike used, not just the 56 trips of Groves. <br>
+      <span class="danger">Hypotheses are always about populations or processes</span>, not the sample data. 
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/distribution-sample-inference.svg"
+      class="unbordered flat" width="100%">
+    </div>
+  </div>
+</section>
+
+<section data-transition="none">
+  <h3>Bicycle weight and commuting time</h3>  
+  <div class="row">
+    <div class="col-45">
+      <table>
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;"></td>
+            <td colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Frame type</td>
+          </tr>
+         <tr>
+           <td>Carbon</td>
+           <td style="border-right: solid 1px;">Steel</td>
+         </tr>
+          <tr>
+           <td style="border-right: solid 1px;">Sample size</td>
+           <td>26</td>
+           <td style="border-right: solid 1px;">30</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Sample mean (min)</td>
+           <td>108.34</td>
+           <td style="border-right: solid 1px;">107.81</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Sample SD (min)</td>
+           <td>6.25</td>
+           <td style="border-right: solid 1px;">4.89</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/bike-commute-boxplot.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="sided" style="font-size: 0.6em; margin-top: 0;">
+    The sample average and variability for commute time was higher
+    for the carbon frame bike.
+    Does this indicate a tendency?
+    Or could a higher average just come from the random assignment?  
+  </p>
+  <p class="sided border-warning" style="font-size: 0.6em; margin-top: 0;">
+    Perhaps the carbon frame bike was randomly assigned to days where
+    traffic was heavier or weather slowed down Dr. Groves on his way
+    to work?
+  </p>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Bicycle weight and commuting time</h3>  
+  <div class="row">
+    <div class="col-45">
+      <table>
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;"></td>
+            <td colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Frame type</td>
+          </tr>
+         <tr>
+           <td>Carbon</td>
+           <td style="border-right: solid 1px;">Steel</td>
+         </tr>
+          <tr>
+           <td style="border-right: solid 1px;">Sample size</td>
+           <td>26</td>
+           <td style="border-right: solid 1px;">30</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Sample mean (min)</td>
+           <td>108.34</td>
+           <td style="border-right: solid 1px;">107.81</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Sample SD (min)</td>
+           <td>6.25</td>
+           <td style="border-right: solid 1px;">4.89</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/bike-commute-boxplot.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="sided border-info" style="font-size: 0.6em; margin-top: 0;">
+    <span class="info">Is it possible to get a difference of 0.53 minutes if commute time isn’t affected by the bike used?</span> <br>
+    <span class="fragment" style="margin-left: 0.9em;">Yes it’s possible, how likely though? <br>
+    => is the observed difference in commute time arising solely
+    from the randomness in the of the frame type used each day?</span>
+  </p>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Simulating the bike commute</h3>  
+  <p class="sided border-warning" style="font-size: 0.7em; margin-top: 0;">
+    <span class="u em">Statistic of interest?</span> <br>
+    <span class="fragment" data-fragment-index=1 style="margin-left: 0.9em;">
+    The observed difference in average commute time</span>
+    <br>
+    <span class="fragment" data-fragment-index=1 style="margin-left: 0.9em;">
+    $d=\mu_{\mathrm{carbon}} - \mu_{\mathrm{steel}}$ 
+    </span>
+  </p>
+  <!-- <p class="sided fragment" data-fragment-index=2 style="margin-top: 0;">
+    In the actual data, there were 56 commute times. <span class="info">If there was no association of the commute time with 
+    the bike frame type</span>  (explanatory variable) then <span class="u">each commute time could have been observed regardless 
+    of the type of bike frame used</span>.
+  </p> -->
+  <div class="sided border-danger fragment" data-fragment-index=2
+  style="padding-bottom:0;">
+  <p style="margin-bottom: 0.2em; margin-top: 0;">
+    We can simulate this study with index cards.
+    <ol style="font-size: 0.7em;">
+      <li>Write all 56 times on 56 cards</li>
+      <li>Shuffle all 56 cards and randomly redistribute into
+       two stacks
+        <ul>
+          <li>One with 26 cards (representing the times for the carbon-frame bike)</li>
+          <li>Another 30 cards (representing the times for the steel-frame bike)
+          </li>
+        </ul>
+       </li>
+       <li>Calculate the difference in the average time
+       between the two stacks of cards</li>
+    </ol>
+  </p>
+  </div>
+  <p class="sided fragment" data-fragment-index=3 style="margin-top: 0;">
+    Shuffling assumes the null hypothesis of no association between commute time and bike.
+  </p>
+</section>
+
+<section data-transition="fade" id="shuffling">
+  <h3>Simulating the random assignment of bike frame</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-40">
+      <div class="placeholder"></div>
+    </div>
+    <div class="col-60">
+      <div class="row" style="margin-top: 0;">
+        <div class="col-5">
+          <p></p>
+        </div>
+        <div class="col-80">
+          <p style="margin-top: 0; font-size: 0.5em;">
+            <span class="u em">Statistic calculated for each simulation:</span><br>
+             difference in means 
+             ($\bar{x}_{\mathrm{carbon}}-\bar{x}_{\mathrm{steel}}$)
+          </p>
+        </div>
+    
+      </div>
+      <svg width="100%" viewBox="0 70 412 220" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean.svg#axes_2"
+        class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean.svg#axes_3"
+        class="fragment" data-fragment-index=2></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean.svg#axes_4"
+        class="fragment" data-fragment-index=3></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean.svg#axes_5"
+        class="fragment" data-fragment-index=4></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean.svg#axes_6"
+        class="fragment" data-fragment-index=5></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean.svg#axes_7"
+        class="fragment" data-fragment-index=6></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean.svg#axes_8"
+        class="fragment" data-fragment-index=7></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Simulating the random assignment of bike frame</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-40">
+      <p class="sided border-danger fragment"
+       data-fragment-index=1 style="font-size: 0.65em">
+        How many simulations gave a result as extreme as the
+        initial statistic? <br>($\bar{x}_{\mathrm{carbon}}-\bar{x}_{\mathrm{steel}}$)
+      </p>
+      <p class="sided border-info fragment"
+       data-fragment-index=2 style="font-size: 0.65em">
+        <span class="u em">Note:</span> "as extreme as" in both 
+        directions (2 tailed test)<br>
+        Upper limit: <br>
+        <span class="warning">
+        $\bar{x}_{\mathrm{carbon}}-\bar{x}_{\mathrm{steel}}\geq0.53$
+        </span>
+        <br>
+        Lower limit:
+        <br>
+        <span class="warning">
+        $\bar{x}_{\mathrm{carbon}}-\bar{x}_{\mathrm{steel}}\leq0-0.53$
+        </span>
+      </p>
+    </div>
+    <div class="col-60">
+      <div class="row" style="margin-top: 0;">
+        <div class="col-5">
+          <p></p>
+        </div>
+        <div class="col-80">
+          <p style="margin-top: 0; font-size: 0.5em;">
+            <span class="u em">Statistic calculated for each simulation:</span><br>
+             difference in means 
+             ($\bar{x}_{\mathrm{carbon}}-\bar{x}_{\mathrm{steel}}$)
+          </p>
+        </div>
+    
+      </div>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_2"
+        class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_3"
+        class="fragment" data-fragment-index=2></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>What does this p-value mean?</h3>
+  <p class="sided border-warning fragment" data-fragment-index=1>
+    If the mean commute times for the bikes were the same in the long
+    run, and we were repeating random assignment of the lighter bike
+    (carbon) to 26 days and the heavier (steel) to 30 days,
+    <span class="warning">a difference as extreme as 0.53 minutes or more would occur in
+    about 72% of the repetitions</span>. <br>
+    => Therefore, <span class="warning">we don’t have evidence that the commute times for 
+    the two bikes will differ in the long run</span>.
+  </p>
+
+  <p class="sided border-info fragment" data-fragment-index=2>
+  <span class="u em fragment" data-fragment-index=2>
+    Have we proven that the bike Groves chooses is not associated 
+    with commute time? (<span class="info">Can we conclude the 
+    null?</span>)
+  </span> <br>
+  <span class="fragment">
+  No! A large p-value is not “strong 
+  evidence that the null hypothesis is true.”
+  It suggests that the <span class="info">null hypothesis is
+  plausible</span> <br>
+  => There could be long-term difference just like we saw, but it
+  is just very small.
+  <span>
+  </span>
+</p>
+</section>
+
+
+
+
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <script src="assets/js/d3.v4.min.js"></script>
+  <script src="assets/js/d3-selection-multi.v0.4.min.js"></script>
+
+    <!-- D3 in REVEAL -->
+  <script src="assets/js/d3-in-reveal.js"></script>
+    <!-- The D3 config & animations -->
+    <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <script src="assets/d3-anim/js-graphs/shuffling.js"></script>
+    
+
+</body>
+</html>
