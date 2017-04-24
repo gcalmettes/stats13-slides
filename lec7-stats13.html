@@ -53,15 +53,297 @@
 
 <section>
   <h3>Last time</h3>
+  <p class="sided">
+    How to compare 2 proportions
+  </p>
 </section>
 
-<section>
-  <h3>Plan</h3>
-  <p>Type I / Type II errors / Power</p>
-  <p>Comparing 2 means</p>
-  <p>Big box (grps considered from same group, so they must have equal variance!)</p>
-  <p>Two box (bootstrap of differences), we don't care about equal variance</p>
+<section data-transition="slide-in">
+  <h3>Playing for a sell-out crowd</h3>
+  <p class="sided" style="margin-top: 0;">
+    Sports teams prefer to play in front of their own fans rather
+    than at the opposing team's site. Having a sell-out crowd should
+    provide even more excitement and lead to an even better
+    performance right?
+  </p>
+  <div class="row">
+    <div class="col-55">
+      <p class="sided border-warning" style="margin-top: 0; font-size: 0.65em;">
+      Well, consider the Oklahoma City Thunder (NBA team) in its 
+      second season (2008-2009) after moving from Seattle.
+      This team had a win-loss record that was actually worse for 
+      home games <span class="warning">with a sell-out crowd (3 wins and 15 losses)</span> than
+      for home games <span class="info">without a sell-out crowd (12 wins and 11 losses) </span>.
+      </p>
+    </div>
+    <div class="col-45">
+      <table>
+        <tbody>
+          <tr>
+            <td class=" fragment highlight-bckg-blue" 
+            data-fragment-index=2 rowspan=2 style="border-right: solid 1px;">Game <br>outcome?</td>
+            <td class=" fragment highlight-bckg-red" 
+            data-fragment-index=3 colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Sell-out crowd?</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td class=" fragment highlight-bckg-red" 
+            data-fragment-index=3>Yes</td>
+           <td class=" fragment highlight-bckg-red" 
+            data-fragment-index=3 style="border-right: solid 1px;">No</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td class="fragment highlight-bckg-blue" 
+           data-fragment-index=2 style="border-bottom: none; border-right: solid 1px;">
+            Win</td>
+           <td style="border-bottom: none;">3</td>
+           <td style="border-right: solid 1px; border-bottom: none;">12</td>
+           <td style="border-bottom: none;"">15</td>
+         </tr>
+         <tr>
+           <td class="fragment highlight-bckg-blue" 
+           data-fragment-index=2 style="border-right: solid 1px;">Loss</td>
+           <td>15</td>
+           <td style="border-right: solid 1px;">11</td>
+           <td>26</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>18</td>
+           <td style="border-right: solid 1px;">23</td>
+           <td>41</td>
+         </tr>
+       </tbody>
+      </table> 
+    </div>
+  </div>
 </section>
+
+<section data-transition="slide-out">
+  <h3>Playing for a sell-out crowd</h3>
+  <p class="sided" style="margin-top: 0;">
+    Sports teams prefer to play in front of their own fans rather
+    than at the opposing team's site. Having a sell-out crowd should
+    provide even more excitement and lead to an even better
+    performance right?
+  </p>
+  <div class="row">
+    <div class="col-55">
+      <p class="sided border-warning" style="margin-top: 0; font-size: 0.65em;">
+      Well, consider the Oklahoma City Thunder (NBA team) in its 
+      second season (2008-2009) after moving from Seattle.
+      This team had a win-loss record that was actually worse for 
+      home games <span class="warning">with a sell-out crowd (3 wins and 15 losses)</span> than
+      for home games <span class="info">without a sell-out crowd (12 wins and 11 losses) </span>.
+      </p>
+    </div>
+    <div class="col-45">
+      <table>
+        <tbody>
+          <tr>
+            <td class="highlight-bckg-info" 
+            rowspan=2 style="border-right: solid 1px;">Game <br>outcome?</td>
+            <td class="highlight-bckg-danger" 
+             colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Sell-out crowd?</td>
+          </tr>
+         <tr>
+           <td class="highlight-bckg-danger">Yes</td>
+           <td class="highlight-bckg-danger" 
+            style="border-right: solid 1px;">No</td>
+         </tr>
+         <tr>
+           <td class="highlight-bckg-info" 
+           style="border-bottom: none; border-right: solid 1px;">
+            Win</td>
+           <td style="border-bottom: none;">0.17</td>
+           <td style="border-right: solid 1px; border-bottom: none;">0.52</td>
+         </tr>
+         <tr>
+           <td class="highlight-bckg-info" 
+           style="border-right: solid 1px;">Loss</td>
+           <td>0.83</td>
+           <td style="border-right: solid 1px;">0.48</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>1</td>
+           <td style="border-right: solid 1px;">1</td>
+         </tr>
+       </tbody>
+      </table> 
+      <p class="fragment">
+        $\textrm{Relative risk}=\frac{0.52}{0.17}=3.1$ 
+        <br>
+        (3.1 times more likely to win if it is not a sell-out crowd game)
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Simulating the null</h3>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 620.5 197" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/two-groups-simulation-proportion.svg#layer1"></use>
+      </svg>
+    </div>
+  </div>
+    <ol style="font-size: 0.65em; margin-top: 0;">
+      <li>Pool all the 41 wins/losses together</li>
+      <li>Shuffle all 41 games and randomly redistribute into
+       two stacks
+        <ul>
+          <li>One with 18 games (representing the sell out crowd games)</li>
+          <li>Another 23 cards (representing the games without sell
+          out crowd)
+          </li>
+        </ul>
+       </li>
+       <li>Calculate the relative proportion and relative risk 
+       for the simulation</li>
+       <li>Repeat 10000 times (we obtain 10000 RR that we could have observed if the presence or not of a sell-out crowd did not 
+       matter)</li>
+    </ol>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Simulating the null</h3>
+  <div class="row">
+    <div class="col-40">
+      <p class="sided" style="font-size: 0.6em;">
+        What would be the probability of observing a RR of 3.1
+        if there was no association between sell-out crowd and 
+        winning or losing?
+      </p>
+      <p style="font-size: 0.6em;" class="fragment" data-fragment-index=3>
+        => The probabiliy is very low (only 2.5% of the simulations 
+        had such an extreme RR in both directions).
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 10 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/sell-out-crowd-simulation-pvalue.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1
+        xlink:href="assets/img/lec/sell-out-crowd-simulation-pvalue.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2
+        xlink:href="assets/img/lec/sell-out-crowd-simulation-pvalue.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <p style="font-size: 0.6em;" class="fragment framed border-danger" data-fragment-index=3>
+    We have strong evidences supporting the idea that it is 
+    less likely for the Oklahoma City Thunder to win when
+    there is a sell-out crowd.
+  </p>     
+</section>
+
+<section data-transition="slide-in">
+  <h3>95% confidence intervals</h3>
+  <p class="framed border-info" style="margin-top: 0;">
+    What is the true value of the relative risk for the Oklahoma City Thunder to win when there is not a sell-out crowd?
+  </p>
+  <div class="row fragment">
+    <div class="col-35">
+      <p style="font-size: 0.6em;">
+        1- Draw a bootstrap sample from the sell-out crowd games <br>
+        2- Draw a bootstrap sample from the non sell-out crowd games <br>
+        3- Compute your statistics (relative risk of the conditional proportions) and store this value. <br>
+      </p>
+    </div>
+    <div class="col-65">
+      <svg width="100%" viewBox="0 0 427 246" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/two-groups-bootstrap-ci-proportion.svg#layer1"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row fragment">
+    <div class="col-50">
+      <p style="font-size: 0.6em; margin-top: 0;">
+      4- Repeat this process (steps 1-3) 10000 times
+      </p>
+    </div>
+    <div class="col-50">
+      <p style="font-size: 0.6em; margin-top: 0;">
+        5- Determine the $\frac{\alpha}{2}$ and $(1-\frac{\alpha}{2})$ percentiles in your stored result array
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>95% confidence intervals</h3>
+  <p class="framed border-info" style="margin-top: 0;">
+    What is the true value of the relative risk for the Oklahoma City Thunder to win when there is not a sell-out crowd?
+  </p>
+  <div class="row">
+    <div class="col-40">
+      <p class="sided border-warning fragment" style="font-size: 0.65em; margin-top: 0;">
+        => The Oklahoma City Thunder are 1.3 to 11 times more likely
+        to win when they do not have a sell-out crowd 
+      </p>
+      <p class="fragment framed border-warning" style="font-size: 0.65em; margin-top: 0;">
+        Are we just going to accept this conclusion? <br>
+        Why does this NBA team is less likely to win when 
+        there is a sell-out crowd? <br>
+        What could explain this?
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/sell-out-crowd-simulation-ci95.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/sell-out-crowd-simulation-ci95.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/sell-out-crowd-simulation-ci95.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Possible explanations for home court disadvantage</h3>
+  <p class="sided" style="margin-top: 0;">
+    There are three possible explatnations for this odd finding that the
+    team had a better winning percentage with smaller crows:
+  </p>
+  <div class="row">
+    <div class="col-25">
+      <p class="framed border-success fragment" style="font-size: 0.65em; margin-top: 0;">
+        Random chance (but we pretty much ruled it out)
+      </p>
+    </div>
+    <div class="col-32">
+      <p class="framed border-info fragment" style="font-size: 0.65em; margin-top: 0;">
+        The sell-out crowd caused the Thunder to play worse, perhaps 
+        because of pressure or nervousness
+      </p>
+    </div>
+    <div class="col-42">
+      <p class="framed border-warning fragment" style="font-size: 0.65em; margin-top: 0;">
+        The sell-out crowd did not cause a worse performance, and some other issue (variable) explains why they had a worse 
+        winning percentage width sell-out crowds
+      </p>
+    </div>
+    <p class="fragment">
+    => In other words, for #3, a third variable is at play, which is related to both the crowd size and the game outcome. (<span class="warning">confounding variable</span>)
+    </p>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Possible explanations for home court disadvantage</h3>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 410.4 165.6" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/confounding-variable-thunder.svg#layer1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/confounding-variable-thunder.svg#layer2"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
 
 <section data-transition="slide-in">
   <h3>Bicycle weight and commuting time</h3>  
@@ -256,7 +538,7 @@
     Does this indicate a tendency?
     Or could a higher average just come from the random assignment?  
   </p>
-  <p class="sided border-warning" style="font-size: 0.6em; margin-top: 0;">
+  <p class="sided border-warning fragment" style="font-size: 0.6em; margin-top: 0;">
     Perhaps the carbon frame bike was randomly assigned to days where
     traffic was heavier or weather slowed down Dr. Groves on his way
     to work?
@@ -310,8 +592,8 @@
   </p>
 </section>
 
-<section data-transition="slide-in">
-  <h3>Simulating the bike commute</h3>  
+<section data-transition="slide">
+  <h3>Simulating the bike commute null distribution</h3>  
   <p class="sided border-warning" style="font-size: 0.7em; margin-top: 0;">
     <span class="u em">Statistic of interest?</span> <br>
     <span class="fragment" data-fragment-index=1 style="margin-left: 0.9em;">
@@ -350,8 +632,22 @@
   </p>
 </section>
 
+<section data-transition="slide-in">
+  <h3>Simulating the bike commute null distribution</h3>  
+  <p class="u em">
+    Shuffling procedure
+  </p>
+  <div class="row">
+    <div class="col-100">
+      <img src="assets/img/lec/two-groups-simulation-mean.svg"
+      class="unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
+
 <section data-transition="fade" id="shuffling">
-  <h3>Simulating the random assignment of bike frame</h3>
+  <h3>Simulating the random assignment of bike frame (mean)</h3>
   <div class="row" style="margin-top: 0;">
     <div class="col-40">
       <div class="placeholder"></div>
@@ -364,7 +660,7 @@
         <div class="col-80">
           <p style="margin-top: 0; font-size: 0.5em;">
             <span class="u em">Statistic calculated for each simulation:</span><br>
-             difference in means 
+             difference in mean 
              ($\bar{x}_{\mathrm{carbon}}-\bar{x}_{\mathrm{steel}}$)
           </p>
         </div>
@@ -391,8 +687,8 @@
   </div>
 </section>
 
-<section data-transition="fade">
-  <h3>Simulating the random assignment of bike frame</h3>
+<section data-transition="slide-out">
+  <h3>Simulating the random assignment of bike frame (mean)</h3>
   <div class="row" style="margin-top: 0;">
     <div class="col-40">
       <p class="sided border-danger fragment"
@@ -422,13 +718,14 @@
           <p></p>
         </div>
         <div class="col-80">
-          <p style="margin-top: 0; font-size: 0.5em;">
+          <p style="margin-top: 0; margin-bottom: 0; font-size: 0.5em;">
             <span class="u em">Statistic calculated for each simulation:</span><br>
-             difference in means 
+             difference in mean 
              ($\bar{x}_{\mathrm{carbon}}-\bar{x}_{\mathrm{steel}}$)
+             <br>
+            <span class="info">10000 simulations</span>
           </p>
         </div>
-    
       </div>
       <svg width="100%" viewBox="0 0 432 288" style="margin-top: 2%;">
         <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_1"></use>
@@ -452,7 +749,6 @@
     => Therefore, <span class="warning">we don’t have evidence that the commute times for 
     the two bikes will differ in the long run</span>.
   </p>
-
   <p class="sided border-info fragment" data-fragment-index=2>
   <span class="u em fragment" data-fragment-index=2>
     Have we proven that the bike Groves chooses is not associated 
@@ -471,7 +767,247 @@
 </p>
 </section>
 
+<section data-transition="slide-in">
+  <h3>Theory: Two-sample $t$-test</h3>
+  <p class="sided border-warning" style="font-size: 0.65em; margin-top: 0;">
+    When comparing means between two groups, the null hypothesis is typically H$_0$ ∶ $\mu_1=\mu_2$ or, equivalently, H$_0$ ∶ $\mu_1-\mu_2=0$. <br>
+    Thus the “Null parameter” is usually equal to zero and we use the difference in means for two samples, $\bar{x}_1 − \bar{x}_2$, as the “Sample statistic”.
+  </p>
+  <p class="framed border-danger" style="font-size: 0.65em; margin-top: 0;">
+      If <span class="warning">the underlying populations are 
+      reasonably normal or the sample sizes are large</span>,
+      we can estimate the standard error (standard deviation of the
+      sampling distribution) of $\bar{x}_1 − \bar{x}_2$ with
+      $SE = \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$, where 
+      $s_1$ and $s_2$ are the standard deviations in the two samples.
+  </p>
+  <p class="sided border-info" style="font-size: 0.65em; margin-top: 0;">
+     <span class="u em">Note:</span> When we use the samples standard deviations in estimating SE,
+    we need to switch to a $t$-distribution rather than the standard
+    normal when finding a p-value.
+  </p>
+</section>
 
+
+<section data-transition="none">
+  <h3>Theory: Two-sample $t$-test</h3>
+  <p class="sided border-info" style="font-size: 0.65em; margin-top: 0;">
+     To test H$_0$ ∶ $\mu_1=\mu_2$ vs H$_a$ ∶ $\mu_1\neq\mu_2$ (or a one-tail alternative $\mu_1>\mu_2$ or $\mu_1<\mu_2$) based on samples of sizes n$_1$ and n$_2$ from the two groups, we use the <span class="info">two-sample $t$-statistic</span>.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p style="font-size: 0.65em; margin-top: 0;">
+        $t=\frac{\textrm{Statistic}-\textrm{Null value}}{SE}$
+      </p>
+      <p>
+        $t=\frac{(\bar{x}_1-\bar{x}_2)-0}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$ <br>
+        <span style="font-size: 0.8em;">
+        where $\bar{x}_1$ and $\bar{x}_2$ are the means and $s_1$
+        and $s_2$ are the standard deviations
+        for the respective samples.
+        </span>
+      </p>
+      <p  class="fragment sided" data-fragment-index=1>
+        $t=\frac{(108.34-107.81)-0}{\sqrt{\frac{6.25^2}{26}+\frac{4.89^2}{30}}}=0.35$ 
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Theory: Two-sample $t$-test</h3>
+  <p class="sided border-info" style="font-size: 0.65em; margin-top: 0;">
+     To test H$_0$ ∶ $\mu_1=\mu_2$ vs H$_a$ ∶ $\mu_1\neq\mu_2$ (or a one-tail alternative $\mu_1>\mu_2$ or $\mu_1<\mu_2$) based on samples of sizes n$_1$ and n$_2$ from the two groups, we use the <span class="info">two-sample $t$-statistic</span>.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p  class="sided">
+        $t=\frac{(108.34-107.81)-0}{\sqrt{\frac{6.25^2}{26}+\frac{4.89^2}{30}}}=0.35$ 
+      </p>
+      <p  style="font-size: 0.65em;" class="fragment sided" data-fragment-index=1>
+        Using this $t$-statistic the degrees of freedom of the
+        $t$-distribution, refering to a $t$-statistic table will
+        give you a p-value.
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_2"></use>
+        <use class="fragment fade-out" data-fragment-index=1
+         xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_4"></use>
+        <use class="fragment" data-fragment-index=1
+         xlink:href="assets/img/lec/bike-commute-simulation-diff-mean-all.svg#axes_5"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+
+<section data-transition="slide">
+  <h3>Simulating the random assignment of bike frame (median)</h3>  
+  <p class="sided border-warning" style="font-size: 0.7em; margin-top: 0;">
+    <span class="u em">Statistic of interest?</span> <br>
+    <span class="fragment" data-fragment-index=1 style="margin-left: 0.9em;">
+    The observed difference in <span class="warning">median</span> commute time</span>
+    <br>
+    <span class="fragment" data-fragment-index=1 style="margin-left: 0.9em;">
+    $d=m_{\mathrm{carbon}} - m_{\mathrm{steel}}$ 
+    </span>
+  </p>
+  <!-- <p class="sided fragment" data-fragment-index=2 style="margin-top: 0;">
+    In the actual data, there were 56 commute times. <span class="info">If there was no association of the commute time with 
+    the bike frame type</span>  (explanatory variable) then <span class="u">each commute time could have been observed regardless 
+    of the type of bike frame used</span>.
+  </p> -->
+  <div class="sided border-danger fragment" data-fragment-index=2
+  style="padding-bottom:0;">
+  <p style="margin-bottom: 0.2em; margin-top: 0;">
+    We can simulate this study with index cards.
+    <ol style="font-size: 0.7em;">
+      <li>Write all 56 times on 56 cards</li>
+      <li>Shuffle all 56 cards and randomly redistribute into
+       two stacks
+        <ul>
+          <li>One with 26 cards (representing the times for the carbon-frame bike)</li>
+          <li>Another 30 cards (representing the times for the steel-frame bike)
+          </li>
+        </ul>
+       </li>
+       <li>Calculate the difference in the 
+       <span class="danger">median</span> time
+       between the two stacks of cards</li>
+    </ol>
+  </p>
+  </div>
+  <p class="sided fragment" data-fragment-index=3 style="margin-top: 0;">
+    Shuffling assumes the null hypothesis of no association between commute time and bike.
+  </p>
+</section>
+
+<section data-transition="slide-in" id="shuffling2">
+  <h3>Simulating the random assignment of bike frame (median)</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-40">
+      <div class="placeholder"></div>
+    </div>
+    <div class="col-60">
+      <div class="row" style="margin-top: 0;">
+        <div class="col-5">
+          <p></p>
+        </div>
+        <div class="col-80">
+          <p style="margin-top: 0; font-size: 0.5em;">
+            <span class="u em">Statistic calculated for each simulation:</span><br>
+             difference in median 
+             ($\mathrm{m}_{\mathrm{carbon}}-\mathrm{m}_{\mathrm{steel}}$)
+          </p>
+        </div>
+    
+      </div>
+      <svg width="100%" viewBox="0 70 412 220" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median.svg#axes_2"
+        class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median.svg#axes_3"
+        class="fragment" data-fragment-index=2></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median.svg#axes_4"
+        class="fragment" data-fragment-index=3></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median.svg#axes_5"
+        class="fragment" data-fragment-index=4></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median.svg#axes_6"
+        class="fragment" data-fragment-index=5></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median.svg#axes_7"
+        class="fragment" data-fragment-index=6></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median.svg#axes_8"
+        class="fragment" data-fragment-index=7></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Simulating the random assignment of bike frame (median)</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-40">
+      <p class="sided border-danger fragment"
+       data-fragment-index=1 style="font-size: 0.65em">
+        How many simulations gave a result as extreme as the
+        initial statistic? <br>($\mathrm{m}_{\mathrm{carbon}}-\mathrm{m}_{\mathrm{steel}}$)
+      </p>
+      <p class="sided border-info fragment"
+       data-fragment-index=2 style="font-size: 0.65em">
+        <span class="u em">Note:</span> "as extreme as" in both 
+        directions (2 tailed test)<br>
+        Upper limit: <br>
+        <span class="warning">
+        $\mathrm{m}_{\mathrm{carbon}}-\mathrm{m}_{\mathrm{steel}}\geq0.17$
+        </span>
+        <br>
+        Lower limit:
+        <br>
+        <span class="warning">
+        $\mathrm{m}_{\mathrm{carbon}}-\mathrm{m}_{\mathrm{steel}}\leq0-0.17$
+        </span>
+      </p>
+    </div>
+    <div class="col-60">
+      <div class="row" style="margin-top: 0;">
+        <div class="col-5">
+          <p></p>
+        </div>
+        <div class="col-80">
+          <p style="margin-top: 0; margin-bottom: 0; font-size: 0.5em;">
+            <span class="u em">Statistic calculated for each simulation:</span><br>
+             difference in median 
+             ($\mathrm{m}_{\mathrm{carbon}}-\mathrm{m}_{\mathrm{steel}}$)
+             <br>
+            <span class="info">10000 simulations</span>
+          </p>
+        </div>
+    
+      </div>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 2%;">
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median-all.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median-all.svg#axes_2"
+        class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median-all.svg#axes_3"
+        class="fragment" data-fragment-index=2></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Can't we just get an equation to model the distribution 
+  of the sampling distribution of the median?</h3>
+  
+  <p class="framed border-warning fragment">
+    <span class="warning">NO!!!</span> Remember, the median is a <span class="warning">procedure</span>,
+    not the result of a formula, so there is no theorem or formula 
+    that can predict what the sampling distribution of the 
+    difference in median would look
+    like.
+    <span class="warning">There is no t-test for the median</span>
+  </p>
+  <p class="framed border-info fragment">
+    Using resampling statistic, you are not limited to the
+    the study of the mean for which 
+    formula and theorems  are available.
+    <br>
+    Using resampling statistic, you can study <span class="info">any statistic that 
+    is relevant to your study</span>, even if if is a very exotic statistic, 
+    since each time you can do a simulation of what the sampling 
+    distribution for this particular exotic statistic would look like.
+  </p>
+</section>
 
 
 
