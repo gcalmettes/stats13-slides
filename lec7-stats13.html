@@ -41,8 +41,7 @@
     <h1 style="color: #FFFFFF">Lecture 7</h1>
   </div>
     <h3 style="color: #FFFFFF; text-align: center;">
-      Comparing two means <br>
-      the right way
+      Comparing two means  
     </h3>
     <div class="col-90">
       <p class="smaller push-right">Guillaume Calmettes</p>
@@ -185,6 +184,31 @@
 
 <section data-transition="slide-in">
   <h3>Simulating the null</h3>
+  <p class="sided border-warning" style="margin-top: 0; font-size: 0.65em;">
+    <span class="u em">Null hypothesis:</span> <br>
+    There is no association between playing in front of 
+    a sell out crowd and winning/losing a game.
+  </p>
+  <p class="fragment framed border-danger" style="margin-top: 0; font-size: 0.65em;">
+    If there was no association between the variables, what would be the probability of observing an 
+    association as strong as the one we observed ($RR=3.1$)
+    between the fact that a game is a 
+    sell out or not and winning or losing?
+  </p>
+  <p class="fragment sided border-info" style="margin-top: 0; font-size: 0.65em;">
+    To evaluate the statistical significance of the observed
+    association in our groups, we
+    will investigate how large the $RR$ in conditional 
+    proportions tends to be just from the random assignment of
+    outcomes (win or loss) to the explanatory variable groups 
+    (sell out crowd or not). <br>
+    <span class="info">=> we will do a simulation in which the chances of winning a game is the same
+    whether it is a sell out or not</span>.
+  </p>
+</section>
+
+<section data-transition="fade">
+  <h3>Simulating the null</h3>
   <div class="row">
     <div class="col-100">
       <svg width="100%" viewBox="0 0 620.5 197" style="margin-top: 0;">
@@ -198,7 +222,7 @@
        two stacks
         <ul>
           <li>One with 18 games (representing the sell out crowd games)</li>
-          <li>Another 23 cards (representing the games without sell
+          <li>Another 23 games (representing the games without sell
           out crowd)
           </li>
         </ul>
@@ -225,6 +249,9 @@
       </p>
     </div>
     <div class="col-60">
+    <p class="info" style="font-size: 0.6em;">
+      10000 simulations
+    </p>
       <svg width="100%" viewBox="0 10 432 288" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/sell-out-crowd-simulation-pvalue.svg#axes_1"></use>
         <use class="fragment" data-fragment-index=1
@@ -234,28 +261,28 @@
       </svg>
     </div>
   </div>
-  <p style="font-size: 0.6em;" class="fragment framed border-danger" data-fragment-index=3>
+  <p style="font-size: 0.6em; margin-top: 0; " class="fragment framed border-danger" data-fragment-index=3>
     We have strong evidences supporting the idea that it is 
     less likely for the Oklahoma City Thunder to win when
-    there is a sell out crowd.
+    they play in front of a sell out crowd.
   </p>     
 </section>
 
 <section data-transition="slide-in">
   <h3>95% confidence intervals</h3>
   <p class="framed border-info" style="margin-top: 0;">
-    What is the true value of the relative risk for the Oklahoma City Thunder to win when there is not a sell out crowd?
+    What is the true value of how much more likely the Oklahoma City Thunder is to win when there is not a sell out crowd compare to when they play in a packed stadium?
   </p>
   <div class="row fragment">
-    <div class="col-35">
+    <div class="col-37">
       <p style="font-size: 0.6em;">
         1- Draw a bootstrap sample from the sell out crowd games <br>
         2- Draw a bootstrap sample from the non sell out crowd games <br>
         3- Compute your statistics (relative risk of the conditional proportions) and store this value. <br>
       </p>
     </div>
-    <div class="col-65">
-      <svg width="100%" viewBox="0 0 427 246" style="margin-top: 0;">
+    <div class="col-63">
+      <svg width="100%" viewBox="0 0 463.5 268.5" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/two-groups-bootstrap-ci-proportion.svg#layer1"></use>
       </svg>
     </div>
@@ -277,7 +304,7 @@
 <section data-transition="slide-out">
   <h3>95% confidence intervals</h3>
   <p class="framed border-info" style="margin-top: 0;">
-    What is the true value of the relative risk for the Oklahoma City Thunder to win when there is not a sell out crowd?
+    What is the true value of how much more likely the Oklahoma City Thunder is to win when there is not a sell out crowd compare to when they play in a packed stadium?
   </p>
   <div class="row">
     <div class="col-40">
@@ -344,33 +371,69 @@
   </div>
 </section>
 
+<section>
+  <h3>Association does not mean causation</h3>
+  <p class="quoted">
+    Two variables are <span class="warning">associated</span>
+    (or related), if 
+    <span class="warning">the value of one variable gives you 
+    information about the value of the other variable</span>.
+    <br>
+    => When comparing groups, this means that the proportions 
+    or means take on different values in the different groups.
+  </p>  
+  <p class="quoted">
+    A <span class="info">confounding variable</span> is a variable that is related both
+    to the explanatory and to the response variable in such a 
+    way that <span class="info">its effects on the response variable cannot 
+    be separated from the effects of the explanatory variable</span>.
+  </p>  
+  <p class="sided border-danger">
+    Always think critically when you observe a cause-and-effect
+    conclusion.
+  </p>
+</section>
+
 <section data-transition="slide-in">
   <h3>Avoiding confounding variables</h3>
-  <p>
-    In an <span class="warning">observational study</span>, the groups you compare are "just there", that is 
-    they are defined by what you see rather than by what you do. <br>
-    In an <span class="info">experiment</span>, you actively create the groups by what you choose 
-    to do. More formally, you assign the conditions to be compared. These conditions may be one 
-    or more <span class="danger">treatments</span> or a <span class="danger">control</span> (a group you do nothing to).
-  </p>
-  <p>
-    In a <span class="warning">randomized experiment</span>, you use a chance device to make the
-    assignements. THe role of the random assignement is to balance out potentially confounding
+  <div class="row">
+    <div class="col-40">
+      <p class="framed border-warning" style="margin-top: 0; font-size: 0.65em;">
+        In an <span class="warning">observational study</span>, the groups you compare are "just there", that is 
+        they are defined by what you see rather than by what you do.
+      </p>
+    </div>
+    <div class="col-60">
+      <p class="framed border-info" style="margin-top: 0; font-size: 0.65em;">
+        In an <span class="info">experiment</span>, you actively create the groups by what you choose 
+        to do. More formally, you assign the conditions to be compared. These conditions may be one 
+        or more <span class="danger">treatments</span> or a <span class="danger">control</span> (a group you do nothing to).
+      </p>
+    </div>
+  </div>
+  <p class="sided border-info" style="margin-top: 0; font-size: 0.65em;">
+    In a <span class="info">randomized experiment</span>, you use a chance device to make the
+    assignements. The role of the random assignement is to balance out potentially confounding
     variables among the explanatory variable groups, giving us the potential to draw
-    cause-and-effect conclusions.
+    cause-and-effect conclusions. <span class="muted">(e.g.: you flip a coin before a game to assign if this will be sell-out or not)</span>
   </p>
-  <p>
-    In a <span class="warning">double-blind</span> study, neither the subjects nor those 
-    evaluating the response variable know which treatment group the subject is in.
+  <p style="margin-top: 0; font-size: 0.65em;">
+    In a <span class="info">double-blind</span> study, neither the subjects nor those 
+    evaluating the response variable know which treatment group the subject is in. <span class="muted">(ex: the teams and the statistician do not know 
+    if this is a sell out crowd game or not)</span>
   </p>
 </section>
 
 <section data-transition="slide-out">
   <h3>Avoiding confounding variables</h3>
+  <p class="em u">The different possible study designs</p>
   <div class="row">
     <div class="col-100">
-      <img src="assets/img/lec/study-design-factors.svg" class="unbordered flat"
-      width=100%>
+      <svg width="100%" viewBox="0 0 553.2 250.166" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/study-design-factors.svg#layer1"></use>
+      </svg>
+      <!-- <img src="assets/img/lec/study-design-factors.svg" class="unbordered flat"
+      width=100%> -->
     </div>
   </div>
 </section>
@@ -418,7 +481,7 @@
 <section data-transition="slide-out">
   <h3>Bicycle weight and commuting time</h3>  
   <p class="u em">
-    Randomized experiment conducted by Jeremy Groves
+    <span class="warning">Randomized experiment</span> conducted by Jeremy Groves
   </p>
   <p class="sided border-warning">
     <span class="u em">Research question:</span><br>
@@ -426,7 +489,7 @@
   </p>
   <p class="sided border-info">
     <span class="u em">Experimental design:</span><br>
-    For 56 days (January to July) Groves tossed a coin to decide if he would bike the 27 miles to work on his 
+    For 56 days (January to July) Groves <span class="warning">tossed a coin to decide</span> if he would bike the 27 miles to work on his 
     <span class="fragment current-visible highlight-bckg-blue" 
     data-fragment-index=1>carbon frame</span> bike (20.9lbs) or 
     <span class="fragment current-visible highlight-bckg-blue"
@@ -799,25 +862,28 @@
 </section>
 
 <section>
-  <h3>Scope of conclusions</h3>
-  <p>
-Can we generalize our conclusion to a larger population? 
-Two Key questions:
-Was the sample randomly obtained from a larger population? 
-Were the observational units randomly assigned to treatments?
+  <h3>Scope of conclusions of the study</h3>
+  <p class="framed border-danger" style="font-size: 0.65em; margin-top: 0;">
+    Can we generalize our conclusion to a larger population? <br>
   </p>
-  <p>
-    Was the sample randomly obtained from a larger population? 
-No, Groves commuted on consecutive days which didn’t include all seasons. 
-Were the observational units randomly assigned to treatments?
-Yes, he flipped a coin for the bike
-We can draw cause-and-effect conclusions
+  <p style="font-size: 0.65em; margin-top: 0;">
+    Two Key questions:
   </p>
-  <p>
+  <p class="sided border-info" style="font-size: 0.65em; margin-top: 0;">
+    <span class="u em info">Was the sample randomly obtained from a larger population?</span><br>
+    <span class="fragment">No, Groves commuted on consecutive days which didn’t include all seasons.</span> 
+  </p>
+  <p class="sided border-info" style="font-size: 0.65em; margin-top: 0;">
+    <span class="u em info">Were the observational units randomly assigned to treatments?</span><br>
+    <span class="fragment">Yes, he flipped a coin to choose which bike to ride each day<br>
+    => We can draw cause-and-effect conclusions.</span>
+  </p>
+    
+  <p class="sided border-warning fragment" style="font-size: 0.65em; margin-top: 0;">
     We can’t generalize beyond Groves and his two bikes.
-A limitation is that this study is not double-blind
-The researcher and the subject (which happened to be the same person) were not blind to which treatment was being used.
-Perhaps Groves likes his old bike and wanted to show it was just as good as the new carbon-frame bike for commuting to work.
+    A limitation is that this study is <span class="warning">not double-blind</span>.
+    The researcher and the subject (which happened to be the same person) were not blind to which treatment (bike) was being used.
+    <span class="muted">(Perhaps Groves likes his old bike and wanted to show it was just as good as the new carbon-frame bike for commuting to work.)</span>
 
   </p>
 </section>
@@ -1065,6 +1131,92 @@ Perhaps Groves likes his old bike and wanted to show it was just as good as the 
   </p>
 </section>
 
+<section>
+  <h3>But isn't getting an estimate of the true value of the parameter what's really important?</h3>
+  
+  <p class="sided border-warning fragment">
+    I couldn't agree more!!! <br>
+    You're right, let's compute the <span class="warning">$95\%$ confidence intervals</span> of the difference in median between the 
+    times obtained with the carbon frame and the times obtained with
+    a steel frame
+  </p>
+  <!-- <p class="framed border-info fragment">
+    Using resampling statistic, you are not limited to the
+    the study of the mean for which 
+    formula and theorems  are available.
+    <br>
+    Using resampling statistic, you can study <span class="info">any statistic that 
+    is relevant to your study</span>, even if if is a very exotic statistic, 
+    since each time you can do a simulation of what the sampling 
+    distribution for this particular exotic statistic would look like.
+  </p> -->
+</section>
+
+<section data-transition="slide-in">
+  <h3>Resampling confidence intervals</h3>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 463.5 268.5" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/two-groups-bootstrap-ci-median.svg#layer1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Resampling confidence intervals</h3>
+  <div class="row">
+    <div class="col-40">
+      <p>
+        1- Draw a bootstrap sample from sample 1 <br>
+        2- Draw a bootstrap sample from sample 2 <br>
+        3- Compute your statistics (ex: relative risk of the conditional proportions) and store this value. <br>
+        4- Repeat this process (steps 1-3) 10000 times
+        <br>
+        5- Determine the $\frac{\alpha}{2}$ and $(1-\frac{\alpha}{2})$ percentiles in your stored result array.
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median-resampling-ci95.svg#axes_1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/bike-commute-simulation-diff-median-resampling-ci95.svg#axes_2"></use>
+        <use class="fragment" xlink:href="assets/img/lec/bike-commute-simulation-diff-median-resampling-ci95.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Resampling confidence intervals</h3>
+  <div class="row">
+    <div class="col-40">
+      <p class="sided border-danger" style="font-size: 0.65em; margin-top: 0;">
+        The true value of the difference in median times 
+        for Groves to ride the 27mi using 
+        a carbon frame bike versus a steel frame bike is in 
+        the interval $[-4.82, 4.68]$ min.
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median-resampling-ci95.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median-resampling-ci95.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/bike-commute-simulation-diff-median-resampling-ci95.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="sided fragment" style="font-size: 0.65em; margin-top: 0;">
+        => Zero (the "no difference in median times") is in this
+        interval. So we have evidences that if there were no 
+        difference in the times it would take 
+        for a trip using either bike, Groves could have obtained the
+        results he obtained.
+      </p>
+</section>
+
+<section>
+  
+</section>
 
 
 <!-- THE END -->
