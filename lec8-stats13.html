@@ -1,0 +1,511 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 8 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg8.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 8</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      A closer look at testing  
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+
+
+<section>
+  <h3>Last time</h3>
+  <p class="sided">
+    How to compare 2 means
+  </p>
+</section>
+
+
+
+<section>
+  <h3>Pitfalls associated with formal hypothesis testing</h3>
+  <p>
+    Hypothesis testing is very powerful, as it helps shed light on whether an observed effect is real or just due to random chance. However, statistical signi cance is not foolproof, and it is possible to make the wrong decision, rejecting a true null hypothesis or not rejecting a false null hypothesis. This section discusses common pitfalls associated with formal hypothesis testing, along with factors that influence the chances of these errors occurring.
+  </p>
+</section>
+
+<section>
+  <h3>Question of the day</h3>
+  <div class="framed border-danger bg-danger">
+    Does choice of mate improve<br>offspring fitness (in fruit flies)?
+  </div>
+  <div class="row">
+    <div class="col-100">
+      <img src="assets/img/lec/fruit-flies-mating-choice.svg"
+      class="unbordered flat" width=100%>
+    </div>  
+  </div>
+</section>
+
+<section>
+  <h3>Original study</h3>
+  <p>
+    Paper published in Nature with p-value < 0.01
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <img src="assets/img/lec/fruit-flies-nature1980-title.png"
+      class="rounded unbordered flat" width=100%>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/fruit-flies-nature1980-table2.png"
+      class="rounded unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Original study</h3>
+  <p>
+    Paper published in Nature with p-value < 0.01
+  </p>
+  <p>
+    Concluded, based on the data, that mate choice improves offspring fitness.
+  </p>
+  <p>
+    This went against conventional wisdom.
+  </p>
+  <p>
+    Researchers at Penn State tried to replicate the results…
+  </p>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Follow up study</h3>
+  <div class="row">
+    <div class="col-50">
+      <div class="sided">
+      <p style="margin-top: 0; margin-bottom: 0;">
+      600 female fruit flies, randomly divided:
+      <ul style="font-size: 0.55em; margin-top: 0;">
+        <li>300 placed in a cage with 900 males (mate choice)</li>
+        <li>300 placed in individual vials with only one male each (no mate choice)</li>
+      </ul>
+      </p>
+      </div>
+      <p class="sided" style="margin-top: 0; font-size: 0.65em;">
+        After mating, females were separated from the males and put in egg-laying chambers.
+      </p>
+      <p class="sided border-warning" style="margin-top: 0; font-size: 0.65em;">
+        200 larvae from each chamber were taken and placed in a cage with 200 mutant flies (for competition).
+      </p>
+      <p style="margin-top: 0; font-size: 0.65em;">
+        Offspring survival rate was measured.
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/fruit-flies-genetics1984-protocol.png"
+      class="rounded unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Follow up study</h3>
+  <div class="row">
+    <div class="col-50">
+      <p style="margin-top: 0; font-size: 0.65em;">
+        Experiment repeated 10 times/day for 5 days 
+        (50 runs, 10000 larvae tested in each group).
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;">Larvae <br>survived?</td>
+            <td colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Mate choice?</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td>Yes</td>
+           <td style="border-right: solid 1px;">No</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none;">6067</td>
+           <td style="border-right: solid 1px; border-bottom: none;">5976</td>
+           <td style="border-bottom: none;"">12043</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">No</td>
+           <td>3933</td>
+           <td style="border-right: solid 1px;">4024</td>
+           <td>7957</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>10000</td>
+           <td style="border-right: solid 1px;">10000</td>
+           <td>20000</td>
+         </tr>
+       </tbody>
+      </table> 
+      <p class="sided border-danger" style="margin-top: 0; font-size: 0.65em;">
+        <span class="u em">Difference in survival rate:</span>
+        $d=\overset{\hat{}}{p}_\textrm{choice}-\overset{\hat{}}{p}_\textrm{no choice}$ <br>
+        $d=0.6067-0.5976=0.009$
+      </p>
+      <p class="framed border-danger" style="margin-top: 0; font-size: 0.65em;">
+        One-tail p-value = 0.102
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/fruit-flies-genetics1984-protocol.png"
+      class="rounded unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Mate choice and offspring survival</h3>
+  <p>
+    Two studies investigated the same topic.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="framed border-warning">
+        One study found significant results. ($p<0.01$)
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="framed border-info">
+        One study found insignificant results. ($p=102$)
+      </p>
+    </div>
+    <div>
+      <h2 class="danger" style="text-align: center;">Conflicting results?</h2>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Errors</h3>
+  <p class="u em" style="margin-top: 0; margin-bottom: 0;">
+    Errors can happen!
+  </p>
+  <ul style="font-size: 0.7em;" class="push-left">
+    <li>A Type I Error is rejecting a true null (false positive)</li>
+    <li>A Type II Error is not rejecting a false null (false negative)</li>
+  </ul>
+  <table style="font-size: 1.5em; margin-top: 2em;">
+    <tbody>
+      <tr>
+        <td style="border-bottom: none;"></td>
+        <td style="border-bottom: none;"></td>
+        <td colspan=2><span class="danger">Decision</span></td>
+      </tr>
+      <tr>
+        <td style="border-bottom: none;"></td>
+        <td style="border-right: solid 1px;"></td>
+        <td style="border-right: solid 1px;" class="highlight-bckg-danger">Reject H$_0$</td>
+        <td style="border-right: solid 1px;" class="highlight-bckg-danger">Do not reject H$_0$</td>
+      </tr>
+      <tr>
+        <td rowspan=2 style="border-right: solid 1px; border-bottom: none; vertical-align: middle;">
+          <span class="info">Truth</span></td>
+        <td style="border-right: solid 1px; vertical-align: middle;" class="highlight-bckg-info">H$_0$ true</td>
+        <td style="border-right: solid 1px; vertical-align: middle;"><span class="warning"><i class="fa fa-warning warning"></i> Type I</span> error</td>
+        <td style="border-right: solid 1px;"><i class="fa fa-smile-o fa-2x success"></i></td>
+      </tr>
+      <tr>
+        <td style="border-right: solid 1px; border-bottom: solid 1px; vertical-align: middle;" class="highlight-bckg-info">H$_0$ false</td>
+        <td style="border-right: solid 1px; border-bottom: solid 1px;"><i class="fa fa-smile-o fa-2x success"></i></td>
+        <td style="border-right: solid 1px; border-bottom: solid 1px; vertical-align: middle;"><span class="warning"><i class="fa fa-warning warning"></i> Type II</span> error</td>
+      </tr>
+    </tbody>
+  </table> 
+</section>
+
+<section data-transition="slide-out">
+  <h3>Errors</h3>
+  <p class="u em" style="margin-top: 0; margin-bottom: 0;">
+    Errors can happen!
+  </p>
+  <ul style="font-size: 0.7em;" class="push-left">
+    <li>A Type I Error is rejecting a true null (false positive)</li>
+    <li>A Type II Error is not rejecting a false null (false negative)</li>
+  </ul>
+  <div class="row">
+    <div class="col-100" style="margin-top: 0.5em;">
+      <img src="assets/img/lec/type1-type2-error.svg" class="unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Mate choice and offspring survival</h3>
+  <p>
+    Option #1:  The original study (p-value < 0.01) made a Type I error, and H0 is really true
+  </p>
+  <p>
+    Option #2: The second study (p-value = 0.102) made a Type II error, and Ha is really true
+  </p>
+  <p>
+    Option #3: No errors were made; different experimental settings yielded different results
+  </p>
+</section>
+
+<section>
+  <h3>Probability of Type I error</h3>
+  <p>
+    Distribution of statistics, assuming H0 true:
+  </p>
+  <p>
+    If the null hypothesis is true: <br>
+    5% of statistics will be in the most extreme 5% <br>
+    5% of statistics will give p-values less than 0.05 <br>
+    5% of statistics will lead to rejecting H0 at α = 0.05 <br>
+    If α = 0.05, there is a 5% chance of a Type I error
+  </p>
+  <p>
+    If the null hypothesis is true: <br>
+    1% of statistics will be in the most extreme 1% <br>
+    1% of statistics will give p-values less than 0.01 <br>
+    1% of statistics will lead to rejecting H0 at α = 0.01 <br>
+    If α = 0.01, there is a 1% chance of a Type I error <br>
+  </p>
+</section>
+
+<section>
+  <h3>Probability of Type I error</h3>
+  <p>
+    The probability of making a Type I error (rejecting a true null) is the significance level, α
+  </p>
+</section>
+
+<section>
+  <h3>Multiple testing</h3>
+  <p>
+    Because the chance of a Type I error is α…
+  </p>
+  <p>
+    α of all tests with true null hypotheses will yield significant results just by chance.
+  </p>
+  <p>
+    If 100 tests are done with α = 0.05 and nothing is really going on, 5% of them will yield significant results, just by chance
+  </p>
+  <p>
+    This is known as the problem of multiple testing
+  </p>
+</section>
+
+<section>
+  <h3>Multiple testing</h3>
+  <p>
+    Consider a topic that is being investigated by research teams all over the world
+  </p>
+  <p>
+    Using α = 0.05, 5% of teams are going to find something significant, even if the null hypothesis is true
+  </p>
+  <p>
+    Consider a research team/company doing many hypothesis tests
+  </p>
+  <p>
+    Using α = 0.05, 5% of tests are going to be significant, even if the null hypotheses are all true
+  </p>
+</section>
+
+<section>
+  <h3>Mate choice and offspring survival</h3>
+  <p>
+    The experiment was actually comprised of 50 smaller experiments.  What if we had calculated the p-value for each run?
+  </p>
+  <p>
+    50 p-values: <br>
+     0.9570 0.8498 0.1376 0.5407 0.7640 0.9845 0.3334 0.8437 0.2080 0.8912 0.8879 0.6615 0.6695 0.8764 <span class="warning">1.0000</span> 0.0064 0.9982 0.7671 0.9512 0.2730 0.5812 0.1088 0.0181 0.0013 0.6242 0.0131 0.7882 0.0777 0.9641 <span class="warning">0.0001</span> 0.8851 0.1280 0.3421 0.1805 0.1121 0.6562 0.0133 0.3082 0.6923 0.1925 0.4207 0.0607 0.3059 0.2383 0.2391 0.1584 0.1735 0.0319 0.0171 0.1082
+  </p>
+  <p>
+   What if we just reported the run that yielded a p-value of 0.0001?
+    Is that ethical?
+  </p>
+</section>
+
+<section>
+  <h3>Publication bias</h3>
+  <p>
+    Publication bias refers to the fact that usually only the significant results get published
+  </p>
+  <p>
+    The one study that turns out significant gets published, and no one knows about all the insignificant results (also known as the file drawer problem)
+  </p>
+  <p>
+    This combined with the problem of multiple testing can yield very misleading results
+  </p>
+</section>
+
+<section>
+  <h3>Jelly Beans cause acne!</h3>
+</section>
+
+<section>
+  <h3>Multiple Testing and Publication Bias</h3>
+  <p>
+    α of all tests with true null hypotheses will yield significant results just by chance.
+  </p>
+  <p>
+    The one that happens to be significant is the one that gets published.
+  </p>
+  <p>
+    THIS SHOULD SCARE YOU!
+  </p>
+</section>
+
+<section>
+  <h3>Reproducibility crisis</h3>
+  <p>
+    “There is increasing concern that most current published research findings are false.” Why most published research findings are false (8/30/05)
+  </p>
+  <p>
+    “Many researchers believe that if scientists set out to reproduce preclinical work published over the past decade, a majority would fail. This, in short, is the reproducibility crisis." Amid a Sea of False Findings, the NIH Tries Reform (3/16/15)
+  </p>
+  <p>
+    A recent study tried to replicate 100 results published in psychology journals: 97% of the original results were significant, only 36% of replicated results were significant
+    Estimating the reproducibility of psychological science (8/28/15)
+  </p>
+</section>
+
+<section>
+  <h3>What can you do?</h3>
+  <p>
+    Point #1: Errors (type I and II) are possible
+  </p>
+  <p>
+    Point #2: Multiple testing and publication bias are a huge problem
+  </p>
+  <p>
+    Is it all hopeless?  What can you do?<br>
+    - Recognize (and be skeptical) when a claim is one of many tests <br>
+    - Look for replication of results…
+  </p>
+</section>
+
+<section>
+  <h3>Replication</h3>
+  <p>
+    Replication (or reproducibility) of a study in another setting or by another researcher is extremely important!
+  </p>
+  <p>
+    Studies that have been replicated with similar conclusions gain credibility
+  </p>
+  <p>
+    Studies that have been replicated with different conclusions lose credibility
+  </p>
+  <p>
+    Replication helps guard against Type I errors AND helps with generalizability
+  </p>
+</section>
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <!-- <script src="assets/js/d3.v4.min.js"></script> -->
+  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+
+    <!-- D3 in REVEAL -->
+  <!-- <script src="assets/js/d3-in-reveal.js"></script> -->
+    <!-- The D3 config & animations -->
+    <!-- <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
+    
+
+</body>
+</html>
