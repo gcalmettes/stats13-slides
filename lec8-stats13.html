@@ -350,6 +350,17 @@
 </section>
 
 <section>
+  <h3>Multiple testing</h3>
+  <p>
+    We just learned that if the null hypothesis is true, then 5% of hypothesis tests using 𝛼 = 0.05 will incorrectly reject the null hypothesis. This issue becomes even more important when doing multiple hypothesis tests. Of all hypothesis tests conducted for a true null hypothesis, using 𝛼 = 0.05, 5% of the tests will lead to rejecting the null hypothesis! In other words, if you do 100 hypothesis tests, all testing for an effect that doesn’t exist (the null is true), about 5% of them will incorrectly reject the null.
+  </p>
+  <p class="sided">
+    The Problem of Multiple Testing
+When multiple tests are conducted, if the null hypotheses are all true, the proportion of all the tests that will yield statistically signi cant results just by random chance is about 𝛼, the signi cance level.
+  </p>
+</section>
+
+<section>
   <h3>Mate choice and offspring survival</h3>
   <p>
     The experiment was actually comprised of 50 smaller experiments.  What if we had calculated the p-value for each run?
@@ -436,6 +447,217 @@
   </p>
   <p>
     Replication helps guard against Type I errors AND helps with generalizability
+  </p>
+</section>
+
+<section>
+  <h3>Mate choice and offspring survival</h3>
+  <p>
+    Actually, the research attempting to replicate the mate choice result included 3 different experiments
+  </p>
+  <p>
+    Original study: Significant in favor of choice
+    p-value < 0.01
+  </p>
+  <p>
+    Follow-up study #1: Not significant 
+    6067/10000 - 5976/10000  = 0.6067 - 0.5976 = 0.009
+    p-value = 0.1
+  </p>
+  <p>
+    Follow-up study #2: Significant in favor of no choice 
+    4579/10000 – 4749/10000 = 0.4579 – 0.4749 = -0.017
+    p-value = 0.992 for choice, 0.008 for no choice 
+  </p>
+  <p>
+    Follow-up study #3: Significant in favor of no choice
+    1641/5000 – 1758/5000 = 0.3282 – 0.3516 = -0.02
+    p-value = 0.993 for choice, 0.007 for no choice 
+  </p>
+</section>
+
+<section>
+  <h3>Probability of Type II error</h3>
+  <p>
+    How can we reduce the probability of making a Type II Error (not rejecting a false null)? <br>
+    - Increase the significance level <br>
+    -Increase the sample size
+  </p>
+</section>
+
+<section>
+  <h3>Significance Level and Errors</h3>
+  <div class="row">
+    <div class="col-50">
+      <p>
+    Reject H0
+Could be making a Type I error if H0 true
+Chance of Type I error
+  </p>
+    </div>
+    <div class="col-50">
+      <p>
+    Do not reject H0
+Could be making a Type II error if Ha true
+Related to chance of making a Type II error
+  </p>
+    </div>
+  </div>
+  <p>
+    Decrease α if Type I error is very bad <br>
+Increase α if Type II error is very bad
+  </p>
+</section>
+
+<section>
+  <h3>Significance Level and Errors</h3>
+  <p>
+    While we wish to avoid both types of errors, in practice we have to accept some trade- off between them. If we make it very hard to reject H0, we could reduce the chance of making a Type I error, but then we would make Type II errors more often. On the other hand, making it easier to reject H0 would reduce the chance of making a Type II error, but increase the chance of making a Type I error and we would end up rejecting too many H0’s that were actually true. This balance is set by how easy or hard it is to reject H0, which is exactly determined by the signi cance level!
+  </p>
+  <p>
+    decrease the chance of making a Type I error, we make it harder to reject H0 by using a lower signi cance level. To decrease the chance of making a Type II error, we make it easier to reject H0 by using a higher signi cance level.
+If we use 𝛼 = 0.05 in a right-tail test, we decide to reject H0 for all sample values in the 5% of area in the upper tail of a randomization distribution. If instead we use 𝛼 = 0.01, we only reject H0 for sample values in the extreme upper 1% of area. If we make 𝛼 smaller, fewer samples would be that extreme, meaning we would reject H0 less often.
+Because 5% of statistics will be in the most extreme 5% of the randomization distribution, these 5% of samples will yield p-values less than 0.05. Because a ran- domization distribution is created assuming the null hypothesis is true, this means 5% of samples will lead to rejecting H0 at 𝛼 = 0.05, even when H0 is true. This idea generalizes beyond 0.05: if the null hypothesis is true, 𝛼 is the probability of making a Type I error.
+  </p>
+  <p class="sided">
+    Understanding a Significance Level
+The signi cance level, 𝛼, represents the tolerable probability of making a Type I error.
+  </p>
+  <p>
+    If the consequences of a Type I error are severe (for example, approving a new drug that is potentially dangerous) we might use a very small 𝛼 (perhaps even 𝛼 = 0.005). If the consequences of a Type II error are severe (for example, failing to diagnose a treatable disease), we would want to make it easier to reject H0, so might use a relatively large 𝛼. However, remember that there is always a trade-off between the two types of errors, so we usually use the common signi cance levels of 5%, 10% or 1%.
+  </p>
+</section>
+
+<section>
+  <h3>Decreasoing chance of Type II error</h3>
+  <p>
+    Larger sample size makes it easier to reject the null
+  </p>
+  <p>
+    So, increase n to decrease chance of Type II error
+  </p>
+</section>
+
+<section>
+  <h3>Effect of sample size</h3>
+  <p>
+    Larger sample size makes it easier to reject H0
+  </p>
+  <p>
+    With small sample sizes, even large differences or effects may not be significant, and Type II errors are common 
+  </p>
+  <p>
+    With large sample sizes, even a very small difference or effect can be significant…
+  </p>
+</section>
+
+<section>
+  <h3>A small p-value doesn't necessarily means big difference</h3>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 288 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/meeting/pvalue-sample-size-increase.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/meeting/pvalue-sample-size-increase.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/meeting/pvalue-sample-size-increase.svg#axes_4"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <p class="info">
+        (n=9)<br>$p=0.0525$
+      </p>
+      <p class="warning fragment" data-fragment-index=1>
+        (n=15)<br>$p=0.0181$
+      </p>
+      <p class="danger fragment" data-fragment-index=2>
+        (n=21)<br>$p=0.0069$
+      </p>
+      <p class="fragment">
+        Mean: 20 <br>
+        SD: 5 <br>
+        <span class="fragment success">$\bar{x}_2-\bar{x}_1=4$</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Sample size is king in p-valueLAND</h3>
+  <div class="row">
+    <div class="col-70">
+      <!-- <svg width="100%" viewBox="0 0 504 432" style="margin-top: 0;">
+        <use xlink:href="assets/img/meeting/pvalue-es-sample-size.svg#axes_1"></use>
+        <use xlink:href="assets/img/meeting/pvalue-es-sample-size.svg#axes_2"></use>
+      </svg> -->
+      <img src="assets/img/meeting/pvalue-es-sample-size.svg" class="unbordered flat fragment" data-fragment-index=3>
+    </div>
+    <div class="col-30">
+      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+        <use xlink:href="assets/img/meeting/pvalue-es-sample-size-bar-data.svg#axes_1"></use>
+        <use xlink:href="assets/img/meeting/pvalue-es-sample-size-bar-data.svg#axes_2"
+        class="fragment" data-fragment-index=1></use>
+        <use xlink:href="assets/img/meeting/pvalue-es-sample-size-bar-data.svg#axes_3"
+        class="fragment" data-fragment-index=2></use>
+      </svg>
+
+      <svg width="100%" viewBox="0 0 88.5 92" style="margin-top: 0;">
+        <use xlink:href="assets/img/meeting/field-potential-recordings.svg#layer1"></use>
+      </svg>
+    </div>
+  </div>
+  <aside class="notes">
+    Short excerpts of field potential recordings in mouse hippocampus in vivo, filtered to isolate theta oscillations (5–12 Hz). <br>
+    The amplitudes of theta troughs under control conditions and after injection of atropine, marked by yellow dots, were tested against each other. 
+  </aside>
+</section>
+
+<section>
+  <h3>Statistical vs Practical Significance</h3>
+  <p>
+    Suppose a weight loss program recruits 10,000 people for a randomized experiment.
+  </p>
+  <p>
+    A difference in average weight loss of only 0.5 lbs could be found to be statistically significant
+  </p>
+  <p>
+    Suppose the experiment lasted for a year.  Is a loss of ½ a pound practically significant?
+  </p>
+  <p>
+    A statistically significant result is not always practically significant, especially with large sample sizes 
+  </p>
+</section>
+
+<section>
+  <h3>Report confidence intervals</h3>
+  <p>
+    CI give you the info about the true value
+  </p>
+</section>
+
+<section>
+  <h3>Summary</h3>
+  <p>
+    Conclusions based off p-values are not perfect
+  </p>
+  <p>
+    Type I and Type II errors can happen
+  </p>
+  <p>
+    α of all tests will be significant just by chance and often, only the significant results get published
+  </p>
+  <p>
+    Replication of results is important 
+  </p>
+  <p>
+    Larger sample sizes make it easier to get significant results
+  </p>
+  <p>
+    For more details, see the 2016 American Statistical Association’s Statement on p-values
+  </p>
+</section>
+
+<section>
+  <p>
+    Landers Cartoon (causeWeb) on multiple testing
   </p>
 </section>
 
