@@ -910,6 +910,22 @@
   </p>
 </section>
 
+<section data-transition="fade">
+  <h3>Theory: Two-sample $t$-test</h3>
+  <p class="sided border-warning" style="font-size: 0.65em; margin-top: 0;">
+    For a two-sample $t$-test, you are making the <span class="warning">strong assumption</span>
+    that your samples are coming from a population <span class="warning">normally distributed</span>. 
+    You then deduce what the distribution of the difference in means
+    from 2 samples from this underlying distribution would look like.
+  </p>
+  <div class="row">
+    <div class="col-100">
+      <img src="assets/img/lec/bike-commute-ttest-model.svg"
+      class="unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
 
 <section data-transition="none">
   <h3>Theory: Two-sample $t$-test</h3>
@@ -954,7 +970,7 @@
         $t=\frac{(108.34-107.81)-0}{\sqrt{\frac{6.25^2}{26}+\frac{4.89^2}{30}}}=0.35$ 
       </p>
       <p  style="font-size: 0.65em;" class="fragment sided" data-fragment-index=1>
-        Using this $t$-statistic the degrees of freedom of the
+        Using this $t$-statistic & the degrees of freedom of the
         $t$-distribution, refering to a $t$-statistic table will
         give you a p-value.
       </p>
@@ -1117,7 +1133,7 @@
     that can predict what the sampling distribution of the 
     difference in median would look
     like.
-    <span class="warning">There is no t-test for the median</span>
+    <span class="warning">There is no two-sample t-test for the median</span>
   </p>
   <p class="framed border-info fragment">
     Using resampling statistic, you are not limited to the
