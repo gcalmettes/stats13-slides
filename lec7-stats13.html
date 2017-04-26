@@ -1055,7 +1055,7 @@
       <ol style="font-size: 0.6em;">
         <li>Draw a bootstrap sample from sample 1</li>
         <li>Draw a bootstrap sample from sample 2</li>
-        <li>Compute your statistics (ex: relative risk of the conditional proportions) and store this value</li>
+        <li>Compute your statistics (ex: difference in median times) and store this value</li>
         <li>Repeat this process (steps 1-3) 10000 times</li>
         <li>Determine the $\frac{\alpha}{2}$ and $(1-\frac{\alpha}{2})$ percentiles in your stored result array</li>
       </ol>
@@ -1285,7 +1285,7 @@
   </div>
 </section>
 
-<section>
+<section data-transition="slide-in">
   <h3>Theory: confidence intervals</h3>
   <p class="framed border-danger" style="font-size: 0.6em; margin-top: 0;">
       If <span class="warning">the underlying populations are 
@@ -1313,6 +1313,35 @@
     <li>$t^*\simeq1.645$ for the $90\%$ confidence intervals</li>
     <li>$t^*\simeq2.576$ for the $99\%$ confidence intervals</li>
   </ul>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Theory: confidence intervals</h3>
+  <p class="framed border-danger" style="font-size: 0.6em; margin-top: 0;">
+      If <span class="warning">the underlying populations are 
+      reasonably normal or the sample sizes are large</span>,
+      we can estimate the standard error (standard deviation of the
+      sampling distribution) of $\bar{x}_1 − \bar{x}_2$ with
+      $SE = \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$, where 
+      $s_1$ and $s_2$ are the standard deviations in the two samples.
+  </p>
+  <p style="font-size: 0.6em; margin-top: 0;">
+    If the distribution for a statistic follows the shape of a $t$ distribution with standard error SE, we  find a confidence interval for the
+    parameter using:
+  </p>
+  <p class="info" style="text-align: center;">
+    $\textrm{Sample Statistic} \pm t^*\times SE$
+  </p>
+  <p>
+  	$SE=\sqrt{\frac{6.25^2}{26}+\frac{4.89^2}{30}}=1.51$ <br>
+  </p>
+  <p>
+  	Mean & $95\%$ confidence intervals: <br>
+  	$0.53\pm2\times1.51$ <br>
+  	$0.53\pm3.02$
+  </p>
+ 
+
 </section>
 
 <section>
