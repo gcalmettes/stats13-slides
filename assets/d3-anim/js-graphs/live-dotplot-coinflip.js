@@ -70,7 +70,7 @@ function update(){
     var bins = histogram(data);
 
     // radius dependent of data length
-    var radius = 15//y((data.length/2)-1)/2
+    var radius = y((data.length/2)-1)/2
 
     // bins objects
     var bin_container = svg.selectAll("g .bins")
@@ -143,9 +143,9 @@ svg.append("g")
   .attr("transform", "translate(0," + height + ")")
   .style("font-size","0.5em")
   .call(d3.axisBottom(x));
-svg.append("text")             
+svg.append("text")
   .attr("transform",
-        "translate(" + (width/2) + " ," + 
+        "translate(" + (width/2) + " ," +
                        (height + margin.top + 50) + ")")
   .style("text-anchor", "middle")
   .style("fill", "#d2d2d2")
@@ -153,13 +153,13 @@ svg.append("text")
 
 svg.selectAll(".domain")
   .styles({ fill:"none", stroke:"#d2d2d2",  "stroke-width":"2" });
-      
+
 svg.selectAll("g.tick text")
   .style("fill","#d2d2d2");
 
 svg.selectAll("g.tick line")
   .styles({ fill:"none", stroke:"#d2d2d2",  "stroke-width":"2" });
-      
+
 
 update();
 update();
@@ -310,9 +310,9 @@ svg2.append("g")
   .attr("transform", "translate(0," + height2 + ")")
   .style("font-size","0.5em")
   .call(d3.axisBottom(x2));
-svg2.append("text")             
+svg2.append("text")
   .attr("transform",
-        "translate(" + (width2/2) + " ," + 
+        "translate(" + (width2/2) + " ," +
                        (height2 + margin2.top + 50) + ")")
   .style("text-anchor", "middle")
   .style("fill", "#d2d2d2")
@@ -320,13 +320,13 @@ svg2.append("text")
 
 svg2.selectAll(".domain")
   .styles({ fill:"none", stroke:"#d2d2d2",  "stroke-width":"2" });
-      
+
 svg2.selectAll("g.tick text")
   .style("fill","#d2d2d2");
 
 svg2.selectAll("g.tick line")
   .styles({ fill:"none", stroke:"#d2d2d2",  "stroke-width":"2" });
-      
+
 
 
 
@@ -336,6 +336,3 @@ d3.interval(function() {
   }, 5000 );
 
 };
-
-
-
