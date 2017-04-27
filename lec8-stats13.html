@@ -51,27 +51,116 @@
 
 
 <section>
-  <h3>Last time</h3>
-  <p class="sided">
-    How to compare 2 means
-  </p>
+  <h3>Confidence intervals and hypothesis testing</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="framed border-info" style="text-align: center; margin-top: 0;">
+        $\alpha$ confidence intervals
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="framed border-warning" style="text-align: center; margin-top: 0;">
+        Hypothesis testing ($\alpha$ level)
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <p class="sided border-info" style="margin-top: 0;">
+        Confidence intervals are most useful when you want to <span class="info">estimate population parameters</span> 
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="sided border-warning" style="margin-top: 0;">
+        Hypothesis tests and p-values are most useful when you want to <span class="warning">test hypotheses about population parameters</span>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <p class="sided border-info" style="margin-top: 0;">
+        Confidence intervals give you a <span class="info">range of plausible values</span>
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="sided border-warning" style="margin-top: 0;">
+        p-values quantify the <span class="warning">strength of evidence against the null hypothesis</span>
+      </p>
+    </div>
+  </div>
 </section>
 
+<section>
+  <h3>Interval, test, or neither?</h3>
+  <div class="row">
+    <div class="col-45">
+      <p>
+      Are the following questions best assessed using:
+      </p>
+    </div>
+    <div class="col-55">
+      <ul class="icon" style="font-size: 0.65em;">
+        <li class="arrow-circle warning"><span class="normal">a hypothesis test?</span></li>
+        <li class="arrow-circle info"><span class="normal">a confidence interval?</span></li>
+        <li class="arrow-circle danger"><span class="normal">or is statistical inference not relevant?</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-85">
+      <p class="quoted" style="margin-top: 0;">
+        How much do college students sleep, on average?
+      </p>
+    </div>
+    <div class="col-15" style="vertical-align: middle;">
+      <i class="fragment info fa fa-check-square-o" data-fragment-index=1></i>
+    </div>
+  </div> 
+  <div class="row">
+    <div class="col-85">
+      <p class="quoted" style="margin-top: 0;">
+        Do college students sleep more than the recommended 8 hours a night, on average?
+      </p>
+    </div>
+    <div class="col-15" style="vertical-align: middle;">
+      <i class="fragment warning fa fa-check-square-o" data-fragment-index=2></i>
+      <i class="fragment info fa fa-check-square-o" data-fragment-index=2></i>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-85">
+      <p class="quoted" style="margin-top: 0;">
+        What proportion of college students in the sleep study sample slept at least 8 hours?
+      </p>
+    </div>
+    <div class="col-15" style="vertical-align: middle;">
+      <i class="fragment danger fa fa-check-square-o" data-fragment-index=3></i>
+    </div>
+  </div>  
+</section>
 
 
 <section>
   <h3>Pitfalls associated with formal hypothesis testing</h3>
+  <p class="sided border-info">
+    Hypothesis testing is very powerful, as it helps shed light on <span class="info">whether an observed effect could be real</span> or just due to random chance.
+  </p>
+  <p class="sided border-warning">
+    However, statistical significance <span class="u-warning">is not foolproof</span>, and <span class="warning">it is possible to make the wrong decision</span>, rejecting a true null hypothesis or not rejecting a false null hypothesis.
+  </p>
   <p>
-    Hypothesis testing is very powerful, as it helps shed light on whether an observed effect is real or just due to random chance. However, statistical signi cance is not foolproof, and it is possible to make the wrong decision, rejecting a true null hypothesis or not rejecting a false null hypothesis. This section discusses common pitfalls associated with formal hypothesis testing, along with factors that influence the chances of these errors occurring.
+     We will discuss common pitfalls associated with formal hypothesis testing, along with factors that influence the chances of these errors occurring.
   </p>
 </section>
+
+
 
 <section>
   <h3>Question of the day</h3>
   <div class="framed border-danger bg-danger">
     Does choice of mate improve<br>offspring fitness (in fruit flies)?
   </div>
-  <div class="row">
+  <div class="row fragment">
     <div class="col-100">
       <img src="assets/img/lec/fruit-flies-mating-choice.svg"
       class="unbordered flat" width=100%>
@@ -79,10 +168,11 @@
   </div>
 </section>
 
-<section>
+
+<section data-transition="slide-in">
   <h3>Original study</h3>
   <p>
-    Paper published in Nature with p-value < 0.01
+    Paper published in <span class="em">Nature</span> with p-value < 0.01
   </p>
   <div class="row">
     <div class="col-50">
@@ -96,21 +186,30 @@
   </div>
 </section>
 
-<section>
+<section data-transition="slide-out">
   <h3>Original study</h3>
   <p>
-    Paper published in Nature with p-value < 0.01
+    Paper published in <span class="em">Nature</span> with p-value < 0.01
   </p>
-  <p>
-    Concluded, based on the data, that mate choice improves offspring fitness.
-  </p>
-  <p>
-    This went against conventional wisdom.
-  </p>
-  <p>
-    Researchers at Penn State tried to replicate the results…
-  </p>
+  <div class="row">
+    <div class="col-50">
+      <img src="assets/img/lec/fruit-flies-nature1980-title.png"
+      class="rounded unbordered flat" width=100%>
+    </div>
+    <div class="col-50">
+      <p class="sided border-warning">
+      Concluded, based on the data, that mate choice improves offspring fitness. <br>
+      </p>
+      <p>
+        <i class="fa fa-arrow-circle-right"></i> This went against conventional wisdom.
+      </p>
+      <p class="fragment framed border-info">
+      <i class="fa fa-user-md"></i> Researchers at Penn State tried to replicate the results…
+      </p>
+    </div>
+  </div>
 </section>
+
 
 <section data-transition="slide-in">
   <h3>Follow up study</h3>
@@ -184,12 +283,12 @@
          </tr>
        </tbody>
       </table> 
-      <p class="sided border-danger" style="margin-top: 0; font-size: 0.65em;">
+      <p class="sided border-danger fragment" style="margin-top: 0; font-size: 0.65em;">
         <span class="u em">Difference in survival rate:</span>
         $d=\overset{\hat{}}{p}_\textrm{choice}-\overset{\hat{}}{p}_\textrm{no choice}$ <br>
         $d=0.6067-0.5976=0.009$
       </p>
-      <p class="framed border-danger" style="margin-top: 0; font-size: 0.65em;">
+      <p class="framed border-danger fragment" style="margin-top: 0; font-size: 0.65em;">
         One-tail p-value = 0.102
       </p>
     </div>
@@ -213,7 +312,7 @@
     </div>
     <div class="col-50">
       <p class="framed border-info">
-        One study found insignificant results. ($p=102$)
+        One study found insignificant results. ($p=0.102$)
       </p>
     </div>
     <div>
@@ -223,13 +322,13 @@
 </section>
 
 <section data-transition="slide-in">
-  <h3>Errors</h3>
+  <h3>Errors in significance testing</h3>
   <p class="u em" style="margin-top: 0; margin-bottom: 0;">
     Errors can happen!
   </p>
   <ul style="font-size: 0.7em;" class="push-left">
-    <li>A Type I Error is rejecting a true null (false positive)</li>
-    <li>A Type II Error is not rejecting a false null (false negative)</li>
+    <li>A Type I error is rejecting a true null (false positive)</li>
+    <li>A Type II error is not rejecting a false null (false negative)</li>
   </ul>
   <table style="font-size: 1.5em; margin-top: 2em;">
     <tbody>
@@ -261,13 +360,13 @@
 </section>
 
 <section data-transition="slide-out">
-  <h3>Errors</h3>
+  <h3>Errors in significance testing</h3>
   <p class="u em" style="margin-top: 0; margin-bottom: 0;">
     Errors can happen!
   </p>
   <ul style="font-size: 0.7em;" class="push-left">
-    <li>A Type I Error is rejecting a true null (false positive)</li>
-    <li>A Type II Error is not rejecting a false null (false negative)</li>
+    <li>A Type I error is rejecting a true null (false positive)</li>
+    <li>A Type II error is not rejecting a false null (false negative)</li>
   </ul>
   <div class="row">
     <div class="col-100" style="margin-top: 0.5em;">
@@ -278,113 +377,272 @@
 
 <section>
   <h3>Mate choice and offspring survival</h3>
-  <p>
-    Option #1:  The original study (p-value < 0.01) made a Type I error, and H0 is really true
-  </p>
-  <p>
-    Option #2: The second study (p-value = 0.102) made a Type II error, and Ha is really true
-  </p>
-  <p>
-    Option #3: No errors were made; different experimental settings yielded different results
-  </p>
-</section>
-
-<section>
-  <h3>Probability of Type I error</h3>
-  <p>
-    Distribution of statistics, assuming H0 true:
-  </p>
-  <p>
-    If the null hypothesis is true: <br>
-    5% of statistics will be in the most extreme 5% <br>
-    5% of statistics will give p-values less than 0.05 <br>
-    5% of statistics will lead to rejecting H0 at α = 0.05 <br>
-    If α = 0.05, there is a 5% chance of a Type I error
-  </p>
-  <p>
-    If the null hypothesis is true: <br>
-    1% of statistics will be in the most extreme 1% <br>
-    1% of statistics will give p-values less than 0.01 <br>
-    1% of statistics will lead to rejecting H0 at α = 0.01 <br>
-    If α = 0.01, there is a 1% chance of a Type I error <br>
+  <div class="row">
+    <div class="col-33">
+      <p class="framed border-success fragment">
+      <span class="em success u-success">Option #1:</span> <br>
+       The original study (p-value < 0.01) made a <span class="success">Type I error</span>, and H0 is really true
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="framed border-info fragment">
+      <span class="em info u-info">Option #2:</span> <br>
+      The second study (p-value = 0.102) made a <span class="info">Type II error</span>, and Ha is really true
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="framed border-warning fragment">
+      <span class="em warning u-warning">Option #3:</span> <br>
+      <span class="warning">No errors</span> were made; different experimental settings yielded different results
+      </p>
+    </div>
+  </div>
+  <p class="quoted fragment">
+    What is the probability of making a Type I or Type II error?
   </p>
 </section>
 
 <section>
   <h3>Probability of Type I error</h3>
-  <p>
-    The probability of making a Type I error (rejecting a true null) is the significance level, α
+  <div class="row">
+    <div class="col-66">
+      <p class="em u" style="font-size: 0.6em; margin-bottom:0">
+        If the null hypothesis is true:
+      </p>
+        <ul style="font-size: 0.6em; margin-top: 0;">
+          <li>5% of statistics will be in the most extreme 5%</li>
+          <li>5% of statistics will give p-values less than 0.05</li>
+          <li>5% of statistics will lead to rejecting H$_0$ at $\alpha=0.05$</li>
+        </ul>
+      <p style="font-size: 0.6em; margin-bottom:0">
+        If $\alpha=0.05$, there is a 5% chance of a Type I error
+      </p>
+    </div>
+    <div class="col-33">
+      <svg width="100%" viewBox="40 0 390 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/type1-error-probability.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/type1-error-probability.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+    <div class="row fragment">
+    <div class="col-66">
+      <p class="em u" style="font-size: 0.6em; margin-bottom:0">
+        If the null hypothesis is true:
+      </p>
+        <ul style="font-size: 0.6em; margin-top: 0;">
+          <li>1% of statistics will be in the most extreme 1%</li>
+          <li>1% of statistics will give p-values less than 0.01</li>
+          <li>1% of statistics will lead to rejecting H$_0$ at $\alpha=0.01$</li>
+        </ul>
+      <p style="font-size: 0.6em; margin-bottom:0">
+        If $\alpha=0.01$, there is a 1% chance of a Type I error
+      </p>
+    </div>
+    <div class="col-33">
+      <svg width="100%" viewBox="40 0 390 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/type1-error-probability.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/type1-error-probability.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Probability of Type I error</h3>
+  <p class="quoted" style="font-size: 0.75em;">
+    The probability of making a Type I error (rejecting a true null) <span class="warning">is the significance level, $\alpha$</span>.
   </p>
 </section>
 
 <section>
-  <h3>Multiple testing</h3>
-  <p>
-    Because the chance of a Type I error is α…
+  <h3>The problem of multiple testing</h3>
+  <p class="framed border-warning" style="margin-top: 0;">
+    Because the chance of a Type I error is $\alpha$ … <br>
+    <span class="warning">$\alpha$ of all tests with true null hypotheses will yield significant results just by chance</span>.
   </p>
-  <p>
-    α of all tests with true null hypotheses will yield significant results just by chance.
+  <p style="margin-top:0;">
+    If 100 tests are done with $\alpha=0.05$ and nothing is really going on (the null hypothesis is really true), 5% of them will yield significant results (reject the null), just by chance.
+    <br>
+    <i class="fa fa-arrow-circle-right"></i> This is known as the <span class="info">problem of multiple testing</span>
   </p>
-  <p>
-    If 100 tests are done with α = 0.05 and nothing is really going on, 5% of them will yield significant results, just by chance
-  </p>
-  <p>
-    This is known as the problem of multiple testing
-  </p>
+  <div class="row">
+    <div class="col-50 fragment">
+      <p class="framed border-success" style="margin-top: 0; font-size: 0.65em;">
+        <span class="em u">Consider a topic that is being investigated by research teams all over the world:</span>
+        <br>
+        Using $\alpha=0.05$, <span class="success">5% of teams are going to find something significant, even if the null hypothesis is true</span>.
+      </p>
+    </div>
+    <div class="col-50 fragment">
+      <p class="framed border-danger" style="margin-top: 0; margin-bottom:0; font-size: 0.65em;">
+        <span class="em u">Consider a research team/company doing many hypothesis tests:</span>
+        <br>
+        Using $\alpha=0.05$, <span class="danger">5% of the tests are going to be significant, even if the null hypotheses are all true</span>.
+      </p>
+      <p style="margin-top: 0;">
+        <i class="fa fa-arrow-circle-right danger"></i> 
+        <span class="info">multiple hypothesis tests</span>
+      </p>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h3>Multiple testing</h3>
-  <p>
-    Consider a topic that is being investigated by research teams all over the world
-  </p>
-  <p>
-    Using α = 0.05, 5% of teams are going to find something significant, even if the null hypothesis is true
-  </p>
-  <p>
-    Consider a research team/company doing many hypothesis tests
-  </p>
-  <p>
-    Using α = 0.05, 5% of tests are going to be significant, even if the null hypotheses are all true
-  </p>
-</section>
 
 <section>
-  <h3>Multiple testing</h3>
-  <p>
-    We just learned that if the null hypothesis is true, then 5% of hypothesis tests using 𝛼 = 0.05 will incorrectly reject the null hypothesis. This issue becomes even more important when doing multiple hypothesis tests. Of all hypothesis tests conducted for a true null hypothesis, using 𝛼 = 0.05, 5% of the tests will lead to rejecting the null hypothesis! In other words, if you do 100 hypothesis tests, all testing for an effect that doesn’t exist (the null is true), about 5% of them will incorrectly reject the null.
-  </p>
-  <p class="sided">
-    The Problem of Multiple Testing
-When multiple tests are conducted, if the null hypotheses are all true, the proportion of all the tests that will yield statistically signi cant results just by random chance is about 𝛼, the signi cance level.
+  <h3>The problem of multiple testing</h3>
+  <p class="quoted" style="font-size: 0.7em;">
+    When multiple tests are conducted, if the null hypotheses are
+    all true, <span class="warning">the proportion of all the tests
+    that will yield statistically significant results just by 
+    random chance 
+    is about $\alpha$</span>, the significance level.
   </p>
 </section>
 
 <section>
   <h3>Mate choice and offspring survival</h3>
-  <p>
-    The experiment was actually comprised of 50 smaller experiments.  What if we had calculated the p-value for each run?
+  <div class="row">
+    <div class="col-50">
+      <p style="margin-top: 0; font-size: 0.65em;">
+        The experiment was actually comprised of <span class="info">50 smaller
+        experiments</span>. (<span class="em">experiment repeated 
+        10 times/day for 5 days 
+        - 50 runs, 10000 larvae tested in each group</span>).
+      </p>
+    </div>
+    <div class="col-50">
+      <table style="font-size: 0.8em;">
+        <tbody>
+          <tr>
+            <td rowspan=2 style="border-right: solid 1px;">Larvae <br>survived?</td>
+            <td colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Mate choice?</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td>Yes</td>
+           <td style="border-right: solid 1px;">No</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none;">6067</td>
+           <td style="border-right: solid 1px; border-bottom: none;">5976</td>
+           <td style="border-bottom: none;"">12043</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">No</td>
+           <td>3933</td>
+           <td style="border-right: solid 1px;">4024</td>
+           <td>7957</td>
+         </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>10000</td>
+           <td style="border-right: solid 1px;">10000</td>
+           <td>20000</td>
+         </tr>
+       </tbody>
+      </table> 
+    </div>
+  </div>
+  <p class="framed border-danger" style="margin-top: 0;">
+      What if we had calculated the p-value for each run?
   </p>
-  <p>
-    50 p-values: <br>
-     0.9570 0.8498 0.1376 0.5407 0.7640 0.9845 0.3334 0.8437 0.2080 0.8912 0.8879 0.6615 0.6695 0.8764 <span class="warning">1.0000</span> 0.0064 0.9982 0.7671 0.9512 0.2730 0.5812 0.1088 0.0181 0.0013 0.6242 0.0131 0.7882 0.0777 0.9641 <span class="warning">0.0001</span> 0.8851 0.1280 0.3421 0.1805 0.1121 0.6562 0.0133 0.3082 0.6923 0.1925 0.4207 0.0607 0.3059 0.2383 0.2391 0.1584 0.1735 0.0319 0.0171 0.1082
-  </p>
-  <p>
-   What if we just reported the run that yielded a p-value of 0.0001?
+  <div class="row fragment" data-fragment-index=0> 
+    <div class="col-15">
+      <p style="font-size: 0.6em" class="em u">
+        50 <br>p-values
+      </p>
+    </div>
+    <div class="col-85">
+      <table style="font-size: 0.8em;">
+        <tbody>
+          <tr>
+            <td>0.9570</td>
+            <td>0.8498</td>
+            <td>0.1376</td>
+            <td>0.5407</td>
+            <td>0.7640</td>
+            <td>0.9845</td>
+            <td>0.3334</td>
+            <td>0.8437</td>
+            <td>0.2080</td>
+            <td>0.8912</td>
+          </tr>
+          <tr>
+            <td>0.8879</td>
+            <td>0.6615</td>
+            <td>0.6695</td>
+            <td>0.8764</td>
+            <td class="fragment highlight-bckg-blue" 
+             data-fragment-index=1>1.0000</td>
+            <td>0.0064</td>
+            <td>0.9982</td>
+            <td>0.7671</td>
+            <td>0.9512</td>
+            <td>0.2730</td>
+          </tr>
+          <tr>
+            <td>0.5812</td>
+            <td>0.1088</td>
+            <td>0.0181</td>
+            <td>0.0013</td>
+            <td>0.6242</td>
+            <td>0.0131</td>
+            <td>0.7882</td>
+            <td>0.0777</td>
+            <td class="fragment highlight-bckg-blue"  data-fragment-index=1>0.0001</td>
+            <td>0.9641</td>
+          </tr>
+          <tr>
+            <td>0.8851</td>
+            <td>0.1280</td>
+            <td>0.3421</td>
+            <td>0.1805</td>
+            <td>0.1121</td>
+            <td>0.6562</td>
+            <td>0.0133</td>
+            <td>0.3082</td>
+            <td>0.6923</td>
+            <td>0.1925</td>
+          </tr>
+          <tr>
+            <td>0.4207</td>
+            <td>0.0607</td>
+            <td>0.3059</td>
+            <td>0.2383</td>
+            <td>0.2391</td>
+            <td>0.1584</td>
+            <td>0.1735</td>
+            <td>0.0319</td>
+            <td>0.0171</td>
+            <td>0.1082</td>
+          </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+  <p class="quoted fragment" style="margin-top: 0;" data-fragment-index=2>
+    What if we just reported the run that yielded a p-value of 0.0001?
+    <br>
     Is that ethical?
   </p>
 </section>
 
 <section>
   <h3>Publication bias</h3>
-  <p>
-    Publication bias refers to the fact that usually only the significant results get published
+  <p class="quoted">
+    Publication bias refers to the fact that usually <span class="warning">only the significant results get published</span>.
   </p>
   <p>
-    The one study that turns out significant gets published, and no one knows about all the insignificant results (also known as the file drawer problem)
+    <i class="fa fa-arrow-circle-right info"></i>
+    The one study that turns out significant gets published, and no one knows about all the insignificant results (also known as the <span class="info">file drawer problem</span>)
   </p>
-  <p>
-    This combined with the problem of multiple testing can yield very misleading results
+  <p class="framed border-danger fragment">
+    Publication bias, combined with the problem of multiple testing can yield very misleading results.
   </p>
 </section>
 
@@ -393,16 +651,102 @@ When multiple tests are conducted, if the null hypotheses are all true, the prop
 </section>
 
 <section>
+  <h3>Eating chocolate to lose weight</h3>
+  <div class="row">
+    <div class="col-15">
+      <p></p>
+    </div>
+    <div class="col-70">
+      <img src="assets/img/lec/chocolate-hoax-irish-examiner.png" class="unbordered flat" width=100%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-15">
+      <p></p>
+    </div>
+    <div class="col-70">
+      <img src="assets/img/lec/chocolate-hoax-huffpost.png" class="unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Eating chocolate to lose weight</h3>
+  <div class="row">
+    <div class="col-50">
+      <img src="assets/img/lec/chocolate-hoax-study.png" class="unbordered flat" width=100%>
+    </div>
+    <div class="col-50">
+    <img src="assets/img/lec/chocolate-hoax-author-blog.png" class="unbordered flat fragment" data-fragment-index=1 width=100%>
+    </div>
+  </div>
+  <p class="quoted fragment" data-fragment-index=2 
+    style="font-size: 0.65em;">
+    The study was 100 percent authentic. My colleagues and I recruited actual human subjects in Germany. We <span class="info">ran an actual clinical trial</span>, with subjects randomly assigned to different diet regimes. And the <span class="info">statistically significant benefits of chocolate that we reported are based on the actual data</span>.
+  </p>
+  <p class="quoted fragment" data-fragment-index=2 
+    style="font-size: 0.65em;">
+   It was, in fact, a <span class="u-info">fairly typical study for the field of diet research</span>. Which is to say: It was terrible science. The results are meaningless, and the health claims that the media blasted out to millions of people around the world are utterly unfounded.
+  </p>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Eating chocolate to lose weight</h3>
+  <div class="row">
+    <div class="col-50">
+      <img src="assets/img/lec/chocolate-hoax-study.png" class="unbordered flat" width=100%>
+    </div>
+    <div class="col-50">
+    <img src="assets/img/lec/chocolate-hoax-author-blog.png" class="unbordered flat" width=100%>
+    </div>
+  </div>
+  <p class="quoted" style="font-size: 0.65em;">
+    I know what you’re thinking. <span class="warning">The study did show accelerated weight loss in the chocolate group—shouldn’t we trust it?</span> Isn’t that how science works?
+  </p>
+  <p class="quoted" style="font-size: 0.65em;">
+   Here’s a dirty little science secret: <span class="warning">If you measure a large number of things about a small number of people, you are almost guaranteed to get a “statistically significant” result</span>. Our study included 18 different measurements—weight, cholesterol, sodium, blood protein levels, sleep quality, well-being, etc.—from 15 people. (One subject was dropped.) <span class="warning">That study design is a recipe for false positives</span>.
+  </p>
+</section>
+
+<section>
   <h3>Multiple Testing and Publication Bias</h3>
-  <p>
-    α of all tests with true null hypotheses will yield significant results just by chance.
-  </p>
-  <p>
-    The one that happens to be significant is the one that gets published.
-  </p>
-  <p>
+  <ol style="font-size: 0.8em; margin-top: 1em;">
+    <li>$\alpha$ of all tests with true null hypotheses will yield <span class="info">significant results just by chance</span></li>
+    <li>The one that happens to be significant is the one that <span class="warning">gets published</span></li>
+  </ol>
+  <div class="row danger" style="margin-top: 1em;">
     THIS SHOULD SCARE YOU!
-  </p>
+  </div>
+</section>
+
+
+<section>
+  <h3>Reproducibility crisis</h3>
+  <div class="row">
+    <div class="col-50">
+      <img src="assets/img/lec/plos-one-replication-biomedical.png" class="unbordered flat" width=100%>
+    </div>
+    <div class="col-50">
+      <p class="quoted" style="margin-top:0; font-size: 0.55em;">
+        Newspapers never covered initial studies reporting null findings and rarely reported subsequent null observations. Only 48.7% of the 156 studies reported by newspapers were confirmed by the corresponding meta-analyses.
+      </p>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-40">
+      <img src="assets/img/lec/nature-pvalue-statistical-errors.png" class="unbordered flat" width=100%>
+    </div>
+    <div class="col-60">
+      <p class="quoted" style="margin-top:0; font-size: 0.55em;">
+        The p-value was never meant to be used the way
+        it's used today
+      </p>
+      <img src="assets/img/lec/plos-medicine-why-research-false.png" class="unbordered flat" width=100%>
+      <p class="quoted" style="margin-top:0; font-size: 0.55em;">
+        It can be proven that most claimed research findings are false.
+      </p>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -419,141 +763,207 @@ When multiple tests are conducted, if the null hypotheses are all true, the prop
   </p>
 </section>
 
+<!-- <section data-state="showFooterRight" data-footer="Source - <a href='http://ajcn.nutrition.org/content/97/1/127.full#T1' target='_blank'>Schoenfeld J. and Ioannidis JPA (2013). 'Is everything we eat associated with cancer? A systematic cookbook review'. Am J Clin Nutr 97:1 127-134</a>"> -->
+<section>
+  <h3>Everything we eat both causes and prevents cancer</h3>
+  <div class="row">
+    <div class="col-65">
+      <svg width="100%" viewBox="0 0 432 360" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/food-cancer-relative-risk.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-35">
+      <p class="sided" style="font-size: 0.55em;">
+      Each <i class="fa fa-circle info"></i> is one medical study
+      </p>
+      <p style="font-size: 0.5em;">
+      Schoenfeld J. and Ioannidis JPA (2013). '<span class="em">Is everything we eat associated with cancer? A systematic cookbook review</span>'. Am J Clin Nutr 97:1 127-134
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Sometimes we get into confusing situations</h3>
+  <p class="sided border-info" style="margin-top: 0; font-size: 0.65em">
+    A single study is rarely the final answer. 
+    <br>
+    And yet for science reporters, new studies are irresistible — a bold new finding makes a great headline.
+  </p>
+  <div class="row">
+    <div class="col-25 fragment" data-fragment-index=1>
+      Apr 2014
+    </div>
+    <div class="col-25 fragment" data-fragment-index=2>
+      Jul 2014
+    </div>
+    <div class="col-25 fragment" data-fragment-index=3>
+      Nov 2016
+    </div>
+    <div class="col-25 fragment" data-fragment-index=4>
+      Feb 2017
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25 fragment" data-fragment-index=1>
+      <img src="assets/img/lec/fruits-health-good7.jpeg" class="unbordered flat" width=100%>
+    </div>
+    <div class="col-25 fragment" data-fragment-index=2>
+      <img src="assets/img/lec/fruits-health-no-effect.jpeg" class="unbordered flat" width=100%>
+    </div>
+    <div class="col-25 fragment" data-fragment-index=3>
+      <img src="assets/img/lec/fruits-health-unrealistic.jpeg" class="unbordered flat" width=100%>
+    </div>
+    <div class="col-25 fragment" data-fragment-index=4>
+      <img src="assets/img/lec/fruits-health-good10.jpeg" class="unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
+
+
 <section>
   <h3>What can you do?</h3>
-  <p>
-    Point #1: Errors (type I and II) are possible
-  </p>
-  <p>
-    Point #2: Multiple testing and publication bias are a huge problem
-  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="framed border-info">
+        <span class="em info u-info">Point #1:</span> <br>
+        Errors (type I and II) are possible
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="framed border-warning">
+        <span class="em warning u-warning">Point #2:</span> <br>
+        Multiple testing and publication bias are a huge problem
+      </p>
+    </div>
+  </div>
   <p>
     Is it all hopeless?  What can you do?<br>
-    - Recognize (and be skeptical) when a claim is one of many tests <br>
-    - Look for replication of results…
   </p>
+  <ul style="font-size: 0.7em;">
+    <li>Recognize (and be skeptical) when a claim is one of many tests</li>
+    <li>Look for replication of results</li>
+  </ul>
 </section>
 
 <section>
   <h3>Replication</h3>
-  <p>
-    Replication (or reproducibility) of a study in another setting or by another researcher is extremely important!
+  <p class="quoted">
+    Replication (or reproducibility) of a study in <span class="warning">another setting</span> or by <span class="warning">another researcher</span> is extremely important!
   </p>
-  <p>
-    Studies that have been replicated with similar conclusions gain credibility
-  </p>
-  <p>
-    Studies that have been replicated with different conclusions lose credibility
-  </p>
-  <p>
+  <div class="row">
+    <div class="col-50">
+      <p class="framed">
+        <i class="fa fa-arrow-circle-right"></i> Studies that have been replicated with similar conclusions gain credibility
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="framed">
+        <i class="fa fa-arrow-circle-right"></i> Studies that have been replicated with different conclusions lose credibility
+      </p>
+    </div>
+  </div>
+  <p class="framed border-danger">
     Replication helps guard against Type I errors AND helps with generalizability
   </p>
 </section>
 
-<section>
+<section data-transition="slide-in">
   <h3>Mate choice and offspring survival</h3>
+  <p style="margin-top: 0; margin-bottom:0; font-size: 0.65em;">
+    Actually, the research at Penn State included 3 different experiments; two different species of fruit flies and three different mutant types
+  </p>
+  <div class="row">
+  <ul style="font-size: 0.65em;" class="push-left">
+    <li>Drosophila melanogaster, Mutant: sparkling eyes</li>
+    <li>Drosophila melanogaster, Mutant: white eyes</li>
+    <li>Drosophila pseudoobscura, Mutant: orange eyes</li>
+  </ul>
+  </div>
+  
   <p>
-    Actually, the research attempting to replicate the mate choice result included 3 different experiments
+  <i class="fa fa-arrow-circle-right"></i>
+   Multiple possible outcomes (% surviving in each group, % of survivors who were from experimental group (not mutants)
   </p>
   <p>
-    Original study: Significant in favor of choice
-    p-value < 0.01
+    <i class="fa fa-arrow-circle-right"></i>
+    Multiple ways to analyze – proportions, quantitative paired analysis
   </p>
-  <p>
-    Follow-up study #1: Not significant 
-    6067/10000 - 5976/10000  = 0.6067 - 0.5976 = 0.009
-    p-value = 0.1
+
+
+</section>
+
+<section data-transition="slide-out">
+  <h3>Mate choice and offspring survival</h3>
+  <p style="font-size: 0.65em;margin-top: 0;">
+    <span class="warning u-warning">Original study:</span><br>
+    Significant in <span class="warning">favor of choice</span>
+    (p < 0.01)
   </p>
-  <p>
-    Follow-up study #2: Significant in favor of no choice 
-    4579/10000 – 4749/10000 = 0.4579 – 0.4749 = -0.017
-    p-value = 0.992 for choice, 0.008 for no choice 
+  <p style="font-size: 0.65em;margin-top: 0;">
+    <span class="info u-info">Follow-up study #1:</span><br>
+    Not significant <br> 
+    $\frac{6067}{10000}-\frac{5976}{10000}= 0.6067 - 0.5976 = 0.009$
+    ($p = 0.102$)
   </p>
-  <p>
-    Follow-up study #3: Significant in favor of no choice
-    1641/5000 – 1758/5000 = 0.3282 – 0.3516 = -0.02
-    p-value = 0.993 for choice, 0.007 for no choice 
+  <p style="style="margin-top: 0; font-size: 0.65em;">
+    <span class="success u-success">Follow-up study #2:</span><br>
+     Significant in <span class="success">favor of no choice</span> <br>
+     $\frac{4579}{10000}-\frac{4749}{10000}= 0.4579 - 0.4749 = -0.017$
+    ($p= 0.008$) 
+  </p>
+  <p style="style="margin-top: 0; font-size: 0.65em;">
+    <span class="success u-success"">Follow-up study #3:</span><br>
+     Significant in <span class="success">favor of no choice</span><br>
+     $\frac{1641}{5000}-\frac{1758}{5000}= 0.3282 - 0.3516 = -0.02$
+    ($p=0.007$)
   </p>
 </section>
 
 <section>
   <h3>Probability of Type II error</h3>
-  <p>
-    How can we reduce the probability of making a Type II Error (not rejecting a false null)? <br>
-    - Increase the significance level <br>
-    -Increase the sample size
+  <p class="quoted">
+    How can we reduce the probability of making a Type II Error (not rejecting a false null)? 
   </p>
-</section>
-
-<section>
-  <h3>Significance Level and Errors</h3>
   <div class="row">
     <div class="col-50">
-      <p>
-    Reject H0
-Could be making a Type I error if H0 true
-Chance of Type I error
-  </p>
-    </div>
-    <div class="col-50">
-      <p>
-    Do not reject H0
-Could be making a Type II error if Ha true
-Related to chance of making a Type II error
-  </p>
+      <p class="framed border-info">
+        Increase the sample size
+      </p>
     </div>
   </div>
-  <p>
-    Decrease α if Type I error is very bad <br>
-Increase α if Type II error is very bad
-  </p>
-</section>
-
-<section>
-  <h3>Significance Level and Errors</h3>
-  <p>
-    While we wish to avoid both types of errors, in practice we have to accept some trade- off between them. If we make it very hard to reject H0, we could reduce the chance of making a Type I error, but then we would make Type II errors more often. On the other hand, making it easier to reject H0 would reduce the chance of making a Type II error, but increase the chance of making a Type I error and we would end up rejecting too many H0’s that were actually true. This balance is set by how easy or hard it is to reject H0, which is exactly determined by the signi cance level!
-  </p>
-  <p>
-    decrease the chance of making a Type I error, we make it harder to reject H0 by using a lower signi cance level. To decrease the chance of making a Type II error, we make it easier to reject H0 by using a higher signi cance level.
-If we use 𝛼 = 0.05 in a right-tail test, we decide to reject H0 for all sample values in the 5% of area in the upper tail of a randomization distribution. If instead we use 𝛼 = 0.01, we only reject H0 for sample values in the extreme upper 1% of area. If we make 𝛼 smaller, fewer samples would be that extreme, meaning we would reject H0 less often.
-Because 5% of statistics will be in the most extreme 5% of the randomization distribution, these 5% of samples will yield p-values less than 0.05. Because a ran- domization distribution is created assuming the null hypothesis is true, this means 5% of samples will lead to rejecting H0 at 𝛼 = 0.05, even when H0 is true. This idea generalizes beyond 0.05: if the null hypothesis is true, 𝛼 is the probability of making a Type I error.
-  </p>
-  <p class="sided">
-    Understanding a Significance Level
-The signi cance level, 𝛼, represents the tolerable probability of making a Type I error.
-  </p>
-  <p>
-    If the consequences of a Type I error are severe (for example, approving a new drug that is potentially dangerous) we might use a very small 𝛼 (perhaps even 𝛼 = 0.005). If the consequences of a Type II error are severe (for example, failing to diagnose a treatable disease), we would want to make it easier to reject H0, so might use a relatively large 𝛼. However, remember that there is always a trade-off between the two types of errors, so we usually use the common signi cance levels of 5%, 10% or 1%.
-  </p>
-</section>
-
-<section>
-  <h3>Decreasoing chance of Type II error</h3>
-  <p>
+  <p class="fragment">
     Larger sample size makes it easier to reject the null
+    (decrease the variability of the sampling distribution)
+    <br>
+    <i class="fa fa-arrow-circle-right info"></i>
+    increase n to decrease chance of Type II error
   </p>
-  <p>
-    So, increase n to decrease chance of Type II error
-  </p>
+  <ul class="fragment" style="font-size: 0.65em;">
+    <li>With small sample sizes, even large differences or effects may not be significant, and Type II errors are common </li>
+    <li>With large sample sizes, even a very small difference or effect can be significant…</li>
+  </ul>
 </section>
 
 <section>
-  <h3>Effect of sample size</h3>
-  <p>
-    Larger sample size makes it easier to reject H0
-  </p>
-  <p>
-    With small sample sizes, even large differences or effects may not be significant, and Type II errors are common 
-  </p>
-  <p>
-    With large sample sizes, even a very small difference or effect can be significant…
-  </p>
-</section>
-
-<section>
-  <h3>A small p-value doesn't necessarily means big difference</h3>
+  <h3>Larger sample size makes it easier to reject the null</h3>
   <div class="row">
+    <div class="col-20">
+      <p>
+        <span class="u em">Set 1:</span><br>
+        Mean: 16 <br>
+        SD: 5 <br>
+      </p>
+      <p>
+        <span class="u em">Set 2:</span><br>
+        Mean: 20 <br>
+        SD: 5 <br>
+      </p>
+      <p>
+        <span class="success">$\bar{x}_2-\bar{x}_1=4$</span>
+      </p>
+    </div>
     <div class="col-50">
       <svg width="100%" viewBox="0 0 288 288" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/pvalue-sample-size-increase.svg#axes_1"></use>
@@ -561,7 +971,7 @@ The signi cance level, 𝛼, represents the tolerable probability of making a Ty
         <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/pvalue-sample-size-increase.svg#axes_4"></use>
       </svg>
     </div>
-    <div class="col-50">
+    <div class="col-30">
       <p class="info">
         (n=9)<br>$p=0.0525$
       </p>
@@ -571,14 +981,127 @@ The signi cance level, 𝛼, represents the tolerable probability of making a Ty
       <p class="danger fragment" data-fragment-index=2>
         (n=21)<br>$p=0.0069$
       </p>
-      <p class="fragment">
-        Mean: 20 <br>
-        SD: 5 <br>
-        <span class="fragment success">$\bar{x}_2-\bar{x}_1=4$</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Probability of Type II error</h3>
+  <p class="quoted">
+    How can we reduce the probability of making a Type II Error (not rejecting a false null)? 
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="framed border-info">
+        Increase the sample size
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="fragment framed border-warning">
+        Increase the significance level
       </p>
     </div>
   </div>
 </section>
+
+<section>
+  <h3>Significance Level and Errors</h3>
+  <div class="row">
+    <div class="col-15">
+    </div>
+    <div class="col-70">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/type1-type2-error-trade-off.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/type1-type2-error-trade-off.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-45">
+      <p style="margin-top: 0; font-size: 0.65em;">
+        Increase $\alpha$ to reduce the chance of Type II error
+      </p>
+    </div>
+    <div class="col-10">
+    </div>
+    <div class="col-45">
+      <p style="margin-top: 0; font-size: 0.65em;">
+        Decrease $\alpha$ to reduce the chance of Type I error
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Significance Level and Errors</h3>
+  <p style="margin-top: 0;">
+    While we wish to avoid both types of errors, in practice 
+    <span class="success">we have to accept some trade-off</span>
+     between them:
+  </p>
+  <ul style="font-size: 0.65em; margin-top: 0;">
+    <li class="fragment" style="margin-bottom: 1em;">
+      If we set <span class="warning">$\alpha$ to be very low</span>, we make it very hard to reject H$_0$ and we 
+      <span class="warning">reduce the chance of making a Type I error
+      </span>
+      (If we make 
+      $\alpha$ smaller, fewer samples would be considered extreme, meaning we would reject H$_0$ less often),
+      but then we would <span class="warning">make Type II errors more often</span>.
+    </li>
+    <li class="fragment">
+      On the other hand, setting a <span class="info">larger $\alpha$</span> makes it easier to reject H$_0$ (more samples would considered extreme) and we would <span class="info">reduce the chance of making a Type II error</span>. But we would
+      also <span class="info">increase the chance of making a Type I error</span>, ending up rejecting too many H$_0$’s that were actually true. 
+    </li>
+  </ul>
+  <p class="framed border-danger fragment">
+    This balance is set by how easy or hard it is to reject H$_0$, which is exactly determined by the significance level! ($\alpha$)
+  </p>
+</section>
+
+<section>
+  <h3>Understanding the Significance Level</h3>
+  <p class="quoted" style="margin-top: 0;">
+    The significance level $\alpha$, represents the <span class="warning">tolerable probability of making a Type I error</span>.
+  </p>
+  <p class="fragment" style="margin-top: 0;">
+    <i class="fa fa-arrow-circle-right info"></i>
+    <span class="info">If the consequences of a Type I error are severe</span> (for example, approving a new drug that is potentially dangerous) we might use a very small $\alpha$ (perhaps even $\alpha=0.005$).
+  </p>
+  <p class="fragment" style="margin-top: 0;">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    <span class="danger">If the consequences of a Type II error are severe</span> (for example, failing to diagnose a treatable disease), we would want to make it easier to reject H$_0$, so
+    we might use a relatively large $\alpha$. 
+  </p>
+  <p class="fragment sided" style="margin-top: 0; font-size: 0.65em;">
+    However, remember that there is always a trade-off between the two types of errors, so we usually use the common significance levels of 5%, 10% or 1%.
+  </p>
+</section>
+
+
+
+<section>
+  <h3>Statistical vs Practical Significance</h3>
+  <p>
+    Suppose a weight loss program recruits 10,000 people for a randomized experiment.
+  </p>
+  <p>
+    A difference in average weight loss of only 0.5 lbs could be found to be statistically significant
+  </p>
+  <p>
+    Suppose the experiment lasted for a year.  Is a loss of ½ a pound practically significant?
+  </p>
+  <p>
+    A statistically significant result is not always practically significant, especially with large sample sizes 
+  </p>
+</section>
+
+<section>
+  <h3>Report confidence intervals</h3>
+  <p>
+    CI give you the info about the true value
+  </p>
+</section>
+
 
 <section>
   <h3>Sample size is king in p-valueLAND</h3>
@@ -608,29 +1131,6 @@ The signi cance level, 𝛼, represents the tolerable probability of making a Ty
     Short excerpts of field potential recordings in mouse hippocampus in vivo, filtered to isolate theta oscillations (5–12 Hz). <br>
     The amplitudes of theta troughs under control conditions and after injection of atropine, marked by yellow dots, were tested against each other. 
   </aside>
-</section>
-
-<section>
-  <h3>Statistical vs Practical Significance</h3>
-  <p>
-    Suppose a weight loss program recruits 10,000 people for a randomized experiment.
-  </p>
-  <p>
-    A difference in average weight loss of only 0.5 lbs could be found to be statistically significant
-  </p>
-  <p>
-    Suppose the experiment lasted for a year.  Is a loss of ½ a pound practically significant?
-  </p>
-  <p>
-    A statistically significant result is not always practically significant, especially with large sample sizes 
-  </p>
-</section>
-
-<section>
-  <h3>Report confidence intervals</h3>
-  <p>
-    CI give you the info about the true value
-  </p>
 </section>
 
 <section>

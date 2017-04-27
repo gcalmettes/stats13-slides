@@ -216,6 +216,34 @@ section .strike { text-decoration: line-through; }
 section .tt { font-family: monospace; }
 section .sf { font-family: sans-serif; }
 
+section .u-warning {
+  text-decoration: underline;
+  text-decoration-color: #f0ad4e;
+  -webkit-text-decoration-color: #f0ad4e;
+}
+section .u-info {
+  text-decoration: underline;
+  text-decoration-color: #5bc0de;
+  -webkit-text-decoration-color: #5bc0de;
+}
+section .u-danger {
+  text-decoration: underline;
+  text-decoration-color: #d9534f;
+  -webkit-text-decoration-color: #d9534f;
+}
+section .u-success {
+  text-decoration: underline;
+  text-decoration-color: #5cb85c;
+  -webkit-text-decoration-color: #5cb85c;
+}
+section .u-muted {
+  text-decoration: underline;
+  text-decoration-color: #636c72;
+  -webkit-text-decoration-color: #636c72;
+}
+
+
+
 section *,
 body .reveal .slides section .fragment {
   transition-delay: 0s;
@@ -580,6 +608,40 @@ th {
     color: #3399ff;
 }
 
+/*********************************************
+* LIST WITH FONT AWESOME BULLET (class="icon")
+*********************************************/
+
+ul.icon
+{
+  list-style-type: none;
+}
+
+ul.icon li
+{
+  text-indent: -1.4em;
+  margin: 0.5em 2em;
+}
+
+ul.icon li:before
+{
+  font-family: FontAwesome;
+  content: "\f005"></i>;
+  float: left;
+  width: 1.4em;
+  /*color: #8c8;*/
+}
+
+ul.icon li.circle:before { content: "\f111"; }
+ul.icon li.check-circle:before { content: "\f058"; }
+ul.icon li.square:before { content: "\f0c8"; }
+ul.icon li.check-square:before { content: "\f14a"; }
+ul.icon li.arrow-circle:before { content: "\f0a9"; }
+ul.icon li.gear:before { content: "\f013"; }
+ul.icon li.star:before { content: "\f005"; }
+ul.icon li.caret-right:before { content: "\f0da"; }
+ul.icon li.play-circle:before { content: "\f144"; }
+ul.icon li.play:before { content: "\f04b"; }
 
 /*********************************************
 * HEADERS
