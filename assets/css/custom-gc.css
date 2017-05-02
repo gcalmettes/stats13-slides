@@ -197,12 +197,12 @@ section[data-transition*="none-in"].present {
 * CSS GRID and co.
 *********************************************/
 
-section .small { font-size: 0.8em; }
-section .smaller { font-size: 0.7em; }
-section .smallest { font-size: 0.5em; }
-section .big { font-size: 1.1em; }
-section .bigger { font-size: 1.3em; }
-section .biggest { font-size: 1.5em; }
+section .small { font-size: 0.65em !important;; }
+section .smaller { font-size: 0.6em !important;; }
+section .smallest { font-size: 0.55em !important;; }
+section .big { font-size: 1em !important;; }
+section .bigger { font-size: 1.2em !important;; }
+section .biggest { font-size: 1.5em !important;; }
 
 section .left { text-align: left; }
 section .right { text-align: right; }
@@ -606,6 +606,11 @@ th {
 
 .reveal .content-box h1 {
     color: #3399ff;
+}
+
+
+.no-margin-top {
+  margin-top: 0 !important;
 }
 
 /*********************************************

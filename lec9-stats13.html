@@ -1,0 +1,372 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 9 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg3.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 9</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      Recap  
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+
+
+<section>
+  <h3>Goal of statistics</h3>
+  <p style="margin-top: 0;">
+    <i class="fa fa-arrow-circle-right"></i> To answer a question about a population (of data).
+  </p>
+  <p>
+    In a perfect world, we would have access to the full 
+    <span class="info">population</span>
+    so we would be able to answer the question based on data collected on 
+    all the <span class="u">observational units</span> of 
+    the population. We would know
+    the value of the <span class="warning">true parameter</span> we are intested in.
+  </p>
+  <p>
+    But usually we just have one sample.
+  </p>
+  <p>
+    Statistic is about using that single sample to make
+    inference about the population parameter.
+  </p>
+</section>
+
+<section>
+  <h3>Population data</h3>
+  <p class="framed border-info small" style="margin-top: 0;">
+    Let's consider that we are in charge of running a new 
+    health campaign that targets the students of a particular school.
+    This school has 500 students.
+    We want to know if using TV ads would be an efficient way
+    of making 
+    the students aware of this new campaign.
+  </p>
+  <p class="sided border-warning small">
+    One parameter that could be of interest to answer this 
+    question is the average time a student spend per quarter 
+    watching TV.
+  </p>
+  <p class="small">
+    I we could collect data on all the students, then the data 
+    would look like this:
+  </p>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 1008 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/recap-population-visualization.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/recap-population-visualization.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/recap-population-visualization.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <h3>Sampling distribution</h3>
+  <p class="no-margin-top small">
+    We only have a limited budget ($\$$60) to investigate 
+    our question (<span class="em">"What is the value of $\mu$?"</span>), and it costs $\$$10/student to collect information.
+  </p>
+  <p class="no-margin-top smaller fragment" data-fragment-index=1>
+    <i class="fa fa-arrow-circle-right"></i> We <span class="warning">randomly select</span> 6 students
+    in the school to obtain a <span class="warning">representative
+    sample</span> we can work with. From this sample (n=6) we calculate the average time spent per student
+    watching TV per quarter (if representative sample, <span class="warning">$\bar{x}\approx\mu$</span>).
+  </p>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top smaller fragment" 
+        data-fragment-index=2>
+        If we had randomly selected another sample, the value of 
+        $\bar{x}$ obtained would have been a bit different 
+        (but still $\bar{x}\approx\mu$). 
+      </p>
+      <p class="no-margin-top smaller fragment" 
+        data-fragment-index=3>
+        Lots of possible different samples from the
+        population, lots of slightly different
+        values for the statistics of interest ($\bar{x}\approx\mu$).
+        <br>
+        <i class="fa fa-arrow-circle-right danger"></i> All of those possible statistics of interest define the 
+        <span class="danger">sampling distribution of the parameter</span>.
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="10 0 415 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_2"></use>
+        <use class="fragment current-visible" data-fragment-index=1
+         xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_7"></use>
+        <use class="fragment current-visible" data-fragment-index=2   xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_8"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_3"></use>
+        <use class="fragment" xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_4"></use>
+        <use class="fragment" xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_5"></use>
+        <use class="fragment" xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_6"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Statistical test/procedure</h3>
+  <p class="no-margin-top">
+    Any statistical test/procedure <span class="danger">relies on 
+    the sampling distribution</span>:
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="framed border-warning fragment no-margin-top" data-fragment-index=1>
+        In the case of a null hypothesis significance testing,
+        we are interested in the <span class="warning">sampling
+        distribution of the null hypothesis</span>.
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="framed border-info fragment no-margin-top" data-fragment-index=3>
+        When we want to determine an estimate 
+        (confidence intervals)
+        of a parameter of interest,
+        we are interested in the <span class="info">sampling
+        distribution of the statistic</span>.
+      </p>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-50">
+      <p class="fragment no-margin-top" data-fragment-index=2>
+        <i class="fa fa-arrow-circle-right warning"></i>
+        What is the probability that the statistic I calculated
+        from my sample(s) comes from this sampling distribution 
+        of the null hypothesis? (p-value)
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="fragment no-margin-top" data-fragment-index=4>
+        <i class="fa fa-arrow-circle-right info"></i>
+        What would be a range of possible values for the true 
+        value of the parameter
+        of interest? (This estimate depends on how variable the sampling distribution 
+        of the statistic is)
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>NHST: One sample</h3>
+  <p class="no-margin-top">
+    When we perform a null hypothesis test on a one-sample dataset,
+    we are usually interested in knowing if the parameter of the
+    population  our sample is coming from is different from a 
+    specific value.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="small">
+        For a categorical variable, the sampling distribution we are 
+        comparing to is usually the one of a statistic governed by
+        a chance model with a 
+        specific probability of success.
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="small">
+        For a quantitative variable, unless we do have a specific
+        model for the null hypothesis we want to compare our sample
+        with, then we cannot really generate a reliable null
+        sampling distribution
+        without making strong assumptions.
+      </p>
+    </div>
+  </div>
+  <p>
+    For one proportion, the population we are interested in is 
+    usually the "chance process" population (we want to compare
+    our result to a random process).
+  </p>
+  <p>
+    If the phenomena we are studying is governed by chance,
+    what the sampling distribution of our parameter of interest 
+    would look like?
+  </p>
+  <p>
+    Because a proportion is a probability, then it is easy to 
+    model that using resampling. What would be the possible 
+    proportions we would observe for x number of events?
+  </p>
+</section>
+
+<section>
+  <h3>One quantitative variable</h3>
+  <p>
+    Not really a chance process. Unless we do have a model
+    for a null hypothesis, then we cannot really generate a 
+    model without making assumptions.
+  </p>
+  <p>
+    But if we do have a model, then we can do it. 
+    (ex: we have a machine generating series of numbers, and 
+    we want to know if a particular series of numbers that we
+    found could come from this machine.)
+  </p>
+</section>
+
+<section>
+  <h3>Two groups</h3>
+  <p>
+    In the case of two samples, we usually want if they are 
+    differents or not.
+  </p>
+  <p>
+    So statistic of interest is the difference (or ratio).
+  </p>
+  <p>
+    But then the same principle apply, we need the sampling 
+    distribution and see where in this sampling distribution 
+    our original observation falls.
+  </p>
+  <p>
+    Because we have two group, if the question is whether the 
+    two groups are the same (=if they could be samples coming 
+    from the same population), then is it easy to model this 
+    null hypothesis by gathering the two groups into a single
+    population
+  </p>
+</section>
+
+<section>
+  <h3>Two groups NHST</h3>
+  <p>
+    Two categorical variables? <br>
+
+  </p>
+</section>
+
+<section>
+  <h3>So what's the big deal with Confidence intervals?</h3>
+  <p>
+    NHST is all nice and stuff, but in the end, we spend time 
+    answering the wrong question: instead on focusing on what 
+    our data are, we focus on where our data would stand if 
+    the null hypothesis was true.
+  </p>
+  <p>
+    Confidence intervals is a way at looking at the same thing,
+    but using what you know, not "what would be if"
+  </p>
+</section>
+
+
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <!-- <script src="assets/js/d3.v4.min.js"></script> -->
+  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+
+    <!-- D3 in REVEAL -->
+  <!-- <script src="assets/js/d3-in-reveal.js"></script> -->
+    <!-- The D3 config & animations -->
+    <!-- <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
+    
+
+</body>
+</html>
