@@ -129,8 +129,8 @@
         population, lots of slightly different
         values for the statistics of interest ($\bar{x}\approx\mu$).
         <br>
-        <i class="fa fa-arrow-circle-right danger"></i> All of those possible statistics of interest define the 
-        <span class="danger">sampling distribution of the parameter</span>.
+        <i class="fa fa-arrow-circle-right danger"></i> All of these possible statistics of interest define the 
+        <span class="danger">sampling distribution of the statistic</span>.
       </p>
     </div>
     <div class="col-55">
@@ -160,7 +160,8 @@
       <p class="framed border-warning fragment no-margin-top" data-fragment-index=1>
         In the case of a null hypothesis significance testing,
         we are interested in the <span class="warning">sampling
-        distribution of the null hypothesis</span>.
+        distribution of the statistic of interest of the null hypothesis</span>
+        we are testing.
       </p>
     </div>
     <div class="col-50">
@@ -169,24 +170,23 @@
         (confidence intervals)
         of a parameter of interest,
         we are interested in the <span class="info">sampling
-        distribution of the statistic</span>.
+        distribution of the sample statistic</span>.
       </p>
     </div>
   </div>
     <div class="row">
     <div class="col-50">
-      <p class="fragment no-margin-top" data-fragment-index=2>
+      <p class="fragment no-margin-top smaller" data-fragment-index=2>
         <i class="fa fa-arrow-circle-right warning"></i>
         What is the probability that the statistic I calculated
-        from my sample(s) comes from this sampling distribution 
+        from my sample(s) comes from the sampling distribution 
         of the null hypothesis? (p-value)
       </p>
     </div>
     <div class="col-50">
-      <p class="fragment no-margin-top" data-fragment-index=4>
+      <p class="fragment no-margin-top smaller" data-fragment-index=4>
         <i class="fa fa-arrow-circle-right info"></i>
-        What would be a range of possible values for the true 
-        value of the parameter
+        What would be a range of possible values for the parameter
         of interest? (This estimate depends on how variable the sampling distribution 
         of the statistic is)
       </p>
@@ -195,47 +195,60 @@
 </section>
 
 <section>
-  <h3>NHST: One sample</h3>
-  <p class="no-margin-top">
+  <h3>NHST: One-sample test</h3>
+  <p class="no-margin-top smaller">
     When we perform a null hypothesis test on a one-sample dataset,
     we are usually interested in knowing if the parameter of the
-    population  our sample is coming from is different from a 
-    specific value.
+    population  our sample is coming from is <span class="success">different from a 
+    specific value</span>.
   </p>
   <div class="row">
     <div class="col-50">
-      <p class="small">
-        For a categorical variable, the sampling distribution we are 
-        comparing to is usually the one of a statistic governed by
+      <p class="smallest no-margin-top sided border-warning">
+        <span class="warning u">Categorical sample:</span> the sampling distribution we are
+        comparing our statistic to is usually linked to
         a chance model with a 
         specific probability of success.
       </p>
     </div>
     <div class="col-50">
-      <p class="small">
-        For a quantitative variable, unless we do have a specific
+      <p class="smallest no-margin-top sided border-info">
+        <span class="info u">Quantitative sample:</span> unless we have a specific
         model for the null hypothesis we want to compare our sample
-        with, then we cannot really generate a reliable null
+        to, then we cannot really generate a reliable null
         sampling distribution
         without making strong assumptions.
       </p>
     </div>
   </div>
-  <p>
-    For one proportion, the population we are interested in is 
-    usually the "chance process" population (we want to compare
-    our result to a random process).
+</section>
+
+<section>
+  <h3>NHST: Two-sample test</h3>
+  <p class="no-margin-top smaller">
+    When performing a two-sample null hypothesis test,
+    the question is usually whether we can consider the two samples as 
+    different (coming from <span class="success">different populations</span>). 
+    We can characterize this difference using the sampling distribution 
+    of a <span class="u">single statistic of 
+    interest</span>: 
   </p>
-  <p>
-    If the phenomena we are studying is governed by chance,
-    what the sampling distribution of our parameter of interest 
-    would look like?
-  </p>
-  <p>
-    Because a proportion is a probability, then it is easy to 
-    model that using resampling. What would be the possible 
-    proportions we would observe for x number of events?
-  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="smaller no-margin-top sided border-warning">
+        <span class="warning u">Categorical samples:</span>
+        the difference in conditional proportions ($\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2$),
+        or the relative risk ($\frac{\overset{\hat{}}{p}_1}{\overset{\hat{}}{p}_2}$).
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="smaller no-margin-top sided border-info">
+        <span class="info u">Quantitative samples:</span> the difference in mean/median
+        ($\bar{x}_1-\bar{x}_2$, $m_1-m_2$) or the ratio of the mean/median
+        ($\frac{\bar{x}_1}{\bar{x}_2}$, $\frac{m_1}{m_2}$)
+      </p>
+    </div>
+  </div>
 </section>
 
 <section>
