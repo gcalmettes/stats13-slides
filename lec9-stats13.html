@@ -41,7 +41,7 @@
     <h1 style="color: #FFFFFF">Lecture 9</h1>
   </div>
     <h3 style="color: #FFFFFF; text-align: center;">
-      Recap  
+      Recap & AMA  
     </h3>
     <div class="col-90">
       <p class="smaller push-right">Guillaume Calmettes</p>
@@ -117,13 +117,13 @@
   </p>
   <div class="row">
     <div class="col-45">
-      <p class="no-margin-top smaller fragment" 
+      <p class="no-margin-top smallest fragment" 
         data-fragment-index=2>
         If we had randomly selected another sample, the value of 
         $\bar{x}$ obtained would have been a bit different 
         (but still $\bar{x}\approx\mu$). 
       </p>
-      <p class="no-margin-top smaller fragment" 
+      <p class="no-margin-top smallest fragment" 
         data-fragment-index=3>
         Lots of possible different samples from the
         population, lots of slightly different
@@ -144,6 +144,7 @@
         <use class="fragment" xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_4"></use>
         <use class="fragment" xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_5"></use>
         <use class="fragment" xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_6"></use>
+        <use class="fragment" xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_9"></use>
       </svg>
     </div>
   </div>
@@ -199,25 +200,36 @@
   <p class="no-margin-top smaller">
     When we perform a null hypothesis test on a one-sample dataset,
     we are usually interested in knowing if the parameter of the
-    population  our sample is coming from is <span class="success">different from a 
+    population  our sample is coming from is <span class="danger">different from a 
     specific value</span>.
   </p>
   <div class="row">
-    <div class="col-50">
+    <div class="col-50 fragment">
       <p class="smallest no-margin-top sided border-warning">
         <span class="warning u">Categorical sample:</span> the sampling distribution we are
         comparing our statistic to is usually linked to
         a chance model with a 
         specific probability of success.
       </p>
+      <svg width="90%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/recap-nhst-sampling-distribution-one-sample.svg#axes_1"></use>
+      </svg>
     </div>
-    <div class="col-50">
+    <div class="col-50 fragment">
       <p class="smallest no-margin-top sided border-info">
         <span class="info u">Quantitative sample:</span> unless we have a specific
         model for the null hypothesis we want to compare our sample
         to, then we cannot really generate a reliable null
         sampling distribution
         without making strong assumptions.
+      </p>
+      <p class="smallest">
+        <span class="em u">Ex:</span> we have a machine generating series of numbers, and 
+        we want to know if a particular series of numbers that we
+        found could have come from this machine. <br>
+        <i class="fa fa-arrow-circle-right"></i> generate 
+        the sampling distribution of $\bar{x}$ (from samples obtained from the machine) and assess the likelyhood of our original 
+        sample $\bar{x}$ to come from this distribution.
       </p>
     </div>
   </div>
@@ -228,89 +240,207 @@
   <p class="no-margin-top smaller">
     When performing a two-sample null hypothesis test,
     the question is usually whether we can consider the two samples as 
-    different (coming from <span class="success">different populations</span>). 
+    different (coming from <span class="danger">different populations</span>). 
     We can characterize this difference using the sampling distribution 
     of a <span class="u">single statistic of 
     interest</span>: 
   </p>
   <div class="row">
-    <div class="col-50">
-      <p class="smaller no-margin-top sided border-warning">
+    <div class="col-50 no-margin-top fragment">
+      <p class="smallest no-margin-top sided border-warning">
         <span class="warning u">Categorical samples:</span>
         the difference in conditional proportions ($\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2$),
         or the relative risk ($\frac{\overset{\hat{}}{p}_1}{\overset{\hat{}}{p}_2}$).
       </p>
     </div>
-    <div class="col-50">
-      <p class="smaller no-margin-top sided border-info">
+    <div class="col-50 no-margin-top fragment">
+      <p class="smallest no-margin-top sided border-info">
         <span class="info u">Quantitative samples:</span> the difference in mean/median
         ($\bar{x}_1-\bar{x}_2$, $m_1-m_2$) or the ratio of the mean/median
         ($\frac{\bar{x}_1}{\bar{x}_2}$, $\frac{m_1}{m_2}$)
       </p>
     </div>
   </div>
+  <div class="row fragment">
+    <div class="col-18"></div>
+    <div class="col-64">
+      <svg width="100%" viewBox="0 0 648 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/recap-nhst-sampling-distribution-two-sample.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/recap-nhst-sampling-distribution-two-sample.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section>
-  <h3>One quantitative variable</h3>
-  <p>
-    Not really a chance process. Unless we do have a model
-    for a null hypothesis, then we cannot really generate a 
-    model without making assumptions.
-  </p>
-  <p>
-    But if we do have a model, then we can do it. 
-    (ex: we have a machine generating series of numbers, and 
-    we want to know if a particular series of numbers that we
-    found could come from this machine.)
-  </p>
-</section>
-
-<section>
-  <h3>Two groups</h3>
-  <p>
-    In the case of two samples, we usually want if they are 
-    differents or not.
-  </p>
-  <p>
-    So statistic of interest is the difference (or ratio).
-  </p>
-  <p>
-    But then the same principle apply, we need the sampling 
-    distribution and see where in this sampling distribution 
-    our original observation falls.
-  </p>
-  <p>
-    Because we have two group, if the question is whether the 
-    two groups are the same (=if they could be samples coming 
-    from the same population), then is it easy to model this 
-    null hypothesis by gathering the two groups into a single
-    population
-  </p>
-</section>
-
-<section>
-  <h3>Two groups NHST</h3>
-  <p>
-    Two categorical variables? <br>
-
-  </p>
+  <h3>What does influence the p-value?</h3>
+  <div class="row">
+    <div class="col-44 framed border-success" style="height: 4.5em;">
+      <p style="text-align: center;">
+        Difference between the observed statistic and
+        the null hypothesis parameter value ($\overset{\hat{}}{p}-\pi_0$)
+      </p>
+    </div>
+    <div class="col-1">
+      <p></p>
+    </div>
+    <div class="col-20 framed border-danger" style="height: 4.5em;">
+      <p style="text-align: center;">
+        Sample size
+      </p>
+    </div>
+    <div class="col-1">
+      <p></p>
+    </div>
+    <div class="col-33 framed border-danger" style="height: 4.5em;">
+      <p style="text-align: center;">
+        Whether we do a one- or two-sided test
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <p class="framed border-info" data-fragment-index=0>
+        How accurate is your sampling distribution
+    </p>
+  </div>
 </section>
 
 <section>
   <h3>So what's the big deal with Confidence intervals?</h3>
-  <p>
-    NHST is all nice and stuff, but in the end, we spend time 
-    answering the wrong question: instead on focusing on what 
-    our data are, we focus on where our data would stand if 
-    the null hypothesis was true.
+  <p class="no-margin-top">
+    NHST is all nice and sweet, but in the end, we spend time 
+    answering a question coming from the 
+    <span class="em">"wrong angle"</span>: 
+    instead on focusing on <span class="warning">what 
+    our data are</span>, we focus on <span class="u">where our data would stand if 
+    the null hypothesis was true</span>.
   </p>
-  <p>
-    Confidence intervals is a way at looking at the same thing,
-    but using what you know, not "what would be if"
+  <p class="no-margin-top small framed border-info fragment">
+    Determining <span class="info">confidence intervals</span> is a way at looking at the same thing than NHST,
+    but <span class="u-info">using what we know</span> (observed statistic), not an hypothesized situation (<span class="em">"what would [something] be if [something]"</span>).
+  </p>
+  <p class="no-margin-top fragment">
+    <i class="fa fa-arrow-circle-right info"></i>
+    But again, this involves looking directly at the 
+    <span class="warning">sampling 
+    distribution</span> of your statistic of interest! 
+    (obtained directly from the population of your data,
+    not an hypothesized null distribution)
   </p>
 </section>
 
+<section data-transition="slide-in">
+  <h3>Confidence intervals</h3>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top small">
+        We want to determine the <span class="warning">sampling distribution of 
+        our statistic of interest</span>, to know how variable 
+        it is and get an <span class="u-warning">estimate of the 
+        true value of 
+        the parameter</span>.
+      </p>
+      <svg class="fragment" data-fragment-index=1 width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/recap-ci-sampling-distribution-one-sample.svg#axes_1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/recap-ci-sampling-distribution-one-sample.svg#axes_2"></use>
+      </svg>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="10 0 415 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_2"></use>
+        <use data-fragment-index=3 xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_3"></use>
+        <use data-fragment-index=3 xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_4"></use>
+        <use data-fragment-index=3 xlink:href="assets/img/lec/recap-population-statistic-sampling-distribution.svg#axes_5"></use>
+      </svg>
+    </div>
+    <p class="fragment smaller" data-fragment-index=1>
+      We do not have the full population, so we are using 
+      the sample as a surrogate for the population 
+      (bootstrap resampling, with replacement).
+    </p>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Confidence intervals</h3>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top small">
+        The sampling distribution obtained will be 
+        centered at the statistic of interest calculated 
+        from the original sample(s).
+      </p>
+      <p class="no-margin-top small">
+        The $\alpha$ level chosen will determine which 
+        interval to consider.
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/recap-ci-sampling-distribution-general.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    Estimate of the true value of the parameter
+  </p>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    Can be used for hypothesis testing <br>
+    <span class="em">Is the parameter of the 
+    null distribution inside the confidence interval?</span>
+  </p>
+</section>
+
+<section>
+  <h3>Random sampling is king in StatisticsLand</h3>
+  <p class="em u no-margin-top">The different possible study designs</p>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 553.2 250.166" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/study-design-factors.svg#layer1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Note on observational units & Variables</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="smaller no-margin-top">
+        <span class="u em warning">Collection of data:</span><br>
+        Observational unit: one word <br>
+        Variable or interest: length of the word 
+      </p>
+    </div>
+    <div class="col-40">
+      <svg width="100%" viewBox="0 20 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/recap-words-collect.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <p class="smaller no-margin-top">
+        <span class="u em warning">Analysis of data:</span><br>
+        Observational unit: one set of 10 words <br>
+        Variable of interest: average word length in the set
+      </p>
+    </div>
+    <div class="col-40">
+      <svg width="100%" viewBox="0 50 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/recap-words-analyze.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="title-slide">
+  <h1>Ask me anything</h1>
+</section>
 
 
 <!-- THE END -->
