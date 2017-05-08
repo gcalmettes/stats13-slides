@@ -1,0 +1,684 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 10 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg8.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 9</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      Paired difference in means  
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h3>Paired data</h3>
+  <p>
+    Indendence vs paired data
+  </p>
+  <p>
+    Data is paired if the data being compared consists of paired data values
+  </p>
+  <p>
+    Common paired data examples:
+  </p>
+  <ul>
+    <li>Two measurements on each case (compare each case to themselves under different treatments)
+    </li>
+    <li>
+      Twin studies
+    </li>
+    <li>
+      Each case is matched with a similar case, and one case in each pair is given each treatment
+    </li>
+    <li>
+      Any situation in which data is naturally paired
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h3>Paired data vs independent samples</h3>
+  <p>
+    examples
+  </p>
+</section>
+
+<section>
+  <h3>Wetsuits and swimming speed</h3>
+  <p>
+    The 2008 Olympics were full of controversy about new swimsuits possibly providing unfair advantages to swimmers, leading to new international rules that came into effect January 1, 2010, regarding swimsuit coverage and material. Can a certain swimsuit really make a swimmer faster?
+  </p>
+</section>
+
+
+<section>
+  <h3>Wetsuits and swimming speed</h3>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top small">
+        The 2008 Olympics were full of controversy about new swimsuits possibly providing unfair advantages to swimmers, leading to new international rules that came into effect January 1, 2010, regarding swimsuit coverage and material.
+      </p>
+      <p class="framed border-danger">
+        Can a wetsuit really make someone swim faster?  How much faster?
+      </p>
+    </div>
+    <div class="col-55">
+      <img src="assets/img/lec/wetsuit-usa.jpg" class="unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
+
+<section data-transition="slide-in">
+  <h3>Wetsuits and swimming speed</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="smaller">
+        Twelve competitive swimmers and triathletes swam 1500m at maximum speed twice each, once wearing a wetsuit and once wearing a regular suit
+      </p>
+      <p class="smaller">
+        Maximum velocity (m/sec) recorded (one of several possible outcomes)
+      </p>
+      <p class="sided border-info fragment">
+        $H_0: \bar{x}_\textrm{Wetsuit}-\bar{x}_\textrm{No Wetsuit}=0$
+      </p>
+      <p class="sided border-danger fragment">
+        $H_a: \bar{x}_\textrm{Wetsuit}-\bar{x}_\textrm{No Wetsuit}>0$ <br>
+        ($H_a: \bar{x}_\textrm{Wetsuit}-\bar{x}_\textrm{No Wetsuit}\neq0$)
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/wetsuit-data.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/wetsuit-data.svg#axes_2"></use>
+      </svg>
+      <table class="fragment" data-fragment-index=1>
+        <tbody>
+        <tr>
+           <td></td>
+           <td style="border-right: solid 1px;">No Wetsuit</td>
+           <td>Wetsuit</td>
+         </tr>
+         <tr style="border-bottom: solid 1px;">
+           <td style="border-right: solid 1px;">Mean</td>
+           <td style="border-right: solid 1px;">1.43</td>
+           <td>1.51</td>
+         </tr>
+         <tr>
+           <td></td>
+           <td colspan=2 class="danger">0.078</td>
+         </tr>
+       </tbody>
+      </table> 
+    </div>
+  </div>
+</section>
+
+
+<section data-transition="fade">
+  <h3>Wetsuits and swimming speed</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="smaller no-margin-top">
+        NHST of means difference
+      </p>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/wetsuit-resampling-not-paired.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/wetsuit-resampling-not-paired.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/wetsuit-resampling-not-paired.svg#axes_3"></use>
+      </svg>
+      <p class="smallest fragment sided border-danger no-margin-top" data-fragment-index=2>
+        Using this naive method, <span class="danger">we do not find any association</span> between wearing a wetsuit and swimming speeds.
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/wetsuit-data.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/wetsuit-data.svg#axes_2"></use>
+      </svg>
+      <table>
+        <tbody>
+        <tr>
+           <td></td>
+           <td style="border-right: solid 1px;">No Wetsuit</td>
+           <td>Wetsuit</td>
+         </tr>
+         <tr style="border-bottom: solid 1px;">
+           <td style="border-right: solid 1px;">Mean</td>
+           <td style="border-right: solid 1px;">1.43</td>
+           <td>1.51</td>
+         </tr>
+         <tr>
+           <td></td>
+           <td colspan=2 class="danger">0.078</td>
+         </tr>
+       </tbody>
+      </table> 
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Wetsuits and swimming speed</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="smaller no-margin-top">
+        However, taking a closer look at the data, we see that <span class="warning">every single swimmer swam faster wearing the wetsuit!</span>
+        Surely this must provide conclusive evidence that swimmers are faster wearing a wetsuit.
+        <br>
+        <span class="u-warning">What went wrong in our analysis?</span>
+      </p>
+      <p class="smaller fragment border-danger framed" data-fragment-index=1>
+        <i class="fa fa-arrow-circle-right"></i>
+        We failed to take into account the paired structure of the data.
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/wetsuit-data.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/wetsuit-data.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/wetsuit-data.svg#axes_2"></use>
+      </svg>
+      <table>
+        <tbody>
+        <tr>
+           <td></td>
+           <td style="border-right: solid 1px;">No Wetsuit</td>
+           <td>Wetsuit</td>
+         </tr>
+         <tr style="border-bottom: solid 1px;">
+           <td style="border-right: solid 1px;">Mean</td>
+           <td style="border-right: solid 1px;">1.43</td>
+           <td>1.51</td>
+         </tr>
+         <tr>
+           <td></td>
+           <td colspan=2 class="danger">0.078</td>
+         </tr>
+       </tbody>
+      </table> 
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-out">
+  <h3>Wetsuits and swimming speed</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="small no-margin-top u">
+        Wetsuit study:
+      </p>
+      <div class="row">
+        <div class="col-15">
+          <i class="fa fa-venus" style="color: pink; margin-top: 0.5em;"></i>
+        </div>
+        <div class="col-40">
+          <p class="no-margin-top" style="text-align: center;">
+            Swimmers <br>
+            Triathletes
+          </p>
+        </div>
+        <div class="col-15">
+          <i class="fa fa-mars info" style="margin-top: 0.5em;"></i>
+        </div>
+      </div>
+      <p class="smaller no-margin-top">
+        <i class="fa fa-arrow-circle-right warning"></i>
+        Not surprisingly, there is a great deal of <span class="warning">variability</span> in the maximum velocities of the swimmers. 
+      </p>
+      <p class="smaller framed border-danger">
+        Because of all this variability, it is difficult to tell whether the difference in mean swim speed observed in the sample represents a real difference or is just due to random chance.
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/wetsuit-data.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/wetsuit-data.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/wetsuit-data.svg#axes_2"></use>
+      </svg>
+      <table>
+        <tbody>
+        <tr>
+           <td></td>
+           <td style="border-right: solid 1px;">No Wetsuit</td>
+           <td>Wetsuit</td>
+         </tr>
+         <tr style="border-bottom: solid 1px;">
+           <td style="border-right: solid 1px;">Mean</td>
+           <td style="border-right: solid 1px;">1.43</td>
+           <td>1.51</td>
+         </tr>
+         <tr>
+           <td></td>
+           <td colspan=2 class="danger">0.078</td>
+         </tr>
+       </tbody>
+      </table> 
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Wetsuits and swimming speed</h3>
+  <p class="no-margin-top">
+    The key to analyzing paired data is to work with the <span class="info">difference for each pair of data values</span> rather than the original data. <br>
+    <i class="fa fa-arrow-circle-right info"></i>
+    This helps us to eliminate the variability across different units (different swimmers) and instead focus on what we really care about: the difference between the values with and without a wetsuit.
+  </p>
+  <table style="font-size: 0.85em;">
+    <tbody>
+      <tr>
+        <td class="smallest" style="border-right: solid 1px;">Swimmer</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td style="border-right: solid 1px;">12</td>
+        <td>$\bar{x}$</td>
+      </tr>
+      <tr>
+        <td class="smallest" style="border-right: solid 1px;">Wetsuit</td>
+        <td>1.57</td>
+        <td>1.47</td>
+        <td>1.42</td>
+        <td>1.35</td>
+        <td>1.22</td>
+        <td>1.75</td>
+        <td>1.64</td>
+        <td>1.57</td>
+        <td>1.56</td>
+        <td>1.53</td>
+        <td>1.49</td>
+        <td style="border-right: solid 1px;">1.51</td>
+        <td>1.507</td>
+      </tr>
+      <tr>
+        <td class="smallest" style="border-right: solid 1px;">No Wetsuit</td>
+        <td>1.49</td>
+        <td>1.37</td>
+        <td>1.35</td>
+        <td>1.27</td>
+        <td>1.12</td>
+        <td>1.64</td>
+        <td>1.59</td>
+        <td>1.52</td>
+        <td>1.50</td>
+        <td>1.45</td>
+        <td>1.44</td>
+        <td style="border-right: solid 1px;">1.41</td>
+        <td>1.429</td>
+      </tr>
+      <tr style="background-color: #5bc0de; color: black">
+        <td style="border-right: solid 1px;">Difference</td>
+        <td>0.08</td>
+        <td>0.10</td>
+        <td>0.07</td>
+        <td>0.08</td>
+        <td>0.10</td>
+        <td>0.11</td>
+        <td>0.05</td>
+        <td>0.05</td>
+        <td>0.06</td>
+        <td>0.08</td>
+        <td>0.05</td>
+        <td style="border-right: solid 1px;">0.10</td>
+        <td>0.078</td>
+      </tr>
+    </tbody>
+  </table> 
+  <p>
+    <span class="u em">Note:</span> the mean of the sample of differences is equal to the difference of the sample means: $\bar{x}_\textrm{Difference} = \bar{x}_\textrm{Wetsuit}-\bar{x}_\textrm{No Wetsuit}$
+  </p>
+</section>
+
+<section>
+  <h3>Wetsuits and swimming speed</h3>
+  <p class="no-margin-top">
+    <span class="u em">Null hypothesis:</span> If wearing a wetsuit didn't have any effect on the swimming speed, 
+    then each swimmer could have recorded both of their 
+    speed equally likely with or without a wetsuit.
+  </p>
+  <table style="font-size: 0.8em;">
+    <tbody>
+      <tr>
+        <td class="smallest" style="border-right: solid 1px;">Swimmer</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td class="bg-info smallest" style="border-right: solid 1px;">Wetsuit</td>
+        <td class="bg-info">1.57</td>
+        <td class="bg-info">1.47</td>
+        <td class="bg-info">1.42</td>
+        <td class="bg-info">1.35</td>
+        <td class="bg-info">1.22</td>
+        <td class="bg-info">1.75</td>
+        <td class="bg-info">1.64</td>
+        <td class="bg-info">1.57</td>
+        <td class="bg-info">1.56</td>
+        <td class="bg-info">1.53</td>
+        <td class="bg-info">1.49</td>
+        <td class="bg-info">1.51</td>
+      </tr>
+      <tr>
+        <td class="smallest bg-warning" style="border-right: solid 1px;">No Wetsuit</td>
+        <td class="bg-warning">1.49</td>
+        <td class="bg-warning">1.37</td>
+        <td class="bg-warning">1.35</td>
+        <td class="bg-warning">1.27</td>
+        <td class="bg-warning">1.12</td>
+        <td class="bg-warning">1.64</td>
+        <td class="bg-warning">1.59</td>
+        <td class="bg-warning">1.52</td>
+        <td class="bg-warning">1.50</td>
+        <td class="bg-warning">1.45</td>
+        <td class="bg-warning">1.44</td>
+        <td class="bg-warning">1.41</td>
+      </tr>
+      <tr>
+        <td rowspan="2" style="border-right: solid 1px; vertical-align: middle; border-bottom: none;">Difference</td>
+        <td class="bg-danger">0.08</td>
+        <td class="bg-danger">0.10</td>
+        <td class="bg-danger">0.07</td>
+        <td class="bg-danger">0.08</td>
+        <td class="bg-danger">0.10</td>
+        <td class="bg-danger">0.11</td>
+        <td class="bg-danger">0.05</td>
+        <td class="bg-danger">0.05</td>
+        <td class="bg-danger">0.06</td>
+        <td class="bg-danger">0.08</td>
+        <td class="bg-danger">0.05</td>
+        <td class="bg-danger">0.10</td>
+      </tr>
+      <tr>
+        <td>-0.08</td>
+        <td>-0.10</td>
+        <td>-0.07</td>
+        <td>-0.08</td>
+        <td>-0.10</td>
+        <td>-0.11</td>
+        <td>-0.05</td>
+        <td>-0.05</td>
+        <td>-0.06</td>
+        <td>-0.08</td>
+        <td>-0.05</td>
+        <td>-0.10</td>
+      </tr>
+    </tbody>
+  </table> 
+  <br>
+  <!-- table 2 -->
+  <table class="fragment" style="font-size: 0.8em;">
+    <tbody>
+      <tr>
+        <td class="smallest" style="border-right: solid 1px;">Swimmer</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td class="bg-info smallest" style="border-right: solid 1px;">Wetsuit</td>
+        <td class="bg-info">1.57</td>
+        <td class="bg-info">1.47</td>
+        <td class="bg-warning">1.42</td>
+        <td class="bg-info">1.35</td>
+        <td class="bg-warning">1.22</td>
+        <td class="bg-info">1.75</td>
+        <td class="bg-info">1.64</td>
+        <td class="bg-warning">1.57</td>
+        <td class="bg-warning">1.56</td>
+        <td class="bg-warning">1.53</td>
+        <td class="bg-info">1.49</td>
+        <td class="bg-warning">1.51</td>
+      </tr>
+      <tr>
+        <td class="smallest bg-warning" style="border-right: solid 1px;">No Wetsuit</td>
+        <td class="bg-warning">1.49</td>
+        <td class="bg-warning">1.37</td>
+        <td class="bg-info">1.35</td>
+        <td class="bg-warning">1.27</td>
+        <td class="bg-info">1.12</td>
+        <td class="bg-warning">1.64</td>
+        <td class="bg-warning">1.59</td>
+        <td class="bg-info">1.52</td>
+        <td class="bg-info">1.50</td>
+        <td class="bg-info">1.45</td>
+        <td class="bg-warning">1.44</td>
+        <td class="bg-info">1.41</td>
+      </tr>
+      <tr>
+        <td rowspan="2" style="border-right: solid 1px; vertical-align: middle; border-bottom: none;">Difference</td>
+        <td class="bg-danger">0.08</td>
+        <td class="bg-danger">0.10</td>
+        <td>0.07</td>
+        <td class="bg-danger">0.08</td>
+        <td>0.10</td>
+        <td class="bg-danger">0.11</td>
+        <td class="bg-danger">0.05</td>
+        <td>0.05</td>
+        <td>0.06</td>
+        <td>0.08</td>
+        <td class="bg-danger">0.05</td>
+        <td>0.10</td>
+      </tr>
+      <tr>
+        <td>-0.08</td>
+        <td>-0.10</td>
+        <td class="bg-danger">-0.07</td>
+        <td>-0.08</td>
+        <td class="bg-danger">-0.10</td>
+        <td>-0.11</td>
+        <td>-0.05</td>
+        <td class="bg-danger">-0.05</td>
+        <td class="bg-danger">-0.06</td>
+        <td class="bg-danger">-0.08</td>
+        <td>-0.05</td>
+        <td class="bg-danger">-0.10</td>
+      </tr>
+    </tbody>
+  </table> 
+</section>
+
+
+<section>
+  <h3>Wetsuits and swimming speed</h3>
+  <div class="row">
+    <div class="col-45">
+      <p>
+        Keeping the structure of the data intact (pairs) allows
+        to filter out the variability accross pairs <br>
+         and focus only
+        on the variability within pairs.
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/wetsuit-resampling-paired.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/wetsuit-resampling-paired.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/wetsuit-resampling-paired.svg#axes_2"></use>
+      </svg>
+      <table>
+        <tbody>
+        <tr>
+           <td></td>
+           <td style="border-right: solid 1px;">No Wetsuit</td>
+           <td>Wetsuit</td>
+         </tr>
+         <tr style="border-bottom: solid 1px;">
+           <td style="border-right: solid 1px;">Mean</td>
+           <td style="border-right: solid 1px;">1.43</td>
+           <td>1.51</td>
+         </tr>
+         <tr>
+           <td></td>
+           <td colspan=2 class="danger">0.078</td>
+         </tr>
+       </tbody>
+      </table> 
+    </div>
+  </div>
+</section>
+
+<!-- <section>
+  <h3>Théo Balestra</h3>
+  <div class="row">
+    <div class="col-50">
+      <p>
+        Runner (sometimes) <br>
+        Husband and father of 2.
+      </p>
+      <p>
+        Going to Chapman (sorry ...)
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="http://esenetworks.com/upload/23912/content/Theo(1).jpg" width=80%>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Lola Balestra</h3>
+
+
+</section>
+ -->
+
+
+
+
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <!-- <script src="assets/js/d3.v4.min.js"></script> -->
+  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+
+    <!-- D3 in REVEAL -->
+  <!-- <script src="assets/js/d3-in-reveal.js"></script> -->
+    <!-- The D3 config & animations -->
+    <!-- <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
+    
+
+</body>
+</html>
