@@ -41,7 +41,7 @@
     <h1 style="color: #FFFFFF">Lecture 9</h1>
   </div>
     <h3 style="color: #FFFFFF; text-align: center;">
-      Paired difference in means  
+      Paired samples comparison
     </h3>
     <div class="col-90">
       <p class="smaller push-right">Guillaume Calmettes</p>
@@ -49,40 +49,118 @@
 </section>
 
 <section>
-  <h3>Paired data</h3>
-  <p>
-    Indendence vs paired data
+  <h3>Independant vs dependant groups design</h3>
+  <p class="no-margin-top small framed border-warning">
+    So far, we have seen how to compare <span class="warning">whole groups 
+    of individuals</span> (<span class="em">ex:</span>basketball wins with vs without a sell-out crowd, commuting times on steel vs carbon bike frame, performance score improvement with or without sleep deprivation, etc ...). <br>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    all of these studies used an <span class="warning">independant groups design</span> (no systematic connections relating individuals in one group to individuals in another group)
   </p>
-  <p>
-    Data is paired if the data being compared consists of paired data values
+  <p class="small framed border-info fragment">
+    Today we will learn about a different study design based on <span class="info">pairs of units</span>.<br>
+    <i class="fa fa-arrow-circle-right info"></i>
+    For many situations, such a <span class="info">paired design</span> allow more focused comparisons.
   </p>
-  <p>
-    Common paired data examples:
+</section>
+
+<section>
+  <h3>Paired samples</h3>
+  <p class="quoted">
+    Paired samples (also called <span class="warning">dependent samples</span>) are samples in which natural or matched couplings occur. This generates a dataset in which <span class="u-warning">each data point in one sample is uniquely paired to a data point in the second sample</span>.
+  </p>  
+  <p class="fragment">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Two data sets are <span class="em">"paired"</span> when the following one-to-one relationship exists between values in the two data sets:
   </p>
-  <ul>
-    <li>Two measurements on each case (compare each case to themselves under different treatments)
-    </li>
-    <li>
-      Twin studies
-    </li>
-    <li>
-      Each case is matched with a similar case, and one case in each pair is given each treatment
-    </li>
-    <li>
-      Any situation in which data is naturally paired
-    </li>
+  <ul class="normal">
+    <li class="fragment">There is one pair of response values for each observational units: each sample has the <span class="info">same number</span> of data points</li>
+    <li class="fragment">There is a built-in comparison: each data point in one sample is <span class="info">related to one, and only one</span>, data point in the other sample</li>
   </ul>
 </section>
 
 <section>
-  <h3>Paired data vs independent samples</h3>
-  <p>
-    examples
+  <h3>Paired samples</h3>
+  <p class="no-margin-top no-margin-bottom">
+    For a paired design, response values (explanatory groups)
+    come in pairs, with one response value in the pair for each group. <br>
+    <span class="u em">The datat pairing can come from:</span>
+  </p>
+  <ul class="normal">
+    <li>matching similar individuals to create groups 
+    of two: this is referred as <span class="warning">paired design using matching</span>.
+    </li>
+    <li>
+      measuring the same individual (observational unit) twice, once under each condition (explanatory variable): this is referred as <span class="info">paired design using repeated measures</span>
+    </li>
+  </ul>
+  <p class="framed border-danger fragment">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    when a paired design is possible, you typically get <span class="danger">more informative results</span> because units within a pair tend to be similar to each other. When pairing is effective, differences within such each pair on the response variable tend to be <span class="danger">due mainly to the explanatory variable</span>.
   </p>
 </section>
 
+<section>
+  <h3>Examples of paired samples</h3>
+  <ul class="normal">
+    <li><span class="warning">pre-test/post-test</span> samples in which a factor is measured before and after an intervention</li>
+    <li><span class="warning">cross-over trials</span> in which individuals are randomized to two treatments and then the same individuals are crossed-over to the alternative treatment</li>
+    <li><span class="warning">matched samples</span>, in which individuals are matched on personal characteristics such as age and sex</li>
+    <li><span class="warning">duplicate measurements</span> on the same biological samples</li>
+    <li>any circumstance in which each data point in one sample is uniquely matched to a data
+    point in the second sample</li>
+  </ul>
+</section>
 
 <section>
+  <h3>Examples of paired study design</h3>
+  <p class="no-margin-top smallest">
+    Can you study with music blaring? Does the presence of lyrics hurt students' ability to focus on their work? <br>
+    <span class="success">Response variable</span>: Memorization game score (ex: number of words students can remember from a sheet). <br>
+    <span class="success">Explanatory variable</span>: music with or without lyrics
+  </p>
+  <div class="row fragment">
+    <div class="col-25">
+      <p class="framed border-warning" style="text-align: center; margin-top: 0.2em;">
+        Independant study design
+      </p>
+    </div>
+    <div class="col-75">
+      <p class="no-margin-top no-margin-bottom smallest framed b--dotted border-warning">
+        Randomly assign students to two separate groups:
+        <br>
+        - one group that will listen music with lyrics
+        <br>
+        - one group that will listen music without lyrics
+      </p>
+    </div>
+  </div>
+  <div class="row fragment">
+    <div class="col-25">
+      <p class="no-margin-bottom framed border-info" style="text-align: center; margin-top: 3em;">
+        Paired study design
+      </p>
+    </div>
+    <div class="col-75">
+      <p class="smallest no-margin-top framed b--dotted border-info">
+        Paired design using <span class="info u-info">repeated measures</span>.
+        <br>
+        Each student will play the memorization game twice:
+        <br>
+        - once listening music with lyrics
+        <br>
+        - once listening music without lyrics
+      </p>
+      <p class="smallest framed b--dotted border-info">
+        Paired design using <span class="info u-info">matching</span>.
+        <br>
+        Another way to create pairs could use a pretest to rank students according to how many words they could memorize and create pairs of students with similar abilities.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section data-transition="slide-in fade-out">
   <h3>Wetsuits and swimming speed</h3>
   <div class="row">
     <div class="col-45">
@@ -100,7 +178,7 @@
 </section>
 
 
-<section data-transition="slide-in">
+<section data-transition="fade-in slide-out">
   <h3>Wetsuits and swimming speed</h3>
   <div class="row">
     <div class="col-50">
@@ -149,12 +227,15 @@
 </section>
 
 
-<section data-transition="fade">
-  <h3>Wetsuits and swimming speed</h3>
+<section data-transition="slide-in fade-out">
+  <h3>Independant samples analysis</h3>
   <div class="row">
     <div class="col-50">
       <p class="smaller no-margin-top">
-        NHST of means difference
+        NHST of means difference <br>
+        <span class="fragment" data-fragment-index=0>
+          (pooling the two samples, shuffling and splitting into two groups)
+        </span>
       </p>
       <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/wetsuit-resampling-not-paired.svg#axes_1"></use>
@@ -192,8 +273,8 @@
   </div>
 </section>
 
-<section data-transition="fade">
-  <h3>Wetsuits and swimming speed</h3>
+<section data-transition="fade-in slide-out">
+  <h3>Independant samples analysis</h3>
   <div class="row">
     <div class="col-50">
       <p class="smaller no-margin-top">
@@ -236,8 +317,8 @@
   </div>
 </section>
 
-<section data-transition="slide-out">
-  <h3>Wetsuits and swimming speed</h3>
+<section>
+  <h3>Wetsuits and swimming speed study</h3>
   <div class="row">
     <div class="col-50">
       <p class="small no-margin-top u">
@@ -259,9 +340,9 @@
       </div>
       <p class="smaller no-margin-top">
         <i class="fa fa-arrow-circle-right warning"></i>
-        Not surprisingly, there is a great deal of <span class="warning">variability</span> in the maximum velocities of the swimmers. 
+        Not surprisingly, there is a great deal of <span class="warning">variability</span> in the maximum velocities of the swimmers (individual variability among the observational units). 
       </p>
-      <p class="smaller framed border-danger">
+      <p class="smaller framed border-danger fragment">
         Because of all this variability, it is difficult to tell whether the difference in mean swim speed observed in the sample represents a real difference or is just due to random chance.
       </p>
     </div>
@@ -293,8 +374,8 @@
   </div>
 </section>
 
-<section>
-  <h3>Wetsuits and swimming speed</h3>
+<section data-transition="slide-in fade-out">
+  <h3>Paired samples analysis</h3>
   <p class="no-margin-top">
     The key to analyzing paired data is to work with the <span class="info">difference for each pair of data values</span> rather than the original data. <br>
     <i class="fa fa-arrow-circle-right info"></i>
@@ -373,12 +454,17 @@
   </p>
 </section>
 
-<section>
-  <h3>Wetsuits and swimming speed</h3>
-  <p class="no-margin-top">
+<section data-transition="fade-in slide-out">
+  <h3>Paired samples analysis</h3>
+  <p class="no-margin-top small">
     <span class="u em">Null hypothesis:</span> If wearing a wetsuit didn't have any effect on the swimming speed, 
     then each swimmer could have done both of their 
     speed equally likely with or without a wetsuit.
+    <br>
+    <span class="fragment" data-fragment-index=1>
+      <i class="fa fa-arrow-circle-right danger"></i>
+      the observed difference in speed for each swimmer in both conditions could have equally likely been the opposite
+    </span>
   </p>
   <table style="font-size: 0.8em;">
     <tbody>
@@ -442,7 +528,7 @@
         <td class="bg-danger">0.05</td>
         <td class="bg-danger">0.10</td>
       </tr>
-      <tr>
+      <tr class="fragment" data-fragment-index=1>
         <td>-0.08</td>
         <td>-0.10</td>
         <td>-0.07</td>
@@ -458,9 +544,8 @@
       </tr>
     </tbody>
   </table> 
-  <br>
   <!-- table 2 -->
-  <table class="fragment" style="font-size: 0.8em;">
+  <table class="fragment" style="font-size: 0.8em; margin-top: 0.5em;">
     <tbody>
       <tr>
         <td class="smallest" style="border-right: solid 1px;">Swimmer</td>
@@ -543,24 +628,29 @@
 <section>
   <h3>Resampling for paired data NHST</h3>
   <div class="row">
-    <div class="col-40">
-      <ol style="font-size: 0.6em; margin-top: 0;">
-      <li>Calculate the effect size (difference or ratio) of the explanatory variable for each pair</li>
-      <li>Randomly assign the sign for the effect sizes</li>
-       <li>Calculate the mean (or median) with that new arrangement of signs</li>
-       <li>Repeat steps #2-3 10000 times (we obtain 10000 effect sizes that we could have observed if the explanatory variable didn't have any effect)</li>
+    <div class="col-35">
+      <p class="no-margin-top no-margin-bottom smaller">
+        To obtain the sampling distribution of the paired differences (or ratio):
+      </p>
+      <ol class="smallest" style="margin-top: 0;">
+      <li>Calculate the effect size (difference or ratio) of the explanatory variable on each pair</li>
+      <li>Randomly assign the sign (or ratio order [1, r$^{-1}$]) for the effect sizes</li>
+       <li>Calculate the mean (or median) with that new arrangement of signs (or ratio order)</li>
     </ol>
     </div>
-    <div class="col-60">
+    <div class="col-65">
       <img src="assets/img/lec/two-groups-paired-resampling.svg" 
        width=100% class="unbordered flat">
     </div>
   </div>
+  <ol class="smallest" style="margin-top: 0;" start=4>
+    <li>Repeat steps #2-3 10000 times (we obtain 10000 effect sizes that we could have observed if the explanatory variable didn't have any effect)</li>
+  </ol>
 </section>
 
 
 <section data-transition="slide-in">
-  <h3>Wetsuits and swimming speed</h3>
+  <h3>Paired samples analysis</h3>
   <div class="row">
     <div class="col-45">
       <p class="small">
@@ -606,11 +696,15 @@
   <h3>Wetsuits and swimming speed</h3>
   <div class="row">
     <div class="col-45">
-      <p class="quoted">
+      <p class="quoted no-margin-top small">
         The same data were analyzed in each case, but the
         conclusions reached were drastically different. 
         <span class="warning">It is very important to think about how the data were
         collected before proceeding with the analysis!</span>
+      </p>
+      <p class="small fragment">
+        <i class="fa fa-arrow-circle-right info"></i>
+        Studies leading to paired data are often more efficient (<span class="info">better able to detect differences between conditions</span>) because you have <span class="u-info">controlled for a source of variation</span> (individual variability among the observational units).
       </p>
     </div>
     <div class="col-55">
@@ -645,11 +739,11 @@
 <section>
   <h3>95% Confidence intervals</h3>
   <p class="no-margin-top small">
-    The differences are a <span class="info">one quantitative sample</span>. We can
+    The differences (or ratios) are a <span class="info">one quantitative sample</span>. We can
     extract the 95% CI by drawing bootstrap samples, as previously seen.
   </p>
   <div class="row">
-    <div class="col-50">
+    <div class="col-50 fragment">
       <img src="assets/img/lec/bootstrap-one-quantitative-variable.svg" class="unbordered flat" width=100%>
     </div>
     <div class="col-50">
@@ -666,7 +760,11 @@
 <section>
   <h3>Theory based</h3>
   <p>
-    Similar methodology than one quantitative sample.
+    Similar methodology than one quantitative sample (one-sample t-test).
+  </p>
+  <p>
+    <i class="fa fa-arrow-circle-right"></i>
+    Required validity conditions
   </p>
 </section>
 
