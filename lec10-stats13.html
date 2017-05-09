@@ -81,13 +81,6 @@
   </p>
 </section>
 
-<section>
-  <h3>Wetsuits and swimming speed</h3>
-  <p>
-    The 2008 Olympics were full of controversy about new swimsuits possibly providing unfair advantages to swimmers, leading to new international rules that came into effect January 1, 2010, regarding swimsuit coverage and material. Can a certain swimsuit really make a swimmer faster?
-  </p>
-</section>
-
 
 <section>
   <h3>Wetsuits and swimming speed</h3>
@@ -101,7 +94,7 @@
       </p>
     </div>
     <div class="col-55">
-      <img src="assets/img/lec/wetsuit-usa.jpg" class="unbordered flat" width=100%>
+      <img src="assets/img/lec/wetsuit-Beijing2008.jpg" class="unbordered flat" width=100%>
     </div>
   </div>
 </section>
@@ -111,8 +104,11 @@
   <h3>Wetsuits and swimming speed</h3>
   <div class="row">
     <div class="col-50">
-      <p class="smaller">
+      <p class="smaller no-margin-top">
         Twelve competitive swimmers and triathletes swam 1500m at maximum speed twice each, once wearing a wetsuit and once wearing a regular suit
+      </p>
+      <p class="smaller">
+        The order of the trials was randomized
       </p>
       <p class="smaller">
         Maximum velocity (m/sec) recorded (one of several possible outcomes)
@@ -208,7 +204,8 @@
       </p>
       <p class="smaller fragment border-danger framed" data-fragment-index=1>
         <i class="fa fa-arrow-circle-right"></i>
-        We failed to take into account the paired structure of the data.
+        We failed to take into account the 
+        <span class="danger">paired structure</span> of the data.
       </p>
     </div>
     <div class="col-50">
@@ -250,7 +247,7 @@
         <div class="col-15">
           <i class="fa fa-venus" style="color: pink; margin-top: 0.5em;"></i>
         </div>
-        <div class="col-40">
+        <div class="col-44">
           <p class="no-margin-top" style="text-align: center;">
             Swimmers <br>
             Triathletes
@@ -303,7 +300,7 @@
     <i class="fa fa-arrow-circle-right info"></i>
     This helps us to eliminate the variability across different units (different swimmers) and instead focus on what we really care about: the difference between the values with and without a wetsuit.
   </p>
-  <table style="font-size: 0.85em;">
+  <table style="font-size: 0.85em;" class="fragment">
     <tbody>
       <tr>
         <td class="smallest" style="border-right: solid 1px;">Swimmer</td>
@@ -371,7 +368,7 @@
       </tr>
     </tbody>
   </table> 
-  <p>
+  <p class="fragment">
     <span class="u em">Note:</span> the mean of the sample of differences is equal to the difference of the sample means: $\bar{x}_\textrm{Difference} = \bar{x}_\textrm{Wetsuit}-\bar{x}_\textrm{No Wetsuit}$
   </p>
 </section>
@@ -380,7 +377,7 @@
   <h3>Wetsuits and swimming speed</h3>
   <p class="no-margin-top">
     <span class="u em">Null hypothesis:</span> If wearing a wetsuit didn't have any effect on the swimming speed, 
-    then each swimmer could have recorded both of their 
+    then each swimmer could have done both of their 
     speed equally likely with or without a wetsuit.
   </p>
   <table style="font-size: 0.8em;">
@@ -543,16 +540,38 @@
   </table> 
 </section>
 
-
 <section>
+  <h3>Resampling for paired data NHST</h3>
+  <div class="row">
+    <div class="col-40">
+      <ol style="font-size: 0.6em; margin-top: 0;">
+      <li>Calculate the effect size (difference or ratio) of the explanatory variable for each pair</li>
+      <li>Randomly assign the sign for the effect sizes</li>
+       <li>Calculate the mean (or median) with that new arrangement of signs</li>
+       <li>Repeat steps #2-3 10000 times (we obtain 10000 effect sizes that we could have observed if the explanatory variable didn't have any effect)</li>
+    </ol>
+    </div>
+    <div class="col-60">
+      <img src="assets/img/lec/two-groups-paired-resampling.svg" 
+       width=100% class="unbordered flat">
+    </div>
+  </div>
+</section>
+
+
+<section data-transition="slide-in">
   <h3>Wetsuits and swimming speed</h3>
   <div class="row">
     <div class="col-45">
-      <p>
+      <p class="small">
         Keeping the structure of the data intact (pairs) allows
-        to filter out the variability accross pairs <br>
-         and focus only
-        on the variability within pairs.
+        to filter out the variability accross pairs.
+      </p>
+      <p class="fragment small">
+        These data provide very convincing evidence that swimmers are faster on average when wearing wetsuits.
+        <br> 
+        <span class="u-warning">Because this was a randomized experiment</span>, we have strong evidence that 
+        <span class="warning">wetsuits cause swimmers to swim faster</span>.
       </p>
     </div>
     <div class="col-55">
@@ -581,6 +600,74 @@
       </table> 
     </div>
   </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Wetsuits and swimming speed</h3>
+  <div class="row">
+    <div class="col-45">
+      <p class="quoted">
+        The same data were analyzed in each case, but the
+        conclusions reached were drastically different. 
+        <span class="warning">It is very important to think about how the data were
+        collected before proceeding with the analysis!</span>
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/wetsuit-resampling-paired-vs-non-paired.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/wetsuit-resampling-paired-vs-non-paired.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/wetsuit-resampling-paired-vs-non-paired.svg#axes_2"></use>
+      </svg>
+      <table>
+        <tbody>
+        <tr>
+           <td></td>
+           <td style="border-right: solid 1px;">No Wetsuit</td>
+           <td>Wetsuit</td>
+         </tr>
+         <tr style="border-bottom: solid 1px;">
+           <td style="border-right: solid 1px;">Mean</td>
+           <td style="border-right: solid 1px;">1.43</td>
+           <td>1.51</td>
+         </tr>
+         <tr>
+           <td></td>
+           <td colspan=2 class="danger">0.078</td>
+         </tr>
+       </tbody>
+      </table> 
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <h3>95% Confidence intervals</h3>
+  <p class="no-margin-top small">
+    The differences are a <span class="info">one quantitative sample</span>. We can
+    extract the 95% CI by drawing bootstrap samples, as previously seen.
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <img src="assets/img/lec/bootstrap-one-quantitative-variable.svg" class="unbordered flat" width=100%>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/wetsuit-resampling-paired-ci95.svg" 
+       class="fragment unbordered flat" width=100%>
+    </div>
+    <p class="small fragment no-margin-top">
+      <i class="fa fa-arrow-circle-right info"></i>
+      We are 95% confident that for competitive swimmers and triathletes, wetsuits increase maximum swimming velocity by an average of between 0.066 and 0.089 meters per second.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h3>Theory based</h3>
+  <p>
+    Similar methodology than one quantitative sample.
+  </p>
 </section>
 
 <!-- <section>
