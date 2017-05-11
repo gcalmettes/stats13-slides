@@ -57,8 +57,8 @@
 
 <section>
   <h3>Explanatory variable</h3>
-  <p>
-    So far, we've dealt with Categorical & Quantitative variables,
+  <p class="sided border-info">
+    So far, we have dealt with Categorical & Quantitative variables,
     whether it was for making inferences from one sample
     or comparing 2 groups.
     When comparing two groups, whatever was the nature
@@ -66,9 +66,10 @@
     the explanatory variable has always been categorical.
   </p>
   <p>
+    <i class="fa fa-arrow-circle-right warning"></i>
     Today, we will learn how to deal with and describe 
-    the relationship between two quantitative variables,
-    meaning that the explanatory will also be quantitative.
+    the <span class="warning">relationship between two quantitative variables</span>,
+    meaning that the <span class="u-warning">explanatory will also be quantitative</span>.
   </p>
 </section>
 
@@ -544,30 +545,241 @@
 
 <section>
   <h3>Correlation caution #1</h3>
-  <p>
-    A strong positive or negative correlation does not (necessarily) imply a cause and effect relationship between the two variables.
-  </p>
+  <div class="row">
+    <div class="col-20">
+      <i class="fa fa-warning fa-4x warning"></i>
+    </div>
+    <div class="col-80">
+      <p class="no-margin-bottom">
+        A strong positive or negative correlation does not (necessarily) imply a <span class="warning">cause and effect relationship</span> between the two variables.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <img src="assets/img/lec/correlation-caution1.svg" 
+     class="unbordered flat" width=60%>
+  </div>
 </section>
 
 <section>
   <h3>Correlation caution #2</h3>
-  <p>
-    A correlation near zero does not (necessarily) mean that the two variables are not associated, since the correlation measures only the strength of a linear relationship.
-  </p>
+  <div class="row">
+    <div class="col-20">
+      <i class="fa fa-warning fa-4x warning"></i>
+    </div>
+    <div class="col-80">
+      <p>
+        A correlation near zero does not (necessarily) mean that the two variables are not associated, since the correlation measures only the strength of a linear relationship.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <img src="assets/img/lec/correlation-caution2.svg" 
+     class="unbordered flat" width=50%>
+  </div>
 </section>
 
 <section>
   <h3>Correlation caution #3</h3>
-  <p>
-    Correlation can be heavily in uenced by outliers. Always plot your data!
+  <div class="row">
+    <div class="col-20">
+      <i class="fa fa-warning fa-4x warning"></i>
+    </div>
+    <div class="col-80">
+      <p>
+        Correlation can be heavily influenced by outliers. Always plot your data!
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <img src="assets/img/lec/correlation-caution3.svg" 
+     class="unbordered flat" width=90%>
+  </div>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Inference for correlation - NHST</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="smaller fragment framed border-danger no-margin-top">
+        If there was <span class="danger">no association</span> between height and foot length,
+        <span class="u-danger">what is the probability</span> we would get a correlation as high as 
+        0.711 just by chance?
+      </p>
+      <p class="smaller fragment">
+        <i class="fa fa-arrow-circle-right danger"></i>
+        If there is no association between height and foot length,
+        it means that there is no pairing between the two variables.
+      </p>
+    </div>
+    <div class="col-65">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-simulation-graph.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Inference for correlation - NHST</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="smaller no-margin-top">
+        <span class="u em">Resampling methodology:</span><br>
+        We can break apart the heights and their corresponding foot lengths 
+        by <span class="warning">shuffling one of the variables</span> while 
+        keeping the other one untouched.
+      </p>
+      <p class="smaller fragment" data-fragment-index=1>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        We create hypothetical pairs that could have been observed 
+        if there was no association between height and foot length.
+      </p>
+    </div>
+    <div class="col-65">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-simulation-graph.svg#axes_1"></use>
+        <use class="fragment current-visible" data-fragment-index=2 xlink:href="assets/img/lec/correlation-simulation-graph.svg#axes_2"></use>
+        <use class="fragment current-visible" data-fragment-index=3 xlink:href="assets/img/lec/correlation-simulation-graph.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=4 xlink:href="assets/img/lec/correlation-simulation-graph.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="no-margin-top smaller fragment" data-fragment-index=2>
+    <i class="fa fa-arrow-circle-right info"></i>
+    For each simulation, we calculate the new $r$ resulting from this possible association.
   </p>
 </section>
 
-
-<section>
-  <h3>Inference for the correlation coefficient</h3>
+<section data-transition="fade">
+  <h3>Inference for correlation - NHST</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="smaller framed border-info">
+        By repeating this process 10000 times, we obtain
+        the sampling distribution
+        of the correlation coefficient if there was 
+        <span class="info">no
+        association</span> between the two variables in our dataset.
+        This is the <span class="info">sampling 
+        distribution of the null hypothesis</span>.
+      </p>
+    </div>
+    <div class="col-65">
+      <svg width="100%" viewBox="0 25 432 272" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-simulation-nhst.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/correlation-simulation-nhst.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/correlation-simulation-nhst.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="no-margin-top smaller">
+    <i class="fa fa-arrow-circle-right info"></i>
+    A p-value can be calculated by counting how many simulations resulted in 
+    a $r$ as extreme as our initial observation and dividing it by the 
+    total number of simulations.
+  </p>
 </section>
 
+<section data-transition="fade-in slide-out">
+  <h3>Inference for correlation - NHST</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="smaller framed border-danger no-margin-top">
+        $p=0.0003$
+      </p>
+      <p class="smaller no-margin-top">
+        <i class="fa fa-arrow-circle-right danger"></i>
+        We have strong evidence against the null hypothesis,
+        a correlation coefficient as extreme as $r=0.711$ would 
+        only be observed 0.3% of the time if the null hypothesis 
+        was true.
+        <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        We can conclude that foot length is positively 
+        correlated with height. 
+      </p>
+    </div>
+    <div class="col-65">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-simulation-graph.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Inference for correlation - 95% CIs</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="smaller no-margin-top">
+        <span class="u em">Resampling methodology:</span><br>
+        To construct the 95% confidence intervals, we construct 
+        the <span class="warning">sampling distribution of our statistic of interest ($r$)</span> 
+        by drawing (with replacement)
+        random <span class="u-warning">bootstrap samples</span> of the pairs from our original data sample.
+      </p>
+      <p class="no-margin-top smaller fragment" data-fragment-index=2>
+        <i class="fa fa-arrow-circle-right info"></i>
+        For each simulation, we calculate the new $r$ resulting from this
+        new obtained sample.
+      </p>
+    </div>
+    <div class="col-65">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-simulation-ci95-steps.svg#axes_1"></use>
+        <use class="fragment current-visible" data-fragment-index=2 xlink:href="assets/img/lec/correlation-simulation-ci95-steps.svg#axes_2"></use>
+        <use class="fragment current-visible" data-fragment-index=3 xlink:href="assets/img/lec/correlation-simulation-ci95-steps.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=4 xlink:href="assets/img/lec/correlation-simulation-ci95-steps.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+</section>
+
+<section data-transition="fade">
+  <h3>Inference for correlation - 95% CIs</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="smaller sided border-warning">
+        By repeating this process 10000 times, we obtain
+        the sampling distribution of $r$, centered at the value 
+        of $r$ observed in our original sample.
+      </p>
+      <p class="no-margin-top smaller fragment" data-fragment-index=2>
+        <i class="fa fa-arrow-circle-right info"></i>
+        The 95% confidence intervals can then be calculated from 
+        this distribution.
+      </p>
+    </div>
+    <div class="col-65">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-simulation-ci95.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/correlation-simulation-ci95.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/correlation-simulation-ci95.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Inference for correlation - 95% CIs</h3>
+  <p class="smaller framed border-danger no-margin-top">
+    The correlation coefficient between height and 
+    foot length is 0.711, with a 95% CI of [0.54, 0.86].
+  </p>
+  <p>
+    <i class="fa fa-arrow-circle-right danger"></i>
+    $0$ (the <span class="em">"no-association value"</span>) is not 
+    in this interval. We have strong evidence suggesting that
+    height and foot length are positively 
+    correlated. 
+  </p>
+</section>
+
+<section>
+  
+</section>
 
 
 
