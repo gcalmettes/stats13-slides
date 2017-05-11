@@ -72,56 +72,230 @@
   </p>
 </section>
 
-<section>
-  <h3>Two quantitative variables</h3>
-  <p>
-    Those type of data are everywhere (news, etc ...)
-  </p>
-  <p>
-    find examples
-  </p>
-</section>
-
-<section>
+<section data-transition="slide-in fade-out">
   <h3>Scatterplot</h3>
-  <p>
-    A scatterplot is the graph of the relationship between two quantitative variables
-  </p>
-  <p>
-    Explanatory variable on the x
-  </p>
-  <p>
-    Response variable on the y
-  </p>
-  <p>
-    A scatterplot is a graph of the relationship between two quantitative variables.
-A scatterplot includes a pair of axes with appropriate numerical scales, one for each variable. The paired data for each case are plotted as a point on the scatterplot. If there are explanatory and response vari- ables, we put the explanatory variable on the horizontal axis and the response variable on the vertical axis.
+  <div class="row">
+    <div class="col-40">
+      <p class="no-margin-top small">
+        A scatterplot is the graph of the <span class="info">
+        relationship between two quantitative variables</span>.
+      </p>
+      <p class="small fragment" data-fragment-index=1>
+        <span class="em u">If there are explanatory and response variables:</span>
+        <br>
+        <i class="fa fa-arrow-circle-right info"></i>
+        Explanatory variable on the x axis
+        <br>
+        <i class="fa fa-arrow-circle-right info"></i>
+        Response variable on the y axis
+      </p>
+      <p class="no-margin-top small fragment no-margin-bottom" data-fragment-index=2>
+        The <span class="warning">paired data</span> for each case 
+        are plotted as a <span class="warning">single point</span> on
+        the scatterplot.
+      </p>
+    </div>
+    <div class="col-60">
+      <div class="smallest">
+        Houses for sale in Santa Monica. <br>
+        Zillow search (05/11/2017)
+      </div>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-scatterplot.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/correlation-scatterplot.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small fragment">
+    The numerical scales (and units) are independant,
+    one for each variable.
+  </p>  
+</section>
+
+<section data-transition="fade">
+  <h3>Scatterplot</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="no-margin-top small">
+        <span class="u em">Note:</span> <br>
+        A scatterplot can have <span class="warning">more than 2 dimensions</span>,
+        it allows you to build complex visualizations:
+        <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        Size encoding
+        <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        Color encoding
+        <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        Symbol encoding
+      </p>
+      <p class="small no-margin-bottom">
+        <span class="u em">Ex:</span> <br>
+        - Point size: Population
+        <br>
+        - Color: Number of larcenies
+      </p>
+    </div>
+    <div class="col-65">
+      <div class="smallest">
+        (US data, 2005)
+      </div>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-bubble-chart.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    In this case, multiple relationships between the
+    different variables can be visually appreciated at the same time.
   </p>
 </section>
 
-<section>
+<section data-transition="fade-in slide-out">
+  <h3>Scatterplot</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="no-margin-top small">
+        <span class="u em">Note:</span> <br>
+        <span class="warning">Multiple datasets</span> can be displayed
+        on the same scatterplot.
+        <br>
+        <i class="fa fa-arrow-circle-right warning"></i>
+        The different datasets can be differentiated by 
+        color/symbol encoding
+        <br>
+        <i class="fa fa-arrow-circle-right warning"></i>
+        All the datasets must have the same variables 
+        (displayed on the same scales)
+      </p>
+      <p class="small">
+        Visual comparisons can be made.
+      </p>
+    </div>
+    <div class="col-65">
+      <div class="smallest">
+        (Teacher salary sample, $n$=100)
+      </div>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-scatter-multiple-datasets.svg#axes_1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/correlation-scatter-multiple-datasets.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in fade-out">
   <h3>Scatterplot to show relationships</h3>
-  <p>
-    4 majors characteristics/points of interest
+  <p class="em u no-margin-top no-margin-bottom">
+    There are 4 majors characteristics to consider when describing
+    a scatterplot:
   </p>
-  <ul class="normal">
-    <li>Direction (positive/negative)</li>
-    <li>Form (linear or not)</li>
-    <li>Strength (strong-moderate-weak, we will let correlation help us decide)</li>
-    <li>Unusual observations</li>
-  </ul>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top">
+        1.  <span class="info">Direction</span> (positive/negative)
+      </p>
+    </div>
+    <div class="col-55">
+      <img src="assets/img/lec/scatterplot.svg" class="unbordered flat" width=100%>
+    </div>
+  </div>
+  <p class="small no-margin-top">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    A <span class="danger">positive association</span> means that values of one variable tend to be higher when values of the other variable are higher
+    <br>
+    <i class="fa fa-arrow-circle-right danger"></i>
+    A <span class="danger">negative association</span> means that values of one variable tend to be lower when values of the other variable are higher
+    <br>
+    <i class="fa fa-arrow-circle-right danger"></i>
+    Two variables are <span class="danger">not associated</span> if knowing the value of one variable does not give you any information about the value of the other variable
+  </p>
 </section>
 
-<section>
-  <h3>Direction of association</h3>
-  <ul class="normal">
-    <li>A positive association means that values of one variable tend to be higher when values of the other variable are higher
-    </li>
-    <li>A  negative association means that values of one variable tend to be lower when values of the other variable are higher
-    </li>
-    <li>Two variables are not associated  if knowing the value of one variable does not give you any information about the value of the other variable
-</li>
-  </ul>
+<section data-transition="fade">
+  <h3>Scatterplot to show relationships</h3>
+  <p class="em u no-margin-top no-margin-bottom">
+    There are 4 majors characteristics to consider when describing
+    a scatterplot:
+  </p>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top">
+        1.  <span class="info">Direction</span> (positive/negative)
+        <br>
+        2.  <span class="info">Form</span> (linear or not)
+      </p>
+    </div>
+    <div class="col-55">
+      <img src="assets/img/lec/scatterplot.svg" class="unbordered flat" width=100%>
+    </div>
+  </div>
+  <p class="small no-margin-top">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    An association is considered <span class="danger">linear</span> if the overall shape of the data point clouds can be 
+    describe as a line.
+    <br>
+    <i class="fa fa-arrow-circle-right danger"></i>
+    An association is considered <span class="danger">non-linear</span> if there are obvious non-linearity in the
+    overall shape of the data points.
+  </p>
+</section>
+
+<section data-transition="fade">
+  <h3>Scatterplot to show relationships</h3>
+  <p class="em u no-margin-top no-margin-bottom">
+    There are 4 majors characteristics to consider when describing
+    a scatterplot:
+  </p>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top">
+        1.  <span class="info">Direction</span> (positive/negative)
+        <br>
+        2.  <span class="info">Form</span> (linear or not)
+        <br>
+        3.  <span class="info">Strength</span> (strong-moderate-weak, we will let correlation help us decide)
+      </p>
+    </div>
+    <div class="col-55">
+      <img src="assets/img/lec/scatterplot.svg" class="unbordered flat" width=100%>
+    </div>
+  </div>
+  <p class="small no-margin-top">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    The <span class="danger">strength</span> of an association is reflected by how close the data points are to each other while describing the overall linear shape. 
+    More local variability in both x and y means less strength.
+  </p>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Scatterplot to show relationships</h3>
+  <p class="em u no-margin-top no-margin-bottom">
+    There are 4 majors characteristics to consider when describing
+    a scatterplot:
+  </p>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top">
+        1.  <span class="info">Direction</span> (positive/negative)
+        <br>
+        2.  <span class="info">Form</span> (linear or not)
+        <br>
+        3.  <span class="info">Strength</span> (strong-moderate-weak, we will let correlation help us decide)
+        <br>
+        4.  <span class="info">Unusual observations</span>
+      </p>
+    </div>
+    <div class="col-55">
+      <img src="assets/img/lec/scatterplot.svg" class="unbordered flat" width=100%>
+    </div>
+  </div>
+  <p class="small no-margin-top">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    <span class="danger">Unusual observations</span> (<span class="warning">outliers</span>) refer to data points for which one of the variable is much lower or much greater than the same variable for the other data points. This data point will appear to be out of place compared to the other ones.
+  </p>
 </section>
 
 <section>
@@ -129,7 +303,7 @@ A scatterplot includes a pair of axes with appropriate numerical scales, one for
   <div class="row">
     <div class="col-25">
       <p class="smallest">
-        Make initial guesses for the strength and direction of association for each of the following
+        Make initial guesses for the strength and direction of association for each of the following car characteristics
       </p>
     </div>
     <div class="col-75">
@@ -153,17 +327,17 @@ A scatterplot includes a pair of axes with appropriate numerical scales, one for
     In statistics, <span class="warning">dependence (or association)</span> is any statistical <span class="warning">relationship</span>,
     whether causal or not, between two (random) variables.
     <br>
-    <span class="fragment">
-      <i class="fa fa-arrow-circle-right info"></i>
-      When the association is linear, we often refer to such an  association as <span class="info">correlation</span>.
-    </span>
+    <i class="fa fa-arrow-circle-right info"></i>
+    When the association is linear, we often refer to such an  association as <span class="info">correlation</span>.
   </p>
   <p class="framed border-danger fragment">
-    Correlation is a measure of the <span class="danger">strength</span> and <span class="danger">direction</span> of <span class="u-danger">linear</span> association between two <span class="u-danger">quantitative</span> variables.
+    The numerical statistic to measure the <span class="danger">strength</span> and <span class="danger">direction</span> of <span class="u-danger">linear</span> association between two <span class="u-danger">quantitative</span> variables is 
+    the <span class="danger">correlation coefficient</span> 
+    (often simply called <span class="em">"correlation"</span>).
   </p>
   <p class="fragment">
-    sample correlation: $r$ <br>
-    population correlation: $\rho$ ("rho")
+    sample correlation coefficient: $r$ <br>
+    population correlation coefficient: $\rho$ ("rho")
   </p>
 </section>
 
@@ -194,7 +368,7 @@ A scatterplot includes a pair of axes with appropriate numerical scales, one for
 </section>
 
 <section>
-  <h3>Correlation, characteristics</h3>
+  <h3>Correlation properties</h3>
   <p class="u em">
     The correlation coefficient:
   </p>
@@ -238,7 +412,7 @@ A scatterplot includes a pair of axes with appropriate numerical scales, one for
 </section>
 
 <section>
-  <h3>Correlation, characteristics</h3>
+  <h3>Correlation properties</h3>
   <p class="no-margin-top">
     Range of values: <span class="info">$-1\leq r\leq1$</span>
   </p>
@@ -331,19 +505,40 @@ A scatterplot includes a pair of axes with appropriate numerical scales, one for
 </section>
 
 <section>
-  <h3>The maths</h3>
-  <div>
-    $r=\frac{\sum_{n=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{n=1}^{n}(y_i-\bar{y})^2}}$
+  <h3>Formula for correlation</h3>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top smaller">
+      We routinely rely on technology to compute correlations
+      (computing the correlation <span class="em">"by hand"</span>
+      can be tedious, especially with a very high number of 
+      data points).
+    </p>
+    </div>
+    <div class="col-55">
+      $r=\frac{\sum_{n=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{n=1}^{n}(y_i-\bar{y})^2}}$
+    </div>
   </div>
-  <p>
-    We routinely rely on technology to compute correlations, but you may be wondering how such computations are done. While computing a correlation “by hand” is tedious and often not very informative, a formula, such as the one shown below, can be helpful in understanding how the correlation works:
+  <p class="no-margin-top u em">
+   This correlation formula can be expressed under the form:
   </p>
-  <p>
-    $r=\frac{1}{n-1}\sum_{n=1}^{n} (\frac{x_i-\bar{x}}{s_x})(\frac{y_i-\bar{y}}{s_y})$ with 
-    $s_x=\sqrt{\frac{\sum_{n=1}^{n}(x_i-\bar{x})^2}{n-1}}$
-  </p>
-  <p>
-    It is the mean of the products of the standard scores.
+  <div class="row">
+    <div class="col-50">
+      <p class="framed border-warning no-margin-top" style="padding: 1em 1em">
+        $r=\frac{1}{n-1}\sum_{n=1}^{n} (\frac{x_i-\bar{x}}{s_x})(\frac{y_i-\bar{y}}{s_y})$ 
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="no-margin-top" style="padding: 1em 1em">
+        with 
+        $s_x=\sqrt{\frac{\sum_{n=1}^{n}(x_i-\bar{x})^2}{n-1}}$
+      </p>
+    </div>
+  </div>
+  <p class="no-margin-top">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Essentially the correlation calculation involves converting all values for both variables to z-scores,
+    and can be considered as the mean of the products of the standard scores (local variation of the data in both directions).
   </p>
 </section>
 
