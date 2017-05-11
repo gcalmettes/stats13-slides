@@ -1,0 +1,448 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 11 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg9.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 11</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      Association of<br>two quantitative variables
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h3>Last time</h3>
+  <p>
+    Paired data
+  </p>
+</section>
+
+<section>
+  <h3>Explanatory variable</h3>
+  <p>
+    So far, we've dealt with Categorical & Quantitative variables,
+    whether it was for making inferences from one sample
+    or comparing 2 groups.
+    When comparing two groups, whatever was the nature
+    of our response variable (categorical or quantivative)
+    the explanatory variable has always been categorical.
+  </p>
+  <p>
+    Today, we will learn how to deal with and describe 
+    the relationship between two quantitative variables,
+    meaning that the explanatory will also be quantitative.
+  </p>
+</section>
+
+<section>
+  <h3>Two quantitative variables</h3>
+  <p>
+    Those type of data are everywhere (news, etc ...)
+  </p>
+  <p>
+    find examples
+  </p>
+</section>
+
+<section>
+  <h3>Scatterplot</h3>
+  <p>
+    A scatterplot is the graph of the relationship between two quantitative variables
+  </p>
+  <p>
+    Explanatory variable on the x
+  </p>
+  <p>
+    Response variable on the y
+  </p>
+  <p>
+    A scatterplot is a graph of the relationship between two quantitative variables.
+A scatterplot includes a pair of axes with appropriate numerical scales, one for each variable. The paired data for each case are plotted as a point on the scatterplot. If there are explanatory and response vari- ables, we put the explanatory variable on the horizontal axis and the response variable on the vertical axis.
+  </p>
+</section>
+
+<section>
+  <h3>Scatterplot to show relationships</h3>
+  <p>
+    4 majors characteristics/points of interest
+  </p>
+  <ul class="normal">
+    <li>Direction (positive/negative)</li>
+    <li>Form (linear or not)</li>
+    <li>Strength (strong-moderate-weak, we will let correlation help us decide)</li>
+    <li>Unusual observations</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Direction of association</h3>
+  <ul class="normal">
+    <li>A positive association means that values of one variable tend to be higher when values of the other variable are higher
+    </li>
+    <li>A  negative association means that values of one variable tend to be lower when values of the other variable are higher
+    </li>
+    <li>Two variables are not associated  if knowing the value of one variable does not give you any information about the value of the other variable
+</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Cars data association</h3>
+  <div class="row">
+    <div class="col-25">
+      <p class="smallest">
+        Make initial guesses for the strength and direction of association for each of the following
+      </p>
+    </div>
+    <div class="col-75">
+      <svg width="100%" viewBox="0 0 720 576" style="margin-top: 0;">
+        <use class="fragment fade-out" data-fragment-index=1 xlink:href="assets/img/lec/correlation-car.svg#axes_5"></use>
+        <use class="fragment fade-out" data-fragment-index=3 xlink:href="assets/img/lec/correlation-car.svg#axes_6"></use>
+        <use class="fragment fade-out" data-fragment-index=2 xlink:href="assets/img/lec/correlation-car.svg#axes_7"></use>
+        <use class="fragment fade-out" data-fragment-index=4 xlink:href="assets/img/lec/correlation-car.svg#axes_8"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/correlation-car.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/correlation-car.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/correlation-car.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=4 xlink:href="assets/img/lec/correlation-car.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Correlation</h3>
+  <p class="quoted">
+    In statistics, <span class="warning">dependence (or association)</span> is any statistical <span class="warning">relationship</span>,
+    whether causal or not, between two (random) variables.
+    <br>
+    <span class="fragment">
+      <i class="fa fa-arrow-circle-right info"></i>
+      When the association is linear, we often refer to such an  association as <span class="info">correlation</span>.
+    </span>
+  </p>
+  <p class="framed border-danger fragment">
+    Correlation is a measure of the <span class="danger">strength</span> and <span class="danger">direction</span> of <span class="u-danger">linear</span> association between two <span class="u-danger">quantitative</span> variables.
+  </p>
+  <p class="fragment">
+    sample correlation: $r$ <br>
+    population correlation: $\rho$ ("rho")
+  </p>
+</section>
+
+<section>
+  <h3>Cars data correlation</h3>
+  <div class="row">
+    <div class="col-25">
+      <p style="color: yellow;" class="fragment small" data-fragment-index=1>
+        Correlation coefficient ($r$)
+      </p>
+      <p class="fragment small framed border-danger">
+        What are the properties of $r$?
+      </p>
+    </div>
+    <div class="col-75">
+      <svg width="100%" viewBox="0 0 720 576" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-car.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/correlation-car.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/correlation-car.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/correlation-car.svg#axes_4"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/correlation-car.svg#axes_9"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/correlation-car.svg#axes_10"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/correlation-car.svg#axes_11"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/correlation-car.svg#axes_12"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Correlation, characteristics</h3>
+  <p class="u em">
+    The correlation coefficient:
+  </p>
+  <div class="row">
+    <div class="col-25">
+      <p class="smallest no-margin-top">
+        Reflects the linear <span class="warning">strength</span>
+        and <span class="warning">direction</span> of a linear relationship
+      </p>
+    </div>
+    <div class="col-75">
+      <svg width="100%" viewBox="0 0 404 60" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation_examples.svg#coeftop"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row fragment">
+    <div class="col-25">
+      <p class="smallest no-margin-top">
+        Does not reflect the slope of the relationship
+      </p>
+    </div>
+    <div class="col-75">
+      <svg width="100%" viewBox="0 65 404 60" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation_examples.svg#coefmiddle"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row fragment">
+    <div class="col-25">
+      <p class="smallest no-margin-top">
+        Does not reflect many aspects of nonlinear relationships
+      </p>
+    </div>
+    <div class="col-75">
+      <svg width="100%" viewBox="0 120 404 64" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation_examples.svg#coefbottom"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Correlation, characteristics</h3>
+  <p class="no-margin-top">
+    Range of values: <span class="info">$-1\leq r\leq1$</span>
+  </p>
+  <p class="no-margin-bottom fragment" data-fragment-index=1>
+    The <span class="info">sign indicates the direction</span> of association:
+  </p>
+    <ul class="small fragment" data-fragment-index=1>
+      <li><span class="em u">Positive association</span> ($r>0$): with positive correlation one variable increases, on average, as the other increases</li>
+      <li><span class="em u">Negative association</span> ($r<0$): with negative correlation, one variable decreases, on average, as the other increases</li>
+      <li><span class="em u">No linear relationship</span> ($r\approx 0$)</li>
+    </ul>
+  <p class="fragment">
+    The <span class="info">closer $r$ is to $\pm 1$, the stronger</span> the linear association (the closer the points fit to a line)
+  </p>
+  <p class="fragment">
+    $r$ has <span class="info">no units</span> and does not depend on the units of measurement
+  </p>
+  <p class="fragment">
+    The correlation makes <span class="info">no distinction between explanatory and response variables</span> (swap the axes and the correlation coefficient will be the same)
+  </p>
+</section>
+
+<section>
+  <h3>Correlation guidelines</h3>
+  <p>
+    The commonly accepted ranges for interpreting the correlation coefficient are as follow:
+  </p>
+  <table>
+    <col width=25%>
+    <col width=15%>
+    <col width=60%>
+      <tbody>
+        <tr class="bg-muted" style="color: black !important;">
+          <td>Correlation value (absolute value)</td>
+          <td>Strength of association</td>
+          <td style="vertical-align: middle;">What this means</td>
+        </tr>
+        <tr class="bg-danger">
+          <td style="vertical-align: middle;">0.7 to 1.0</td>
+          <td style="vertical-align: middle;">Strong</td>
+          <td>
+            The points will appear to be nearly<br>a straight line
+          </td>
+        </tr>
+        <tr class="bg-warning">
+          <td style="vertical-align: middle;">0.3 to 0.7</td>
+          <td style="vertical-align: middle;">Moderate</td>
+          <td>
+            When looking at the graph the increasing/decreasing pattern will be clear, but it won’t be nearly a line
+          </td>
+        </tr>
+        <tr class="bg-info">
+          <td style="vertical-align: middle;">0.1 to 0.3</td>
+          <td style="vertical-align: middle;">Weak</td>
+          <td>
+            With some effort you will be able to see a slightly increasing/decreasing pattern
+          </td>
+        </tr>
+        <tr class="bg-success">
+          <td style="vertical-align: middle;">0 to 0.1</td>
+          <td style="vertical-align: middle;">None</td>
+          <td>
+            No discernible increasing/decreasing pattern
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</section>
+
+
+<section>
+  <h3>Correlation guessing game</h3>
+  <p class="no-margin-top big">
+    Go to <span class="info u">http://istics.net/Correlations/</span>
+  </p>
+  <div class="row">
+    <div class="col-35">
+      <p>
+        Enter group id:
+      </p>
+      <span class="big framed border-danger">
+        Cal17
+      </span>
+    </div>
+    <div class="col-65">
+      <img src="assets/img/lec/correlation-guessing-game.png"
+      class="unbordered flat rounded" width=100%>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>The maths</h3>
+  <div>
+    $r=\frac{\sum_{n=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{n=1}^{n}(y_i-\bar{y})^2}}$
+  </div>
+  <p>
+    We routinely rely on technology to compute correlations, but you may be wondering how such computations are done. While computing a correlation “by hand” is tedious and often not very informative, a formula, such as the one shown below, can be helpful in understanding how the correlation works:
+  </p>
+  <p>
+    $r=\frac{1}{n-1}\sum_{n=1}^{n} (\frac{x_i-\bar{x}}{s_x})(\frac{y_i-\bar{y}}{s_y})$ with 
+    $s_x=\sqrt{\frac{\sum_{n=1}^{n}(x_i-\bar{x})^2}{n-1}}$
+  </p>
+  <p>
+    It is the mean of the products of the standard scores.
+  </p>
+</section>
+
+<section>
+  <h3>Correlation caution #1</h3>
+  <p>
+    A strong positive or negative correlation does not (necessarily) imply a cause and effect relationship between the two variables.
+  </p>
+</section>
+
+<section>
+  <h3>Correlation caution #2</h3>
+  <p>
+    A correlation near zero does not (necessarily) mean that the two variables are not associated, since the correlation measures only the strength of a linear relationship.
+  </p>
+</section>
+
+<section>
+  <h3>Correlation caution #3</h3>
+  <p>
+    Correlation can be heavily in uenced by outliers. Always plot your data!
+  </p>
+</section>
+
+
+<section>
+  <h3>Inference for the correlation coefficient</h3>
+</section>
+
+
+
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <!-- <script src="assets/js/d3.v4.min.js"></script> -->
+  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+
+    <!-- D3 in REVEAL -->
+  <!-- <script src="assets/js/d3-in-reveal.js"></script> -->
+    <!-- The D3 config & animations -->
+    <!-- <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
+
+
+</body>
+</html>
