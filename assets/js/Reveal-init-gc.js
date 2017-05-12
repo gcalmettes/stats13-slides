@@ -23,9 +23,9 @@ Reveal.initialize({
   },
 
   math: {
-    // mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
     mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-		config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+    // mathjax: 'assets/plugins/MathJax-master/MathJax.js',
+    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
       },
 
   menu: {
@@ -90,6 +90,7 @@ Reveal.initialize({
     //{ src: 'assets/reveal.js-master/plugin/markdown/marked.js' },
     //{ src: 'assets/reveal.js-master/plugin/markdown/markdown.js' },
     { src: 'assets/reveal.js-master/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'assets/reveal.js-master/plugin/notes/notes.js', async: true },
 
     //No need of Maths.js since I am using a modified version (see below)
     // { src: 'assets/reveal.js-master/plugin/math/math.js', async: true },
@@ -127,8 +128,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( linkpdf );
 var RevealMath = window.RevealMath || (function(){
 
   var options = Reveal.getConfig().math || {};
-  // options.mathjax = options.mathjax || 'https://cdn.mathjax.org/mathjax/latest/MathJax.js';
   options.mathjax = options.mathjax || 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js';
+  // options.mathjax = options.mathjax || 'assets/plugins/MathJax-master/MathJax.js';
   options.config = options.config || 'TeX-AMS_HTML-full';
 
   loadScript( options.mathjax + '?config=' + options.config, function() {
@@ -189,15 +190,11 @@ var RevealMath = window.RevealMath || (function(){
 
     //=====================================
 
-
     // Reprocess equations in slides when they turn visible
     Reveal.addEventListener( 'slidechanged', function( event ) {
-
       MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub, event.currentSlide ] );
-
     } );
-
-  } );
+  });
 
   function loadScript( url, callback ) {
 

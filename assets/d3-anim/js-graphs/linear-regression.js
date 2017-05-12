@@ -8,17 +8,17 @@ gc.linreg.init = function() {
   'use strict';
 
   // Set the dimensions of the canvas / graph
-  var margin = {top: 10, right: 30, bottom: 50, left: 50},
-      width = 550 - margin.left - margin.right,
-      height = 480 - margin.top - margin.bottom;
+  gc.linreg.margin = {top: 10, right: 30, bottom: 50, left: 50},
+  gc.linreg.width = 550 - gc.linreg.margin.left - gc.linreg.margin.right,
+  gc.linreg.height = 480 - gc.linreg.margin.top - gc.linreg.margin.bottom;
   
   // Set the ranges
   var x = d3.scaleLinear()
       .domain([0,10])
-      .range([margin.left, width+margin.left]);
+      .range([gc.linreg.margin.left, gc.linreg.width+gc.linreg.margin.left]);
   var y = d3.scaleLinear()
       .domain([0,10])
-      .range([height, margin.top]);
+      .range([gc.linreg.height, gc.linreg.margin.top]);
   var r = d3.scaleLinear()
       .domain([0,500])
       .range([0,20]);
@@ -29,28 +29,19 @@ gc.linreg.init = function() {
   // Adds the svg canvas
   gc.linreg.svg = d3.select("#linreg .placeholder")
     .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    
-  // gc.linreg.svg.append("rect")
-  //   .attr("width", "100%")
-  //   .attr("height", "100%")
-  //   .attr("fill", "black");
-    
-  // gc.linreg.svg.append("g")
-  //     .attr("transform",
-  //               "translate(" + margin.left + "," + margin.top + ")");
+      .attr("width", gc.linreg.width + gc.linreg.margin.left + gc.linreg.margin.right)
+      .attr("height", gc.linreg.height + gc.linreg.margin.top + gc.linreg.margin.bottom)
 
   // Draw axis
   gc.linreg.svg.append("g")
     .attr("class", "axis axis--x")
-    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "translate(0," + gc.linreg.height + ")")
     .style("font-size","0.5em")
     .call(d3.axisBottom(x));
 
   gc.linreg.svg.append("g")
     .attr("class", "axis axis--y")
-    .attr("transform", "translate(" + margin.left + ",0)")
+    .attr("transform", "translate(" + gc.linreg.margin.left + ",0)")
     .style("font-size","0.5em")
     .call(d3.axisLeft(y));
 
@@ -58,8 +49,8 @@ gc.linreg.init = function() {
   gc.linreg.svg.append("text")
     .attr("class", "ylabel")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0-margin.left/4)
-      .attr("x", 0 -(height / 2))
+      .attr("y", 0-gc.linreg.margin.left/4)
+      .attr("x", 0 -(gc.linreg.height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .style("font-size","0.5em")
@@ -68,8 +59,8 @@ gc.linreg.init = function() {
       .text("y");
   gc.linreg.svg.append("text")
     .attr("class", "xlabel")
-      .attr("y", height+25)
-      .attr("x", (width / 2))
+      .attr("y", gc.linreg.height+25)
+      .attr("x", (gc.linreg.width / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .style("font-size","0.5em")
@@ -95,8 +86,8 @@ gc.linreg.init = function() {
     .enter()
       .append("line")
       .classed("hlines", 1)
-      .attr("x1", margin.left)
-      .attr("x2", width+margin.left)
+      .attr("x1", gc.linreg.margin.left)
+      .attr("x2", gc.linreg.width+gc.linreg.margin.left)
       .attr("y1", y)
       .attr("y2", y)
       .style("stroke", "#d2d2d2")
@@ -109,8 +100,8 @@ gc.linreg.init = function() {
     .enter()
       .append("line")
       .classed("vlines", 1)
-      .attr("y1", margin.top)
-      .attr("y2", height)
+      .attr("y1", gc.linreg.margin.top)
+      .attr("y2", gc.linreg.height)
       .attr("x1", x)
       .attr("x2", x)
       .style("stroke", "#d2d2d2")
@@ -130,10 +121,10 @@ gc.linreg.init = function() {
 
   //click event: draw new circle
   gc.linreg.svg.on('click', function(){
-    if(d3.mouse(this)[0] > margin.left
-      && d3.mouse(this)[0] < width+margin.left+margin.right
+    if(d3.mouse(this)[0] > gc.linreg.margin.left
+      && d3.mouse(this)[0] < gc.linreg.width+gc.linreg.margin.left+gc.linreg.margin.right
       && d3.mouse(this)[1] > 0
-      && d3.mouse(this)[1] < height){
+      && d3.mouse(this)[1] < gc.linreg.height){
       //push new data point to data array
       gc.linreg.data.push(
         {"x": d3.mouse(this)[0],
@@ -166,19 +157,192 @@ gc.linreg.init = function() {
       selection.exit().remove()
 
       if(gc.linreg.data.length == 2){
-        drawline(gc.linreg.data);
+        gc.linreg.drawline(gc.linreg.data);
       } else if(gc.linreg.data.length > 2){
-        transitionline(gc.linreg.data);
+        gc.linreg.transitionline(gc.linreg.data);
       if(gc.linreg.residview){
-        gc.linreg.resids = drawresiduals(gc.linreg.data);
+        gc.linreg.resids = gc.linreg.drawresiduals(gc.linreg.data);
       }
     }
   }
 })
-
-
 };
 
+gc.linreg.drawline = function(data){
+  var xValues = data.map(function(d){return d.x;});
+  var yValues = data.map(function(d){return d.y;});
+  var lsCoef = [gc.linreg.LeastSquares(xValues, yValues)];
+
+  var lineFunction = d3.line()
+    .x(function(d) { return d.x; })
+    .y(function(d) { return d.y; });
+
+  gc.linreg.svg
+    .append('path')
+    .attr("d", lineFunction([
+      {"x": gc.linreg.margin.left, 
+       "y": lsCoef[0].m * gc.linreg.margin.left + lsCoef[0].b},
+      {"x": gc.linreg.width+gc.linreg.margin.left, 
+       "y": lsCoef[0].m * (gc.linreg.width+gc.linreg.margin.left) + lsCoef[0].b}]))
+    .attr("stroke-width", 2)
+    .attr("stroke", "#d2d2d2")
+    .attr('id', 'regline');
+}
+
+gc.linreg.transitionline = function(data){
+  var xValues = data.map(function(d){return d.x;});
+  var yValues = data.map(function(d){return d.y;});
+  var lsCoef = [gc.linreg.LeastSquares(xValues, yValues)];
+
+  var lineFunction = d3.line()
+  .x(function(d) { return d.x; })
+  .y(function(d) { return d.y; });
+  
+  d3.select('#regline')
+    .transition()
+    .attr('d', lineFunction([
+      {"x": gc.linreg.margin.left, 
+      "y": lsCoef[0].m * gc.linreg.margin.left + lsCoef[0].b},
+      {"x": gc.linreg.width+gc.linreg.margin.left, 
+      "y": lsCoef[0].m * (gc.linreg.width+gc.linreg.margin.left) + lsCoef[0].b}]));
+
+}
+
+gc.linreg.LeastSquares = function(values_x, values_y) {
+    var sum_x = 0;
+    var sum_y = 0;
+    var sum_xy = 0;
+    var sum_xx = 0;
+    var count = 0;
+
+    // We'll use those variables for faster read/write access.
+    var x = 0;
+    var y = 0;
+    var values_length = values_x.length;
+
+    if (values_length != values_y.length) {
+        throw new Error('The parameters values_x and values_y need to have same size!');
+    }
+    // Nothing to do.
+    if (values_length === 0) {
+        return [ [], [] ];
+    }
+    // Calculate the sum for each of the parts necessary.
+    for (var v = 0; v < values_length; v++) {
+        x = values_x[v];
+        y = values_y[v];
+        sum_x += x;
+        sum_y += y;
+        sum_xx += x*x;
+        sum_xy += x*y;
+        count++;
+    }
+    // Calculate m and b for the formular:
+    // y = x * m + b
+    var m = (count*sum_xy - sum_x*sum_y) / (count*sum_xx - sum_x*sum_x);
+    var b = (sum_y/count) - (m*sum_x)/count;
+
+
+    return {'b': b, 'm': m};
+}
+
+gc.linreg.drawresiduals = function(data){
+//get least squares coeffs, great dotted red paths
+  var xValues = data.map(function(d){return d.x;});
+  var yValues = data.map(function(d){return d.y;});
+  var lsCoef = [gc.linreg.LeastSquares(xValues, yValues)];
+
+  var lineFunction = d3.line()
+    .y(function(d) { return d.y;
+    })
+    .x(function(d) { return d.x; });
+
+  gc.linreg.resids = data.map(function(d){
+    return {"x0": d.x, 
+            "y0": d.y, 
+            "x1": d.x , 
+            "y1": lsCoef[0].m * d.x + lsCoef[0].b}
+  })
+
+  var halfcircles = function(d){
+    var radius = 10,
+        padding = 10,
+        radians = Math.PI;
+
+    var dimension = (2 * radius) + (2 * padding),
+        points = 50;
+
+    var angle = d3.scaleLinear()
+        .domain([0, points-1])
+        .range([ 0, radians]);
+
+    var fullangle = d3.scaleLinear()
+        .domain([0, points-1])
+        .range([ 0, 2*radians]);
+
+    var line = d3.radialLine()
+        .curve(d3.curveBasis)
+        .radius(radius)
+        .angle(function(e, i) { 
+          if(d.y0-d.y1 < -10) {
+            return angle(i) + Math.PI/2; 
+          } else if (d.y0 - d.y1 > 10){
+            return angle(i) + Math.PI*(3/2);
+          } else {
+            return fullangle(i);
+          }
+        })
+
+    gc.linreg.svg.append("path")
+      .datum(d3.range(points))
+        .attr("class", "line")
+        .attr("d", line)
+        .attr("fill", 'none')
+        .attr("transform", "translate(" + (d.x0) + ", " + (d.y0) + ")")
+        .style("stroke-dasharray", ("2, 2"))
+        .style("stroke", function(e){
+          if( d.y0-d.y1 > -10 && d.y0 - d.y1 < 10){
+            return "#5cb85c";
+          } else {
+            return "#d9534f";
+          }
+        })
+        .style("stroke-width", 4)
+        .attr("class", "halfcirc");
+    }
+
+  gc.linreg.svg.selectAll('path.resline').remove();
+  gc.linreg.svg.selectAll('path.halfcirc').remove();
+  var selection = gc.linreg.svg.selectAll('.resline')
+      .data(gc.linreg.resids)
+    
+  selection.enter()
+    .append('path')
+    .transition()
+    .attr("d", function(d){
+      if(d.y0-d.y1 < -10) {
+        return lineFunction([
+          {"x": d.x0, "y": d.y0 + 10},
+          {"x": d.x1, "y": d.y1}]); 
+      } else if (d.y0 - d.y1 > 10){
+        return lineFunction([
+          {"x": d.x0, "y": d.y0 - 10},
+          {"x": d.x1, "y": d.y1}]);
+      } 
+    })
+    .attr("stroke-width", 3)
+    .attr("stroke", "#d9534f")
+    .attr('class', 'resline')
+
+  selection.exit().remove()
+
+  selection.enter()
+  .each(function(d){
+    halfcircles(d);
+      })
+
+  return gc.linreg.resids;
+}
 
 // normalization of histogram bars height
 d3.select('#linreg #checkbox_resid')
@@ -219,8 +383,10 @@ d3.select('#reset_button').on('click', function() {
           .remove();
         gc.linreg.svg.selectAll('circle')
           .remove();
-        gc.linreg.svg.selectAll('path')
+        gc.linreg.svg.selectAll('#regline')
           .remove();
+        // gc.linreg.svg.selectAll('path')
+        //   .remove();
         gc.linreg.residview = false;
         gc.linreg.data = []
         gc.linreg.resids = []
