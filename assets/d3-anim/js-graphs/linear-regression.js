@@ -19,12 +19,6 @@ gc.linreg.init = function() {
   var y = d3.scaleLinear()
       .domain([0,10])
       .range([gc.linreg.height, gc.linreg.margin.top]);
-  var r = d3.scaleLinear()
-      .domain([0,500])
-      .range([0,20]);
-  var o = d3.scaleLinear()
-      .domain([10000,100000])
-      .range([.5,1]);
 
   // Adds the svg canvas
   gc.linreg.svg = d3.select("#linreg .placeholder")
@@ -113,24 +107,19 @@ gc.linreg.init = function() {
   gc.linreg.data = [];
   gc.linreg.resids = [];
   gc.linreg.residview = false;
-
-
-  // gc.linreg.svg.on('mousemove', function () {
-  //  console.log(d3.mouse(this)[0], d3.mouse(this)[1]);         
-  // });
+  gc.linreg.radius = 10
 
   //click event: draw new circle
   gc.linreg.svg.on('click', function(){
     if(d3.mouse(this)[0] > gc.linreg.margin.left
       && d3.mouse(this)[0] < gc.linreg.width+gc.linreg.margin.left+gc.linreg.margin.right
-      && d3.mouse(this)[1] > 0
+      && d3.mouse(this)[1] > gc.linreg.margin.top
       && d3.mouse(this)[1] < gc.linreg.height){
       //push new data point to data array
       gc.linreg.data.push(
         {"x": d3.mouse(this)[0],
          "y": d3.mouse(this)[1],
-         "radius": 10,
-         "opacity": 90000
+         "radius": gc.linreg.radius
         });
       // console.log(d3.mouse(this)[0], d3.mouse(this)[1])
 
@@ -149,12 +138,13 @@ gc.linreg.init = function() {
           if(gc.linreg.residview){
             return 0;
           } else {
-          return o(+d.opacity);
+          return 1;
           }
         })
 
       //exit selection
-      selection.exit().remove()
+      selection.exit()
+        .remove()
 
       if(gc.linreg.data.length == 2){
         gc.linreg.drawline(gc.linreg.data);
@@ -169,6 +159,7 @@ gc.linreg.init = function() {
 };
 
 gc.linreg.drawline = function(data){
+  // Initial regression line
   var xValues = data.map(function(d){return d.x;});
   var yValues = data.map(function(d){return d.y;});
   var lsCoef = [gc.linreg.LeastSquares(xValues, yValues)];
@@ -190,6 +181,7 @@ gc.linreg.drawline = function(data){
 }
 
 gc.linreg.transitionline = function(data){
+  // Update regression line
   var xValues = data.map(function(d){return d.x;});
   var yValues = data.map(function(d){return d.y;});
   var lsCoef = [gc.linreg.LeastSquares(xValues, yValues)];
@@ -202,52 +194,51 @@ gc.linreg.transitionline = function(data){
     .transition()
     .attr('d', lineFunction([
       {"x": gc.linreg.margin.left, 
-      "y": lsCoef[0].m * gc.linreg.margin.left + lsCoef[0].b},
+       "y": lsCoef[0].m * gc.linreg.margin.left + lsCoef[0].b},
       {"x": gc.linreg.width+gc.linreg.margin.left, 
-      "y": lsCoef[0].m * (gc.linreg.width+gc.linreg.margin.left) + lsCoef[0].b}]));
-
+       "y": lsCoef[0].m * (gc.linreg.width+gc.linreg.margin.left) + lsCoef[0].b}]));
 }
 
 gc.linreg.LeastSquares = function(values_x, values_y) {
-    var sum_x = 0;
-    var sum_y = 0;
-    var sum_xy = 0;
-    var sum_xx = 0;
-    var count = 0;
+  //Linear regression in javascript
+  var sum_x = 0;
+  var sum_y = 0;
+  var sum_xy = 0;
+  var sum_xx = 0;
+  var count = 0;
 
-    // We'll use those variables for faster read/write access.
-    var x = 0;
-    var y = 0;
-    var values_length = values_x.length;
+  // We'll use those variables for faster read/write access.
+  var x = 0;
+  var y = 0;
+  var values_length = values_x.length;
 
-    if (values_length != values_y.length) {
-        throw new Error('The parameters values_x and values_y need to have same size!');
-    }
-    // Nothing to do.
-    if (values_length === 0) {
-        return [ [], [] ];
-    }
-    // Calculate the sum for each of the parts necessary.
-    for (var v = 0; v < values_length; v++) {
-        x = values_x[v];
-        y = values_y[v];
-        sum_x += x;
-        sum_y += y;
-        sum_xx += x*x;
-        sum_xy += x*y;
-        count++;
-    }
-    // Calculate m and b for the formular:
-    // y = x * m + b
-    var m = (count*sum_xy - sum_x*sum_y) / (count*sum_xx - sum_x*sum_x);
-    var b = (sum_y/count) - (m*sum_x)/count;
-
-
-    return {'b': b, 'm': m};
+  if (values_length != values_y.length) {
+      throw new Error('The parameters values_x and values_y need to have same size!');
+  }
+  // Nothing to do.
+  if (values_length === 0) {
+      return [ [], [] ];
+  }
+  // Calculate the sum for each of the parts necessary.
+  for (var v = 0; v < values_length; v++) {
+      x = values_x[v];
+      y = values_y[v];
+      sum_x += x;
+      sum_y += y;
+      sum_xx += x*x;
+      sum_xy += x*y;
+      count++;
+  }
+  // Calculate m and b for the formular:
+  // y = x * m + b
+  var m = (count*sum_xy - sum_x*sum_y) / (count*sum_xx - sum_x*sum_x);
+  var b = (sum_y/count) - (m*sum_x)/count;
+  // return the slope and intercept
+  return {'b': b, 'm': m};
 }
 
 gc.linreg.drawresiduals = function(data){
-//get least squares coeffs, great dotted red paths
+//get least squares coeffs, draw red paths
   var xValues = data.map(function(d){return d.x;});
   var yValues = data.map(function(d){return d.y;});
   var lsCoef = [gc.linreg.LeastSquares(xValues, yValues)];
@@ -265,7 +256,8 @@ gc.linreg.drawresiduals = function(data){
   })
 
   var halfcircles = function(d){
-    var radius = 10,
+    // Draw half circles for residuals view
+    var radius = gc.linreg.radius,
         padding = 10,
         radians = Math.PI;
 
@@ -284,9 +276,9 @@ gc.linreg.drawresiduals = function(data){
         .curve(d3.curveBasis)
         .radius(radius)
         .angle(function(e, i) { 
-          if(d.y0-d.y1 < -10) {
+          if(d.y0-d.y1 < -gc.linreg.radius) {
             return angle(i) + Math.PI/2; 
-          } else if (d.y0 - d.y1 > 10){
+          } else if (d.y0 - d.y1 > gc.linreg.radius){
             return angle(i) + Math.PI*(3/2);
           } else {
             return fullangle(i);
@@ -301,7 +293,7 @@ gc.linreg.drawresiduals = function(data){
         .attr("transform", "translate(" + (d.x0) + ", " + (d.y0) + ")")
         .style("stroke-dasharray", ("2, 2"))
         .style("stroke", function(e){
-          if( d.y0-d.y1 > -10 && d.y0 - d.y1 < 10){
+          if( d.y0-d.y1 > -gc.linreg.radius && d.y0 - d.y1 < gc.linreg.radius){
             return "#5cb85c";
           } else {
             return "#d9534f";
@@ -320,13 +312,13 @@ gc.linreg.drawresiduals = function(data){
     .append('path')
     .transition()
     .attr("d", function(d){
-      if(d.y0-d.y1 < -10) {
+      if(d.y0-d.y1 < -gc.linreg.radius) {
         return lineFunction([
-          {"x": d.x0, "y": d.y0 + 10},
+          {"x": d.x0, "y": d.y0 + gc.linreg.radius},
           {"x": d.x1, "y": d.y1}]); 
-      } else if (d.y0 - d.y1 > 10){
+      } else if (d.y0 - d.y1 > gc.linreg.radius){
         return lineFunction([
-          {"x": d.x0, "y": d.y0 - 10},
+          {"x": d.x0, "y": d.y0 - gc.linreg.radius},
           {"x": d.x1, "y": d.y1}]);
       } 
     })
@@ -337,15 +329,16 @@ gc.linreg.drawresiduals = function(data){
   selection.exit().remove()
 
   selection.enter()
-  .each(function(d){
-    halfcircles(d);
-      })
+    .each(function(d){
+      halfcircles(d);
+    })
 
   return gc.linreg.resids;
 }
 
-// normalization of histogram bars height
+
 d3.select('#linreg #checkbox_resid')
+  // residuals/data points view switch
   .on("change", function() {
     if ( gc.linreg.residview ) {
         gc.linreg.svg.selectAll('path.resline').remove();
@@ -361,34 +354,20 @@ d3.select('#linreg #checkbox_resid')
     }        
 });
 
-d3.select('#resid_button').on('click', function() {
-    if ( gc.linreg.residview ) {
-        gc.linreg.svg.selectAll('path.resline').remove();
-        gc.linreg.svg.selectAll('path.halfcirc').remove();
-        gc.linreg.svg.selectAll("circle")
-          .style("opacity", 1)
-        gc.linreg.residview = false;
-    } else {
-        gc.linreg.svg.selectAll("circle")
-          .style("opacity", 0)
-        gc.linreg.residview = true;
-        gc.linreg.drawresiduals(gc.linreg.data);
-    }        
-});
-
 d3.select('#reset_button').on('click', function() {
-        gc.linreg.svg.selectAll('path.resline')
-          .remove();
-        gc.linreg.svg.selectAll('path.halfcirc')
-          .remove();
-        gc.linreg.svg.selectAll('circle')
-          .remove();
-        gc.linreg.svg.selectAll('#regline')
-          .remove();
-        // gc.linreg.svg.selectAll('path')
-        //   .remove();
-        gc.linreg.residview = false;
-        gc.linreg.data = []
-        gc.linreg.resids = []
+  // Remove the elements on the graph
+  gc.linreg.svg.selectAll('path.resline')
+    .remove();
+  gc.linreg.svg.selectAll('path.halfcirc')
+    .remove();
+  gc.linreg.svg.selectAll('circle')
+    .remove();
+  gc.linreg.svg.selectAll('#regline')
+    .remove();
+  // gc.linreg.svg.selectAll('path')
+  //   .remove();
+  gc.linreg.residview = false;
+  gc.linreg.data = []
+  gc.linreg.resids = []
 });  
 
