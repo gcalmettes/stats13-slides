@@ -152,40 +152,48 @@ var RevealMath = window.RevealMath || (function(){
     // usage \fragment{1}{x_1} and \fraglight{highlight-blue}{x_1}
     // and \fragindex{1}{\fraglight{highlight-blue}{x_1}}
 
-        MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
-            var TEX = MathJax.InputJax.TeX;
+    MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+        var TEX = MathJax.InputJax.TeX;
 
-            TEX.Definitions.Add({macros: {'fragment': 'FRAGMENT_INDEX_attribute'}}); // regular fragments
-            TEX.Definitions.Add({macros: {'fraglight': 'FRAGMENT_highlight'}}); // highlighted fragments
-            TEX.Definitions.Add({macros: {'fragindex': 'FRAGMENT_add_INDEX'}}); // add fragment index to highlighted fragments
+        TEX.Definitions.Add({macros: {'fragment': 'FRAGMENT_INDEX_attribute'}}); // regular fragments
+        TEX.Definitions.Add({macros: {'fraglight': 'FRAGMENT_highlight'}}); // highlighted fragments
+        TEX.Definitions.Add({macros: {'fragindex': 'FRAGMENT_add_INDEX'}}); // add fragment index to highlighted fragments
+        TEX.Definitions.Add({macros: {'texclass': 'TEX_APPLY_class'}}); // add fragment index to highlighted fragments
 
-            TEX.Parse.Augment({
-             FRAGMENT_INDEX_attribute: function (name) {
-                 var index = this.GetArgument(name);
-                 var arg   = this.ParseArg(name);
-                 this.Push(arg.With({
-                    'class': 'fragment',
-                    attrNames: ['data-fragment-index'],
-                    attr: {'data-fragment-index':index}
-                 }));
-             },
-             FRAGMENT_highlight: function (name) {
-                 var highlight_kind = this.GetArgument(name);
-                 var arg   = this.ParseArg(name);
-                 this.Push(arg.With({
-                    'class': 'fragment ' + highlight_kind
-                 }));
-             },
-             FRAGMENT_add_INDEX: function (name) {
-                 var index = this.GetArgument(name);
-                 var arg   = this.ParseArg(name);
-                 this.Push(arg.With({
-                    attrNames: ['data-fragment-index'],
-                    attr: {'data-fragment-index':index}
-                 }));
-              }
-            });
+        TEX.Parse.Augment({
+          FRAGMENT_INDEX_attribute: function (name) {
+              var index = this.GetArgument(name);
+              var arg   = this.ParseArg(name);
+              this.Push(arg.With({
+                 'class': 'fragment',
+                 attrNames: ['data-fragment-index'],
+                 attr: {'data-fragment-index':index}
+              }));
+          },
+          FRAGMENT_highlight: function (name) {
+              var highlight_kind = this.GetArgument(name);
+              var arg   = this.ParseArg(name);
+              this.Push(arg.With({
+                 'class': 'fragment ' + highlight_kind
+              }));
+          },
+          FRAGMENT_add_INDEX: function (name) {
+              var index = this.GetArgument(name);
+              var arg   = this.ParseArg(name);
+              this.Push(arg.With({
+                 attrNames: ['data-fragment-index'],
+                 attr: {'data-fragment-index':index}
+              }));
+          },
+          TEX_APPLY_class: function (name) {
+              var class_kind = this.GetArgument(name);
+              var arg   = this.ParseArg(name);
+              this.Push(arg.With({
+                 'class': class_kind
+              }));
+          }
         });
+    });
 
     //=====================================
 
