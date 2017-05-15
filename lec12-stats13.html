@@ -211,7 +211,7 @@
           <span class="warning">$a$</span>: y-intercept at $x=0$
         </li>
         <li class="fragment" data-fragment-index=2>
-          <span style="color: #b3de69;">$b$</span>: slope of the line
+          <span style="color: #b3de69;">$b$</span>: slope of the line (often called <span style="color: #b3de69;">$m$</span>)
         </li>
       </ul>
       <div class="row">
@@ -435,7 +435,7 @@
       </p>
       <p class="smaller no-margin-top fragment" data-fragment-index=1>
         <i class="fa fa-arrow-circle-right warning"></i>
-        Instead of working directly with the residuals, we usually try to minimize the sum of the square of the residuals:
+        Instead of working directly with the residuals, we usually try to <span class="warning">minimize the sum of the square of the residuals</span>:
         <br>
         $SS_{residuals}=\sum_{i=1}^{n}(y_i-\overset{\hat{}}{y_i})^2$
       </p>
@@ -525,22 +525,163 @@
       <button id="reset_button" class="btn-info btn-large">Reset</button>
     </div>
   </div>
-
   <div class="placeholder"></div>
-
 </section>
 
 <section>
-  <h3></h3>
+  <h3>Linear regression analysis</h3>
   <p>
-    The slope, or m, of the regresion line tells you how much change in X you can expect based on a given change in Y. R2 tells you how much of the variation in Y is attributable to variation in X. For instance, if your R2 = 0.9, you can say that 0.9 or 90% of the variation in Y is due to the variation in X. The rest of the variation, or “noise”, is accounted by other factors, such as measurement error, individual variation, etc.
+    Linear regression analysis consists of <span class="info">more than
+    just fitting a linear line</span> through a cloud of data points. The linear regression analysis of a dataset can be decomposed in <span class="info">3 stages</span>:
+  </p> 
+  <ol class="normal">
+    <li><span class="u strong">Analyzing</span> the correlation and directionality of the data (checking if linear regression is an <span class="warning">appropriate model</span> for the data you want to analyze)</li>
+    <li><span class="u strong">Estimating</span> the model using the data (fitting the line, estimating the <span class="warning">best parameters</span> for the line equation)</li>
+    <li><span class="u strong">Evaluating</span> the <span class="warning">validity and usefulness</span> of the model</li>
+  </ol> 
+</section>
+
+<section>
+  <h3>Evaluating the model</h3>
+  <p class="smaller no-margin-top no-margin-bottom">
+    Three statistics are commonly used in linear regression analysis 
+    to evaluate how well the model fit the data:
+  </p>
+  <ul class="normal">
+    <li>The <span class="warning">$R^2$</span>, or <span class="em">coefficient of determination</span></li>
+    <li>The <span class="warning">$RMSE$</span>, or <span class="em">Root Mean Square Error</span></li>
+    <li>The <span class="success">$F$-statistic</span> (we will talk about later in class, when 
+    dealing with comparing more than two quantitative variables)</li>
+  </ul> 
+  <p class="small">
+    All three statistics are based on two sums of squares:
+  </p>
+  <div class="row">
+    <table class="table-vert">
+      <col width=50%>
+      <col width=50%>
+      <tbody>
+        <tr>
+          <td class="bg-info">Total Sum of Squares ($TSS$)</td>
+          <td class="bg-danger">Sum of Squares Error ($SSE$)</td>
+        </tr>
+        <tr style="border-bottom: 1px solid">
+          <td>
+            it measures how far the response variable data are from the mean.
+            $TSS=\sum_{i=1}^{n}(y-\texclass{info}{\bar{y}})^2$
+          </td>
+          <td>
+            it measures how far the data are from the model’s predicted values.
+            $SSE=\sum_{i=1}^{n}(y-\texclass{danger}{\overset{\hat{}}{y}})^2$
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right warning"></i>
+     Different combinations of these two values provide different information about how the regression model compares to the mean model.
+  </p>
+</section>
+
+
+<section>
+  <h3>Coefficient of determination, $R^2$</h3>
+  <p class="framed border-warning">
+    $R^2$ measures the percentage of total variation 
+    in the response variable that is explained by the linear relationship.
+  </p>
+  <p>
+    <span class="warning">$R^2=1-\frac{\textrm{Sum of squared errors (SSE)}}{\textrm{Total sum of squares (TSS)}}$</span>
+    $= 1-\frac{\sum_{i=1}^{n}(y-\texclass{danger}{\overset{\hat{}}{y}})^2}{\sum_{i=1}^{n}(y-\texclass{info}{\bar{y}})^2}$$
+  </p>
+  <p class="small no-margin-bottom">
+    <span class="u em">Notes:</span>
+  </p>
+  <ul class="small">
+    <li> Another way to compute $R^2$ is by litteraly
+    calculating the <span class="info">square of the correlation coefficient</span> ($r$). $R^2 = r^2$</li>
+    <li>The slope ($m$) of the regresion line tells you how much change in $Y$ you can expect based on a given change in $X$. The coefficient $R^2$ tells you <span class="info">how much of the variation in $Y$ is attributable to (explained by) the variation in $X$</span>. The rest of the variation (or <span class="em danger">“noise”</span>), is accounted by other factors, such as measurement error, individual variation, etc.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Root mean square error, $RMSE$</h3>
+  <p class="framed border-warning">
+    The $RMSE$ measures how close the observed data points are to the model’s predicted values.
+  </p>
+  <p class="small no-margin-top">
+    The $RMSE$ is a common metric to evaluate model performance and computes the square root of the average squared residual (distance from the prediction to the best fit).
+  </p>
+  <p class="warning no-margin-bottom">
+    $RMSE=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y-\overset{\hat{}}{y})^2}$
+  </p>
+  <p class="smaller no-margin-top">
+    <i class="fa fa-arrow-circle-right info"></i>
+    The key idea behind the computation of the $RMSE$ 
+    is that predictions ($\overset{\hat{}}{y}$) that are <span class="info">far away from the true observed data</span>
+    value ($y$) will contribute more heavily to <span class="info">increasing</span> the value of the $RMSE$ than predictions that are close to the true values.
+  </p>
+  <p class="smaller no-margin-top">
+    <i class="fa fa-arrow-circle-right info"></i>
+    <span class="info">Lower</span> values of RMSE indicate <span class="info">better</span> fit.
   </p>
 </section>
 
 <section>
-  <p>
-    
-    A common metric to evaluate model performance is RMSE (root mean squared error). RMSE computes the square root of the average squared residual (distance from our prediction to the true label). The key idea is that you want to penalize predictions that are far away from the true label more heavily than ones that are closer to the true label.
+  <h3>Model evaluation, $R^2$ vs $RMSE$</h3>
+  <div class="row">
+    <table>
+      <col width=50%>
+      <col width=50%>
+      <tbody>
+        <tr>
+          <td class="bg-info">$R^2$</td>
+          <td class="bg-danger">$RMSE$</td>
+        </tr>
+        <tr>
+          <td>Square of the correlation coefficient</td>
+          <td>Square root of the average squared residual</td>
+        </tr>
+        <tr>
+          <td colspan="2">Both give an indication about the <span class="em">"goodness of the fit"</span></td>
+        </tr>
+        <tr>
+          <td>$R^2$ is conveniently scaled between 0 and 1 (<span class="info">relative measure</span> of fit)</td>
+          <td>$RMSE$ is not scaled to any particular value (<span class="danger">absolute measure</span> of fit)</td>
+        </tr>
+        <tr>
+          <td>$R^2$ can be more easily interpreted
+            in the <span class="info">context of the linear association</span>
+            analyzed 
+            (how successful the fit is in explaining the variation of the data)
+          </td>
+          <td>$RMSE$ explicitly provides information about <span class="danger">how much our predictions deviate, on average</span>, from the actual values in the dataset</td>
+        </tr>
+        <tr>
+          <td>Its main purpose is either the <span class="info">prediction</span> of future outcomes or the <span class="info">testing</span> of hypotheses.</td>
+          <td>
+            It is one of the most important criterion for fit if the main purpose of the model is <span class="info">prediction</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+</section>
+
+<section>
+  <h3>The use of linear regression analysis</h3>
+  <p class="no-margin-top em smaller">
+    There are 3 major uses for regression analysis:
+  </p>
+  <p class="small framed border-warning">
+    <span class="warning em u">Causal analysis</span>: it might be used to identify the <span class="warning">strength of the effect</span> that the independent variable(s) have on a dependent variable. Typical questions are what is the strength of relationship between dose and effect, sales and marketing spend, age and income, etc...
+  </p>
+  <p class="small framed border-info">
+    <span class="info em u">Forecasting</span>: it can be used to forecast <span class="info">effects or impacts of changes</span>. That is regression analysis helps us to understand how much will the dependent variable change, when we change one or more independent variables. Typical questions are how much additional $Y$ would I get for one additional unit $X$.
+  </p>
+  <p class="small framed border-danger">
+    <span class="danger em u">Prediction</span>: it can be used to predict <span class="danger">trends and future values</span>. The regression analysis can be used to get point estimates. Typical questions are what will the price for gold be in 6 month from now? What is the total effort for a task X?
   </p>
 </section>
 
@@ -761,12 +902,13 @@
       </p>
     </div>
   </div>
-  <p class="fragment">
+  <p class="fragment" data-fragment-index=1>
     <i class="fa fa-arrow-circle-right info"></i>
     Recall that linear regression is a 
     <span class="info">procedure strictly numeric</span>; you may 
     find that two totally unrelated variables give a significant $R^2$. 
-    <br>
+  </p>
+  <p class="fragment" data-fragment-index=1>
     <i class="fa fa-arrow-circle-right info"></i>
     When studying a phenomena, you must understand the
     phenomena being researched and the regression procedure in
@@ -1113,8 +1255,15 @@
   <h3>Linear regression for prediction</h3>
   <div class="row">
     <div class="col-100">
-      <img src="assets/img/lec/regression-train-test-sets-split.svg"  
-      class="unbordered flat" width=100%>
+      <svg width="100%" viewBox="0 0 504 259.2" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer0"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer2"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer3"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer4"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer5"></use>
+      </svg>
+
     </div>
   </div>
 </section>
