@@ -275,7 +275,7 @@
   </div>
   <div>
     <!-- <iframe class="framed" data-src="https://www.abcam.com/human-cdnf-elisa-kit-ab215415.html" style="background: #FFFFFF; width: 1000px; height: 450px; border: 0px;" scrolling="Yes" src="https://www.abcam.com/human-cdnf-elisa-kit-ab215415.html"></iframe> -->
-    <iframe class="framed" data-src="http://www.abcam.com/human-cdnf-elisa-kit-ab215415.html"
+    <iframe class="framed" src="http://www.abcam.com/human-cdnf-elisa-kit-ab215415.html"
     style="background: #FFFFFF; width: 1000px; height: 450px; border: 0px;" scrolling="Yes"></iframe>
   </div>
 </section>
@@ -544,87 +544,570 @@
   </p>
 </section>
 
-<section>
+<section data-transition="slide-in fade-out">
   <h3>Regression caution #1</h3>
-  <p>
-    Extrapolation
-  </p>
-  <p>
-    The line of best fit should only be used to predict values within or close to those contained in the dataset. Far beyond the dataset, the trend may change and the predictions will be incorrect.
-    Avoid trying to apply a regression line to predict values far from those that were used to create it.
-  </p>
-  <p>
-    ex (Olympics 100m time, Nature paper)
-  </p>
+  <div class="row no-margin-top">
+    <div class="col-20">
+      <i class="fa fa-warning fa-3x warning"></i>
+    </div>
+    <div class="col-80">
+      <p class="no-margin-top small">
+        <span class="warning u em">Extrapolation:</span>
+        The regression line should only be used to <span class="info">predict values within or close to those contained in the dataset</span>. Far beyond the dataset, the trend may change and the predictions will be incorrect.
+        <!-- Avoid trying to apply a regression line to predict values far from those that were used to create it. -->
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-66">
+      <img src="assets/img/lec/regression-olympics-100m-nature-paper.png" 
+      class="unbordered flat rounded" width=100%>
+    </div>
+    <div class="col-33">
+      <p class="no-margin-top smallest em">
+        Nature 431, 525 (30 September <span class="warning">2004</span>)
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Regression caution #1</h3>
+  <div class="row no-margin-top">
+    <div class="col-20">
+      <i class="fa fa-warning fa-3x warning"></i>
+    </div>
+    <div class="col-80">
+      <p class="no-margin-top small">
+        <span class="warning u em">Extrapolation:</span>
+        The regression line should only be used to <span class="info">predict values within or close to those contained in the dataset</span>. Far beyond the dataset, the trend may change and the predictions will be incorrect.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-66">
+      <img src="assets/img/lec/regression-olympics-times-100m.svg" 
+      class="unbordered flat rounded" width=100%>
+    </div>
+    <div class="col-33">
+      <p class="no-margin-top smallest em">
+        Nature 431, 525 (30 September <span class="warning">2004</span>)
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Regression caution #1</h3>
+  <div class="row no-margin-top">
+    <div class="col-20">
+      <i class="fa fa-warning fa-3x warning"></i>
+    </div>
+    <div class="col-80">
+      <p class="no-margin-top small">
+        <span class="warning u em">Extrapolation:</span>
+        The regression line should only be used to <span class="info">predict values within or close to those contained in the dataset</span>. Far beyond the dataset, the trend may change and the predictions will be incorrect.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-66">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_4"></use>
+        <use class="fragment" data-fragment-index=4 xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_5"></use>
+        <use class="fragment" data-fragment-index=5 xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_6"></use>
+      </svg>
+    </div>
+    <div class="col-33">
+      <div class="row">
+        <table>
+          <col width=30%>
+          <col width=35%>
+          <col width=35%>
+          <tbody>
+            <tr class="bg-danger" style="color: black !important;">
+              <td>Year</td>
+              <td>Predicted</td>
+              <td>Real</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;">2008</td>
+              <td style="vertical-align: middle;">10.57</td>
+              <td><span class="fragment" data-fragment-index=1 style="color: #b3de69;">10.78</span></td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;">2012</td>
+              <td style="vertical-align: middle;">10.50</td>
+              <td><span class="fragment" data-fragment-index=2 style="color: #b3de69;">10.75</span></td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;">2016</td>
+              <td style="vertical-align: middle;">10.43</td>
+              <td><span class="fragment" data-fragment-index=3 style="color: #b3de69;">10.71</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <table>
+          <col width=30%>
+          <col width=35%>
+          <col width=35%>
+          <tbody>
+            <tr class="bg-info" style="color: black !important;">
+              <td>Year</td>
+              <td>Predicted</td>
+              <td>Real</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;">2008</td>
+              <td style="vertical-align: middle;">9.73</td>
+              <td><span class="fragment" data-fragment-index=1 style="color: #fb8072;">9.69</span></td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;">2012</td>
+              <td style="vertical-align: middle;">9.68</td>
+              <td><span class="fragment" data-fragment-index=2 style="color: #fb8072;">9.63</span></td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;">2016</td>
+              <td style="vertical-align: middle;">9.64</td>
+              <td><span class="fragment" data-fragment-index=3 style="color: #fb8072;">9.81</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Regression caution #1</h3>
+  <div class="row no-margin-top">
+    <div class="col-20">
+      <i class="fa fa-warning fa-3x warning"></i>
+    </div>
+    <div class="col-80">
+      <p class="no-margin-top small">
+        <span class="warning u em">Extrapolation:</span>
+        The regression line should only be used to <span class="info">predict values within or close to those contained in the dataset</span>. Far beyond the dataset, the trend may change and the predictions will be incorrect.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-66">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_4"></use>
+        <use xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/regression-olympics-winning-times-100m-fig.svg#axes_6"></use>
+      </svg>
+    </div>
+    <div class="col-33">
+      <p class="smallest">
+      "A. J. Tatem and colleagues calculate that women may out-sprint men by the middle of the twenty-second century.
+      They omit to mention, however, that (according to their analysis) <span class="warning">a far more interesting race should occur in about 2636, when times of less than zero seconds will be recorded</span>."
+      <br>
+      <span class="em">-- Kenneth Rice (2004) --</span>
+      </p>
+    </div>
+  </div>
 </section>
 
 <section>
   <h3>Regression caution #2</h3>
-  <p>
-    Generalization
-  </p>
-  <p>
-    The regression equation developed from one dataset should not be applied to data collected in other regions or areas. A regression model developed from a specific dataset should not be used to generalize about other regions or the general occurrence of the phenomena. For example, although we find that rainfall and runoff have a particular relationship in this watershed, we cannot generalize about rainfall and runoff patterns in all watersheds.
+  <div class="row no-margin-top">
+    <div class="col-20">
+      <i class="fa fa-warning fa-3x warning"></i>
+    </div>
+    <div class="col-80">
+      <p class="no-margin-top small">
+        <span class="warning u em">Generalization:</span>
+        A regression model developed from a specific dataset should not be used to generalize about observational units not related to the original dataset or to conclude about the general pattern of the phenomena.
+      </p>
+    </div>
+  </div>
+  <p class="fragment">
+    <i class="fa fa-arrow-circle-right info"></i>
+    If you develop a linear model from data collected on a 
+    specific sport team in order to predict how this team will 
+    perform in the near future, <span class="info">it is unlikely that the same 
+    model would be able to accurately predict how all the other
+    teams will perform</span>. Although we may find some kind of 
+    relationship between the variable recorded on the team we 
+    are studying, the same relationships might not exist for 
+    another team.
   </p>
 </section>
 
 <section>
   <h3>Regression caution #3</h3>
-  <p>
-    Causation
-  </p>
-  <p>
-    Although we imply a causal relationship when we use regression, regression analysis will not prove causality between two variables. Recall that this procedure is strictly numeric; you may find that two totally unrelated variables give a significant $r^2$. The researcher must understand the phenomena being researched and the regression procedure in order to interpret the results appropriately.
+  <div class="row no-margin-top">
+    <div class="col-20">
+      <i class="fa fa-warning fa-3x warning"></i>
+    </div>
+    <div class="col-80">
+      <p class="no-margin-top small">
+        <span class="warning u em">Causation:</span>
+        Although we imply a causal relationship when we use
+        linear regression, <span class="info">regression analysis
+        will not prove
+        causality between two variables</span>.
+      </p>
+    </div>
+  </div>
+  <p class="fragment">
+    <i class="fa fa-arrow-circle-right info"></i>
+    Recall that linear regression is a 
+    <span class="info">procedure strictly numeric</span>; you may 
+    find that two totally unrelated variables give a significant $R^2$. 
+    <br>
+    <i class="fa fa-arrow-circle-right info"></i>
+    When studying a phenomena, you must understand the
+    phenomena being researched and the regression procedure in
+    order to 
+    <span class="info">interpret the results appropriately</span>.
   </p>
 </section>
 
 <section>
   <h3>Regression caution #4</h3>
-  <p>
-    Plot the data! Although the regression line can be calculated for any set of paired quantitative variables, it is only appropriate to use a regression line when there is a linear trend in the data.
-  </p>
-  <p>
-    ex (Ascombe)
-  </p>
+  <div class="row no-margin-top">
+    <div class="col-20">
+      <i class="fa fa-warning fa-3x warning"></i>
+    </div>
+    <div class="col-80">
+      <p class="no-margin-top small">
+        <span class="warning u em">Validity:</span>
+        Plot the data! Although the regression line can be calculated for any set of paired quantitative variables, it is 
+        <span class="info">only appropriate to use a regression line when there is a linear trend</span> in the data.
+      </p>
+    </div>
+  </div>
+  <div class="row fragment" data-fragment-index=1>
+    <div class="col-45">
+      <table style="font-size: 0.7em;">
+        <thead class="table-vert">
+          <tr>
+            <th bgcolor="#636c72" colspan="2">Set #1</th>
+            <th bgcolor="#636c72" colspan="2">Set #2</th>
+            <th bgcolor="#636c72" colspan="2">Set #3</th>
+            <th bgcolor="#636c72" colspan="2" style="border-right: none;">Set #4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>x</td>
+            <td style="border-right: solid 1px white;">y</td>
+            <td>x</td>
+            <td style="border-right: solid 1px white;">y</td>
+            <td>x</td>
+            <td style="border-right: solid 1px white;">y</td>
+            <td>x</td>
+            <td>y</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td style="border-right: solid 1px white;">8.04</td>
+            <td>10</td>
+            <td style="border-right: solid 1px white;">9.14</td>
+            <td>10</td>
+            <td style="border-right: solid 1px white;">7.46</td>
+            <td>8</td>
+            <td>6.58</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td style="border-right: solid 1px white;">6.95</td>
+            <td>8</td>
+            <td style="border-right: solid 1px white;">8.14</td>
+            <td>8</td>
+            <td style="border-right: solid 1px white;">6.77</td>
+            <td>8</td>
+            <td>5.76</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td style="border-right: solid 1px white;">7.58</td>
+            <td>13</td>
+            <td style="border-right: solid 1px white;">8.74</td>
+            <td>13</td>
+            <td style="border-right: solid 1px white;">12.74</td>
+            <td>8</td>
+            <td>7.71</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td style="border-right: solid 1px white;">8.81</td>
+            <td>9</td>
+            <td style="border-right: solid 1px white;">8.77</td>
+            <td>9</td>
+            <td style="border-right: solid 1px white;">7.11</td>
+            <td>8</td>
+            <td>8.84</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td style="border-right: solid 1px white;">8.33</td>
+            <td>11</td>
+            <td style="border-right: solid 1px white;">9.26</td>
+            <td>11</td>
+            <td style="border-right: solid 1px white;">7.81</td>
+            <td>8</td>
+            <td>8.47</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td style="border-right: solid 1px white;">9.96</td>
+            <td>14</td>
+            <td  style="border-right: solid 1px white;">8.1</td>
+            <td>14</td>
+            <td style="border-right: solid 1px white;">8.84</td>
+            <td>8</td>
+            <td>7.04</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td style="border-right: solid 1px white;">7.24</td>
+            <td>6</td>
+            <td style="border-right: solid 1px white;">6.13</td>
+            <td>6</td>
+            <td style="border-right: solid 1px white;">6.08</td>
+            <td>8</td>
+            <td>5.25</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td style="border-right: solid 1px white;">4.26</td>
+            <td>4</td>
+            <td style="border-right: solid 1px white;">3.1</td>
+            <td>4</td>
+            <td style="border-right: solid 1px white;">5.39</td>
+            <td>19</td>
+            <td>12.5</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td style="border-right: solid 1px white;">10.84</td>
+            <td>12</td>
+            <td style="border-right: solid 1px white;">9.13</td>
+            <td>12</td>
+            <td style="border-right: solid 1px white;">8.15</td>
+            <td>8</td>
+            <td>5.56</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td style="border-right: solid 1px white;">4.82</td>
+            <td>7</td>
+            <td  style="border-right: solid 1px white;">7.26</td>
+            <td>7</td>
+            <td  style="border-right: solid 1px white;">6.42</td>
+            <td>8</td>
+            <td>7.91</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td  style="border-right: solid 1px white;">5.68</td>
+            <td>5</td>
+            <td  style="border-right: solid 1px white;">4.74</td>
+            <td>5</td>
+            <td style="border-right: solid 1px white;">5.73</td>
+            <td>8</td>
+            <td>6.89</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-55">
+      <table style="font-size: 0.7em; margin-top: -1em;">
+        <tbody>
+          <tr class="bg-info">
+            <td>Correlation</td>
+            <td>0.86</td>
+          </tr>
+          <tr class="bg-danger">
+            <td>Regression line</td>
+            <td>y = 3 + 0.5x</td>
+          </tr>
+        </tbody>
+      </table>
+      <svg width="100%" viewBox="0 0 432 324" style="margin-top: 1%;">
+        <use xlink:href="assets/img/lec/anscombe.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/anscombe.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/anscombe.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/anscombe.svg#axes_4"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/anscombe.svg#axes_5"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/anscombe.svg#axes_6"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/anscombe.svg#axes_7"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/anscombe.svg#axes_8"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section>
   <h3>Regression caution #5</h3>
-  <p>
-    Outliers can have a strong influence on the regression line, just as we saw for correlation. In particular, data points for which the explanatory value is an outlier are often called in uential points because they exert an overly strong effect on the regression line.
-  </p>
-  <p>
-    ex (Ascombe too)
-  </p>
+  <div class="row no-margin-top">
+    <div class="col-20">
+      <i class="fa fa-warning fa-3x warning"></i>
+    </div>
+    <div class="col-80">
+      <p class="no-margin-top small">
+        <span class="warning u em">Resistance:</span>
+        Outliers can have a strong influence on the regression line 
+        (similarly to what we saw for correlation). Lots of robust 
+        linear regression algorithm are capable of dealing with 
+        outliers by giving them less weight in the residual minimization function.
+      </p>
+    </div>
+  </div>
+  <div class="row fragment">
+    <div class="col-40">
+      <p class="small">
+        <i class="fa fa-arrow-circle-right info"></i>
+        In particular, data points for which the <span class="info">explanatory value (x) is an outlier</span> are often called influential points because they exert an <span class="info">overly strong effect</span> on the regression line.  
+      </p>
+    </div>
+    <div class="col-60">
+      <img src="assets/img/lec/regression-outliers.svg"  
+      class="unbordered flat" width=100%>
+    </div>
+
+  </div>
 </section>
 
 <section>
-  <h3>Analyzing the residuals is good practice</h3>
-  <p>
-    1 - Outliers: An outlier outside the references lines may reduce the strength of the regression model (large error = lower $r^2$). Check for data entry errors. If the outlier is a real value, test how much it affects the model by removing it and re-running the analysis. If there is a major change in the strength of the model, you may decide to remove this point. However, you must report the outlier in your results.
-  </p>
+  <h3>Interpreting the residuals plot</h3>
+  <div class="row">
+    <div class="col-20">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-file-o fa-stack-2x info"></i>
+        <strong class="fa-stack-1x fa-stack-text info" style="margin-top: .5em;">1</strong>
+      </span>
+    </div>
+    <div class="col-80">
+        <span class="info u em push-left" style="margin-top:0.3em;">Outlier (response variable)</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-45">
+      <p class="small no-margin-top">
+        A value much lower or much larger than the others ones in the residual plot might 
+        be the sign of the presence of an outlier in the dataset, 
+        that may <span class="warning">reduce the strength of the regression model</span>
+        (large error = lower $R^2$). <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        Depending of your study, you may decide to use a robust linear regression method.
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-residuals-exploration-1.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section>
-  <h3>Analyzing the residuals is good practice</h3>
-  <p>
-    2- You may also find a residual lying at the far end of the plot, directly on the 0 line. This outlier has pulled the line of best fit towards it. This type of outlier may boost the   (this outlier has no error because the line has passed right through it). However, this point has influenced the direction of the line of best fit so your equation and predictions are likely to be incorrect.
-  </p>
+  <h3>Interpreting the residuals plot</h3>
+  <div class="row">
+    <div class="col-20">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-file-o fa-stack-2x info"></i>
+        <strong class="fa-stack-1x fa-stack-text info" style="margin-top: .5em;">2</strong>
+      </span>
+    </div>
+    <div class="col-80">
+        <span class="info u em push-left" style="margin-top:0.3em;">Outlier (explanatory variable)</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-45">
+      <p class="small no-margin-top">
+        A residual lying at the far end of the 
+        plot, directly on the $0$ line is the sign of an 
+        outlier that has pulled the regression line towards it.
+        This type of outlier "artificially" <span class="warning">increases
+        the $R^2$</span>, (this outlier has no error because the line has passed right through it). <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        The equation and predictions from the obtained regression 
+        line are <span class="warning">likely to be incorrect</span>.
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-residuals-exploration-2.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section>
-  <h3>Analyzing the residuals is good practice</h3>
-  <p>
-    3- Fan shape: A fan shape in the residuals indicates that the amount of error is not constant along the regression line. At the lower end of the line, the errors are small; at the high end, the errors are large. This pattern is called heteroscedastic (hetero = different, scedastic = scatter). When the error is constant along the regression line, the pattern called homoscedastic (same scatter). You often encounter heteroscedasticity when an additional variable is influencing the relationship.
-  </p>
+  <h3>Interpreting the residuals plot</h3>
+  <div class="row">
+    <div class="col-20">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-file-o fa-stack-2x info"></i>
+        <strong class="fa-stack-1x fa-stack-text info" style="margin-top: .5em;">3</strong>
+      </span>
+    </div>
+    <div class="col-80">
+        <span class="info u em push-left" style="margin-top:0.3em;">Fan shape</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-45">
+      <p class="small no-margin-top">
+        A fan shape in the residuals plot indicates that the 
+        amount of <span class="warning">error is not constant along the regression line</span>. At the lower end of the line, the errors are small; at the high end, the errors are large. <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        You often encounter this kind of heteroscedasticity (hetero = different, scedastic = scatter) when <span class="warning">an 
+        additional variable is influencing the relationship</span>.
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-residuals-exploration-3.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section>
-  <h3>Analyzing the residuals is good practice</h3>
-  <p>
-    4- Curve: Residuals in a curve indicate that the relationship between the two variables is not linear. You need to reconsider your variables or conduct non-linear regression analysis (not covered in this class).
-  </p>
+  <h3>Interpreting the residuals plot</h3>
+  <div class="row">
+    <div class="col-20">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-file-o fa-stack-2x info"></i>
+        <strong class="fa-stack-1x fa-stack-text info" style="margin-top: .5em;">4</strong>
+      </span>
+    </div>
+    <div class="col-80">
+        <span class="info u em push-left" style="margin-top:0.3em;">Curved residuals</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-45">
+      <p class="small no-margin-top">
+        Residuals in a curve indicate that the relationship between the two variables is <span class="warning">not linear</span>. <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        You need to reconsider your variables or conduct non-linear regression analysis (not covered in this class).
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-residuals-exploration-4.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
 </section>
+
 
 <section>
   <h3>Linear regression for prediction</h3>
