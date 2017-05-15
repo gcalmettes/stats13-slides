@@ -48,8 +48,471 @@
   </div>
 </section>
 
+<section data-transition="slide-in fade-out">
+  <h3>Last time: Correlation</h3>
+  <div class="row">
+    <div class="col-25">
+      <p class="small">
+        <span class="em u">Two quantitative variables association:</span>
+        <br>
+        - Form? <span class="fragment danger" data-fragment-index=1>Linear</span> <br>
+        - <span class="fragment highlight-red-gc" data-fragment-index=1>Direction</span> <br>
+        - <span class="fragment highlight-red-gc" data-fragment-index=1>Strength</span>
+      </p>
+      <p class="small fragment" data-fragment-index=1>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        Correlation <br> <span style="margin-left: 1em;">($r$)</span>
+      </p>
+    </div>
+    <div class="col-75">
+      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_2"></use>
+        <use class="fragment" xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_3"></use>
+        <use class="fragment" xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="fragment">
+    <i class="fa fa-arrow-right"></i>
+        By analysis our sample, we are 95% confident that the
+        true value of the correlation ($\rho$) between height and
+        foot length is interval
+        in the $(0.54, 0.86)$.
+      </p>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Going beyond correlation</h3>
+  <div class="row">
+    <div class="col-25">
+      
+    </div>
+    <div class="col-75">
+      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="no-margin-top framed small border-warning">
+    If height and foot length are significantly correlated, couldn't
+    we use the value of one of the variables to <span class="warning">predict</span> the value of
+    the other one?
+  </p>
+  <p class="no-margin-top fragment small">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Could we use foot length to <span class="warning">gain (unknown) information</span> about someone height?
+  </p>
+</section>
+
+<section>
+  <h3>Why would we want to do that?</h3>
+  <div class="row fragment" data-fragment-index=1>
+    <div class="col-20">
+      <img src="assets/img/lec/regression-ex-forensic.jpg" 
+       class="unbordered flat" width=100%>
+    </div>
+    <div class="col-80">
+      <p class="small no-margin-top">
+        <span class="u em warning">Forensic analysis:</span>
+        Most people are not accustomed to looking at foot length, so describing the suspect as having a foot of 10.5inches long would probably not help find the suspect. It would be <span class="info">far more useful</span> to tell people to look for a suspect who is of a certain <span class="info">height</span>.
+        <br>
+        <span class="fragment" data-fragment-index=3>
+          <i class="fa fa-arrow-circle-right danger"></i>
+          The accuracy of this prediction would depend on the size of the correlation between foot length and height
+        </span>
+      </p>
+    </div>
+  </div>
+  <div class="row fragment" data-fragment-index=2>
+    <div class="col-20">
+      <img src="assets/img/lec/regression-ex-anthropology.jpeg" 
+       class="unbordered flat" width=100%>
+    </div>
+    <div class="col-80">
+      <p class="small no-margin-top">
+        <span class="u em warning">Anthropology:</span>
+        Body proportions and the dimensions of various body segments,
+        including the long bones of their limbs and the bones of the
+        foot and hand have been used to <span class="info">estimate stature</span>.
+        <br>
+        <span class="fragment" data-fragment-index=3>
+          <i class="fa fa-arrow-circle-right danger"></i>
+          The accuracy of this prediction would depend on the size of the correlation between foot length and height
+        </span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Going beyond correlation</h3>
+  <p class="no-margin-top small">
+    Because the correlation coefficient only gives information about
+    the 
+    <span class="info">direction</span> and 
+    <span class="info">strength</span> of an association,
+    we cannot use it
+    directly to get information of someone's height from 
+    his/her footprint.
+  </p>
+  <div class="row">
+    <div class="col-45">
+      <svg width="100%" viewBox="340 0 295 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_5"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/correlation-simulation-graph-swap.svg#axes_6"></use>
+      </svg>
+    </div>
+    <div class="col-55">
+      <p class="no-margin-top smaller fragment framed border-warning" data-fragment-index=1>
+        If we decide the association is linear (strong $r$), it is useful to 
+        <span class="warning">develop a mathematical model</span>
+        of that association.
+      </p>
+      <p class="fragment smaller" data-fragment-index=2>
+        <i class="fa fa-arrow-circle-right warning"></i>
+        The process of fitting a line to a set of data is called <span class="warning em">linear regression</span>, and the line 
+        of best fit is called the <span class="warning em">regression line</span>, which is the line taht gets as close as possible 
+        to all of the data points.
+      </p>
+      <p class="fragment smaller" data-fragment-index=3>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        We can use the regression line to give a <span class="danger">predicted value of the response variable</span>, based on a given value of the explanatory variable.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>The regression line</h3>
+  <p class="no-margin-top no-margin-bottom smaller">
+    Usually, rather than estimating predictions using a graph, we 
+    directly use the <span class="info">equation of the regression line</span>.
+  </p>
+  <div class="row">
+    <div class="col-45">
+      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-line.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/regression-line.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/regression-line.svg#axes_3"></use>
+      </svg>
+    </div>
+    <div class="col-55">
+      <p class="no-margin-top no-margin-bottom">
+        <span class="u em">Equation for a line:</span> <br>
+        $y= a + bx$
+      </p>
+      <ul class="push-left normal" style="list-style:none; padding-left:0;">
+        <li class="fragment" data-fragment-index=1>
+          <span class="warning">$a$</span>: y-intercept at $x=0$
+        </li>
+        <li class="fragment" data-fragment-index=2>
+          <span style="color: #b3de69;">$b$</span>: slope of the line
+        </li>
+      </ul>
+      <div class="row">
+        <p class="small fragment">
+          <i class="fa fa-arrow-circle-right danger"></i>
+          Predicting the response variable from the explanatory
+          variable: <br>
+          <span class="framed border-danger">$\mathrm{Response}= a + b \times \mathrm{Explanatory}$</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Notes on the regression line</h3>
+  <p class="no-margin-top">
+    <i class="fa fa-arrow-circle-right info no-margin-bottom"></i>
+    When used to make prediction, the equation of the 
+    regression line is written:
+  </p>
+  <div class="row">
+    <div class="col-30">
+       $\overset{\hat{}}{y}=a+bx$
+    </div>
+    <div class="col-70">
+      <ul class="push-left normal no-margin-top" style="list-style:none; padding-left:0;">
+        <li>
+          <span class="info">$x$</span>: value of the explanatory variable
+        </li>
+        <li>
+          <span class="info">$\overset{\hat{}}{y}$</span>: predicted value of the response variable
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p class="fragment">
+    <i class="fa fa-arrow-circle-right info"></i>
+    For a given data set, the signs (positive, negative, or zero)
+    for the correlation coefficient and the slope of the regression 
+    line must be the same.
+  </p>
+  <p class="fragment">
+    <i class="fa fa-arrow-circle-right info"></i>
+      The slope of the regression line can be interpreted as 
+      the <span class="info">predicted change in the
+      <span class="warning">average response variable</span> 
+      for a one-unit change in the explanatory variable</span>.
+    </p>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Linear regression is everywhere</h3>
+  <div class="row">
+    <div class="col-33">
+      <p class="no-margin-top small framed border-warning">
+        <span class="em u warning">Biology:</span><br>
+        Colorimetric assay
+      </p>
+    </div>
+  </div>
+  <div>
+    <iframe class="framed" data-src="http://www.abcam.com/human-cdnf-elisa-kit-ab215415.html"
+    style="background: #FFFFFF; width: 1000px; height: 450px; border: 0px;" scrolling="Yes"></iframe>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Linear regression is everywhere</h3>
+  <div class="row">
+    <div class="col-33">
+      <p class="no-margin-top small framed border-warning">
+        <span class="em u warning">Biology:</span><br>
+        Colorimetric assay
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="no-margin-top small framed border-info">
+        <span class="em u info">Physics:</span><br>
+        Instrument calibration
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-69">
+      <img src="assets/img/lec/regression-ex-instrument-calib1.png" class="unbordered flat rounded" width=100%>
+    </div>
+    <div class="col-31">
+      <img src="assets/img/lec/regression-ex-instrument-calib2.png" class="unbordered flat rounded" width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Linear regression is everywhere</h3>
+  <div class="row">
+    <div class="col-33">
+      <p class="no-margin-top small framed border-warning">
+        <span class="em u warning">Biology:</span><br>
+        Colorimetric assay
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="no-margin-top small framed border-info">
+        <span class="em u info">Physics:</span><br>
+        Scale ($W=mg$)
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="no-margin-top small framed border-danger">
+        <span class="em u danger">Business:</span><br>
+        Sale prediction, etc ...
+      </p>
+    </div>
+  </div>
+  <div class="row">
+  <p class="no-margin-top u small">
+    Ice Cream
+  </p>
+    <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+      <use xlink:href="assets/img/lec/regression-ex-ice-cream.svg#axes_1"></use>
+      <use xlink:href="assets/img/lec/regression-ex-ice-cream.svg#axes_2"></use>
+      <use class="fragment" xlink:href="assets/img/lec/regression-ex-ice-cream.svg#axes_3"></use>
+    </svg>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Linear regression is everywhere</h3>
+  <div class="row">
+    <div class="col-33">
+      <p class="no-margin-top small framed border-warning">
+        <span class="em u warning">Biology:</span><br>
+        Colorimetric assay
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="no-margin-top small framed border-info">
+        <span class="em u info">Physics:</span><br>
+        Scale ($W=mg$)
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="no-margin-top small framed border-danger">
+        <span class="em u danger">Business:</span><br>
+        Sale prediction, etc ...
+      </p>
+    </div>
+  </div>
+      <div style="margin-top: 2em;">
+        And much more!!
+      </div>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>How does the linear regression work?</h3>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-least-square.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/regression-least-square.svg#axes_3"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <p class="small no-margin-top no-margin-bottom fragment" data-fragment-index=1>
+        The vertical distance from a data point to the regression 
+        line is called a <span class="warning">residual</span>. 
+        <br>
+        <span class="fragment" data-fragment-index=2>$\mathrm{Residual} = \mathrm{Observed} − \mathrm{Predicted}$</span>
+        <br>
+        <span class="fragment" data-fragment-index=2>$\mathrm{Residual} = y − \overset{\hat{}}{y}$</span>
+      </p>
+      <ul class="smaller fragment" style="margin-top: 0.84em;">
+        <li>Points above the line <i class="fa fa-arrow-right"></i> <span class="info">positive</span> residuals</li>  
+        <li>Points below the line <i class="fa fa-arrow-right"></i> <span class="info">negative</span> residuals.</li>
+        <li> If the predicted values closely match the observed data values, the residuals will be <span class="info">small</span>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>How does the linear regression work?</h3>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-least-square.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/regression-least-square.svg#axes_3"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 180" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-residuals.svg#axes_1"></use>
+      </svg>
+      <ul class="smaller">
+        <li>Points above the line <i class="fa fa-arrow-right"></i> <span class="info">positive</span> residuals</li>  
+        <li>Points below the line <i class="fa fa-arrow-right"></i> <span class="info">negative</span> residuals.</li>
+        <li> If the predicted values closely match the observed data values, the residuals will be <span class="info">small</span>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>How does the linear regression work?</h3>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-least-square.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/regression-least-square.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/regression-least-square.svg#axes_2"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 180" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-residuals.svg#axes_1"></use>
+      </svg>
+      <p class="smaller no-margin-top">
+        The line that fits the data best is the one where the residuals are close to zero.
+      </p>
+      <p class="smaller no-margin-top fragment" data-fragment-index=1>
+        <i class="fa fa-arrow-circle-right warning"></i>
+        Instead of working directly with the residuals, we usually try to minimize the sum of the square of the residuals:
+        <br>
+        $SS_{residuals}=\sum_{i=1}^{n}(y_i-\overset{\hat{}}{y_i})^2$
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Notes on minimizing the $SS_{residuals}$</h3>
+  <p class="no-margin-top small">
+    <i class="fa fa-arrow-circle-right info no-margin-bottom"></i>
+    The errors (residuals) are squared to remove the $+$ or $-$ signs
+    and prevent the positive and negative errors to cancel out each 
+    others, which could give you a value of zero.
+  </p>
+  <p class="no-margin-top small no-margin-bottom fragment">
+    <i class="fa fa-arrow-circle-right info no-margin-bottom"></i>
+    Most statistical software packages use a procedure called
+    <span class="info">Ordinary Least Squares (OLS)</span> to find
+    the line of best fit. This procedure finds a line that minimizes
+    the sum of the squared errors.
+  </p>
+  <div class="row fragment">
+    <div class="col-62">
+      <p class="small">
+        <i class="fa fa-arrow-circle-right info no-margin-bottom"></i>
+        While OLS is pretty much the standard, different penalty functions can be use as well. For example, 
+        the <span class="warning">Median Absolute Deviation (MAD)</span>
+        uses the absolute error, and so will be more robust to 
+        <span class="danger">outliers</span> since it assigns less weight to outliers than 
+        OLS.
+      </p>
+    </div>
+    <div class="col-38">
+      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-least-square-vs-mad.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Notes on minimizing the $SS_{residuals}$</h3>
+  <p class="no-margin-top small">
+    <i class="fa fa-arrow-circle-right info no-margin-bottom"></i>
+    The errors (residuals) are squared to remove the $+$ or $-$ signs
+    and prevent the positive and negative errors to cancel out each 
+    others, which could give you a value of zero.
+  </p>
+  <p class="no-margin-top small no-margin-bottom">
+    <i class="fa fa-arrow-circle-right info no-margin-bottom"></i>
+    Most statistical software packages use a procedure called
+    <span class="info">Ordinary Least Squares (OLS)</span> to find
+    the line of best fit. This procedure finds a line that minimizes
+    the sum of the squared errors.
+  </p>
+  <div class="row">
+    <div class="col-62">
+      <p class="small">
+        <i class="fa fa-arrow-circle-right info no-margin-bottom"></i>
+        While OLS is pretty much the standard, different penalty functions can be use as well. For example, 
+        the <span class="warning">Median Absolute Deviation (MAD)</span>
+        uses the absolute error, and so will be more robust to 
+        <span class="danger">outliers</span> since it assigns less weight to outliers than 
+        OLS.
+      </p>
+    </div>
+    <div class="col-38">
+      <svg width="100%" viewBox="0 0 360 360" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-least-square-vs-mad-fit.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/regression-least-square-vs-mad-fit.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
 <section id="linreg">
-  <h3>Linear regression</h3>
+  <h3>How does the linear regression work?</h3>
   <div class="row">
     <div class="col-40 right">
       <label>Show residuals</label>
@@ -65,6 +528,108 @@
   <div class="placeholder"></div>
 
 </section>
+
+<section>
+  <h3></h3>
+  <p>
+    The slope, or m, of the regresion line tells you how much change in X you can expect based on a given change in Y. R2 tells you how much of the variation in Y is attributable to variation in X. For instance, if your R2 = 0.9, you can say that 0.9 or 90% of the variation in Y is due to the variation in X. The rest of the variation, or “noise”, is accounted by other factors, such as measurement error, individual variation, etc.
+  </p>
+</section>
+
+<section>
+  <p>
+    
+    A common metric to evaluate model performance is RMSE (root mean squared error). RMSE computes the square root of the average squared residual (distance from our prediction to the true label). The key idea is that you want to penalize predictions that are far away from the true label more heavily than ones that are closer to the true label.
+  </p>
+</section>
+
+<section>
+  <h3>Regression caution #1</h3>
+  <p>
+    Extrapolation
+  </p>
+  <p>
+    The line of best fit should only be used to predict values within or close to those contained in the dataset. Far beyond the dataset, the trend may change and the predictions will be incorrect.
+    Avoid trying to apply a regression line to predict values far from those that were used to create it.
+  </p>
+  <p>
+    ex (Olympics 100m time, Nature paper)
+  </p>
+</section>
+
+<section>
+  <h3>Regression caution #2</h3>
+  <p>
+    Generalization
+  </p>
+  <p>
+    The regression equation developed from one dataset should not be applied to data collected in other regions or areas. A regression model developed from a specific dataset should not be used to generalize about other regions or the general occurrence of the phenomena. For example, although we find that rainfall and runoff have a particular relationship in this watershed, we cannot generalize about rainfall and runoff patterns in all watersheds.
+  </p>
+</section>
+
+<section>
+  <h3>Regression caution #3</h3>
+  <p>
+    Causation
+  </p>
+  <p>
+    Although we imply a causal relationship when we use regression, regression analysis will not prove causality between two variables. Recall that this procedure is strictly numeric; you may find that two totally unrelated variables give a significant $r^2$. The researcher must understand the phenomena being researched and the regression procedure in order to interpret the results appropriately.
+  </p>
+</section>
+
+<section>
+  <h3>Regression caution #4</h3>
+  <p>
+    Plot the data! Although the regression line can be calculated for any set of paired quantitative variables, it is only appropriate to use a regression line when there is a linear trend in the data.
+  </p>
+  <p>
+    ex (Ascombe)
+  </p>
+</section>
+
+<section>
+  <h3>Regression caution #5</h3>
+  <p>
+    Outliers can have a strong influence on the regression line, just as we saw for correlation. In particular, data points for which the explanatory value is an outlier are often called in uential points because they exert an overly strong effect on the regression line.
+  </p>
+  <p>
+    ex (Ascombe too)
+  </p>
+</section>
+
+<section>
+  <h3>Analyzing the residuals is good practice</h3>
+  <p>
+    1 - Outliers: An outlier outside the references lines may reduce the strength of the regression model (large error = lower $r^2$). Check for data entry errors. If the outlier is a real value, test how much it affects the model by removing it and re-running the analysis. If there is a major change in the strength of the model, you may decide to remove this point. However, you must report the outlier in your results.
+  </p>
+</section>
+
+<section>
+  <h3>Analyzing the residuals is good practice</h3>
+  <p>
+    2- You may also find a residual lying at the far end of the plot, directly on the 0 line. This outlier has pulled the line of best fit towards it. This type of outlier may boost the   (this outlier has no error because the line has passed right through it). However, this point has influenced the direction of the line of best fit so your equation and predictions are likely to be incorrect.
+  </p>
+</section>
+
+<section>
+  <h3>Analyzing the residuals is good practice</h3>
+  <p>
+    3- Fan shape: A fan shape in the residuals indicates that the amount of error is not constant along the regression line. At the lower end of the line, the errors are small; at the high end, the errors are large. This pattern is called heteroscedastic (hetero = different, scedastic = scatter). When the error is constant along the regression line, the pattern called homoscedastic (same scatter). You often encounter heteroscedasticity when an additional variable is influencing the relationship.
+  </p>
+</section>
+
+<section>
+  <h3>Analyzing the residuals is good practice</h3>
+  <p>
+    4- Curve: Residuals in a curve indicate that the relationship between the two variables is not linear. You need to reconsider your variables or conduct non-linear regression analysis (not covered in this class).
+  </p>
+</section>
+
+<section>
+  <h3>Inference about regression line parameters</h3>
+</section>
+
+
 
 
 <!-- THE END -->
