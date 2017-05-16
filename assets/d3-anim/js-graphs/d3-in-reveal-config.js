@@ -326,11 +326,16 @@ gc.slideIdToFunctions = {
     },
   },
 
-
   'linreg': {
     'init': function() {
       'use strict';
       gc.linreg.init();
+    }
+  },
+  'linreglive': {
+    'init': function() {
+      'use strict';
+      gc.linreglive.init();
     }
   },
 
