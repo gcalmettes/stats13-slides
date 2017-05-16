@@ -9,15 +9,15 @@ gc.linreglive.init = function() {
 
   // Set the dimensions of the canvas / graph
   gc.linreglive.margin = {top: 10, right: 30, bottom: 50, left: 70},
-  gc.linreglive.width = 750 - gc.linreglive.margin.left - gc.linreglive.margin.right,
+  gc.linreglive.width = 680 - gc.linreglive.margin.left - gc.linreglive.margin.right,
   gc.linreglive.height = 480 - gc.linreglive.margin.top - gc.linreglive.margin.bottom;
 
   // Set the ranges
   gc.linreglive.x = d3.scaleLinear()
-      .domain([5,15])
+      .domain([4,15])
       .range([gc.linreglive.margin.left, gc.linreglive.width+gc.linreglive.margin.left]);
   gc.linreglive.y = d3.scaleLinear()
-      .domain([56,83])
+      .domain([54,83])
       .range([gc.linreglive.height, gc.linreglive.margin.top]);
 
   // Adds the svg canvas
@@ -81,6 +81,9 @@ gc.linreglive.init = function() {
           .remove();
         d3.select("#m-coef").text(0);
         d3.select("#b-coef").text(0);
+        gc.linreglive.lsCoefm = 0
+        gc.linreglive.lsCoefb = 0
+        d3.select("#linreglive #pred-height").text(0);
       }
 
     };
@@ -110,7 +113,7 @@ gc.linreglive.init = function() {
       .style("font-size","0.5em")
       .style("font-family", "Raleway")
       .style("fill","#d2d2d2")
-      .text("Height");
+      .text("Height (in)");
   gc.linreglive.svg.append("text")
     .attr("class", "xlabel")
       .attr("y", gc.linreglive.height+25)
@@ -168,7 +171,7 @@ gc.linreglive.init = function() {
   // // check every x msec
   d3.interval(function() {
     update();
-  }, 5000);
+  }, 10000);
 
 };
 
@@ -178,9 +181,12 @@ gc.linreglive.drawline = function(data){
   var yValues = data.map(function(d){return gc.linreglive.y(d.Height);});
   var lsCoef = [gc.linreglive.LeastSquares(xValues, yValues)];
 
-  console.log(lsCoef[0])
-  console.log(xValues.map(function(d){return gc.linreglive.x.invert(d)}))
-  console.log(yValues.map(function(d){return gc.linreglive.y.invert(d)}))
+  gc.linreglive.lsCoefm = gc.linreglive.x.invert(lsCoef[0].m)
+  gc.linreglive.lsCoefb = gc.linreglive.y.invert(lsCoef[0].b)
+
+  // console.log(lsCoef[0])
+  // console.log(xValues.map(function(d){return gc.linreglive.x.invert(d)}))
+  // console.log(yValues.map(function(d){return gc.linreglive.y.invert(d)}))
 
 
   var m = parseFloat(Math.round(gc.linreglive.x.invert(lsCoef[0].m) * 1000) / 1000).toFixed(3);
@@ -223,9 +229,12 @@ gc.linreglive.transitionline = function(data){
   var yValues = data.map(function(d){return gc.linreglive.y(d.Height);});
   var lsCoef = [gc.linreglive.LeastSquares(xValues, yValues)];
 
-  console.log(lsCoef[0])
-  console.log(xValues.map(function(d){return gc.linreglive.x.invert(d)}))
-  console.log(yValues.map(function(d){return gc.linreglive.y.invert(d)}))
+  gc.linreglive.lsCoefm = gc.linreglive.x.invert(lsCoef[0].m)
+  gc.linreglive.lsCoefb = gc.linreglive.y.invert(lsCoef[0].b)
+
+  // console.log(lsCoef[0])
+  // console.log(xValues.map(function(d){return gc.linreglive.x.invert(d)}))
+  // console.log(yValues.map(function(d){return gc.linreglive.y.invert(d)}))
 
   var m = parseFloat(Math.round(gc.linreglive.x.invert(lsCoef[0].m) * 1000) / 1000).toFixed(3);
   var b = parseFloat(Math.round(gc.linreglive.y.invert(lsCoef[0].b) * 1000) / 1000).toFixed(3);
@@ -298,4 +307,15 @@ gc.linreglive.LeastSquares = function(values_x, values_y) {
   // return the slope and intercept
   return {'b': b, 'm': m};
 };
+
+d3.select("#linreglive #shoeSubmit")
+  .on("click", function () {
+    if (d3.select("#linreglive #usr-shoe").property("value")==""){
+      predictedSize = 0;
+    } else {
+      predictedSize = parseFloat(Math.round((gc.linreglive.lsCoefm * d3.select("#linreglive #usr-shoe").property("value") + gc.linreglive.lsCoefb) * 1000) / 1000).toFixed(3);
+    }
+    d3.select("#linreglive #pred-height").text(predictedSize);
+    // console.log(predictedSize)
+});
 
