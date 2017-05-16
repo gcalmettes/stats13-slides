@@ -136,7 +136,7 @@ gc.linreglive.init = function() {
       
   //draw dashed lines
   gc.linreglive.svg.selectAll(".hlines")
-    .data(d3.range(56,83,2))
+    .data(d3.range(gc.linreglive.y.domain()[0],gc.linreglive.y.domain()[1],2))
     .enter()
       .append("line")
       .classed("hlines", 1)
@@ -150,7 +150,7 @@ gc.linreglive.init = function() {
       .style("stroke-opacity", ".5");
   
   gc.linreglive.svg.selectAll(".vlines")
-    .data(d3.range(5,15,2))
+    .data(d3.range(gc.linreglive.x.domain()[0],gc.linreglive.x.domain()[1],2))
     .enter()
       .append("line")
       .classed("vlines", 1)

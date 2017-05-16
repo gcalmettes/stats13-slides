@@ -13,10 +13,10 @@ gc.linreg.init = function() {
   gc.linreg.height = 480 - gc.linreg.margin.top - gc.linreg.margin.bottom;
   
   // Set the ranges
-  var x = d3.scaleLinear()
+  gc.linreg.x = d3.scaleLinear()
       .domain([0,10])
       .range([gc.linreg.margin.left, gc.linreg.width+gc.linreg.margin.left]);
-  var y = d3.scaleLinear()
+  gc.linreg.y = d3.scaleLinear()
       .domain([0,10])
       .range([gc.linreg.height, gc.linreg.margin.top]);
 
@@ -25,19 +25,20 @@ gc.linreg.init = function() {
     .append("svg")
       .attr("width", gc.linreg.width + gc.linreg.margin.left + gc.linreg.margin.right)
       .attr("height", gc.linreg.height + gc.linreg.margin.top + gc.linreg.margin.bottom)
+      .attr("id", "#linregsvg")
 
   // Draw axis
   gc.linreg.svg.append("g")
     .attr("class", "axis axis--x")
     .attr("transform", "translate(0," + gc.linreg.height + ")")
     .style("font-size","0.5em")
-    .call(d3.axisBottom(x));
+    .call(d3.axisBottom(gc.linreg.x));
 
   gc.linreg.svg.append("g")
     .attr("class", "axis axis--y")
     .attr("transform", "translate(" + gc.linreg.margin.left + ",0)")
     .style("font-size","0.5em")
-    .call(d3.axisLeft(y));
+    .call(d3.axisLeft(gc.linreg.y));
 
   // Axis labels
   gc.linreg.svg.append("text")
@@ -76,28 +77,28 @@ gc.linreg.init = function() {
       
   //draw dashed lines
   gc.linreg.svg.selectAll(".hlines")
-    .data(d3.range(0,10,2))
+    .data(d3.range(gc.linreg.y.domain()[0],gc.linreg.y.domain()[1],2))
     .enter()
       .append("line")
       .classed("hlines", 1)
       .attr("x1", gc.linreg.margin.left)
       .attr("x2", gc.linreg.width+gc.linreg.margin.left)
-      .attr("y1", y)
-      .attr("y2", y)
+      .attr("y1", gc.linreg.y)
+      .attr("y2", gc.linreg.y)
       .style("stroke", "#d2d2d2")
       .style("stroke-dasharray", "4 4")
       .style("stroke-width", "1")
       .style("stroke-opacity", ".5");
   
   gc.linreg.svg.selectAll(".vlines")
-    .data(d3.range(0,10,2))
+    .data(d3.range(gc.linreg.x.domain()[0],gc.linreg.x.domain()[1],2))
     .enter()
       .append("line")
       .classed("vlines", 1)
       .attr("y1", gc.linreg.margin.top)
       .attr("y2", gc.linreg.height)
-      .attr("x1", x)
-      .attr("x2", x)
+      .attr("x1", gc.linreg.x)
+      .attr("x2", gc.linreg.x)
       .style("stroke", "#d2d2d2")
       .style("stroke-dasharray", "4 4")
       .style("stroke-width", "1")
@@ -111,17 +112,18 @@ gc.linreg.init = function() {
 
   //click event: draw new circle
   gc.linreg.svg.on('click', function(){
-    if(d3.mouse(this)[0] > gc.linreg.margin.left
-      && d3.mouse(this)[0] < gc.linreg.width+gc.linreg.margin.left+gc.linreg.margin.right
-      && d3.mouse(this)[1] > gc.linreg.margin.top
-      && d3.mouse(this)[1] < gc.linreg.height){
+    if(d3.mouse(this)[0] > gc.linreg.x.range()[0]
+      && d3.mouse(this)[0] < gc.linreg.x.range()[1]
+      && d3.mouse(this)[1] > gc.linreg.y.range()[1]
+      && d3.mouse(this)[1] < gc.linreg.y.range()[0]){
       //push new data point to data array
       gc.linreg.data.push(
-        {"x": d3.mouse(this)[0],
-         "y": d3.mouse(this)[1],
+        {"x": d3.event.offsetX, //d3.mouse(this)[0],
+         "y": d3.event.offsetY, //d3.mouse(this)[1],
          "radius": gc.linreg.radius
         });
-      // console.log(d3.mouse(this)[0], d3.mouse(this)[1])
+
+      //console.log(gc.linreg.x.invert(d3.event.offsetX), gc.linreg.y.invert(d3.event.offsetY))
 
       //select each circle and append the data
       var selection = gc.linreg.svg.selectAll("circle")
@@ -153,9 +155,53 @@ gc.linreg.init = function() {
       if(gc.linreg.residview){
         gc.linreg.resids = gc.linreg.drawresiduals(gc.linreg.data);
       }
+      }
     }
-  }
-})
+  })
+
+
+// var element = document.getElementById('#linregsvg');
+// //console.log(log)
+
+// function a0(element, pageX, pageY) {
+//   return window.webkitConvertPointFromPageToNode != undefined ? window.webkitConvertPointFromPageToNode(element, new WebKitPoint(pageX, pageY)) : {x: undefined, y: undefined};
+// }
+
+// function a1(element, pageX, pageY) {
+//   return {x: pageX, y: pageY};
+// }
+
+// function a2(element, pageX, pageY) {
+//   return window.convertPointFromPageToNode != undefined ? window.convertPointFromPageToNode(element, pageX, pageY) : {x: undefined, y: undefined};
+// }
+
+// function b0(element, offsetX, offsetY) {
+//   return window.webkitConvertPointFromNodeToPage != undefined ? window.webkitConvertPointFromNodeToPage(element, new WebKitPoint(offsetX, offsetY)) : {x: undefined, y: undefined};
+// }
+
+// function b1(element, offsetX, offsetY) {
+//   return {x: offsetX, y: offsetY};
+// }
+
+// function b2(element, offsetX, offsetY) {
+//   return window.convertPointFromNodeToPage != undefined ? window.convertPointFromNodeToPage(element, offsetX, offsetY) : {x: undefined, y: undefined};
+// }
+
+// function onMouseMove(event) {
+//   console.log(b1(element, gc.linreg.x.invert(event.offsetX), gc.linreg.y.invert(event.offsetY)))
+//   //console.log(a0(element, gc.linreg.x.invert(event.pageX),   gc.linreg.y.invert(event.pageY)))
+//   //console.log(a2(element, gc.linreg.x.invert(event.pageX),   gc.linreg.y.invert(event.pageY)))
+//   //console.log(a1(element, gc.linreg.x.invert(event.pageX),   gc.linreg.y.invert(event.pageY)))
+//   //console.log(b0(element, gc.linreg.x.invert(event.offsetX), gc.linreg.y.invert(event.offsetY)))
+//   //console.log(b2(element, gc.linreg.x.invert(event.offsetX), gc.linreg.y.invert(event.offsetY)))
+
+// }
+
+// document.addEventListener("mousemove", onMouseMove, false);
+
+
+
+
 };
 
 gc.linreg.drawline = function(data){
