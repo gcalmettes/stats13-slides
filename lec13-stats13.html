@@ -48,72 +48,64 @@
   </div>
 </section>
 
-<section>
+<section id="linreg">
   <h3>Last time</h3>
+  <div class="row">
+    <div class="col-42">
+      <p class="small no-margin-top">
+        <span class="u em">Linear regression model:</span>
+      </p>
+      <p class="small">
+        $\overset{\hat{}}{y}=a+mx$
+      </p>
+      <p class="small">
+        Find the "Best fit line"
+      </p>
+      <p class="small">
+        Minimize the residuals $y-\overset{\hat{}}{y}$ <br>
+        - Sum of Squares residuals (OLS)<br>
+        - Absolute residuals (ex: MAD)
+      </p>
+      <p class="small">
+        Goodness of fit: <br>
+        $R^2$, $RMSE$
+      </p>
+      <p class="small">
+        Outliers: <br>
+        y direction (increase $RMSE$) <br>
+        x direction (won't affect RMSE much)
+      </p>
+    </div>
+    <div class="col-58">
+      <div class="row">
+        <div class="col-40 right">
+          <label>Show residuals</label>
+        </div>
+        <div class="col-10 left">
+          <input type="checkbox" id="checkbox_resid" value="resid_checked">
+        </div>
+        <div class="col-40">
+          <button id="reset_button" class="btn-info btn-large">Reset</button>
+        </div>
+      </div>
+        <div class="placeholder"></div>
+    </div>
+  </div>
+  
 </section>
 
 <section>
   <h3>Today</h3>
   <p>
-    We will apply regression analysis to different situations to see what we can do 
-    with it.
+    We will see how useful linear regression analysis can be to better understand a dataset and 
+    apply this method to a 
+    <span class="info">broad array</span>
+     of situations (prediction, inference)
   </p>
   <p>
-    We will try to understand how to do estimation and testing and how they "fit" together (see the pun here)
+    We will try to understand how to do estimation and testing and how they "fit" together (see what I did here?)
   </p>
 </section>
-
-<section>
-  <h3>Inference</h3>
-  <p>
-     we only used regression methods to describe a sample and did not make
-statistical inferences about the larger population. Now, we consider how to make inferences about
-a relationship in the population represented by the sample. Some questions involving the
-population that we might ask when analyzing a relationship are:
-1. Does the observed relationship also occur in the population? For example, is the observed
-relationship between hand-span and height strong enough to conclude that the
-relationship also holds in the population?
-2. For a linear relationship, what is the slope of the regression line in the population? For
-example, in the larger population, what is the slope of the regression line that connects
-hand-spans to heights?
-3. What is the mean value of the response variable (y) for individuals with a specific value
-of the explanatory variable (x)? For example, what is the mean hand-span in a population
-of people 65 inches tall?
-4. What interval of values predicts the value of the response variable (y) for an individual
-with a specific value of the explanatory variable (x)? For example, what interval predicts
-the hand-span of an individual 65 inches tall? 
-  </p>
-</section>
-
-<section>
-  <h3>Slope</h3>
-  <p class="no-margin-top small">
-    As we have seen with other quantities, the notation we use for the slope of the regression line of a population is different than the notation we use for the slope of the regression line of a sample. For the slope of a regression line for a population, we use the Greek letter $\beta$ (beta).
-  </p>
-  <p class="small">
-    The regression equation for a simple linear relationship in a population can be written as:
-    <br>
-    $E(Y) = \beta_0 + \beta_1X + \epsilon$
-  </p>
-  <ul class="small">
-    <li>
-      $E(Y)$represents the mean or expected value of y for individuals in the population who all
-      have the same particular value of x. Note that $\overset{\hat{}}{y}$ is an estimate of $E(Y)$
-    </li>
-    <li>
-      $\beta_0$ is the <span class="warning">intercept</span> of the straight line in the <span class="warning">population</span>
-    </li>
-    <li>
-      $\beta_1$ is the <span class="warning">slope</span> of the regression line in the <span class="warning">population</span>. Note that if the slope $\beta_1 = 0$, there is no linear
-      relationship in the population
-    </li>
-  </ul>
-  <p class="small">
-    Unless we measure the entire population, we cannot know the numerical values of $\beta_0$ and $\beta_1$.
-    These are population parameters that we estimate using the corresponding sample statistics.
-  </p>
-</section>
-
 
 
 <section>
@@ -128,53 +120,10 @@ the hand-span of an individual 65 inches tall?
         <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer4"></use>
         <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer5"></use>
       </svg>
-
     </div>
   </div>
 </section>
 
-
-
-
-<!-- <section>
-  <h3>blank</h3>
-</section> -->
-
-<!-- <section id="linreglive">
-  <h3>Let's build a linear model!</h3>
-  <div class="row">
-    <div class="col-30">
-      <p class="no-margin-top">
-        <span class="em u">Go to:</span> 
-        <br> 
-        <span class="warning">https://goo.gl/kjvEqE</span>
-      </p>
-      <p class="no-margin-top">
-        <span class="em u">Enter your:</span>
-        <br>
-        - Height (inches)
-        <br>
-        - Shoe Size
-      </p>
-      <hr>
-      <form name="predictionform">
-        <label for="usr-shoe">Shoe Size:</label>
-        <input type="text" id="usr-shoe" style="font-size: 0.8em; width: 3em;">
-        <br>
-        <input type="submit" value="Submit" id="shoeSubmit" class="btn btn-info btn-large">
-      </form>
-      <p class="small u em">Predicted height:</p>
-      <label class="big" style="display: inline-block; width: 100%; text-align: center; font-family: sans-serif;">
-        <span class="info" id="pred-height">0</span> in
-      </label>
-    </div>
-    <div class="col-70">
-      <label class="big" style="display: inline-block; width: 100%; text-align: center; font-family: sans-serif;">$\overset{\hat{}}{y}=$ <span class="warning" id="b-coef">0</span> $+$ <span class="warning" id="m-coef">0</span> $x$
-      </label>
-    <div class="placeholder"></div>
-    </div>
-  </div>
-</section> -->
 
 <section id="linreglive">
   <h3>Let's build a linear model!</h3>
@@ -211,144 +160,521 @@ the hand-span of an individual 65 inches tall?
 </section>
 
 <section>
-  <h3>Uncertainty of the parameters</h3>
+  <h3>Inference</h3>
+  <p class="no-margin-top small">
+    So far, we only used regression methods to describe a sample (dataset) and did not make
+    statistical inferences about the larger population.
+    Now, we consider how to make inferences about
+    a <span class="warning">relationship in the population
+    </span> represented by the sample. This involves 
+    estimating the <span class="warning">uncertainty of the parameters</span> of
+    our model.
+</p>
+<p class="small em u">
+  Some questions involving the
+  population that we might ask when analyzing a relationship are:
+</p>
+<ul class="small">
+  <li>Does the observed relationship <span class="info">also occur</span> in the population?</li>  
+  <li>For a linear relationship, what is the 
+  <span class="info">slope of the regression line</span> in the population?</li>
+  <li>What is the <span class="info">mean value of the response variable</span> (y) for individuals with a specific value
+  of the explanatory variable (x)?
+  </li>
+  <li>What <span class="info">interval of values</span> predicts the value of the response variable (y) for an individual
+with a specific value of the explanatory variable (x)?</li>
+</ul> 
 </section>
 
-
+<section>
+  <h3>Linear regression to describe a population</h3>
+  <p class="small no-margin-top">
+    The regression equation for a simple linear relationship in a population can be written as:
+    <br>
+    <span class="warning" style="margin-left: 10em;">$E(Y) = \beta_0 + \beta_1X + \epsilon$</span>
+  </p>
+  <ul class="small">
+    <li>
+      $E(Y)$ represents the <span class="info">mean or expected value of y</span> for individuals in the population who all
+      have the same particular value of x. Note that $\overset{\hat{}}{y}$ is an estimate of $E(Y)$
+    </li>
+    <li>
+      $\beta_0$ is the <span class="info">intercept</span> of the line in the <span class="info">population</span>
+    </li>
+    <li>
+      $\beta_1$ is the <span class="info">slope</span> of the regression line in the <span class="info">population</span>. <span class="em"> Note that if the slope $\beta_1 = 0$, there is no linear
+      relationship in the population</span>.
+    </li>
+  </ul>
+  <p class="small fragment">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    Unless we measure the entire population, we cannot know the numerical values of $\beta_0$ and $\beta_1$.
+    These are population parameters that we <span class="danger">estimate using the corresponding sample statistics</span>.
+  </p>
+</section>
 
 <section>
   <h3>Tipping pattern</h3>
-  <p>
-    presentation of the problem + the data
-  </p>
-  <p>
-    The owner of a bistro called First Crush in Potsdam, New York, was interested in studying the tipping patterns of its patrons. He collected restaurant bills over a two-week period that he believes provide a good sample of his customers. He recorded the data from 157 bills including the amount of the bill, size of the tip, percentage tip, number of customers in the group, whether or not a credit card was used, day of the week, and a coded identity of the server.
-  </p>
+  <div class="row">
+    <div class="col-60">
+      <p class="small no-margin-top">
+        The owner of a bistro called <span class="em">First Crush</span> in Potsdam, New York, was interested in studying the <span class="warning">tipping patterns of its patrons</span>. 
+      </p>
+      <p class="small no-margin-top no-margin-bottom">
+        <i class="fa fa-arrow-circle-right info"></i>
+        He collected restaurant bills over a 
+        two-week period that he believes provide a
+        good <span class="info">sample of his customers</span>. He recorded the data from 157 bills including:
+      </p>
+      <ul class="small">
+        <li>amount of the bill</li>
+        <li>amount of the tip</li>
+        <li>corresponding percentage of the tip</li>
+        <li>number of customers in the group</li>
+        <li>whether or not a credit card was used</li>
+        <li>day of the week</li>
+        <li>coded identity of the server</li>
+      </ul>
+    </div>
+    <div class="col-40">
+      <img src="assets/img/lec/tipping-first-crush.jpg" width=100% class="rounded">
+    </div>
+  </div>
 </section>
 
-<section>
-  <h3>Tipping pattern</h3>
-  <p>
-    We want to predict the tip amount based on the bill amount.
+<section data-transition="slide-in fade-out">
+  <h3>Tipping pattern data</h3>
+  <p class="no-margin-top no-margin-bottom u em">
+    1) We want to predict the tip amount based on the bill amount.
   </p>
-  <p>
-    The scatterplot of the data show <br>
-    - strong positive relationship in the data <br>
-    - few outliers (big tippers) above the main pattern
-  </p>
-  <p>
-    If we calculate correlation, we obtain $r=0915$, reinforcing the fact that
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_4"></use>
+      </svg>
+    </div>
+    <div class="col-50 fragment" data-fragment-index=0>
+      <p class="small">
+        The scatterplot of the data show:
+      </p>
+      <ul class="small icon">
+        <li class="play">strong <span class="warning">positive relationship</span> in the data</li>
+        <li class="play">few <span class="warning">outliers</span> (big tippers) above the main pattern</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small fragment" data-fragment-index=1 >
+    <i class="fa fa-arrow-circle-right info"></i>
+    If we calculate correlation, we obtain $r=0.915$, reinforcing the fact that
     the data have a strong positive linear relationship.
   </p>
-</section>
-
-<section>
-  <h3>Data</h3>
-  <p>
-    Data Collection:
-What population can we draw inferences about from the data in RestaurantTips? The sample was generated by collecting all bills over several nights at the restaurant. Is this a problem for making inferences?
-  </p>
-  <p>
-    Because the data are all from one restaurant, the population of interest is all bills and tips at this restaurant. The original sample was not a random sample of all bills, but rather the data were collected from all bills in a certain time frame. That might introduce bias if the days for the bills in the sample are different in some substantial way (for example, over a holiday season or only weekends). However, the owner indicates that the days for which bills were sampled are representative of the business at his restaurant. As data analysts we might alert the owner to the possibility of bias when reporting our  ndings, but we proceed for now with the assumption that the sample is representative of all bills at this restaurant.
+  <p class="small fragment" data-fragment-index=2 >
+    <i class="fa fa-arrow-circle-right danger"></i>
+    We can build a linear model of the association.
   </p>
 </section>
 
-<section>
-  <h3>Tipping pattern</h3>
-  <p>
-    Average percentage from sample
+<section data-transition="fade-in slide-out">
+  <h3>Tipping pattern data</h3>
+  <p class="no-margin-top no-margin-bottom u em">
+    1) We want to predict the tip amount based on the bill amount.
   </p>
-  <p>
-    We could make a prediction using this percentage, but that wouldn't be really correct
-    because it is just value from this sample, not the true percentage.
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_4"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <p class="small no-margin-top">
+        Regression line equation: <br>
+        $y=-0.292+\texclass{danger}{0.182}x$ <br>
+        <span class="em">What does this slope mean?</span>
+      </p>
+      <p class="small">
+        <span class="warning">$R^2=0.837$</span><br>
+        <span class="em">What does this $R^2$ mean?</span>
+      </p>
+    </div>
+  </div>
+  <p class="small fragment no-margin-top no-margin-bottom" data-fragment-index=1 >
+    <i class="fa fa-arrow-circle-right danger"></i>
+    The slope of $0.182$ indicates that for every extra dollar in the restaurant bill the tip will increase, <span class="danger">on average</span>, by about $\$0.18$. (The <span class="danger">typical</span> tip rate at this restaurant is <span class="danger">roughly</span> $18\%$ of the total bill.)
   </p>
-  <p>
-    We could make inference from this sample (paired analysis) to know the true mean
-  </p>
-</section>
-
-<section>
-  <h3>Tipping pattern</h3>
-  <p>
-    The slope of 0.182 indicates that for every extra dollar in the restaurant bill the tip will increase, on average, by about $0.18. This means the typical tip rate at this restaurant is roughly 18% of the total bill.
-  </p>
-</section>
-
-<section>
-  <h3>Inference to the population</h3>
-  <p>
-    We only used the sample so far. 
-    We can also make inference about the population
-  </p>
-</section>
-
-
-<section>
-  <h3>Bootstrapping the slope</h3>
-  <p>
-    To construct a bootstrap distribution for the sample slope, we select samples of size n = 157, with replacement, from the cases in the RestaurantTips dataset. For each sample, we run the regression model, compute the sample slope, and save it to form the bootstrap distribution.
-  </p>
-  <p>
-    It does not include the null value of zero, so we reject H0 in favor of a two-tailed alternative at a 5% level. In fact, since the confidence interval includes only positive values, we can be fairly sure that the true slope is above zero. Thus we have evidence that there is some positive slope for the relationship between the amount of a tip and the size of a bill at this restaurant.
+  <p class="small fragment no-margin-top" data-fragment-index=2 >
+    <i class="fa fa-arrow-circle-right warning"></i>
+    $\approx 84\%$ of the variation in the amount in tip can be <span class="warning">explained</span> by the variation in bill amount
   </p>
 </section>
 
 <section>
-  <h3>What about tip percentage?</h3>
-  <p>
-    From the dataset, we can calculate a variable showing the tip amount expressed as
-    a percentage of the bill. 
+  <h3>Inference about the slope</h3>
+  <p class="framed border-warning small no-margin-top">
+    How to get an estimate of the <span class="warning">true value of the average tip rate</span> at <span class="em">First Crush</span>?
   </p>
-  <p>
-    Most people use a fairly regular percentage (which may vary from person to person) of the total bill when deciding how big a tip to leave. Some economists (Loewenstein, G. and Prelec, D. (1992). Anomalies in Intertemporal Choice: Evidence and an Interpretation, Quarterly Journal of Economics, 1992;107:573–97.) have theorized that people tend to reduce that percentage when the bill gets large, but larger groups of customers might be more generous as a group due to peer pressure.
+  <p class="small fragment no-margin-bottom" data-fragment-index=1>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Compute the $95\%$ confidence intervals of the 
+    slope (<span class="warning">$\beta_1$</span>) for the relationship between tip amount and bill amount.
   </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="small framed border-info fragment" data-fragment-index=2>
+        <span class="info u em">Method #1:</span>
+        Bootstrap of the (x,y) pairs data points.
+      </p>
+      <p class="small fragment no-margin-top" data-fragment-index=3>
+        <i class="fa fa-arrow-circle-right info"></i>
+        generation of pseudo data is the more usual
+        form of bootstrapping for regression analysis.
+        The approach is robust
+        in that if an incorrect model is fitted an
+        <span class="info">appropriate measure of parameter
+        uncertainty</span> is still obtained.
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="small framed border-danger fragment" data-fragment-index=2>
+        <span class="danger u em">Method #2:</span>
+        Bootstrap of the residuals.
+      </p>
+      <p class="small fragment no-margin-top" data-fragment-index=3>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        implicitly <span class="danger">assumes that the functional form of the model is correct</span> (even though no assumption is made about the shape of the error distribution).
+      </p>
+    </div>
+  </div>
 </section>
 
 <section>
-  <h3>Tip percentage NHST</h3>
-  <p>
-    If we now let 𝛽 denote the slope for predicting tip percentage based on bills at this restaurant, the relevant hypotheses are
-    H∶𝛽=0 H0∶ 𝛽≠0
-  </p>
-  <p>
-     we can simulate data under the null hypothesis of no relationship (𝛽 = 0)
-     by randomly assigning the tip percentages in the dataset to the bill amounts. For each rearrangement, we compute the new regression line and save the sample slope to create a randomization distribution.
-  </p>
-  <p>
-    The sample does not have enough evidence to conclude that the slope between PctTip and Bill is different from zero. Since the slope in our sample is positive, there is certainly no evidence to support the economists’ claim of a negative relationship.
-  </p>
-</section>
-
-<section>
-  <h3>Linear regression NHST</h3>
-  <img src="assets/img/lec/regression-nhst.svg" 
+  <h3>Bootstrap CIs for regression</h3>
+  <img src="assets/img/lec/regression-ci95.svg" 
   class="unbordered flat" width=90%>
 </section>
 
-<section>
-  <h3>What about the outliers?</h3>
-  <p>
-    Figures B.1 and B.3 both show a few possible outliers from the pattern of the rest of the data. Three very generous customers left tips that were more than 30% of the bill. Do those points have a large effect on the conclusions of the slopes for either of these relationships (Tip vs Bill or PctTip vs Bill)? One way to investigate this question is to omit those cases from the data and re-run the analysis without them.
+<section data-transition="slide-in fade-out">
+  <h3>Inference about the slope</h3>
+  <div class="row">
+    <div class="col-90">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Inference about the slope</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top small u em">
+        Slope sampling distribution
+      </p>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-resampling-slope-ci95.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/tipping-resampling-slope-ci95.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/tipping-resampling-slope-ci95.svg#axes_3"></use>
+      </svg>
+      <p class="no-margin-top smaller">
+        <i class="fa fa-arrow-circle-right danger"></i>
+        We are 95% confident that the true value of the <span class="danger">population slope $\beta_1$</span> is in the interval $(0.166, 0.201)$. The true 
+        <span class="danger">average tipping
+        rate</span> of the patrons of <span class="em">First Crush</span> is 
+        between $16\%$ and $20\%$.
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="no-margin-top small u em center">
+        Intercept sampling distribution
+      </p>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-resampling-intercept-ci95.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/tipping-resampling-intercept-ci95.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/tipping-resampling-intercept-ci95.svg#axes_3"></use>
+      </svg>
+      <p class="no-margin-top smaller">
+        <i class="fa fa-arrow-circle-right warning"></i>
+        We are 95% confident that the true value of the <span class="warning">population intercept $\beta_0$</span> is in the interval $(-0.674, 0.048)$. If there is 
+        <span class="warning">no bill</span>, there is probably <span class="warning">no tip</span> <i class="fa fa-smile-o"></i>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>What about tip percentage?</h3>
+  <p class="no-margin-top small">
+    Most people use a fairly regular percentage (which may vary from person to person) of the total bill when deciding how big a tip to leave. 
   </p>
-  <p>
-    After dropping the three generous data points, the new least squares lines with the remaining 154 cases for both relationships are shown in Figure B.5. The outliers have a negligible effect on the slope of the relationship between Tip and Bill. It barely changes from 0.182 with the outliers to 0.183 without them. A 90% con dence inter- val for this slope, based on the data without outliers, goes from 0.173 to 0.193, which is a bit narrower, but otherwise similar to the 90% interval, (0.168, 0.197), from the full data.
+  <p class="no-margin-top small">
+    Some economists have theorized that
+    <span class="warning">i) people tend to reduce that percentage when the bill gets large</span>, but in the other hand
+    <span class="warning">ii) larger groups of customers might be more generous as a group due to peer pressure</span>.
+    (<span class="em">Loewenstein, G. and Prelec, D. (1992). Anomalies in Intertemporal Choice: Evidence and an Interpretation, Quarterly Journal of Economics, 1992;107:573–97</span>)
   </p>
-  <p>
-    The regression equation for predicting percentage tip, PctTip = 14.9 + 0.056Bill, is a bit steeper when the outliers are removed. When testing H ∶ 𝛽 = 0 vs 0
-    H ∶𝛽≠0 for this new slope, the p-value for one set of 10,000 randomizations turns a
-out to be 0.006. This p-value is quite small, showing that, when we remove the outlier big tippers, there is a signi cant positive association with the percentage of the tip tending to increase with larger bills.
+  <p class="no-margin-top no-margin-bottom framed border-info">
+    How could we study these two questions using 
+    our dataset? <br>
+    Could we use regression analysis? What parameter would
+    particularly be of interest?
   </p>
 </section>
+
+
+
+<section data-transition="fade">
+  <h3>What about tip percentage?</h3>
+  <div class="row">
+    <div class="col-45">
+      <p class="smaller no-margin-top">
+        From our dataset, we can calculate the percentage
+        of the bill that each tip represents, and display
+        the scatterplot of the percentage in fuction of 
+        the total bill.
+      </p>
+      <p class="fragment smaller" data-fragment-index=2>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        We can compute the $95\%$ confidence interval of 
+        the slope of this regression line and check if 
+        $0$ (no positive association) is inside.
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=4 xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_4"></use>
+        <use xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small fragment no-margin-top" data-fragment-index=3>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    We select bootstrap samples (pairs, n=157), with replacement, from the dataset. For each bootstrap sample, we run the regression model, compute the sample slope, and save it to form the bootstrap distribution.
+  </p>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>What about tip percentage?</h3>
+  <div class="row">
+    <div class="col-45">
+      <p class="smaller no-margin-top">
+        From our dataset, we can calculate the percentage
+        of the bill that each tip represents, and display
+        the scatterplot of the percentage in fuction of 
+        the total bill.
+      </p>
+      <p class="smaller">
+        <i class="fa fa-arrow-circle-right danger"></i>
+        We can compute the $95\%$ confidence interval of 
+        the slope of this regression line and check if 
+        $0$ (no positive association) is inside.
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-resampling-pcenttipping-slope-ci95.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/tipping-resampling-pcenttipping-slope-ci95.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/tipping-resampling-pcenttipping-slope-ci95.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small fragment no-margin-top" data-fragment-index=4>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    It does <span class="warning">not include the null value of zero</span>, so we reject $H_0$ in favor of a two-tailed alternative at a the $5\%$ level. In fact, since the confidence interval includes only positive values, this strongly suggests that the true slope is above zero. Thus we have evidence that there is some <span class="warning">positive relationship between the amount of a tip and the size of a bill</span> at this restaurant.
+  </p>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>What about the outliers?</h3>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small no-margin-top no-margin-bottom">
+    The scatterplot show a <span class="danger">few possible outliers</span> from the pattern of the rest of the data. Three very generous customers left tips that were more than 30% of the bill. 
+  </p>
+  <p class="small quoted">
+    Do those points have had a <span class="warning">large effect on the conclusions we did</span> based on the slopes of either of the relationships we studied?
+  </p>
+</section>
+
+<section data-transition="fade">
+  <h3>What about the outliers?</h3>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small framed border-warning">
+    One way to investigate this question is to omit those cases from the data and re-run the analysis without them.
+  </p>
+</section>
+
+<section data-transition="fade">
+  <h3>What about the outliers?</h3>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/tipping-data-tip-vs-bill.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/tipping-data-pcenttip-vs-bill.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table-vert">
+      <col width=30%>
+      <col width=35%>
+      <col width=35%>
+      <tbody>
+        <tr>
+          <td style="border-left: none;"></td>
+          <td class="bg-info">Tip vs Bill</td>
+          <td class="bg-danger">Tip (%) vs Bill</td>
+        </tr>
+        <tr style="border-bottom: 1px solid">
+          <td>Full dataset</td>
+          <td>$y=-0.292+\texclass{warning}{0.182}x$</td>
+          <td>$y=15.508+\texclass{warning}{0.049}x$</td>
+        </tr>
+        <tr style="border-bottom: 1px solid">
+          <td>No outliers</td>
+          <td>$y=-0.404+\texclass{warning}{0.183}x$</td>
+          <td>$y=14.918+\texclass{warning}{0.056}x$</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>What about the outliers?</h3>
+  <div class="row">
+    <table class="table-vert">
+      <col width=30%>
+      <col width=35%>
+      <col width=35%>
+      <tbody>
+        <tr>
+          <td style="border-left: none;"></td>
+          <td class="bg-info">Tip vs Bill</td>
+          <td class="bg-danger">Tip (%) vs Bill</td>
+        </tr>
+        <tr style="border-bottom: 1px solid">
+          <td>Full dataset</td>
+          <td>$y=-0.292+\texclass{warning}{0.182}x$</td>
+          <td>$y=15.508+\texclass{warning}{0.049}x$</td>
+        </tr>
+        <tr style="border-bottom: 1px solid">
+          <td>No outliers</td>
+          <td>$y=-0.404+\texclass{warning}{0.183}x$</td>
+          <td>$y=14.918+\texclass{warning}{0.056}x$</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right info"></i>
+    After dropping the three generous data points, we see
+    that the outliers have a negligible effect on the slopes of the relationships we studied.
+  </p>
+  <div class="row">
+    <table class="table-vert">
+      <col width=30%>
+      <col width=35%>
+      <col width=35%>
+      <tbody>
+        <tr>
+          <td style="border-left: none;"></td>
+          <td class="bg-info">Tip vs Bill</td>
+          <td class="bg-danger">Tip (%) vs Bill</td>
+        </tr>
+        <tr style="border-bottom: 1px solid">
+          <td>Full dataset</td>
+          <td>$[0.166, 0.201]$</td>
+          <td>$[0.005, 0.094]$</td>
+        </tr>
+        <tr style="border-bottom: 1px solid">
+          <td>No outliers</td>
+          <td>$[0.168, 0.202]$</td>
+          <td>$[0.015, 0.101]$</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right info"></i>
+    The 95% confidence intervals for these slopes, based on the data without outliers, are a bit narrower, but otherwise similar to what we obtained, from the full dataset.
+  </p>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    The outliers did not affect our conclusions.
+  </p>
+</section>
+
+<section>
+  <h3>Scope of our conclusions?</h3>
+  <p class="small no-margin-top">
+    <span class="u em info">Data Collection:</span>
+    What population can we draw inferences about from the dataset we anlayze?
+    The sample was generated by collecting <span class="info">all bills over several nights at the <span class="em">First Crush</span> restaurant</span>.
+  </p>
+  <p class="small no-margin-top fragment" data-fragment-index=1>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Because the data are all from one restaurant, the population of interest is all bills and tips at this restaurant. 
+  </p>
+  <p class="small no-margin-top fragment" data-fragment-index=1>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    The original sample was <span class="warning">not a random sample of all bills</span>, but rather the data were collected from all bills in a <span class="warning">certain time frame</span>. That might introduce bias if the days for the bills in the sample are different in some substantial way (for example, over a holiday season or only weekends). However, <span class="warning">the owner indicates</span> that the days for which bills were sampled are <span class="warning">representative of the business at his restaurant</span>. 
+  </p>
+  <p class="small no-margin-top fragment" data-fragment-index=1>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    As data analysts we might alert the owner to the <span class="warning">possibility of bias</span> when reporting our findings, but we proceed for now with the assumption that the sample is representative of all bills at this restaurant.
+  </p>
+</section>
+
 
 <section>
   <h3>The 1970 military draft lottery</h3>
   <div class="row">
     <div class="col-55">
       <p class="small">
-        In November of 1969, with the Vietnam War raging, President Nixon signed an executive order to reinstitute the draft. Men were drafted to fill vacancies in the United States Armed Forces that could not be filled through voluntary means.
+        In November of 1969, with the Vietnam War raging, President Nixon signed an executive order to reinstitute <span class="warning">the draft</span>. Men were drafted to fill vacancies in the United States Armed Forces that could not be filled through voluntary means.
       </p>
       <p class="small">
-        In an attempt to expose male youth "fairly" to the risk of being drafted, the Selective Service held a lottery on December 1, 1969 to allocate birthdates at random. Men were then drafted in the order that their birth days were drawn.
+        In an attempt to expose male youth <span class="info">"fairly" to the risk of being drafted</span>, the Selective Service held a <span class="info">lottery</span> on December 1, 1969 to allocate birthdates at random. Men were then <span class="info">drafted in the order that their birth days were drawn</span>.
       </p>
     </div>
     <div class="col-45">
@@ -361,26 +687,26 @@ out to be 0.006. This p-value is quite small, showing that, when we remove the o
 <section>
   <h3>The selection process</h3>
   <div class="row">
-    <div class="col-50">
+    <div class="col-40">
       <p>
-        The order stipulated that the selection be a random process based on the birthdays of men born between January 1, 1944 and December 31, 1950.
+        The order stipulated that the selection be a <span class="warning">random process</span> based on the birthdays of men born between January 1, 1944 and December 31, 1950.
       </p>
     </div>
-    <div class="col-50">
+    <div class="col-60">
       <img src="assets/img/lec/draft-lottery-1969-1.jpg" width=100% >
     </div>
   </div>
   <p>
-    The Selective Service placed the days of the year, including February 29, into 366 plastic capsules. These capsules were placed in a glass container, mixed, then drawn one at a time.
+    The Selective Service placed the days of the year, including February 29, into <span class="warning">366 plastic capsules</span>. These capsules were placed in a glass <span class="warning">container, mixed, then drawn one at a time</span>.
   </p>
 </section>
 
 <section>
-  <h3>The selectoin process</h3>
+  <h3>The selection process</h3>
   <div class="row">
     <div class="col-50">
       <p class="small no-margin-top">
-        The first capsule drawn contained the date September 14. This date was assigned the rank 1.
+        The first capsule drawn contained the date September 14. This date was <span class="info">assigned the rank 1</span>.
       </p>
     </div>
     <div class="col-50">
@@ -393,47 +719,197 @@ out to be 0.006. This p-value is quite small, showing that, when we remove the o
     </div>
     <div class="col-50">
       <p class="small no-margin-top">
-        The second date drawn, April 24, was assigned rank 2, and so on ...
+        The second date drawn, April 24, was <span class="info">assigned rank 2</span>, and so on ...
       </p>
     </div>
   </div>
 </section>
 
 <section>
-  <h3>The selectoin process</h3>
+  <h3>The selection process</h3>
   <div class="row">
     <div class="col-35">
       <p class="small no-margin-top">
-        Those eligible for the draft who were born on September 14 (rank 1) would be the first selected to serve in Vietnam.
+        Those eligible for the draft who were born on September 14 (<span class="info">rank 1</span>) would be the <span class="info">first selected to serve in Vietnam</span>.
+        <br>
+        Once all eligible men born on this date were inducted into the service, then the Selective Service would begin to induct men born on April 24 (rank 2), etc ...
       </p>
     </div>
     <div class="col-65">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/XhLbysRh8XY" frameborder="0" allowfullscreen></iframe>
+      <p class="small framed border-warning fragment">
+        <span class="u em">Note:</span>
+        It was estimated by the Pentagon that men with draft numbers 200 to 366, would escape the draft entirely. In fact, no man with a draft number higher than 195 was called to duty.
+      </p>
     </div>
   </div>
-  <p class="small no-margin-top">
-        Once all eligible men born on this date were inducted into the service, then the Selective Service would begin to induct men born on April 24 (rank 2), etc ...
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Was the lottery really random?</h3>
+  <p class="no-margin-top small">
+    What should we expect if we plot the draft number (rank assigned) against the day of the year drawn?
+  </p>
+  <div class="row">
+    <div class="col-75">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/draft-lottery-data-scatter.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-25">
+      <p class="no-margin-top small framed border-warning fragment">
+        Does the selection process appear random to you?
       </p>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Was the lottery really random?</h3>
+  <p class="no-margin-top small">
+    What should we expect if we plot the draft number (rank assigned) against the day of the year drawn?
+  </p>
+  <div class="row">
+    <div class="col-75">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/draft-lottery-data-boxplot.svg#axes_1"></use>
+      </svg>
+    </div>
+    <div class="col-25">
+      <p class="no-margin-top small framed border-danger">
+        What about now?
+      </p>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Was the lottery really random?</h3>
+  <p class="no-margin-top small">
+    What should we expect if we plot the draft number (rank assigned) against the day of the year drawn?
+  </p>
+  <div class="row">
+    <div class="col-75">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/draft-lottery-data-scatter.svg#axes_1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/draft-lottery-data-scatter.svg#axes_2"></use>
+      </svg>
+    </div>
+    <div class="col-25">
+      <p class="no-margin-top small framed border-warning">
+        Is it really random?
+      </p>
+      <p class="small no-margin-top">
+        <i class="fa fa-arrow-circle-right warning"></i>
+        How could we check the randomness of the data using statistics? <br>(and linear regression <i class="fa fa-smile-o warning"></i>)
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Was the lottery really random?</h3>
+  <p class="no-margin-top small framed border-danger">
+    How likely would it be to observe a slope of <span class="warning">$-0.23$</span> if there was no association between the day of the year selected and the rank assigned?
+  </p>
+  <div class="row">
+    <div class="col-40">
+      <p class="small no-margin-top fragment">
+        <i class="fa fa-arrow-circle-right danger"></i>
+        If there was no association, the slope of the
+        underlying population shouldn't be different than
+        $0$.
+      </p>
+      <p class="small no-margin-top fragment">
+        We could solve this again using confidence intervals, 
+        but let's do some null hypothesis testing:
+      </p>
+      <p class="small sided border-warning no-margin-top fragment">
+        $H_0$: $\beta_1=0$ <br>
+      </p>
+      <p class="small sided border-info no-margin-top fragment">
+        $H_a$: $\beta_1\neq0$ <br>
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/draft-lottery-data-scatter.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/draft-lottery-data-scatter.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section>
-  <h3>The 1970 military draft lottery</h3>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/XhLbysRh8XY" frameborder="0" allowfullscreen></iframe>
+  <h3>Linear regression NHST</h3>
+  <img src="assets/img/lec/regression-nhst.svg" 
+  class="unbordered flat" width=90%>
 </section>
 
-<section>
-  <h3>Note about the draft numbers</h3>
-  <p>
-    It was estimated by the Pentagon that men with draft numbers 200 to 366, would escape the draft entirely. In fact, no man with a draft number higher than 195 was called to duty.
+
+<section data-transition="slide-in fade-out">
+  <h3>Testing the randomness of the data</h3>
+  <div class="row">
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/draft-lottery-data-scatter-nhst.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/draft-lottery-data-scatter-nhst.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/draft-lottery-data-scatter-nhst.svg#axes_3"></use>
+      </svg>
+    </div>
+    <div class="col-40">
+      <p class="no-margin-top small em u fragment" data-fragment-index=2>
+        Sampling distribution of the slopes if the null hypothesis was true:
+      </p>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;" class="fragment" data-fragment-index=2">
+        <use xlink:href="assets/img/lec/draft-lottery-resampling-nhst.svg#axes_1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/draft-lottery-resampling-nhst.svg#axes_2"></use>
+        <use class="fragment" xlink:href="assets/img/lec/draft-lottery-resampling-nhst.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small no-margin-top fragment">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    None of the slopes obtained by simulating the no-association condition (null hypothesis)
+    are as extreme as the initial slope obtained 
+    by finding the best fit on our original dataset.
+  </p>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Testing the randomness of the data</h3>
+  <div class="row">
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/draft-lottery-data-scatter-nhst.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/draft-lottery-data-scatter-nhst.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/draft-lottery-data-scatter-nhst.svg#axes_3"></use>
+      </svg>
+    </div>
+    <div class="col-40">
+      <p class="no-margin-top small em u" data-fragment-index=2>
+        Sampling distribution of the slopes if the null hypothesis was true:
+      </p>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/draft-lottery-resampling-nhst.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/draft-lottery-resampling-nhst.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/draft-lottery-resampling-nhst.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small no-margin-top framed border-warning">
+    This strongly suggest that there was, in fact, a negative
+    association between the birthday drawn and the draft rank that was assigned to this birthday. <br>
+    <i class="fa fa-arrow-circle-right warning"></i> 
+    The lottery was <span class="warning">not random</span>!
+
   </p>
 </section>
 
 <section>
-  <h3>Was the lottery really random?</h3>
-</section>
-
-<section>
-  <h3>Was the lottery really random?</h3>
+  <h3>Change of the lottery process</h3>
   <div class="row">
     <div class="col-70">
       <img src="assets/img/lec/draft-lottery-1969-nytimes-article-title.png" width=100%>
@@ -445,7 +921,31 @@ out to be 0.006. This p-value is quite small, showing that, when we remove the o
       <img src="assets/img/lec/draft-lottery-1969-nytimes-article-excerpt.png" width=100%>
     </div>
   </div>
+  <p class="small no-margin-top">
+    The lottery process was modified for the subsequent years and was shown to be really random .
+  </p>
 </section>
+
+<section>
+  <h3>Summary</h3>
+  <div class="row">
+    <div class="col-40">
+      <p>
+      Regression analysis is a powerful method with a broad
+      array of applications.
+      </p>
+      <p>
+      The same Null hypothesis and confidence intervals determinations methods as what we used previously on 
+      different statistics can be applied to the linear 
+      regresssion parameters.
+      </p>
+    </div>
+    <div class="col-60">
+      <img src="assets/img/lec/bootstrap-showcase-regression-params.svg" width=100%>
+    </div>
+  </div>
+</section>
+
 
 
 
