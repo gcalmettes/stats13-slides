@@ -378,7 +378,13 @@ section .quoted:after {
   padding-left: 0.2em;
 }
 
-body section img { background: none !important; }
+body section img {
+  background: none !important; 
+  margin-top: 0 !important; 
+  border:none !important; 
+  box-shadow:none !important; 
+}
+
 body section .rounded { border-radius: 10px; }
 body section .unbordered {
   margin-top: 0;
