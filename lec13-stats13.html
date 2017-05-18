@@ -1,0 +1,523 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 13 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg9.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 13</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      Linear regression, the fun part
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h3>Last time</h3>
+</section>
+
+<section>
+  <h3>Today</h3>
+  <p>
+    We will apply regression analysis to different situations to see what we can do 
+    with it.
+  </p>
+  <p>
+    We will try to understand how to do estimation and testing and how they "fit" together (see the pun here)
+  </p>
+</section>
+
+<section>
+  <h3>Inference</h3>
+  <p>
+     we only used regression methods to describe a sample and did not make
+statistical inferences about the larger population. Now, we consider how to make inferences about
+a relationship in the population represented by the sample. Some questions involving the
+population that we might ask when analyzing a relationship are:
+1. Does the observed relationship also occur in the population? For example, is the observed
+relationship between hand-span and height strong enough to conclude that the
+relationship also holds in the population?
+2. For a linear relationship, what is the slope of the regression line in the population? For
+example, in the larger population, what is the slope of the regression line that connects
+hand-spans to heights?
+3. What is the mean value of the response variable (y) for individuals with a specific value
+of the explanatory variable (x)? For example, what is the mean hand-span in a population
+of people 65 inches tall?
+4. What interval of values predicts the value of the response variable (y) for an individual
+with a specific value of the explanatory variable (x)? For example, what interval predicts
+the hand-span of an individual 65 inches tall? 
+  </p>
+</section>
+
+<section>
+  <h3>Slope</h3>
+  <p class="no-margin-top small">
+    As we have seen with other quantities, the notation we use for the slope of the regression line of a population is different than the notation we use for the slope of the regression line of a sample. For the slope of a regression line for a population, we use the Greek letter $\beta$ (beta).
+  </p>
+  <p class="small">
+    The regression equation for a simple linear relationship in a population can be written as:
+    <br>
+    $E(Y) = \beta_0 + \beta_1X + \epsilon$
+  </p>
+  <ul class="small">
+    <li>
+      $E(Y)$represents the mean or expected value of y for individuals in the population who all
+      have the same particular value of x. Note that $\overset{\hat{}}{y}$ is an estimate of $E(Y)$
+    </li>
+    <li>
+      $\beta_0$ is the <span class="warning">intercept</span> of the straight line in the <span class="warning">population</span>
+    </li>
+    <li>
+      $\beta_1$ is the <span class="warning">slope</span> of the regression line in the <span class="warning">population</span>. Note that if the slope $\beta_1 = 0$, there is no linear
+      relationship in the population
+    </li>
+  </ul>
+  <p class="small">
+    Unless we measure the entire population, we cannot know the numerical values of $\beta_0$ and $\beta_1$.
+    These are population parameters that we estimate using the corresponding sample statistics.
+  </p>
+</section>
+
+
+
+<section>
+  <h3>Linear regression for prediction</h3>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 504 259.2" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer0"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer1"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer2"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer3"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer4"></use>
+        <use class="fragment" xlink:href="assets/img/lec/regression-train-test-sets-split.svg#layer5"></use>
+      </svg>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- <section>
+  <h3>blank</h3>
+</section> -->
+
+<!-- <section id="linreglive">
+  <h3>Let's build a linear model!</h3>
+  <div class="row">
+    <div class="col-30">
+      <p class="no-margin-top">
+        <span class="em u">Go to:</span> 
+        <br> 
+        <span class="warning">https://goo.gl/kjvEqE</span>
+      </p>
+      <p class="no-margin-top">
+        <span class="em u">Enter your:</span>
+        <br>
+        - Height (inches)
+        <br>
+        - Shoe Size
+      </p>
+      <hr>
+      <form name="predictionform">
+        <label for="usr-shoe">Shoe Size:</label>
+        <input type="text" id="usr-shoe" style="font-size: 0.8em; width: 3em;">
+        <br>
+        <input type="submit" value="Submit" id="shoeSubmit" class="btn btn-info btn-large">
+      </form>
+      <p class="small u em">Predicted height:</p>
+      <label class="big" style="display: inline-block; width: 100%; text-align: center; font-family: sans-serif;">
+        <span class="info" id="pred-height">0</span> in
+      </label>
+    </div>
+    <div class="col-70">
+      <label class="big" style="display: inline-block; width: 100%; text-align: center; font-family: sans-serif;">$\overset{\hat{}}{y}=$ <span class="warning" id="b-coef">0</span> $+$ <span class="warning" id="m-coef">0</span> $x$
+      </label>
+    <div class="placeholder"></div>
+    </div>
+  </div>
+</section> -->
+
+<section id="linreglive">
+  <h3>Let's build a linear model!</h3>
+  <div class="row">
+    <div class="col-30">
+      <p class="no-margin-top">
+        <span class="em u">Go to:</span> 
+        <br> 
+        <span class="warning">https://goo.gl/kjvEqE</span>
+      </p>
+      <p class="no-margin-top">
+        <span class="em u">Enter your:</span>
+        <br>
+        - Height (inches)
+        <br>
+        - Shoe Size
+      </p>
+      <hr>
+        <label for="usr-shoe">Shoe Size:</label>
+        <input type="text" id="usr-shoe" style="font-size: 0.8em; width: 3em;">
+        <br>
+        <input type="submit" value="Submit" id="shoeSubmit" class="btn btn-info btn-large">
+      <p class="small u em">Predicted height:</p>
+      <label class="big" style="display: inline-block; width: 100%; text-align: center; font-family: sans-serif;">
+        <span class="info" id="pred-height">0</span> in
+      </label>
+    </div>
+    <div class="col-70">
+      <label class="big" style="display: inline-block; width: 100%; text-align: center; font-family: sans-serif;">$\overset{\hat{}}{y}=$ <span class="warning" id="b-coef">0</span> $+$ <span class="warning" id="m-coef">0</span> $x$
+      </label>
+    <div class="placeholder"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Uncertainty of the parameters</h3>
+</section>
+
+
+
+<section>
+  <h3>Tipping pattern</h3>
+  <p>
+    presentation of the problem + the data
+  </p>
+  <p>
+    The owner of a bistro called First Crush in Potsdam, New York, was interested in studying the tipping patterns of its patrons. He collected restaurant bills over a two-week period that he believes provide a good sample of his customers. He recorded the data from 157 bills including the amount of the bill, size of the tip, percentage tip, number of customers in the group, whether or not a credit card was used, day of the week, and a coded identity of the server.
+  </p>
+</section>
+
+<section>
+  <h3>Tipping pattern</h3>
+  <p>
+    We want to predict the tip amount based on the bill amount.
+  </p>
+  <p>
+    The scatterplot of the data show <br>
+    - strong positive relationship in the data <br>
+    - few outliers (big tippers) above the main pattern
+  </p>
+  <p>
+    If we calculate correlation, we obtain $r=0915$, reinforcing the fact that
+    the data have a strong positive linear relationship.
+  </p>
+</section>
+
+<section>
+  <h3>Data</h3>
+  <p>
+    Data Collection:
+What population can we draw inferences about from the data in RestaurantTips? The sample was generated by collecting all bills over several nights at the restaurant. Is this a problem for making inferences?
+  </p>
+  <p>
+    Because the data are all from one restaurant, the population of interest is all bills and tips at this restaurant. The original sample was not a random sample of all bills, but rather the data were collected from all bills in a certain time frame. That might introduce bias if the days for the bills in the sample are different in some substantial way (for example, over a holiday season or only weekends). However, the owner indicates that the days for which bills were sampled are representative of the business at his restaurant. As data analysts we might alert the owner to the possibility of bias when reporting our  ndings, but we proceed for now with the assumption that the sample is representative of all bills at this restaurant.
+  </p>
+</section>
+
+<section>
+  <h3>Tipping pattern</h3>
+  <p>
+    Average percentage from sample
+  </p>
+  <p>
+    We could make a prediction using this percentage, but that wouldn't be really correct
+    because it is just value from this sample, not the true percentage.
+  </p>
+  <p>
+    We could make inference from this sample (paired analysis) to know the true mean
+  </p>
+</section>
+
+<section>
+  <h3>Tipping pattern</h3>
+  <p>
+    The slope of 0.182 indicates that for every extra dollar in the restaurant bill the tip will increase, on average, by about $0.18. This means the typical tip rate at this restaurant is roughly 18% of the total bill.
+  </p>
+</section>
+
+<section>
+  <h3>Inference to the population</h3>
+  <p>
+    We only used the sample so far. 
+    We can also make inference about the population
+  </p>
+</section>
+
+
+<section>
+  <h3>Bootstrapping the slope</h3>
+  <p>
+    To construct a bootstrap distribution for the sample slope, we select samples of size n = 157, with replacement, from the cases in the RestaurantTips dataset. For each sample, we run the regression model, compute the sample slope, and save it to form the bootstrap distribution.
+  </p>
+  <p>
+    It does not include the null value of zero, so we reject H0 in favor of a two-tailed alternative at a 5% level. In fact, since the confidence interval includes only positive values, we can be fairly sure that the true slope is above zero. Thus we have evidence that there is some positive slope for the relationship between the amount of a tip and the size of a bill at this restaurant.
+  </p>
+</section>
+
+<section>
+  <h3>What about tip percentage?</h3>
+  <p>
+    From the dataset, we can calculate a variable showing the tip amount expressed as
+    a percentage of the bill. 
+  </p>
+  <p>
+    Most people use a fairly regular percentage (which may vary from person to person) of the total bill when deciding how big a tip to leave. Some economists (Loewenstein, G. and Prelec, D. (1992). Anomalies in Intertemporal Choice: Evidence and an Interpretation, Quarterly Journal of Economics, 1992;107:573–97.) have theorized that people tend to reduce that percentage when the bill gets large, but larger groups of customers might be more generous as a group due to peer pressure.
+  </p>
+</section>
+
+<section>
+  <h3>Tip percentage NHST</h3>
+  <p>
+    If we now let 𝛽 denote the slope for predicting tip percentage based on bills at this restaurant, the relevant hypotheses are
+    H∶𝛽=0 H0∶ 𝛽≠0
+  </p>
+  <p>
+     we can simulate data under the null hypothesis of no relationship (𝛽 = 0)
+     by randomly assigning the tip percentages in the dataset to the bill amounts. For each rearrangement, we compute the new regression line and save the sample slope to create a randomization distribution.
+  </p>
+  <p>
+    The sample does not have enough evidence to conclude that the slope between PctTip and Bill is different from zero. Since the slope in our sample is positive, there is certainly no evidence to support the economists’ claim of a negative relationship.
+  </p>
+</section>
+
+<section>
+  <h3>Linear regression NHST</h3>
+  <img src="assets/img/lec/regression-nhst.svg" 
+  class="unbordered flat" width=90%>
+</section>
+
+<section>
+  <h3>What about the outliers?</h3>
+  <p>
+    Figures B.1 and B.3 both show a few possible outliers from the pattern of the rest of the data. Three very generous customers left tips that were more than 30% of the bill. Do those points have a large effect on the conclusions of the slopes for either of these relationships (Tip vs Bill or PctTip vs Bill)? One way to investigate this question is to omit those cases from the data and re-run the analysis without them.
+  </p>
+  <p>
+    After dropping the three generous data points, the new least squares lines with the remaining 154 cases for both relationships are shown in Figure B.5. The outliers have a negligible effect on the slope of the relationship between Tip and Bill. It barely changes from 0.182 with the outliers to 0.183 without them. A 90% con dence inter- val for this slope, based on the data without outliers, goes from 0.173 to 0.193, which is a bit narrower, but otherwise similar to the 90% interval, (0.168, 0.197), from the full data.
+  </p>
+  <p>
+    The regression equation for predicting percentage tip, PctTip = 14.9 + 0.056Bill, is a bit steeper when the outliers are removed. When testing H ∶ 𝛽 = 0 vs 0
+    H ∶𝛽≠0 for this new slope, the p-value for one set of 10,000 randomizations turns a
+out to be 0.006. This p-value is quite small, showing that, when we remove the outlier big tippers, there is a signi cant positive association with the percentage of the tip tending to increase with larger bills.
+  </p>
+</section>
+
+<section>
+  <h3>The 1970 military draft lottery</h3>
+  <div class="row">
+    <div class="col-55">
+      <p class="small">
+        In November of 1969, with the Vietnam War raging, President Nixon signed an executive order to reinstitute the draft. Men were drafted to fill vacancies in the United States Armed Forces that could not be filled through voluntary means.
+      </p>
+      <p class="small">
+        In an attempt to expose male youth "fairly" to the risk of being drafted, the Selective Service held a lottery on December 1, 1969 to allocate birthdates at random. Men were then drafted in the order that their birth days were drawn.
+      </p>
+    </div>
+    <div class="col-45">
+      <img src="assets/img/lec/Unclesamwantyou.jpg" width=100%>
+    </div>
+  </div>
+  
+</section>
+
+<section>
+  <h3>The selection process</h3>
+  <div class="row">
+    <div class="col-50">
+      <p>
+        The order stipulated that the selection be a random process based on the birthdays of men born between January 1, 1944 and December 31, 1950.
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/draft-lottery-1969-1.jpg" width=100% >
+    </div>
+  </div>
+  <p>
+    The Selective Service placed the days of the year, including February 29, into 366 plastic capsules. These capsules were placed in a glass container, mixed, then drawn one at a time.
+  </p>
+</section>
+
+<section>
+  <h3>The selectoin process</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="small no-margin-top">
+        The first capsule drawn contained the date September 14. This date was assigned the rank 1.
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/draft-lottery-1969-2.jpeg" width=100%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <img src="assets/img/lec/draft-lottery-1969-3.jpg" width=100%>
+    </div>
+    <div class="col-50">
+      <p class="small no-margin-top">
+        The second date drawn, April 24, was assigned rank 2, and so on ...
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>The selectoin process</h3>
+  <div class="row">
+    <div class="col-35">
+      <p class="small no-margin-top">
+        Those eligible for the draft who were born on September 14 (rank 1) would be the first selected to serve in Vietnam.
+      </p>
+    </div>
+    <div class="col-65">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/XhLbysRh8XY" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  <p class="small no-margin-top">
+        Once all eligible men born on this date were inducted into the service, then the Selective Service would begin to induct men born on April 24 (rank 2), etc ...
+      </p>
+</section>
+
+<section>
+  <h3>The 1970 military draft lottery</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/XhLbysRh8XY" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<section>
+  <h3>Note about the draft numbers</h3>
+  <p>
+    It was estimated by the Pentagon that men with draft numbers 200 to 366, would escape the draft entirely. In fact, no man with a draft number higher than 195 was called to duty.
+  </p>
+</section>
+
+<section>
+  <h3>Was the lottery really random?</h3>
+</section>
+
+<section>
+  <h3>Was the lottery really random?</h3>
+  <div class="row">
+    <div class="col-70">
+      <img src="assets/img/lec/draft-lottery-1969-nytimes-article-title.png" width=100%>
+    </div>
+    <div class="col-30">
+      <p class="no-margin-top small">
+        NY Times article - January 4, 1970
+      </p>
+      <img src="assets/img/lec/draft-lottery-1969-nytimes-article-excerpt.png" width=100%>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+  <!-- D3 -->
+  <script src="assets/js/d3.v4.min.js"></script>
+  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+
+    <!-- D3 in REVEAL -->
+  <script src="assets/js/d3-in-reveal.js"></script>
+    <!-- The D3 config & animations -->
+    <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
+    <script src="assets/d3-anim/js-graphs/linear-regression.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-regression.js"></script>
+    
+
+</body>
+</html>
