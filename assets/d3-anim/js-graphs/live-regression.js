@@ -176,21 +176,26 @@ gc.linreglive.init = function() {
 };
 
 gc.linreglive.drawline = function(data){
-  // Initial regression line
+  // Initial regression line for graph
   var xValues = data.map(function(d){return gc.linreglive.x(d.ShoeSize);});
   var yValues = data.map(function(d){return gc.linreglive.y(d.Height);});
   var lsCoef = [gc.linreglive.LeastSquares(xValues, yValues)];
 
-  gc.linreglive.lsCoefm = gc.linreglive.x.invert(lsCoef[0].m)
-  gc.linreglive.lsCoefb = gc.linreglive.y.invert(lsCoef[0].b)
+  // Initial regression line for text display
+  var xValues_h = data.map(function(d){return d.ShoeSize;});
+  var yValues_h = data.map(function(d){return d.Height;});
+  var lsCoef_h = [gc.linreglive.LeastSquares(xValues_h, yValues_h)];
+
+  gc.linreglive.lsCoefm = lsCoef_h[0].m
+  gc.linreglive.lsCoefb = lsCoef_h[0].b
 
   // console.log(lsCoef[0])
   // console.log(xValues.map(function(d){return gc.linreglive.x.invert(d)}))
   // console.log(yValues.map(function(d){return gc.linreglive.y.invert(d)}))
 
 
-  var m = parseFloat(Math.round(gc.linreglive.x.invert(lsCoef[0].m) * 1000) / 1000).toFixed(3);
-  var b = parseFloat(Math.round(gc.linreglive.y.invert(lsCoef[0].b) * 1000) / 1000).toFixed(3);
+  var m = parseFloat(Math.round(lsCoef_h[0].m * 1000) / 1000).toFixed(3);
+  var b = parseFloat(Math.round(lsCoef_h[0].b * 1000) / 1000).toFixed(3);
   d3.select("#m-coef").text(m);
   d3.select("#b-coef").text(b);
   
@@ -229,15 +234,21 @@ gc.linreglive.transitionline = function(data){
   var yValues = data.map(function(d){return gc.linreglive.y(d.Height);});
   var lsCoef = [gc.linreglive.LeastSquares(xValues, yValues)];
 
-  gc.linreglive.lsCoefm = gc.linreglive.x.invert(lsCoef[0].m)
-  gc.linreglive.lsCoefb = gc.linreglive.y.invert(lsCoef[0].b)
+  // Initial regression line for text display
+  var xValues_h = data.map(function(d){return d.ShoeSize;});
+  var yValues_h = data.map(function(d){return d.Height;});
+  var lsCoef_h = [gc.linreglive.LeastSquares(xValues_h, yValues_h)];
+
+  gc.linreglive.lsCoefm = lsCoef_h[0].m
+  gc.linreglive.lsCoefb = lsCoef_h[0].b
 
   // console.log(lsCoef[0])
   // console.log(xValues.map(function(d){return gc.linreglive.x.invert(d)}))
   // console.log(yValues.map(function(d){return gc.linreglive.y.invert(d)}))
 
-  var m = parseFloat(Math.round(gc.linreglive.x.invert(lsCoef[0].m) * 1000) / 1000).toFixed(3);
-  var b = parseFloat(Math.round(gc.linreglive.y.invert(lsCoef[0].b) * 1000) / 1000).toFixed(3);
+
+  var m = parseFloat(Math.round(lsCoef_h[0].m * 1000) / 1000).toFixed(3);
+  var b = parseFloat(Math.round(lsCoef_h[0].b * 1000) / 1000).toFixed(3);
   d3.select("#m-coef").text(m);
   d3.select("#b-coef").text(b);
   
@@ -308,14 +319,30 @@ gc.linreglive.LeastSquares = function(values_x, values_y) {
   return {'b': b, 'm': m};
 };
 
-d3.select("#linreglive #shoeSubmit")
-  .on("click", function () {
-    if (d3.select("#linreglive #usr-shoe").property("value")==""){
+// d3.select("#linreglive #shoeSubmit")
+//   .on("click", function () {
+//     if (d3.select("#linreglive #usr-shoe").property("value")==""){
+//       predictedSize = 0;
+//     } else {
+//       predictedSize = parseFloat(Math.round((gc.linreglive.lsCoefm * d3.select("#linreglive #usr-shoe").property("value") + gc.linreglive.lsCoefb) * 1000) / 1000).toFixed(3);
+//     }
+//     d3.select("#linreglive #pred-height").text(predictedSize);
+//     // console.log(predictedSize)
+// });
+gc.linreglive.calculate = function(){
+  if (d3.select("#linreglive #usr-shoe").property("value")==""){
       predictedSize = 0;
     } else {
       predictedSize = parseFloat(Math.round((gc.linreglive.lsCoefm * d3.select("#linreglive #usr-shoe").property("value") + gc.linreglive.lsCoefb) * 1000) / 1000).toFixed(3);
     }
     d3.select("#linreglive #pred-height").text(predictedSize);
-    // console.log(predictedSize)
-});
+};
+
+
+d3.select("#linreglive #shoeSubmit")
+  .on("click", gc.linreglive.calculate);
+
+d3.select("#linreglive #usr-shoe")
+  .on("change", gc.linreglive.calculate);
+
 
