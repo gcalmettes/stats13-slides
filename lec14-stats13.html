@@ -671,7 +671,8 @@ Repeat a number of times to match the original sample size and get a table of ob
   <h3>Theory: $\chi^2$ distribution</h3>
   <div class="row">
     <div class="col-50">
-      
+      <img src="assets/img/lec/chi2-table.png" width=100% 
+       class="rounded">
     </div>
     <div class="col-50">
       <img src="assets/img/lec/chi2-distribution.svg" width=100%>
@@ -915,6 +916,19 @@ Repeat a number of times to match the original sample size and get a table of ob
 </section>
 
 <section>
+  <h3>Follow up</h3>
+  <p>
+    What if you find evidence of an association? How do we determine exactly where the association is? 
+  </p>
+  <p>
+    No standard approach to follow, there are many different follow-up approaches.
+  </p>
+  <p>
+    We will use pairwise confidence intervals for the difference in proportions to determine exactly where the association lies.
+  </p>
+</section>
+
+<section>
   <h3>Recap on $\chi^2$</h3>
   <div class="row">
     <table>
@@ -940,95 +954,6 @@ Repeat a number of times to match the original sample size and get a table of ob
 
 
 
-
-<section>
-  <h3>Advantages and limitations of the MAD</h3>
-  <div class="row">
-    <div class="col-50">
-      <p>Pros</p>
-      <p>
-        Easy to simulate (no theoretical distribution for the MAD)
-      </p>
-    </div>
-    <div class="col-50">
-      <p>Cons</p>
-      <p>
-        Limited to the study of equal proportions
-      </p>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-50">
-      <div class="row">
-        <div class="col-60">
-          <p class="no-margin-top small">
-            <span class="u em">Ex:</span> Are the six colors (green, orange, blue, red, yellow, brown) of M&Ms equally likely in a pack?
-          </p>
-        </div>
-        <div class="col-40">
-          <img src="assets/img/lec/m&ms-pic.png" width=100%>
-        </div>
-      </div>
-    </div>
-    <div class="col-50">
-      <div class="row">
-        <div class="col-60">
-          <p class="no-margin-top small">
-            Does the grade distribution of the class
-            follow the usual pattern?
-          </p>
-        </div>
-        <div class="col-40">
-          <img src="assets/img/lec/multiple-proportions-grades.svg" width=100%>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h3>Statistic for more general situations</h3>
-  <p>
-    we need something more general that can be applied to different scenario (more or less cells in the contingency table)
-  </p>
-</section>
-
-<section>
-  <h3>Which statistic to use?</h3>
-  <p class="small no-margin-top">
-    Contrary to when we were comparing only 2 proportions, we have more than just one difference between groups:
-  </p>
-  <div class="row">
-    <div class="col-40">
-      <p class="smaller fragment" data-fragment-index=1>
-        $d_1=0.281-\frac{1}{3}=\texclass{danger}{-0.052}$
-      </p>
-      <p class="smaller fragment" data-fragment-index=2>
-        $d_2=0.325-\frac{1}{3}=\texclass{info}{-0.009}$
-      </p>
-      <p class="smaller fragment" data-fragment-index=3>
-        $d_1=0.394-\frac{1}{3}=\texclass{warning}{0.061}$
-      </p>
-      <p class="fragment small no-margin-top">
-        How can we combine those 3 differences into a single statistic of interest?
-      </p>
-    </div>
-    <div class="col-50">
-      <svg width="100%" viewBox="0 0 360 216" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/rock-paper-scissors-differences-for-chi2.svg#layer1"></use>
-        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/rock-paper-scissors-differences-for-chi2.svg#layer2"></use>
-        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/rock-paper-scissors-differences-for-chi2.svg#layer3"></use>
-        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/rock-paper-scissors-differences-for-chi2.svg#layer4"></use>
-      </svg>
-    </div>
-  </div>
-  <p class="small fragment">
-    <i class="fa fa-arrow-circle-right warning"></i>
-    Add them up? Average them? <br>
-    $(-0.052)+(-0.009)+0.061=0$  (mean also $0$)
-  </p>
-</section>
 
 <!-- THE END -->
 <!-- THE END -->
