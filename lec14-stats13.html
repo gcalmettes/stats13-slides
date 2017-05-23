@@ -1,0 +1,1073 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 14 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg2.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 14</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      Analyzing more<br>general situations
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h3>Last time</h3>
+</section>
+
+<section>
+  <h3>Analyzing more general situations</h3>
+  <p>
+    So far, we have explored tests of significance, confidence intervals, generalization, and causation for situations limited to the analysis 
+    of a single variable, or to the comparison of
+    two groups.
+  </p>
+  <p>
+    With linear regression, we've started to study 
+    more complex situations, for which the 
+    explanatory variable can actually get more than 
+    two values.
+  </p>
+  <p>
+    We will continue to study more general situations, 
+    and see how we can deal with situations in which we have to analyze more than 
+    two proportions.
+  </p>
+</section>
+
+
+<section data-transition="slide-in fade-out">
+  <h3>Let's start with a simple example</h3>
+  <div class="row">
+    <div class="col-65">
+      <p class="no-margin-top">
+        <span class="u">Rock-Paper-Scissors (RPS) game</span> <br>
+        Let's consider that you want to enter a RPS competition (it does exist!), but you're looking to get an advantage and wonder if there is a pattern in the signs the other players tend to chose.
+      </p>
+      <p>
+        Do players equally use each hand sign? Or do one hand sign is usually used more than the others?
+      </p>
+      <p>
+        Can we use statistics to help us win?
+      </p>
+    </div>
+    <div class="col-35">
+      <img src="assets/img/lec/rock-paper-scissors-game.svg" width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Rock Paper Scissors</h3>
+  <div class="row">
+    <div class="col-65">
+      <p class="no-margin-top small">
+        A study analyzed the distribution of hand signs 
+        used by a group of students during a total of 381 games.
+        The results are shown in the table below:
+      </p>
+      <table>
+        <col width=25%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="bg-danger">Rock</td>
+          <td class="bg-info">Paper</td>
+          <td class="bg-warning">Scissors</td>
+          <td>Total</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid;">Observed count</td>
+          <td style="vertical-align: middle;">107</td>
+          <td style="vertical-align: middle;">124</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">150</td>
+          <td style="vertical-align: middle;">381</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td style="border-right: 1px solid;">Observed proportion</td>
+          <td style="vertical-align: middle;">0.281</td>
+          <td style="vertical-align: middle;">0.325</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">0.394</td>
+          <td style="vertical-align: middle;">1</td>
+        </tr>
+      </table>
+      <p>
+        What is the probability of observing such a distribution 
+        of proportion if there was an equal chance of getting the 
+        three outcomes?
+      </p>
+    </div>
+    <div class="col-35">
+      <img src="assets/img/lec/rock-paper-scissors-game.svg" width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Rock Paper Scissors</h3>
+  <div class="row">
+    <div class="col-65">
+      <p class="no-margin-top small">
+        A study analyzed the distribution of hand signs 
+        used by a group of students during a total of 381 games.
+        The results are shown in the table below:
+      </p>
+      <table>
+        <col width=25%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="bg-danger">Rock</td>
+          <td class="bg-info">Paper</td>
+          <td class="bg-warning">Scissors</td>
+          <td>Total</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid;">Observed count</td>
+          <td style="vertical-align: middle;">107</td>
+          <td style="vertical-align: middle;">124</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">150</td>
+          <td style="vertical-align: middle;">381</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td style="border-right: 1px solid;">Observed proportion</td>
+          <td style="vertical-align: middle;">0.281</td>
+          <td style="vertical-align: middle;">0.325</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">0.394</td>
+          <td style="vertical-align: middle;">1</td>
+        </tr>
+      </table>
+      <p>
+        $H_0: \pi_\texclass{danger}{\mathrm{rock}} = \pi_\texclass{info}{\mathrm{paper}} = \pi_\texclass{warning}{\mathrm{scissor}}$
+      </p>
+      <p>
+        $H_a:$ at least one of the 3 $\pi$ is different from the others
+      </p>
+    </div>
+    <div class="col-35">
+      <img src="assets/img/lec/rock-paper-scissors-game.svg" width=100%>
+    </div>
+  </div>
+</section>
+
+
+<section data-transition="slide-in fade-out">
+  <h3>The single categorical variable case</h3>
+  <div class="row">
+    <div class="col-65">
+      <p class="no-margin-top">
+        When we were studying the distribution of a single categorical variable, we were comparing our observed proportion of outcome with a null hypothesis (the value of the null hypothesis depended of the situation).
+      </p>
+      <table>
+        <col width=34%>
+        <col width=22%>
+        <col width=22%>
+        <col width=22%>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="bg-danger">Head</td>
+          <td class="bg-info">Tail</td>
+          <td>Total</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid;">Observed count</td>
+          <td style="vertical-align: middle;">10</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">6</td>
+          <td style="vertical-align: middle;">16</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td style="border-right: 1px solid;">Observed proportion</td>
+          <td style="vertical-align: middle;">0.625</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">0.375</td>
+          <td style="vertical-align: middle;">1</td>
+        </tr>
+      </table>
+      <p>
+        $H_0: \texclass{danger}{\pi_\mathrm{head}}=\frac{1}{2}$
+      </p>
+    </div>
+    <div class="col-25">
+      <img src="assets/img/lec/coin-flipping.svg" width=100%>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>The single categorical variable case</h3>
+  <div class="row">
+    <div class="col-65">
+      <p class="no-margin-top">
+        When we were studying the distribution of a single categorical variable, we were comparing our observed proportion of outcome with a null hypothesis (the value of the null hypothesis depended of the situation).
+      </p>
+      <table>
+        <col width=34%>
+        <col width=22%>
+        <col width=22%>
+        <col width=22%>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="bg-warning">Correct</td>
+          <td class="bg-success">Incorrect</td>
+          <td>Total</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid;">Observed count</td>
+          <td style="vertical-align: middle;">16</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">5</td>
+          <td style="vertical-align: middle;">21</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td style="border-right: 1px solid;">Observed proportion</td>
+          <td style="vertical-align: middle;">0.76</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">0.24</td>
+          <td style="vertical-align: middle;">1</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-25">
+      <img src="assets/img/lec/police-dog-luggages-choice.svg" width=100%>
+    </div>
+  </div>
+  <p>
+    $H_0: \texclass{warning}{\pi_\mathrm{correct}}=\frac{1}{3}$
+  </p>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Rock Paper Scissors</h3>
+  <p class="no-margin-top framed border-light">
+    Could we apply the same strategy here?
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top small">
+        <i class="fa fa-arrow-circle-right warning"></i>
+        Couldn't we just test independently $H_0: \pi_\mathrm{sign}=\frac{1}{3}$ for all three possible 
+        outcomes?  
+      </p>
+      <table class="normal">
+        <col width=25%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="bg-danger">Rock</td>
+          <td class="bg-info">Paper</td>
+          <td class="bg-warning">Scissors</td>
+          <td>Total</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid;">Observed count</td>
+          <td style="vertical-align: middle;">107</td>
+          <td style="vertical-align: middle;">124</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">150</td>
+          <td style="vertical-align: middle;">381</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td style="border-right: 1px solid;">Observed proportion</td>
+          <td style="vertical-align: middle;">0.281</td>
+          <td style="vertical-align: middle;">0.325</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">0.394</td>
+          <td style="vertical-align: middle;">1</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-multiple-testing.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-multiple-testing.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-multiple-testing.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="no-margin-bottom small">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    No! Multiple testing problem (the more inferences are made, the more likely erroneous inferences are to occur).
+    <br>
+    <i class="fa fa-arrow-circle-right danger"></i>
+    We want to compare our data to a single distribution pattern ($\frac{1}{3}/\frac{1}{3}/\frac{1}{3}$), so we need to find a way to perform only one testing.
+  </p>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Rock Paper Scissors</h3>
+  <p class="no-margin-top framed border-light">
+    Could we apply the same strategy here?
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top small">
+        <i class="fa fa-arrow-circle-right warning"></i>
+        Couldn't we just test independently $H_0: \pi_\mathrm{sign}=\frac{1}{3}$ for all three possible 
+        outcomes?  
+      </p>
+      <table class="normal">
+        <col width=25%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="bg-danger">Rock</td>
+          <td class="bg-info">Paper</td>
+          <td class="bg-warning">Scissors</td>
+          <td>Total</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid;">Observed count</td>
+          <td style="vertical-align: middle;">107</td>
+          <td style="vertical-align: middle;">124</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">150</td>
+          <td style="vertical-align: middle;">381</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td style="border-right: 1px solid;">Observed proportion</td>
+          <td style="vertical-align: middle;">0.281</td>
+          <td style="vertical-align: middle;">0.325</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">0.394</td>
+          <td style="vertical-align: middle;">1</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-multiple-testing.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-multiple-testing.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-multiple-testing.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-multiple-testing.svg#axes_4"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="no-margin-bottom no-margin-top small framed border-danger">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    What we really need is to caracterize how far the distribution pattern of the three proportions is from the theoretical one.
+  </p>
+  <p class="no-margin-bottom small">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    How far the observed counts are from the expected (theoretical) counts if the null hypothesis ($\pi_\texclass{danger}{\mathrm{rock}} = \pi_\texclass{info}{\mathrm{paper}} = \pi_\texclass{warning}{\mathrm{scissor}}$) was true?
+  </p>
+</section>
+
+<section>
+  <h3>Expected counts</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top">
+        The expected counts are the amounts we should see in  each category (cell) if the null hypothesis is true for that sample size.
+      </p>
+      <div class="framed border-warning" style="font-size: 0.9em;">
+      $\mathrm{Expected}_i = n_\mathrm{total}\times\pi_i$
+    </div>
+    <p>
+      For each cell, the expected count is the total sample size ($n_\mathrm{total}$) times the null proportion for each sign, $\pi_\mathrm{i}$.
+    </p>
+    </div>
+    <div class="col-50">
+      <table>
+        <col width=25%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+        <col width=20%>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="bg-danger">Rock</td>
+          <td class="bg-info">Paper</td>
+          <td class="bg-warning">Scissors</td>
+          <td>Total</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid;">Observed count</td>
+          <td style="vertical-align: middle;">107</td>
+          <td style="vertical-align: middle;">124</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">150</td>
+          <td style="vertical-align: middle;">381</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid;">Observed proportion</td>
+          <td style="vertical-align: middle;">0.281</td>
+          <td style="vertical-align: middle;">0.325</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">0.394</td>
+          <td style="vertical-align: middle;">1</td>
+        </tr>
+        <tr>
+          <td style="border-right: 1px solid;">Expected proportion</td>
+          <td style="vertical-align: middle;">$\frac{1}{3}$</td>
+          <td style="vertical-align: middle;">$\frac{1}{3}$</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">$\frac{1}{3}$</td>
+          <td style="vertical-align: middle;">1</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td style="border-right: 1px solid;">Expected count</td>
+          <td style="vertical-align: middle;">127</td>
+          <td style="vertical-align: middle;">127</td>
+          <td style="vertical-align: middle; border-right: 1px solid;">127</td>
+          <td style="vertical-align: middle;">381</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Analyzing the expected counts</h3>
+  <div class="row">
+    <div class="col-50">
+      <p>
+        What could we do with the expected counts?
+      </p>
+      <p>
+        <i class="fa fa-arrow-circle-right success"></i>
+        calculate the difference between observed and expected
+      </p>
+    </div>
+    <div class="col-50">
+      <table>
+        <col width=34%>
+        <col width=22%>
+        <col width=22%>
+        <col width=22%>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="bg-danger">Rock</td>
+          <td class="bg-info">Paper</td>
+          <td class="bg-warning">Scissors</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td>Observed</td>
+          <td>107</td>
+          <td>124</td>
+          <td>150</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td>Expected</td>
+          <td>127</td>
+          <td>127</td>
+          <td>127</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-50">
+      <p>
+        How can we combine those 3 differences into a single statistic?
+        Add them up? Average them?
+      </p>
+      <p>
+        What could we do so we don't get a sum of zero?
+      </p>
+    </div>
+    <div class="col-50">
+      <p>
+        <span class="u em danger">Rock:</span> $d_1 = 107-127=-20$
+      </p>
+      <p>
+        <span class="u em info">Paper:</span> $d_2 = 124-127=-3$
+      </p>
+      <p>
+        <span class="u em warning">Scissors:</span> $d_3 = 150-127=23$
+      </p>
+      <p>
+        $-20+(-3)+23=0$
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Chi-squared ($\chi^2$) statistics</h3>
+  <p>
+    A statistic that is widely used is the square of the relative differences of each observed frequencies compared to the expected frequencies. This is known as the Chi-Squared statistic for comparing frequencies of a categorical variable. 
+  </p>
+  <div>
+    $\chi^2=\sum_{i=1}^n\frac{(\mathrm{Observed}_i-\mathrm{Expected}_i)^2}{\mathrm{Expected}_i}$  
+  </div>
+  <p>
+    $\chi^2$ summarizes the discrepancy between observed and expected frequencies. The smaller the overall discrepancy is between the observed and expected scores, the smaller the value of the $\chi^2$ will be. Conversely, the larger the discrepancy is between the observed and expected scores, the larger the value of the $\chi^2$ will be.
+  </p>
+</section>
+
+<section>
+  <h3>Does that remind you anything?</h3>
+  <div class="row">
+    <div class="col-50">
+      <p>
+        It's kind of like calculating the residuals of a linear regression model but for 
+        an histogram instead!
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/rock-paper-scissors-bars.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-bars.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>$\chi^2$ goodness of fit test</h3>
+  <div class="row">
+    <div class="col-15"></div>
+    <div class="col-70">
+      <table>
+        <col width=34%>
+        <col width=22%>
+        <col width=22%>
+        <col width=22%>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="bg-danger">Rock</td>
+          <td class="bg-info">Paper</td>
+          <td class="bg-warning">Scissors</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td>Observed</td>
+          <td>107</td>
+          <td>124</td>
+          <td>150</td>
+        </tr>
+        <tr style="border-bottom: 1px solid;">
+          <td>Expected</td>
+          <td>127</td>
+          <td>127</td>
+          <td>127</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <p>
+    $\chi^2=\frac{(107-127)^2}{127}+\frac{(124-127)^2}{127}+\frac{(150-127)^2}{127}$
+  </p>
+  <p>
+    $\chi^2=3.150+0.071+4.165$
+  </p>
+  <p>
+    $\chi^2=7.386$
+  </p>
+</section>
+
+<section>
+  <h3>What's next</h3>
+  <p>
+    We have a test statistic.  What else do we need to perform the hypothesis test? How do we know if the $\chi^2$ statistics we calculated is big or not?
+  </p>
+  <p>
+    A distribution of the test statistic assuming $H_0$ is true
+  </p>
+  <p>
+    How do we get this?
+  </p>
+  <ul class="normal push-left">
+      <li>simulation</li>
+      <li>theoretical distribution</li>
+    </ul>
+</section>
+
+<section>
+  <h3>Simulation the null hypothesis</h3>
+  <p>
+    For equally likely choices: 
+Take 3 scraps of paper and label them Rock, Paper, Scissors.  Fold or crumple them so they are indistinguishable.  Choose one at random and record the result.
+Repeat a number of times to match the original sample size and get a table of observed counts.
+3) Calculate the 2-statistic.
+4) Repeat this many times to get a randomization distribution of many 2-statistics.
+5) How extreme is the actual test statistic in this randomization distribution?
+  </p>
+</section>
+
+<section>
+  <h3>Simulating the null hypothesis</h3>
+  <div class="row">
+    <div class="col-40">
+      <p class="no-margin-top small">  
+        
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Theory</h3>
+  <p>
+    If each of the expected counts are at least 10, AND if the null hypothesis is true, then the $\chi^2$ statistic follows a $\chi^2$–distribution, with degrees of freedom equal to:
+  </p>
+  <p>
+    df = number of categories – 1
+  </p>
+  <p>
+    For Rock-Paper-Scissors: 
+    df = 3 – 1 = 2
+  </p>
+  <p>
+    Always use the right tail to find a p-value (table)
+  </p>
+</section>
+
+<section>
+  <h3>Theory: $\chi^2$ distribution</h3>
+  <div class="row">
+    <div class="col-50">
+      
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/chi2-distribution.svg" width=100%>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>$\chi^2$ test for goodness of fit</h3>
+  <p>
+    A $\chi^2$ test for goodness-of-fit tests whether the distribution of a categorical variable is the same as some null hypothesized distribution
+  </p>
+  <p>
+    The null hypothesized proportions for each category do not have to be the same
+  </p>
+  <hr>
+  <div class="row">
+    <div class="col-50">
+      <div class="row">
+        <div class="col-60">
+          <p class="no-margin-top small">
+            <span class="u em">Ex:</span> Are the six colors (green, orange, blue, red, yellow, brown) of M&Ms equally likely in a pack?
+          </p>
+        </div>
+        <div class="col-40">
+          <img src="assets/img/lec/m&ms-pic.png" width=100%>
+        </div>
+      </div>
+    </div>
+    <div class="col-50">
+      <div class="row">
+        <div class="col-60">
+          <p class="no-margin-top small">
+            Does the grade distribution of the class
+            follow the usual pattern?
+          </p>
+        </div>
+        <div class="col-40">
+          <img src="assets/img/lec/multiple-proportions-grades.svg" width=100%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>$\chi^2$ test for goodness of fit</h3>
+  <ol class="normal push-left">
+    <li>
+      State null hypothesized proportions for each category, pi.  Alternative is that at least one of the proportions is different than specified in the null.
+    </li>
+    <li>
+      Calculate the expected counts for each cell as $n_\mathrm{total}\times\pi_i$.
+    </li>
+    <li>
+      Calculate the $\chi^2$ statistic. $\chi^2=\sum_{i=1}^n\frac{(\mathrm{Observed}_i-\mathrm{Expected}_i)^2}{\mathrm{Expected}_i}$ 
+    </li>
+    <li>
+      Simulate the null hypothesis and 
+      ompute the p-value
+    </li>
+    <li>
+      Interpret the p-value in context
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h3>More complex situations</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top small">
+        In 1866, Gregor Mendel, the “father of genetics” published the results of his experiments on peas
+      </p>
+      <p class="no-margin-top small">
+        He found that his experimental distribution of peas closely matched the theoretical distribution predicted by his theory of genetics (involving alleles, and dominant and recessive genes)
+      </p>
+    </div>
+    <div class="col-50">
+      <img class="rounded" src="assets/img/lec/mendel-pea-genetics.png" width=100%>
+      <img class="rounded" src="assets/img/lec/mendel-pea-results.png">
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Mendel</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top small">
+        Does the observed experimental distribution match the
+        theoretical distribution predicted by genetics?
+      </p>
+      <p class="small">
+        <i class="fa fa-arrow-circle-right warning"></i>
+        Let’s test these data against the null hypothesis of the proportions distribution based on the theory of genetics.
+      </p>
+    </div>
+    <div class="col-50">
+      <table style="font-size: 0.9em;">
+        <col width=44%>
+        <col width=28%>
+        <col width=28%>
+      <tbody>
+        <tr class="bg-warning">
+          <td style="vertical-align: middle;">Phenotype</td>
+          <td>Theoretical proportion</td>
+          <td>Observed count</td>
+        </tr>
+        <tr>
+          <td>Round, Yellow</td>
+          <td>$9/16$</td>
+          <td>$315$</td>
+        </tr>
+        <tr>
+          <td>Round, Green</td>
+          <td>$3/16$</td>
+          <td>$108$</td>
+        </tr>
+        <tr>
+          <td>Wrinkled, Yellow</td>
+          <td>$3/16$</td>
+          <td>$101$</td>
+        </tr>
+        <tr>
+          <td>Wrinkled, Green</td>
+          <td>$1/16$</td>
+          <td>$32$</td>
+        </tr>
+        <tr class="bg-muted">
+          <td>Total</td>
+          <td>$1$</td>
+          <td>$556$</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <p class="sided border-info">
+    <span class="u em info">Null Hypothesis:</span> <br>
+    $H_0: \pi_1=\frac{9}{16}, \pi_2=\frac{3}{16}, \pi_3=\frac{3}{16}, \pi_4=\frac{1}{16}$
+  </p>
+  <p class="sided border-danger">
+    <span class="u em danger">Alternative Hypothesis:</span> <br>
+    $H_a:$ at least one $\pi_i$ is not as specified in $H_0$
+  </p>
+</section>
+
+<section>
+  <h3>Mendel</h3>
+  <p class="no-margin-top small">
+    What is the expected count for each pea category? ($n_\mathrm{total}\times\pi_i$)
+  </p>
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-80">
+      <table style="font-size: 0.9em;">
+        <col width=29%>
+        <col width=18%>
+        <col width=18%>
+        <col width=35%>
+      <tbody>
+        <tr class="bg-warning">
+          <td style="vertical-align: middle;">Phenotype</td>
+          <td>Theoretical proportion</td>
+          <td>Observed count</td>
+          <td>Expected count</td>
+        </tr>
+        <tr>
+          <td>Round, Yellow</td>
+          <td>$9/16$</td>
+          <td>$315$</td>
+          <td>$556\times9/16=312.75$</td>
+        </tr>
+        <tr>
+          <td>Round, Green</td>
+          <td>$3/16$</td>
+          <td>$108$</td>
+          <td>$556\times3/16=104.25$</td>
+        </tr>
+        <tr>
+          <td>Wrinkled, Yellow</td>
+          <td>$3/16$</td>
+          <td>$101$</td>
+          <td>$556\times3/16=104.25$</td>
+        </tr>
+        <tr>
+          <td>Wrinkled, Green</td>
+          <td>$1/16$</td>
+          <td>$32$</td>
+          <td>$556\times1/16=34.75$</td>
+        </tr>
+        <tr class="bg-muted">
+          <td>Total</td>
+          <td>$1$</td>
+          <td>$556$</td>
+          <td>$556$</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <p>
+    $\chi^2=\frac{(315-312.75)^2}{312.75}+\frac{(108-104.25)^2}{104.25}+\frac{(101-104.25)^2}{104.25}+\frac{(32-34.75)^2}{34.75}$
+  </p>
+  <p>
+    $\chi^2=0.016+0.135+0.101+0.218$
+  </p>
+  <p>
+    $\chi^2=0.470$
+  </p>
+</section>
+
+<section>
+  <h3>Recap on $\chi^2$</h3>
+  <div class="row">
+    <table>
+      <col width=50%>
+      <col width=50%>
+      <tbody>
+        <tr>
+          <td class="bg-info">$\chi^2$ for goodness of fit</td>
+          <td class="bg-danger">$\chi^2$ test of independance</td>
+        </tr>
+        <tr>
+          <td>Test hypothesis about shape of discrete distribution </td>
+          <td>Test hypothesis about relationship of variables</td>
+        </tr>
+        <tr>
+          <td>are the frequencies I observe for my categorical variable consistent with my theory? </td>
+          <td>determining whether two categorical variables are associated with one another in the population</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+
+<section>
+  <h3>Advantages and limitations of the MAD</h3>
+  <div class="row">
+    <div class="col-50">
+      <p>Pros</p>
+      <p>
+        Easy to simulate (no theoretical distribution for the MAD)
+      </p>
+    </div>
+    <div class="col-50">
+      <p>Cons</p>
+      <p>
+        Limited to the study of equal proportions
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-50">
+      <div class="row">
+        <div class="col-60">
+          <p class="no-margin-top small">
+            <span class="u em">Ex:</span> Are the six colors (green, orange, blue, red, yellow, brown) of M&Ms equally likely in a pack?
+          </p>
+        </div>
+        <div class="col-40">
+          <img src="assets/img/lec/m&ms-pic.png" width=100%>
+        </div>
+      </div>
+    </div>
+    <div class="col-50">
+      <div class="row">
+        <div class="col-60">
+          <p class="no-margin-top small">
+            Does the grade distribution of the class
+            follow the usual pattern?
+          </p>
+        </div>
+        <div class="col-40">
+          <img src="assets/img/lec/multiple-proportions-grades.svg" width=100%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Statistic for more general situations</h3>
+  <p>
+    we need something more general that can be applied to different scenario (more or less cells in the contingency table)
+  </p>
+</section>
+
+<section>
+  <h3>Which statistic to use?</h3>
+  <p class="small no-margin-top">
+    Contrary to when we were comparing only 2 proportions, we have more than just one difference between groups:
+  </p>
+  <div class="row">
+    <div class="col-40">
+      <p class="smaller fragment" data-fragment-index=1>
+        $d_1=0.281-\frac{1}{3}=\texclass{danger}{-0.052}$
+      </p>
+      <p class="smaller fragment" data-fragment-index=2>
+        $d_2=0.325-\frac{1}{3}=\texclass{info}{-0.009}$
+      </p>
+      <p class="smaller fragment" data-fragment-index=3>
+        $d_1=0.394-\frac{1}{3}=\texclass{warning}{0.061}$
+      </p>
+      <p class="fragment small no-margin-top">
+        How can we combine those 3 differences into a single statistic of interest?
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 360 216" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/rock-paper-scissors-differences-for-chi2.svg#layer1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/rock-paper-scissors-differences-for-chi2.svg#layer2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/rock-paper-scissors-differences-for-chi2.svg#layer3"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/rock-paper-scissors-differences-for-chi2.svg#layer4"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small fragment">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Add them up? Average them? <br>
+    $(-0.052)+(-0.009)+0.061=0$  (mean also $0$)
+  </p>
+</section>
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <!-- <script src="assets/js/d3.v4.min.js"></script> -->
+  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+
+    <!-- D3 in REVEAL -->
+  <!-- <script src="assets/js/d3-in-reveal.js"></script> -->
+    <!-- The D3 config & animations -->
+    <!-- <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/linear-regression.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/live-regression.js"></script> -->
+    
+
+</body>
+</html>
