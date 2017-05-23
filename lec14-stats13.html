@@ -1565,13 +1565,48 @@
 </section>
 
 <section>
-  <h3>Simulation for no assocition</h3>
+  <h3>Simulating the null hypothesis</h3>
+  <p class="no-margin-top no-margin-bottom">
+    <span class="u em">For no-association condition:</span>
+  </p>
+  <ol class="push-left small">
+    <li>
+      Create an array for each of your explanatory variable categories (age groups) with as many different outcomes as the response variable outcomes (coke=0, pepsi=1, sprite=2)
+    </li>
+    <li class="fragment">
+      Pool together all the different arrays into a single population (if age doesn't influence soda choice, then all the age groups have the same probability of choosing one soda over another).
+    </li>
+    <li class="fragment">
+      Shuffle this population array (simulate the "no-association" condition).
+    </li>
+    <li class="fragment">
+      Split this array into groups of same group size as the original samples (each explanatory variable categories, age-groups), and calculate the proportion for each of the soda you obtained.
+    </li>
+    <li class="fragment">
+      Calculate the $\chi^2$-statistic (compared to the expected counts).
+    </li>
+    <li class="fragment">
+      <span class="info">Repeat this many times</span> (10000) to get a <span class="info">randomization distribution</span> of many $\chi^2$-statistics under the assumption that the null hypothesis is true.
+    </li>
+    <li class="fragment">
+      Calculate the <span class="danger">p-value</span>
+    </li>
+  </ol>
+  </p>
 </section>
 
 <section>
   <h3>Theory</h3>
   <p>
-    (r − 1)(c − 1) degrees of freedom.
+    For a 2-ways contingency table, the number of degrees of freedom can be obtained by:
+  </p>
+  <p class="framed border-warning" style="padding-top: 0.3em; padding-bottom: 0.3em;">
+    $df=(\textrm{Number of rows} − 1)\times(\textrm{Number of columns} − 1)$
+  </p>
+  <p>
+    <i class="fa fa-arrow-circle-right info"></i>
+    For the soda study: <br>
+    $df = (3-1)\times(3-1) = 4$
   </p>
 </section>
 
@@ -1594,7 +1629,12 @@
       </svg>
     </div>
   </div>
-  <p>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right danger"></i>
+     p-value > 0.05, we do not have strong evidence against the null hypothesis of no-association.
+  </p>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right danger"></i>
     Soda preference does not seem to be associated with age.
   </p>
 </section>
