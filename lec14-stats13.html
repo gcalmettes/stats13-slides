@@ -51,27 +51,28 @@
 <section>
   <h3>Analyzing more general situations</h3>
   <p>
-    So far, we have explored tests of significance, confidence intervals, generalization, and causation for situations limited to the analysis 
-    of a single variable, or to the comparison of
-    two groups.
+    So far, we have explored tests of significance, confidence intervals, generalization, and causation for situations limited to the <span class="warning">analysis 
+    of a single variable</span> (categorical or quantitative), or to the <span class="warning">comparison of
+    two groups</span>.
   </p>
-  <p>
+  <p class="fragment">
     With linear regression, we've started to study 
-    more complex situations, for which the 
-    explanatory variable can actually get more than 
-    two values.
+    <span class="info">more complex situations</span>: the 
+    explanatory variable could actually get more than 
+    only two values, and we could make inference about an association of two quantitative variables.
   </p>
-  <p>
-    We will continue to study more general situations, 
-    and see how we can deal with situations in which we have to analyze more than 
-    two proportions.
+  <p class="fragment">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    Today, we will continue to study more <span class="danger">general situations</span>, 
+    and see how we can deal with situations in which we have to analyze <span class="danger">more than 
+    two proportions</span>.
   </p>
 </section>
 
 <section>
   <h3>Categorical variable(s)</h3>
   <p class="no-margin-top no-margin-bottom">
-    We've came across the analysis of categorical variable(s), and we've seen that they can be presented into <span class="warning">contingency tables</span>.
+    We've came across the analysis of categorical variable(s), and we've seen that they can be presented/organized into <span class="warning">contingency tables</span>.
   </p>
   <div class="row">
     <div class="col-45">
@@ -174,7 +175,7 @@
     <div class="col-65">
       <p class="no-margin-top">
         <span class="u">Rock-Paper-Scissors (RPS) tournament</span> <br>
-        Let's consider that you want to enter a RPS competition (it does exist!), but you're looking to get an advantage and wonder if there is a pattern in the signs the other players tend to chose.
+        Let's consider that you want to enter a RPS competition (it does exist!), but you're looking to get an advantage and wonder if there is a <span class="info">pattern</span> in the signs the other players tend to chose.
       </p>
       <p class="fragment framed border-light">
         Do players <span class="info">equally</span> use each hand sign? Or do one hand sign is usually used <span class="info">more</span> than the others?
@@ -281,10 +282,10 @@
           <td style="vertical-align: middle;">1</td>
         </tr>
       </table>
-      <p>
+      <p class="sided border-info">
         $H_0: \pi_\texclass{danger}{\mathrm{rock}} = \pi_\texclass{info}{\mathrm{paper}} = \pi_\texclass{warning}{\mathrm{scissor}}$
       </p>
-      <p>
+      <p class="sided border-danger">
         $H_a:$ at least one of the 3 $\pi_\mathrm{sign}$ is different from the others
       </p>
     </div>
@@ -510,7 +511,7 @@
       <div class="framed border-warning fragment" data-fragment-index=1 style="font-size: 0.9em;">
       $\mathrm{Expected}_i = n_\mathrm{total}\times\pi_i$
     </div>
-    <p class="fragment" data-fragment-index=1>
+    <p class="fragment small" data-fragment-index=1>
       For each cell, the expected count is the total sample size ($n_\mathrm{total}$) times the null proportion for each hand sign, $\pi_\mathrm{i}$.
     </p>
     </div>
@@ -567,7 +568,7 @@
   <div class="row">
     <div class="col-50">
       <p class="no-margin-top">
-        We have the <span class="success">observed</span> and <span class="success">expected</span> counts, now what could we do with those?
+        We have the <span class="success">observed</span> and <span class="success">expected</span> counts, now what could we do with these?
       </p>
       <p class="fragment" data-fragment-index=1>
         <i class="fa fa-arrow-circle-right success"></i>
@@ -631,7 +632,7 @@
 
 <section>
   <h3>Chi-squared ($\chi^2$) statistics</h3>
-  <p class="no-margin-top">
+  <p class="no-margin-top quoted">
     A statistic that is widely used to describe the <span class="warning">difference in distribution patterns of categorical variable(s)</span> is the square of the relative differences of each observed frequencies compared to the expected frequencies. This is known as the <span class="warning">Chi-Squared statistic</span> for comparing frequencies of a categorical variable. 
   </p>
   <div>
@@ -642,10 +643,10 @@
   </p>
   <ul class="small no-margin-top push-left fragment" data-fragment-index=1>
     <li>
-      The smaller the overall discrepancy is between the observed and expected scores, the smaller the value of the $\chi^2$ will be.
+      The <span class="danger">smaller the overall discrepancy</span> is between the observed and expected scores, the <span class="danger">smaller the value of the $\chi^2$</span> will be.
     </li>
     <li>
-     Conversely, the larger the discrepancy is between the observed and expected scores, the larger the value of the $\chi^2$ will be.
+     Conversely, the <span class="success">larger the discrepancy</span> is between the observed and expected scores, the <span class="success">larger the value of the $\chi^2$</span> will be.
     </li>
   </ul>
 </section>
@@ -782,7 +783,7 @@
         <span class="u em">Note:</span> $\chi^2$ will always be positive. Always use the <span class="danger">right tail</span> to find a p-value.
       </p>
       <p class="no-margin-top">  
-        <span class="u">Observed $\chi^2$:</span> 7.39 
+        <span class="em">Observed $\chi^2$:</span> 7.39 
       </p>
       <p class="no-margin-top fragment" data-fragment-index=1>  
         <span class="danger">$\textrm{p-value} = 0.026$ 
@@ -796,7 +797,7 @@
       </svg>
     </div>
   </div>
-  <p class="no-margin-top">
+  <p class="no-margin-top fragment">
     <i class="fa fa-arrow-circle-right warning"></i>
     We have strong evidence against the null hypothesis. At least one of the hand signs frequency can be considered statistically different to the expected frequency of this hand sign if the probability of choosing either hand sign was $\frac{1}{3}$. 
   </p>
@@ -859,11 +860,11 @@
     </span>
   </p>
   <p class="small framed border-warning fragment">
-    We want to know if one of the hand sign (rock, paper, scissors) is more often used compared to the others so we could play the opposite sign more often to get an advantage.
+    We want to know if one of the hand sign (rock, paper, scissors) is used more often compared to the others so we could play the opposite sign more often to get an advantage.
   </p>
   <p class="small fragment">
     <i class="fa fa-arrow-circle-right warning"></i>
-    Now that we know that there is a statistical difference in the distribution pattern of the signs, we could use pairwise confidence intervals for the difference in proportions to determine exactly which signs are more often played.
+    Now that we know that there is a statistical difference in the distribution pattern of the signs, we could use <span class="warning">pairwise confidence intervals for the difference in proportions</span> to determine exactly which signs are more often played.
   </p>
   <div class="row fragment">
     <div class="col-33">
@@ -928,6 +929,9 @@
   <p class="no-margin-top">
     A $\chi^2$ test for goodness-of-fit tests <span class="info">whether the distribution of a categorical variable is the same as some null hypothesized distribution</span>.
   </p>
+  <p class="u em">
+    Exactly the same approach:
+  </p>
   <ol class="normal push-left">
     <li>
       State the <span class="warning">null hypothesized proportions for each category</span>, $\pi_i$.  The alternative hypothesis is that at least one of the proportions is different than specified in the null.
@@ -949,7 +953,7 @@
 </section>
 
 <section>
-  <h3>Example for different $\pi_i$</h3>
+  <h3>Example of different expected $\pi_i$</h3>
   <div class="row">
     <div class="col-50">
       <p class="no-margin-top small">
@@ -976,7 +980,7 @@
       </p>
       <p class="small">
         <i class="fa fa-arrow-circle-right warning"></i>
-        Let’s test these data against the null hypothesis of the proportions distribution based on the theory of genetics.
+        Let’s test these data against the <span class="warning">null hypothesis of the proportions distribution</span> based on the theory of genetics.
       </p>
     </div>
     <div class="col-50">
@@ -1018,11 +1022,11 @@
       </table>
     </div>
   </div>
-  <p class="sided border-info">
+  <p class="sided border-info fragment" data-fragment-index=1>
     <span class="u em info">Null Hypothesis:</span> <br>
     $H_0: \pi_1=\frac{9}{16}, \pi_2=\frac{3}{16}, \pi_3=\frac{3}{16}, \pi_4=\frac{1}{16}$
   </p>
-  <p class="sided border-danger">
+  <p class="sided border-danger fragment" data-fragment-index=1>
     <span class="u em danger">Alternative Hypothesis:</span> <br>
     $H_a:$ at least one $\pi_i$ is not as specified in $H_0$
   </p>
@@ -1127,7 +1131,7 @@
 </section>
 
 <section>
-  <h3>$\chi^2$ test for independence</h3>
+  <h3>$\chi^2$ test for association</h3>
   <p>
     The statistics behind a $\chi^2$ test easily extends to <span class="info">two categorical variables</span>.
   </p>
@@ -1331,7 +1335,7 @@
     <span class="u em">Exemple for coke and age group (15-25):</span>
   </p>
   <p>
-    $\mathrm{Expected}_\mathrm{coke}^\textrm{15-25}=\frac{168\times92}{335}=46.14$
+    $\mathrm{Expected}_\mathrm{coke}^\textrm{(15-25)}=\frac{168\times92}{335}=46.14$
   </p>
 </section>
 
@@ -1445,7 +1449,7 @@
     How do the observed results compared to the scenario of no-association? <br>
     <span class="fragment">
       <i class="fa fa-arrow-circle-right warning"></i>
-      compute the $\chi^2$
+      compute the $\chi^2$ <span class="warning">from all the cells</span> in the table
     </span>
   </p>
 </section>
@@ -1571,25 +1575,25 @@
   </p>
   <ol class="push-left small">
     <li>
-      Create an array for each of your explanatory variable categories (age groups) with as many different outcomes as the response variable outcomes (coke=0, pepsi=1, sprite=2)
+      Create an array for <span class="warning">each of your explanatory variable categories</span> (<span class="em">e.g.:</span> age groups) with as many different outcomes as the response variable outcomes (<span class="em">e.g.:</span> coke=0, pepsi=1, sprite=2)
     </li>
     <li class="fragment">
-      Pool together all the different arrays into a single population (if age doesn't influence soda choice, then all the age groups have the same probability of choosing one soda over another).
+      <span class="info">Pool together</span> all the different arrays into a single population (if age doesn't influence soda choice, then all the age groups have the <span class="warning">same probability</span> of choosing one soda over another).
     </li>
     <li class="fragment">
-      Shuffle this population array (simulate the "no-association" condition).
+      <span class="info">Shuffle</span> this population array (simulate the <span class="warning">"no-association"</span> condition).
     </li>
     <li class="fragment">
-      Split this array into groups of same group size as the original samples (each explanatory variable categories, age-groups), and calculate the proportion for each of the soda you obtained.
+      <span class="info">Split</span> this array into groups of <span class="warning">same group size as the original samples</span> (each explanatory variable categories, age-groups), and <span class="info">calculate the new proportion</span> you obtain for each of the soda.
     </li>
     <li class="fragment">
-      Calculate the $\chi^2$-statistic (compared to the expected counts).
+      <span class="info">Calculate the $\chi^2$-statistic</span> (compared to the expected counts).
     </li>
     <li class="fragment">
-      <span class="info">Repeat this many times</span> (10000) to get a <span class="info">randomization distribution</span> of many $\chi^2$-statistics under the assumption that the null hypothesis is true.
+      <span class="info">Repeat this many times</span> (10000) to get a <span class="warning">randomization distribution</span> of many $\chi^2$-statistics under the assumption that the null hypothesis is true.
     </li>
     <li class="fragment">
-      Calculate the <span class="danger">p-value</span>
+      Calculate the <span class="danger">p-value</span> (right tail only for $\chi^2$)
     </li>
   </ol>
   </p>
@@ -1603,11 +1607,64 @@
   <p class="framed border-warning" style="padding-top: 0.3em; padding-bottom: 0.3em;">
     $df=(\textrm{Number of rows} − 1)\times(\textrm{Number of columns} − 1)$
   </p>
-  <p>
-    <i class="fa fa-arrow-circle-right info"></i>
-    For the soda study: <br>
-    $df = (3-1)\times(3-1) = 4$
-  </p>
+  <div class="row">
+    <div class="col-50">
+      <p>
+        <i class="fa fa-arrow-circle-right info"></i>
+        For the soda study: <br>
+        $df = (3-1)\times(3-1) = 4$
+      </p>
+    </div>
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
+            <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
+              Age group</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td class="bg-danger">15-25</td>
+           <td class="bg-danger">26-40</td>
+           <td class="bg-danger" style="border-right: solid 1px;">41-55</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Coke</td>
+           <td style="border-bottom: none;">46.14</td>
+           <td style="border-bottom: none;">54.16</td>
+           <td style="border-right: solid 1px; border-bottom: none;">67.7</td>
+           <td style="border-bottom: none;"">168</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Pepsi</td>
+           <td style="border-bottom: none;">26.91</td>
+           <td style="border-bottom: none;">31.59</td>
+           <td style="border-right: solid 1px; border-bottom: none;">39.49</td>
+           <td style="border-bottom: none;"">98</td>
+         </tr>
+         <tr style="border-bottom: 1px solid">
+          <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Sprite</td>
+           <td style="border-bottom: none;">18.95</td>
+           <td style="border-bottom: none;">22.24</td>
+           <td style="border-right: solid 1px; border-bottom: none;">27.81</td>
+           <td style="border-bottom: none;"">69</td>
+        </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>92</td>
+           <td>108</td>
+           <td style="border-right: solid 1px;">135</td>
+           <td>335</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
 </section>
 
 <section>
@@ -1629,11 +1686,11 @@
       </svg>
     </div>
   </div>
-  <p class="small">
+  <p class="small no-margin-bottom fragment">
     <i class="fa fa-arrow-circle-right danger"></i>
      p-value > 0.05, we do not have strong evidence against the null hypothesis of no-association.
   </p>
-  <p class="small">
+  <p class="small no-margin-top fragment">
     <i class="fa fa-arrow-circle-right danger"></i>
     Soda preference does not seem to be associated with age.
   </p>
@@ -1645,15 +1702,17 @@
     What if you find evidence of an association? How do we determine exactly where the association is? 
   </p>
   <p>
-    No standard approach to follow, there are many different follow-up approaches.
+    Again, <span class="u-warning">no standard approach to follow</span>, several options 
+    are possible.
   </p>
   <p>
-    We will use pairwise confidence intervals for the difference in proportions to determine exactly where the association lies.
+    <i class="fa fa-arrow-circle-right warning"></i>
+    pairwise confidence intervals for the difference in proportions to determine exactly <span class="warning">where the association lies</span>.
   </p>
 </section>
 
 <section>
-  <h3>Recap on $\chi^2$</h3>
+  <h3>Recap on $\chi^2$ tests</h3>
   <div class="row">
     <table>
       <col width=50%>
@@ -1665,15 +1724,27 @@
         </tr>
         <tr>
           <td>Test hypothesis about shape of discrete distribution </td>
-          <td>Test hypothesis about relationship of variables</td>
+          <td>Test hypothesis about relationship of categorical variables</td>
         </tr>
-        <tr>
-          <td>are the frequencies I observe for my categorical variable consistent with my theory? </td>
-          <td>determining whether two categorical variables are associated with one another in the population</td>
+        <tr style="border-bottom: 1px solid;">
+          <td>Are the frequencies I observe for my categorical variable consistent with my theory? </td>
+          <td>Are the two categorical variables associated with one another in the population?</td>
         </tr>
       </tbody>
     </table>
   </div>
+  <p class="smaller fragment">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Goodness-of-fit test and test of intependence are in fact the <span class="warning">same approach</span> (how different are my data from the theoretical distribution?)</span>.
+  </p>
+  <p class="smaller fragment">
+    <i class="fa fa-arrow-circle-right info"></i>
+    $\chi^2$ is just another <span class="info">statistic of interest</span>, and the null randomization distribution can be <span class="info">easily simulated</span>.
+  </p>
+  <p class="smaller fragment">
+    <i class="fa fa-arrow-circle-right danger"></i>
+    The theoretical approach to determine the $\chi^2$ distribution requires the use of the <span class="danger">correct degrees of freedom number</span> of the contingency table you are studying. Remember that you would also need a count>10 for all the cells as <span class="danger">validity condition</span> of the theoretical approach.
+  </p>
 </section>
 
 
