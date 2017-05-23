@@ -735,7 +735,7 @@
   </p>
   <p>
     <i class="fa fa-arrow-circle-right warning"></i>
-    We need to compare the $\chi^2$ that we calculated to the distribution of this statistic assuming $H_0$ is true.
+    We need to compare the $\chi^2$ that we calculated to the <span class="warning">distribution of this statistic assuming $H_0$ is true</span>.
   </p>
   <p class="fragment u em">
     How do we get this?
@@ -775,40 +775,43 @@
   <h3>Simulating the null hypothesis</h3>
   <div class="row">
     <div class="col-40">
-      <p class="no-margin-top small">  
-        
+      <p class="no-margin-top">  
+        Rock-Paper-Scissors $\chi^2$ randomization distribution
+      </p>
+      <p>
+        <span class="u em">Note:</span> $\chi^2$ will always be positive. Always use the <span class="danger">right tail</span> to find a p-value.
+      </p>
+      <p class="no-margin-top">  
+        <span class="u">Observed $\chi^2$:</span> 7.39 
+      </p>
+      <p class="no-margin-top fragment" data-fragment-index=1>  
+        <span class="danger">$\textrm{p-value} = 0.026$ 
       </p>
     </div>
     <div class="col-60">
       <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
         <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_1"></use>
         <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_2"></use>
-        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_3"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_3"></use>
       </svg>
     </div>
   </div>
-</section>
-
-<section>
-  <h3>Theory</h3>
-  <p>
-    If each of the expected counts are at least 10, AND if the null hypothesis is true, then the $\chi^2$ statistic follows a $\chi^2$–distribution, with degrees of freedom equal to:
-  </p>
-  <p>
-    df = number of categories – 1
-  </p>
-  <p>
-    For Rock-Paper-Scissors: 
-    df = 3 – 1 = 2
-  </p>
-  <p>
-    Always use the right tail to find a p-value (table)
+  <p class="no-margin-top">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    We have strong evidence against the null hypothesis. At least one of the hand signs frequency can be considered statistically different to the expected frequency of this hand sign if the probability of choosing either hand sign was $\frac{1}{3}$. 
   </p>
 </section>
 
-<section>
+
+<section data-transition="slide-in fade-out">
   <h3>Theory: $\chi^2$ distribution</h3>
-  <div class="row">
+  <p class="small no-margin-bottom no-margin-top">
+    <span class="warning">If each of the expected counts are at least 10</span> (validity condition), AND if the null hypothesis is true, then the $\chi^2$ statistic follows a $\chi^2$–distribution, with degrees of freedom equal to:
+  </p>
+  <div>
+    <span class="small info">$df = (\textrm{number of categories} – 1)$</span>
+  </div>
+  <div class="row" style="margin-top: 0.8em;">
     <div class="col-50">
       <img src="assets/img/lec/chi2-table.png" width=100% 
        class="rounded">
@@ -819,16 +822,79 @@
   </div>
 </section>
 
-<section>
-  <h3>$\chi^2$ test for goodness of fit</h3>
+<section data-transition="fade-in slide-out">
+  <h3>Theory: $\chi^2$ distribution</h3>
   <p>
-    A $\chi^2$ test for goodness-of-fit tests whether the distribution of a categorical variable is the same as some null hypothesized distribution
+    <span class="u">For Rock-Paper-Scissors:</span>
+    <br>
+    df = 3 – 1 = 2
   </p>
-  <p>
-    The null hypothesized proportions for each category do not have to be the same
-  </p>
-  <hr>
   <div class="row">
+    <div class="col-50">
+      <p class="smaller no-margin-top no-margin-bottom">Simulation</p>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-simulation-chi2.svg#axes_3"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <p class="smaller no-margin-top no-margin-bottom">Theoretical distribution</p>
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/rock-paper-scissors-theory-chi2.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/rock-paper-scissors-theory-chi2.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Follow up?</h3>
+  <p class="small no-margin-top">
+    We found that there is a difference in distribution pattern that can be considered statistically significant (p-value<0.05) ... now what's next?
+  <br>
+    <span class="fragment">
+      <i class="fa fa-arrow-circle-right info"></i>
+      <span class="info">No standard approach</span> to follow, there are many different follow-up approaches.
+    </span>
+  </p>
+  <p class="small framed border-warning fragment">
+    We want to know if one of the hand sign (rock, paper, scissors) is more often used compared to the others so we could play the opposite sign more often to get an advantage.
+  </p>
+  <p class="small fragment">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Now that we know that there is a statistical difference in the distribution pattern of the signs, we could use pairwise confidence intervals for the difference in proportions to determine exactly which signs are more often played.
+  </p>
+  <div class="row fragment">
+    <div class="col-33">
+      <p class="small no-margin-top framed border-light">
+        Paper vs Scissors <br> $d=-0.068$ <br> pvalue=0.0583
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="small no-margin-top framed border-light">
+        Paper vs Rock <br> $d=0.045$ <br> pvalue=0.2058
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="small no-margin-top framed border-light fragment highlight-current-bckg-red">
+        Rock vs Scissors <br> $d=-0.113$ <br> pvalue=0.0010
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section data-transition="slide-in fade-out">
+  <h3>$\chi^2$ test for goodness of fit</h3>
+  <p class="no-margin-top">
+    A $\chi^2$ test for goodness-of-fit tests <span class="info">whether the distribution of a categorical variable is the same as some null hypothesized distribution</span>.
+  </p>
+  <p class="framed border-warning fragment" data-fragment-index=1>
+    Note that the <span class="warning">null hypothesized proportions</span> for each category <span class="warning">do not have to be the same</span>!
+  </p>
+  <hr class="fragment" data-fragment-index=2>
+  <div class="row fragment" data-fragment-index=2>
     <div class="col-50">
       <div class="row">
         <div class="col-60">
@@ -857,21 +923,24 @@
   </div>
 </section>
 
-<section>
+<section data-transition="fade-in slide-out">
   <h3>$\chi^2$ test for goodness of fit</h3>
+  <p class="no-margin-top">
+    A $\chi^2$ test for goodness-of-fit tests <span class="info">whether the distribution of a categorical variable is the same as some null hypothesized distribution</span>.
+  </p>
   <ol class="normal push-left">
     <li>
-      State null hypothesized proportions for each category, pi.  Alternative is that at least one of the proportions is different than specified in the null.
+      State the <span class="warning">null hypothesized proportions for each category</span>, $\pi_i$.  The alternative hypothesis is that at least one of the proportions is different than specified in the null.
     </li>
     <li>
-      Calculate the expected counts for each cell as $n_\mathrm{total}\times\pi_i$.
+      Calculate the expected counts for each cell as <span class="warning">$n_\mathrm{total}\times\pi_i$</span>.
     </li>
     <li>
       Calculate the $\chi^2$ statistic. $\chi^2=\sum_{i=1}^n\frac{(\mathrm{Observed}_i-\mathrm{Expected}_i)^2}{\mathrm{Expected}_i}$ 
     </li>
     <li>
       Simulate the null hypothesis and 
-      ompute the p-value
+      compute the p-value
     </li>
     <li>
       Interpret the p-value in context
@@ -880,28 +949,28 @@
 </section>
 
 <section>
-  <h3>More complex situations</h3>
+  <h3>Example for different $\pi_i$</h3>
   <div class="row">
     <div class="col-50">
       <p class="no-margin-top small">
-        In 1866, Gregor Mendel, the “father of genetics” published the results of his experiments on peas
+        In 1866, Gregor Mendel, the “father of genetics” published the results of his experiments on peas.
       </p>
       <p class="no-margin-top small">
-        He found that his experimental distribution of peas closely matched the theoretical distribution predicted by his theory of genetics (involving alleles, and dominant and recessive genes)
+        He found that <span class="info">his experimental distribution of peas closely matched the theoretical distribution predicted by his theory of genetics</span> (involving alleles, and dominant and recessive genes)
       </p>
     </div>
     <div class="col-50">
       <img class="rounded" src="assets/img/lec/mendel-pea-genetics.png" width=100%>
-      <img class="rounded" src="assets/img/lec/mendel-pea-results.png">
+      <img class="rounded fragment" src="assets/img/lec/mendel-pea-results.png">
     </div>
   </div>
 </section>
 
 <section>
-  <h3>Mendel</h3>
+  <h3>Mendel's pea experiment</h3>
   <div class="row">
     <div class="col-50">
-      <p class="no-margin-top small">
+      <p class="no-margin-top small framed border-light">
         Does the observed experimental distribution match the
         theoretical distribution predicted by genetics?
       </p>
@@ -960,9 +1029,9 @@
 </section>
 
 <section>
-  <h3>Mendel</h3>
+  <h3>Mendel's pea experiment</h3>
   <p class="no-margin-top small">
-    What is the expected count for each pea category? ($n_\mathrm{total}\times\pi_i$)
+    What is the <span class="warning">expected count for each pea category</span>? ($n_\mathrm{total}\times\pi_i$)
   </p>
   <div class="row">
     <div class="col-10"></div>
@@ -983,25 +1052,25 @@
           <td>Round, Yellow</td>
           <td>$9/16$</td>
           <td>$315$</td>
-          <td>$556\times9/16=312.75$</td>
+          <td>$556\times9/16=\texclass{warning}{312.75}$</td>
         </tr>
         <tr>
           <td>Round, Green</td>
           <td>$3/16$</td>
           <td>$108$</td>
-          <td>$556\times3/16=104.25$</td>
+          <td>$556\times3/16=\texclass{warning}{104.25}$</td>
         </tr>
         <tr>
           <td>Wrinkled, Yellow</td>
           <td>$3/16$</td>
           <td>$101$</td>
-          <td>$556\times3/16=104.25$</td>
+          <td>$556\times3/16=\texclass{warning}{104.25}$</td>
         </tr>
         <tr>
           <td>Wrinkled, Green</td>
           <td>$1/16$</td>
           <td>$32$</td>
-          <td>$556\times1/16=34.75$</td>
+          <td>$556\times1/16=\texclass{warning}{34.75}$</td>
         </tr>
         <tr class="bg-muted">
           <td>Total</td>
@@ -1012,19 +1081,23 @@
       </table>
     </div>
   </div>
-  <p>
+  <p class="small u fragment" data-fragment-index=1>
+    <i class="fa fa-arrow-circle-right info"></i>
+    What is the calculated $\chi^2$ from these results?
+  </p>
+  <p class="fragment" data-fragment-index=2>
     $\chi^2=\frac{(315-312.75)^2}{312.75}+\frac{(108-104.25)^2}{104.25}+\frac{(101-104.25)^2}{104.25}+\frac{(32-34.75)^2}{34.75}$
   </p>
-  <p>
+  <p class="fragment" data-fragment-index=2>
     $\chi^2=0.016+0.135+0.101+0.218$
   </p>
-  <p>
+  <p class="fragment info" data-fragment-index=2>
     $\chi^2=0.470$
   </p>
 </section>
 
 <section>
-  <h3>Mendel</h3>
+  <h3>Mendel's pea experiment</h3>
   <div class="row">
     <div class="col-50">
       <p class="smaller no-margin-top no-margin-bottom">Simulation</p>
@@ -1042,30 +1115,29 @@
       </svg>
     </div>
   </div>
-  <p class="smaller u em no-margin-bottom no-margin-top">
+  <p class="smaller u em no-margin-bottom no-margin-top fragment">
     Does this prove Mendel’s theory of genetics?
   </p>
-  <p class="smaller no-margin-top">
+  <p class="smaller no-margin-top fragment">
     <i class="fa fa-arrow-circle-right danger"></i>
-    No! You should never accept the null hypothesis!!! The null hypothesis can only be rejected with statistically significant results. A high p-value doesn’t “prove” or give evidence for anything.
-    This p-value only suggests that the obtained 
-    distribution of 
-    pea phenotypes could have been observed if the null hypothesis was true.
+    <span class="danger">No!</span> You should never accept the null hypothesis!!! A high p-value doesn’t “prove” or give evidence for anything.
+    This p-value only <span class="danger">suggests</span> that the obtained distribution of 
+    pea phenotypes <span class="danger">could have been observed if the null hypothesis was true</span>.
   </p>
 </section>
 
 <section>
-  <h3>Multiple categorical variables</h3>
+  <h3>$\chi^2$ test for independence</h3>
   <p>
-    The statistics behind a $\chi^2$ test easily extends to two categorical variables.
+    The statistics behind a $\chi^2$ test easily extends to <span class="info">two categorical variables</span>.
   </p>
-  <p>
-    A $\chi^2$-test for association (often called a $\chi^2$-test for independence) tests for an association between two categorical variables.
+  <p class="quoted">
+    A <span class="warning">$\chi^2$-test for association</span> (often called a <span class="warning">$\chi^2$-test for independence</span>) tests for an association between two categorical variables.
   </p>
 </section>
 
-<section>
-  <h3>Do soda preference is associated with age?</h3>
+<section data-transition="slide-in fade-out">
+  <h3>Is soda preference associated with age?</h3>
   <div class="row">
     <div class="col-50">
       <table>
@@ -1073,7 +1145,67 @@
           <tr>
             <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
             <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
-              Age range</td>
+              Age group</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td class="bg-danger">15-25</td>
+           <td class="bg-danger">26-40</td>
+           <td class="bg-danger" style="border-right: solid 1px;">41-55</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Coke</td>
+           <td style="border-bottom: none;">54</td>
+           <td style="border-bottom: none;">45</td>
+           <td style="border-right: solid 1px; border-bottom: none;">69</td>
+           <td style="border-bottom: none;"">168</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Pepsi</td>
+           <td style="border-bottom: none;">19</td>
+           <td style="border-bottom: none;">41</td>
+           <td style="border-right: solid 1px; border-bottom: none;">38</td>
+           <td style="border-bottom: none;"">98</td>
+         </tr>
+         <tr style="border-bottom: 1px solid">
+          <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Sprite</td>
+           <td style="border-bottom: none;">19</td>
+           <td style="border-bottom: none;">22</td>
+           <td style="border-right: solid 1px; border-bottom: none;">28</td>
+           <td style="border-bottom: none;"">69</td>
+        </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>92</td>
+           <td>108</td>
+           <td style="border-right: solid 1px;">135</td>
+           <td>335</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-50">
+      <p class="no-margin-top">
+        Now we are interested to know if the proportions of preference for each soda is <span class="warning">dependent of (associated to)</span> the age group the person we asked the question to is in.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3>Is soda preference associated with age?</h3>
+  <div class="row">
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
+            <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
+              Age group</td>
             <td style="border-bottom: none;"></td>
           </tr>
          <tr>
@@ -1127,13 +1259,13 @@
       </p>
     </div>
   </div>
-  <div class="framed border-warning" style="margin-top: 0.8em; padding-top: 0.3em; padding-bottom: 0.3em;">
+  <div class="framed border-warning fragment" style="margin-top: 0.8em; padding-top: 0.3em; padding-bottom: 0.3em;">
     $\textrm{Expected Count}=\frac{\textrm{Row total}\times\textrm{Column total}}{\textrm{Sample size}}$
   </div>
 </section>
 
-<section>
-  <h3>Do soda preference is associated with age?</h3>
+<section data-transition="fade">
+  <h3>Is soda preference associated with age?</h3>
   <div class="row">
     <div class="col-50">
       <table>
@@ -1141,7 +1273,7 @@
           <tr>
             <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
             <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
-              Age range</td>
+              Age group</td>
             <td style="border-bottom: none;"></td>
           </tr>
          <tr>
@@ -1185,172 +1317,266 @@
       </table> 
     </div>
     <div class="col-50">
-      <table>
-        <tbody>
-          <tr>
-            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
-            <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
-              Age range</td>
-            <td style="border-bottom: none;"></td>
-          </tr>
-         <tr>
-           <td class="bg-danger">15-25</td>
-           <td class="bg-danger">26-40</td>
-           <td class="bg-danger" style="border-right: solid 1px;">41-55</td>
-           <td>Total</td>
-         </tr>
-         <tr>
-           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
-            Coke</td>
-           <td style="border-bottom: none;">46.14</td>
-           <td style="border-bottom: none;">54.16</td>
-           <td style="border-right: solid 1px; border-bottom: none;">67.7</td>
-           <td style="border-bottom: none;"">168</td>
-         </tr>
-         <tr>
-           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
-            Pepsi</td>
-           <td style="border-bottom: none;">26.91</td>
-           <td style="border-bottom: none;">31.59</td>
-           <td style="border-right: solid 1px; border-bottom: none;">39.49</td>
-           <td style="border-bottom: none;"">98</td>
-         </tr>
-         <tr style="border-bottom: 1px solid">
-          <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
-            Sprite</td>
-           <td style="border-bottom: none;">18.95</td>
-           <td style="border-bottom: none;">22.24</td>
-           <td style="border-right: solid 1px; border-bottom: none;">27.81</td>
-           <td style="border-bottom: none;"">69</td>
-        </tr>
-         <tr>
-           <td style="border-right: solid 1px;">Total</td>
-           <td>92</td>
-           <td>108</td>
-           <td style="border-right: solid 1px;">135</td>
-           <td>335</td>
-         </tr>
-        </tbody>
-      </table> 
-    </div>
-  </div>
-  <p class="small">
-    <span class="u em">Note:</span> The expected counts maintain row and column totals, but redistribute the counts as if there were no association.
-  </p>
-</section>
-
-<section>
-  <h3>Do soda preference is associated with age?</h3>
-  <div class="row">
-    <div class="col-50">
-      <table>
-        <tbody>
-          <tr>
-            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
-            <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
-              Age range</td>
-            <td style="border-bottom: none;"></td>
-          </tr>
-         <tr>
-           <td class="bg-danger">15-25</td>
-           <td class="bg-danger">26-40</td>
-           <td class="bg-danger" style="border-right: solid 1px;">41-55</td>
-           <td>Total</td>
-         </tr>
-         <tr>
-           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
-            Coke</td>
-           <td style="border-bottom: none;">54</td>
-           <td style="border-bottom: none;">45</td>
-           <td style="border-right: solid 1px; border-bottom: none;">69</td>
-           <td style="border-bottom: none;"">168</td>
-         </tr>
-         <tr>
-           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
-            Pepsi</td>
-           <td style="border-bottom: none;">19</td>
-           <td style="border-bottom: none;">41</td>
-           <td style="border-right: solid 1px; border-bottom: none;">38</td>
-           <td style="border-bottom: none;"">98</td>
-         </tr>
-         <tr style="border-bottom: 1px solid">
-          <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
-            Sprite</td>
-           <td style="border-bottom: none;">19</td>
-           <td style="border-bottom: none;">22</td>
-           <td style="border-right: solid 1px; border-bottom: none;">28</td>
-           <td style="border-bottom: none;"">69</td>
-        </tr>
-         <tr>
-           <td style="border-right: solid 1px;">Total</td>
-           <td>92</td>
-           <td>108</td>
-           <td style="border-right: solid 1px;">135</td>
-           <td>335</td>
-         </tr>
-        </tbody>
-      </table> 
-    </div>
-    <div class="col-50">
-      <table>
-        <tbody>
-          <tr>
-            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
-            <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
-              Age range</td>
-            <td style="border-bottom: none;"></td>
-          </tr>
-         <tr>
-           <td class="bg-danger">15-25</td>
-           <td class="bg-danger">26-40</td>
-           <td class="bg-danger" style="border-right: solid 1px;">41-55</td>
-           <td>Total</td>
-         </tr>
-         <tr>
-           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
-            Coke</td>
-           <td style="border-bottom: none;">46.14</td>
-           <td style="border-bottom: none;">54.16</td>
-           <td style="border-right: solid 1px; border-bottom: none;">67.7</td>
-           <td style="border-bottom: none;"">168</td>
-         </tr>
-         <tr>
-           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
-            Pepsi</td>
-           <td style="border-bottom: none;">26.91</td>
-           <td style="border-bottom: none;">31.59</td>
-           <td style="border-right: solid 1px; border-bottom: none;">39.49</td>
-           <td style="border-bottom: none;"">98</td>
-         </tr>
-         <tr style="border-bottom: 1px solid">
-          <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
-            Sprite</td>
-           <td style="border-bottom: none;">18.95</td>
-           <td style="border-bottom: none;">22.24</td>
-           <td style="border-right: solid 1px; border-bottom: none;">27.81</td>
-           <td style="border-bottom: none;"">69</td>
-        </tr>
-         <tr>
-           <td style="border-right: solid 1px;">Total</td>
-           <td>92</td>
-           <td>108</td>
-           <td style="border-right: solid 1px;">135</td>
-           <td>335</td>
-         </tr>
-        </tbody>
-      </table> 
+      <p class="sided border-warning no-margin-top">
+        <span class="u em warning">Null Hypothesis:</span> <br>
+        $H_0$: Soda preference is not associated with age
+      </p>
+      <p class="sided border-success">
+        <span class="u em success">Alternative Hypothesis:</span> <br>
+        $H_a$: Soda preference is associated with age
+      </p>
     </div>
   </div>
   <p>
+    <span class="u em">Exemple for coke and age group (15-25):</span>
+  </p>
+  <p>
+    $\mathrm{Expected}_\mathrm{coke}^\textrm{15-25}=\frac{168\times92}{335}=46.14$
+  </p>
+</section>
+
+
+<section data-transition="fade">
+  <h3>Is soda preference associated with age?</h3>
+  <div class="row">
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
+            <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
+              Age group</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td class="bg-danger">15-25</td>
+           <td class="bg-danger">26-40</td>
+           <td class="bg-danger" style="border-right: solid 1px;">41-55</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Coke</td>
+           <td style="border-bottom: none;">54</td>
+           <td style="border-bottom: none;">45</td>
+           <td style="border-right: solid 1px; border-bottom: none;">69</td>
+           <td style="border-bottom: none;"">168</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Pepsi</td>
+           <td style="border-bottom: none;">19</td>
+           <td style="border-bottom: none;">41</td>
+           <td style="border-right: solid 1px; border-bottom: none;">38</td>
+           <td style="border-bottom: none;"">98</td>
+         </tr>
+         <tr style="border-bottom: 1px solid">
+          <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Sprite</td>
+           <td style="border-bottom: none;">19</td>
+           <td style="border-bottom: none;">22</td>
+           <td style="border-right: solid 1px; border-bottom: none;">28</td>
+           <td style="border-bottom: none;"">69</td>
+        </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>92</td>
+           <td>108</td>
+           <td style="border-right: solid 1px;">135</td>
+           <td>335</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
+            <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
+              Age group</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td class="bg-danger">15-25</td>
+           <td class="bg-danger">26-40</td>
+           <td class="bg-danger" style="border-right: solid 1px;">41-55</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Coke</td>
+           <td style="border-bottom: none;">46.14</td>
+           <td style="border-bottom: none;">54.16</td>
+           <td style="border-right: solid 1px; border-bottom: none;">67.7</td>
+           <td style="border-bottom: none;"">168</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Pepsi</td>
+           <td style="border-bottom: none;">26.91</td>
+           <td style="border-bottom: none;">31.59</td>
+           <td style="border-right: solid 1px; border-bottom: none;">39.49</td>
+           <td style="border-bottom: none;"">98</td>
+         </tr>
+         <tr style="border-bottom: 1px solid">
+          <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Sprite</td>
+           <td style="border-bottom: none;">18.95</td>
+           <td style="border-bottom: none;">22.24</td>
+           <td style="border-right: solid 1px; border-bottom: none;">27.81</td>
+           <td style="border-bottom: none;"">69</td>
+        </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>92</td>
+           <td>108</td>
+           <td style="border-right: solid 1px;">135</td>
+           <td>335</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+  <p class="fragment small">
+    <span class="u em">Note:</span> The <span class="info">expected counts maintain row and column totals</span>, but redistribute the counts as if there were no association.
+  </p>
+  <p class="fragment small">
+    How do the observed results compared to the scenario of no-association? <br>
+    <span class="fragment">
+      <i class="fa fa-arrow-circle-right warning"></i>
+      compute the $\chi^2$
+    </span>
+  </p>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Is soda preference associated with age?</h3>
+  <div class="row">
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
+            <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
+              Age group</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td class="bg-danger">15-25</td>
+           <td class="bg-danger">26-40</td>
+           <td class="bg-danger" style="border-right: solid 1px;">41-55</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Coke</td>
+           <td style="border-bottom: none;">54</td>
+           <td style="border-bottom: none;">45</td>
+           <td style="border-right: solid 1px; border-bottom: none;">69</td>
+           <td style="border-bottom: none;"">168</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Pepsi</td>
+           <td style="border-bottom: none;">19</td>
+           <td style="border-bottom: none;">41</td>
+           <td style="border-right: solid 1px; border-bottom: none;">38</td>
+           <td style="border-bottom: none;"">98</td>
+         </tr>
+         <tr style="border-bottom: 1px solid">
+          <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Sprite</td>
+           <td style="border-bottom: none;">19</td>
+           <td style="border-bottom: none;">22</td>
+           <td style="border-right: solid 1px; border-bottom: none;">28</td>
+           <td style="border-bottom: none;"">69</td>
+        </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>92</td>
+           <td>108</td>
+           <td style="border-right: solid 1px;">135</td>
+           <td>335</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Soda</td>
+            <td class="bg-danger" colspan=3 style="border-bottom: none; border-right: solid 1px;">
+              Age group</td>
+            <td style="border-bottom: none;"></td>
+          </tr>
+         <tr>
+           <td class="bg-danger">15-25</td>
+           <td class="bg-danger">26-40</td>
+           <td class="bg-danger" style="border-right: solid 1px;">41-55</td>
+           <td>Total</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Coke</td>
+           <td style="border-bottom: none;">46.14</td>
+           <td style="border-bottom: none;">54.16</td>
+           <td style="border-right: solid 1px; border-bottom: none;">67.7</td>
+           <td style="border-bottom: none;"">168</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Pepsi</td>
+           <td style="border-bottom: none;">26.91</td>
+           <td style="border-bottom: none;">31.59</td>
+           <td style="border-right: solid 1px; border-bottom: none;">39.49</td>
+           <td style="border-bottom: none;"">98</td>
+         </tr>
+         <tr style="border-bottom: 1px solid">
+          <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Sprite</td>
+           <td style="border-bottom: none;">18.95</td>
+           <td style="border-bottom: none;">22.24</td>
+           <td style="border-right: solid 1px; border-bottom: none;">27.81</td>
+           <td style="border-bottom: none;"">69</td>
+        </tr>
+         <tr>
+           <td style="border-right: solid 1px;">Total</td>
+           <td>92</td>
+           <td>108</td>
+           <td style="border-right: solid 1px;">135</td>
+           <td>335</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+  <p style="margin-top: 0.9em;">
     $\chi^2=\frac{(54-46.14)^2}{46.14}+\frac{(45-54.16)^2}{54.16}+\frac{(69-67.7)^2}{67.7}+...+\frac{(22-22.24)^2}{22.24}+\frac{(28-27.81)^2}{27.81}$
   </p>
   <p>
-    $\chi^2=8.10$
+    <span class="warning">$\chi^2=8.10$</span> <span class="fragment" style="margin-left: 1em;">Is it a big or low $\chi^2$?</span>
+  </p>
+  <p class="fragment small">
+    <i class="fa fa-arrow-circle-right info"></i>
+    We need the $\chi^2$ distribution
   </p>
 </section>
 
 <section>
-  <h3> Do soda preference is associated with age?</h3>
+  <h3>Simulation for no assocition</h3>
+</section>
+
+<section>
+  <h3>Theory</h3>
+  <p>
+    (r − 1)(c − 1) degrees of freedom.
+  </p>
+</section>
+
+<section>
+  <h3> Is soda preference associated with age?</h3>
   <div class="row">
     <div class="col-50">
       <p class="smaller no-margin-top no-margin-bottom">Simulation</p>
