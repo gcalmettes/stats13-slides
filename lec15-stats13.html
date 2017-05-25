@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 15 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg5.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 15</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      What about comparing<br>more than 2 means
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h3>Last time</h3>
+  <p>
+    Some stuffs on $\chi^2$
+  </p>
+</section>
+
+<section>
+  <h3>Multiple explanatory categories</h3>
+  <p>
+    So far, we’ve learned how to do inference for a difference in means IF the categorical variable has only two categories (i.e. compare two groups)
+  </p>
+  <p>
+    Today, we’ll learn how to do hypothesis tests for a difference in means across multiple categories (i.e. compare more than two groups)
+  </p>
+</section>
+
+
+<section data-transition="slide-in fade-out">
+  <h3>Gluttonous ants</h3>
+  <div class="row">
+    <div class="col-65">
+      <p class="no-margin-top small no-margin-bottom">
+        As young students in Australia, Dominic Kelly and his friends <span class="warning">enjoyed watching ants gather on pieces of sandwiches</span>. Later, as a university student, Dominic decided to study this with a <span class="info">more formal experiment</span>. He chose three types of sandwich fillings to compare:
+      </p>
+      <div class="row">
+        <ul class="small no-margin-top no-margin-bottom push-left">
+          <li>Vegemite</li>
+          <li>Peanut Butter</li>
+          <li>Ham and Pickles</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-35">
+      <img src="assets/img/lec/ants-sandwich.png" width=100%>
+    </div>
+  </div>
+  <p class="small">
+    To conduct the experiment he <span class="info">randomly chose a sandwich</span>, broke off a piece, and left it on the ground near an ant hill. After several minutes he placed a jar over the sandwich bit and <span class="info">counted the number of ants</span>. He <span class="info">repeated the process</span>, allowing time for ants to return to the hill after each trial, until he had <span class="info">eight samples for each</span> of the three sandwich fillings. 
+  </p>
+</section>
+
+<section data-transition="fade">
+  <h3>Gluttonous ants</h3>
+  <p>
+    Dominic's data are shown below:
+  </p>
+  <div class="row" style="margin-top: 0.7em;">
+    <div class="col-10"></div>
+    <div class="col-80">
+      <table>
+        <tbody>
+          <tr class="no-bottom">
+            <td></td>
+            <td class="bg-muted" colspan="8" style="border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">Number of ants visiting sandwiches</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="bg-muted" style="border-left: 1px solid;">#1</td>
+            <td class="bg-muted">#2</td>
+            <td class="bg-muted">#3</td>
+            <td class="bg-muted">#4</td>
+            <td class="bg-muted">#5</td>
+            <td class="bg-muted">#6</td>
+            <td class="bg-muted">#7</td>
+            <td class="bg-muted" style="border-right: 1px solid;">#8</td>
+            <td>$\bar{x}$</td>
+            <td>$s$</td>
+          </tr>
+          <tr>
+            <td class="bg-warning" height="60" style="vertical-align: middle;">Vegemite</td>
+            <td style="border-left: 1px solid; vertical-align: middle;">18</td>
+            <td style="vertical-align: middle;">29</td>
+            <td style="vertical-align: middle;">42</td>
+            <td style="vertical-align: middle;">42</td>
+            <td style="vertical-align: middle;">31</td>
+            <td style="vertical-align: middle;">21</td>
+            <td style="vertical-align: middle;">38</td>
+            <td style="vertical-align: middle; border-right: 1px solid; vertical-align: center;">25</td>
+            <td class="warning">30.75</td>
+            <td class="warning">9.25</td>
+          </tr>
+          <tr>
+            <td class="bg-info">Peanut Butter</td>
+            <td style="border-left: 1px solid; vertical-align: middle;">43</td>
+            <td style="vertical-align: middle;">59</td>
+            <td style="vertical-align: middle;">22</td>
+            <td style="vertical-align: middle;">25</td>
+            <td style="vertical-align: middle;">36</td>
+            <td style="vertical-align: middle;">47</td>
+            <td style="vertical-align: middle;">19</td>
+            <td style="border-right: 1px solid; vertical-align: middle;">21</td>
+            <td class="info">34.0</td>
+            <td class="info">14.63</td>
+          </tr>
+          <tr>
+            <td class="bg-danger">Ham & Pickles</td>
+            <td style="border-left: 1px solid; vertical-align: middle;">44</td>
+            <td style="vertical-align: middle;">34</td>
+            <td style="vertical-align: middle;">36</td>
+            <td style="vertical-align: middle;">49</td>
+            <td style="vertical-align: middle;">54</td>
+            <td style="vertical-align: middle;">65</td>
+            <td style="vertical-align: middle;">59</td>
+            <td style="vertical-align: middle; border-right: 1px solid;">53</td>
+            <td class="danger">49.25</td>
+            <td class="danger">10.79</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Gluttonous ants</h3>
+  <div class="row">
+    <div class="col-45">
+      <p>
+        Do ants have a preferential sandwich flavor?
+      </p>
+      <div class="row">
+        <i class="fa fa-question fa-3x warning"></i>
+        <img src="assets/img/lec/ants-sandwich-preferred.png" width=50%>
+        <i class="fa fa-question fa-3x warning"></i>
+      </div>
+      <p class="sided border-info">
+        $H_0$: $\mu_\texclass{warning}{1}=\mu_\texclass{info}{2}=\mu_\texclass{danger}{3}$
+      </p>
+      <p class="sided border-danger">
+        $H_a$: At least one $\mu_i=\mu_j$
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/ants-sandwich-dotplot.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Comparing means</h3>
+  <p class="small no-margin-top">
+    We have 3 groups. 
+    Why not just carry out a bunch of pair-wise analysis of the difference in mean?
+  </p>
+  <div class="row">
+    <div class="col-33">
+      <p class="no-margin-top" style="text-align: center;">
+        $H_0$: $\mu_\texclass{warning}{1}\neq\mu_\texclass{info}{2}$
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="no-margin-top" style="text-align: center;">
+        $H_0$: $\mu_\texclass{warning}{1}\neq\mu_\texclass{danger}{3}$
+      </p>
+    </div>
+    <div class="col-33">
+      <p class="no-margin-top" style="text-align: center;">
+        $H_0$: $\mu_\texclass{info}{2}\neq\mu_\texclass{danger}{3}$
+      </p>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 0.9em;">
+    <img src="assets/img/lec/multi-testing-angel-demon.svg" width=62%>
+  </div>
+</section>
+
+<section>
+  <h3>Controlling for Type I error</h3>
+  <p class="no-margin-top">
+    Each test is carried out at $\alpha=0.05$, so the risk of <span class="success">making a Type I error is $5\%$ each time</span> (rejecting the null when it's true).
+  </p>
+  <p class="small no-margin-bottom">
+    These risk of making a Type I errors increases as we multiply the number of tests on the same data:
+  </p>
+  <div class="row">
+  <ul class="push-left small">
+    <li>
+      At the $5\%$ significance level, the probability of making at least one type I error for <span class="info">3 tests</span> would be <span class="info">$14\%$</span>
+    </li>
+    <li>
+      Comparing <span class="warning">4 means</span> (6 tests), this jumps to <span class="warning">$26\%$</span>.
+    </li>
+    <li>
+      Comparing <span class="danger">5 means</span> (10 tests), this jumps to <span class="danger">$40\%$</span>.
+    </li>
+  </ul>
+  </div>
+  <p class="small framed border-success" style="margin-top: 1em;">
+    We need to make multiple comparisons with an <span class="info">overall</span> Type I error of $\alpha=0.05$ (or whichever level is specified). We need an alternative approach that uses one overall test that compares all means at once.
+  </p>
+</section>
+
+<section>
+  <h3>Overall test (part 1: the simple way)</h3>
+  <p>
+    Last time we used one overall test ($\chi^2$) to compare multiple proportions, we can probably do the same for comparing means.
+  </p>
+  <p>
+    If we have two means to compare, we just need to look at their difference to measure how far apart they are.
+  </p>
+  <p>
+    Suppose we wanted to compare three means.  How could I create something that would measure how different all three means are?
+  </p>
+</section>
+
+<section>
+  <h3>Overall test (part 1: the simple way)</h3>
+  <div class="row">
+    <div class="col-50">
+      <svg width="100%" viewBox="0 -20 432 164" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/ants-sandwich-mad.svg#layer1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/ants-sandwich-mad.svg#layer2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/ants-sandwich-mad.svg#layer3"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/ants-sandwich-mad.svg#layer4"></use>
+      </svg>
+    </div>
+    <div class="col-50">
+      <table>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>$\bar{x}$</td>
+            <td>$s$</td>
+          </tr>
+          <tr>
+            <td class="bg-warning" height="60" style="vertical-align: middle;">Vegemite</td>
+            <td class="warning">30.75</td>
+            <td class="warning">9.25</td>
+          </tr>
+          <tr>
+            <td class="bg-info">Peanut Butter</td>
+            <td class="info">34.0</td>
+            <td class="info">14.63</td>
+          </tr>
+          <tr>
+            <td class="bg-danger">Ham & Pickles</td>
+            <td class="danger">49.25</td>
+            <td class="danger">10.79</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-40">
+      <p class="smaller fragment" data-fragment-index=1>
+         $d_1=30.75-34.0=\texclass{success}{-3.25}$
+      </p>
+      <p class="smaller fragment" data-fragment-index=2>
+         $d_2=34.0-49.25=\texclass{success}{-15.25}$
+      </p>
+      <p class="smaller fragment" data-fragment-index=3>
+         $d_3=49.25-30.75=\texclass{success}{18.5}$
+      </p>
+    </div>
+  </div>
+  <p class="fragment small no-margin-top">
+    How can we combine those 3 differences into a single statistic of interest?
+  </p>
+</section>
+
+
+<section>
+  <h3>Mean Average Difference statistic</h3>
+  <p class="quoted no-margin-top">
+    The average (or mean) of the absolute value of the differences in the conditional means, referred as the <span class="warning">MAD</span> statistic, provides a measure of <span class="info">how far appart the sample means are on average</span>.
+  </p>
+  <div class="framed border-warning" style="padding-top: 0.3em; padding-bottom: 0.3em;">
+    $\mathrm{MAD}=\sum_{i=1}^n\frac{\mid\bar{x_i}\mid}{n}$
+  </div>
+  <p>
+    <span class="u em">For the ants/sandwiches study:</span>
+  </p>
+  <p>
+    $\mathrm{MAD}=\frac{\mid-3.25\mid+\mid-15.25\mid+\mid-18.5\mid}{3}=12.33$
+  </p>
+  <p>
+    Is it big, small?
+  </p>
+</section>
+
+<section>
+  <h3>Simulating the null (MAD)</h3>
+  <p>
+    $H_0$:
+    There is no association between which kind of sandwich is put on the floor and the number of
+    ants that are attracted.
+  </p>
+  <p>
+    All the three long term means ($\mu$) are the same.
+    <br>
+    $H_0$: $\mu_\texclass{warning}{1}=\mu_\texclass{info}{2}=\mu_\texclass{danger}{3}$
+  </p>
+  <p>
+    $H_a$: 
+    There is an association between the kind of sandwich and the number of ants that are attracted.
+  </p>
+  <p>
+    $H_a$: at least one of the mean is different
+  </p>
+
+</section>
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <!-- <script src="assets/js/d3.v4.min.js"></script> -->
+  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+
+    <!-- D3 in REVEAL -->
+  <!-- <script src="assets/js/d3-in-reveal.js"></script> -->
+    <!-- The D3 config & animations -->
+    <!-- <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/linear-regression.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/live-regression.js"></script> -->
+    
+
+</body>
+</html>
