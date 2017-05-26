@@ -1,0 +1,342 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 16 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='http://www.meioemensagem.com.br/wp-content/uploads/2017/01/MACHINE-LEARNING.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 16</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      Machine Learning
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Brooke Wenig + Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h2>Monty Hall Problem</h2>
+  <img src="http://www.sciencemadesimple.co.uk/files/2016/04/The-choices.png" alt="">
+</section>
+
+<section>
+  <h2>Monty Hall Problem</h2>
+  <img src="assets/img/MontyHallSwitch.png">
+  <p>1/3 chance of getting the car if you stick with original choice</p>
+  <p>2/3 chance of getting the car if you switch!</p>
+</section>
+
+<section>
+  <h2>Decision Making</h2>
+  <img src="assets/img/acceptJobOffer.png" height=66%>
+</section>
+
+<section>
+  <h2>Model this in Python?</h2>
+  <pre style="width:100%"><code data-trim data-noescape>
+          If salary > 50k:
+            Decline offer
+          Else if salary > 50k and commute > 1 hr
+            Decline offer
+          </code></pre>
+</section>
+
+<section>
+  <h2>Decision Tree</h2>
+  <p>Really, it's an upside tree (leaves on bottom)</p>
+  <p><span class="success">Leaf:</span> Terminal node (no child)</p>
+  <p>Internal Node: Splits the predictor space</p>
+  <!-- <img src="img/typesOfTrees.jpg" alt=""> -->
+</section>
+
+<section>
+  <h2>Choosing a Restaurant</h2>
+  <img src="assets/img/DecisionTreeTable.png" alt="">
+</section>
+
+<section>
+  <h2>Which attribute to split?</h2>
+  <img src="assets/img/AttributeToSplit.png" alt="">
+  <p style="text-align: center">Patrons is a better choice because it gives more <span class="success">information</span> about the classification</p>
+</section>
+
+<section>
+  <h2 style="text-align: center">Goal: Minimize Entropy</h2>
+  <p style="text-align: center">$H[X] = -\sum_{k=1}^K P(X = a_{k})*log(P(X = a_{k}))$</p>
+  <img src="assets/img/Entropy.png" style="height:400px">
+</section>
+
+<section>
+  <h2>Depth</h2>
+  <!-- <img src="img/decision-tree-1.png" style="border:none; box-shadow: 0 0 0px; height:200px"> -->
+  <!-- <img src="img/decision-tree-2.png" style="border:none; box-shadow: 0 0 0px; height:400px"> -->
+  <div class="row">
+    <div class="col-50">
+      <ul>
+        <br>
+        <li><span>Depth</span>: Longest path from root to a leaf node</li>
+        <br>
+        <li>If too deep, can overfit</li>
+        <li>If too shallow, underfits</li>
+      </ul>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/DeepTree.png" style="float: right; height:380px">
+    </div>
+  </div>
+  
+  <!-- <p class="fragment">Q: Best way to determine optimal depth?</p> -->
+</section>
+
+<section>
+  <h2 style="padding-bottom:0px">Create trees</h2>
+  <p class="framed border-info">Grow tree until stopping criteria reached (max depth, minimum information gain, etc.)</p>
+  <!-- <div class="fragment"> -->
+  <p class="framed border-success">Greedy, recursive partitioning</p>
+  <img src="assets/img/SplitSpace.png" height=300px>
+  <!-- </div> -->
+</section>
+
+
+<section>
+  <h2>Comparison</h2>
+  <div class="row">
+    <div class="col-50">
+      <p class="sided border-warning">
+        <span class="warning">Pros</span>
+      </p>
+      <div style="text-align: left">
+      <ul>
+        <li>Interpretable</li>
+        <li>Simple</li>
+        <li>Flexible (different data types)</li>
+      </ul>
+      </div>
+    </div>
+    <div class="col-50">
+      <p class="sided border-info">
+      <span class="info">Cons</span>
+      </p>
+      <div style="text-align: left">
+      <ul>
+        <li>Poor accuracy</li>
+        <li>High variance (if change training data a little, tree structure changes drastically)</li>
+      </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 style="text-align: center">Bias vs Variance</h2>
+  <img src="assets/img/bullseye.png" height=550px>
+</section>
+
+<section>
+  <h2>Bias-Variance Tradeoff</h2>
+  <p class="framed border-success">$Error = Variance + Bias^2 + noise$</p>
+  <img src="assets/img/BiasVarianceTradeoff.png" height=50%>
+</section>
+
+<section>
+  <h2>Bias-Variance Trade-off</h2>
+  <p class="framed border-success">$Error = Variance + Bias^2 + noise$</p>
+
+  <ul>
+    <li>Reduce bias: Build more complex models</li>
+    <li>Reduce variance: Use a lot of data or simple model</li>
+    <li>How to reduce the error caused by noise?</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Bagging</h2>
+  <img src="assets/img/decision-tree-3.png" style="border:none; box-shadow: 0 0 0px; height:200px">
+  <p>Averaging a set of observations reduces variance</p>
+  <!-- <p>Set of n independent observations, $Z_{1}$, ..., $Z_{n}$, each with variance $\sigma^2$, then the variance of the mean $\bar{Z}$ of the observations is $\sigma^2/n$</p> -->
+  <p>But we only have one training set... or do we?</p>
+</section>
+
+<section>
+  <h2>Bootstrap</h2>
+  <div class="row">
+  <div class="col-50">
+    <p>Simulate new datasets:</p>
+    <ul>
+      <li>Take samples (with replacement) from original training set</li>
+      <li>Repeat n times</li>
+    </ul>
+  </div>
+  <div class="col-50">
+    <img src="assets/img/DeckCards2.png" alt="">
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2>Bagging</h2>
+  
+  <ul>
+    <li>Train a tree on each bootstrap sample, and average their predictions (Bootstrap Aggregating)</li>
+    <li>Now, don't need to prune a tree to reduce variance! Can grow deep trees </li>
+  </ul>
+</section>
+
+<section>
+  <h2>Random Forests</h2>
+  <ul>
+    <li>Like bagging, but <span class="warning">removes correlation</span> among trees</li>
+    <li>At each split, considers only a subset of predictors</li>
+  </ul>
+</section>
+
+<section>
+  <h2 style="text-align: center">Random Forests</h2>
+  <img src="assets/img/RandomForest.png" height=70%>
+</section>
+
+<section class="title-slide">
+  <h2>The Dangers of Machine Learning</h2>
+</section>
+
+<section>
+  <h2>Let's build a classifier</h2>
+    <div class="row">
+      <div class="col-50">
+      <img src="assets/img/Aussie.jpg" style="height:300px">
+    </div>
+    <div class="col-50">
+      <img src="assets/img/Cat.jpg" style="height:300px">
+    </div>
+    </div>
+</section>
+
+<section>
+  <h2 style="text-align: center">What did the computer learn?</h2>
+  <div class="fragment">
+  <img src="assets/img/grass.jpg" style="height:300px">
+  <h4 style="text-align: center"><span class="success">A grass classifier!</span></h4>
+  </div>
+</section>
+
+<!-- <section>
+  <h2>Problems</h2>
+  <ul>
+    <li>People don't understand how the things they are building work </li>
+  </ul> -->
+</section>
+
+<section>
+  <h2>Sexiest job of the 21st century?</h2>
+  <p class="quoted fragment">I keep saying the sexy job in the next ten years will be statisticians. People think I’m joking, but who would’ve guessed that computer engineers would’ve been the sexy job of the 1990s?</p> 
+  <p class="fragment">-Google’s Chief Economist Hal Varian</p>
+</section>
+
+<section>
+  <h2>The difference between a data scientist and statistician? </h2>
+  <p class="quoted">
+    A data scientist is a statistician that lives in San Francisco<br><br>
+    Data science is statistics on a Mac<br><br>
+    A data scientist is someone who is better at statistics than any software engineer and better at software engineering than any statistician</p>
+  <p>Plus, they are paid more. Mean salary: 120,000 and Median salary: 126,000</p>
+  <p>Right or left skewed?</p>
+</section>
+
+<section>
+  <h2>Plans after graduation?</h2>
+  <p>Grad school? <a href="http://www.chemistry.ucla.edu/undergraduate-faq#7941">Departmental Scholars</a></p>
+  <p>Industry? Check out data science bootcamps!</p>
+</section>
+
+
+
+<!--        <section>
+  <img src="http://3qeqpr26caki16dnhd19sv6by6v.wpengine.netdna-cdn.com/wp-content/uploads/2016/02/Example-Decision-Tree.png">
+
+  Tree versus linear model
+</section> -->
+
+
+
+
+
+
+
+<!-- THE END -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+
+  <!-- D3 -->
+  <script src="assets/js/d3.v4.min.js"></script>
+  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+
+    <!-- D3 in REVEAL -->
+  <script src="assets/js/d3-in-reveal.js"></script>
+    <!-- The D3 config & animations -->
+    <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
+    <script src="assets/d3-anim/js-graphs/linear-regression.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-regression.js"></script>
+    
+
+</body>
+</html>
