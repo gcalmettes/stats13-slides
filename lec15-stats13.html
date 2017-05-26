@@ -51,18 +51,68 @@
 <section>
   <h3>Last time</h3>
   <p>
-    Some stuffs on $\chi^2$
+    The <span class="warning">$\chi^2$</span>, statistic to compare proportions to <span class="em">"hypothesized"</span> proportions.
   </p>
+  <ul class="small">
+    <li>
+      Pattern of a proportion distribution (<span class="warning">$\chi^2$ test for goodness-of-fit</span>)
+    </li>
+    <li>
+      Association of a response variable to an explanatory variable (<span class="warning">$\chi^2$ test for independance</span>)
+    </li>
+  </ul>
+  <div class="row fragment">
+    <div class="col-60">
+      <p class="small">
+        <span class="u em">Note:</span> <br>
+        The $\chi^2$ test for independance <span class="warning">can also be applied to a 2x2 contingency table</span>, and will give you the <span class="warning">same results</span> (p-value or confidence intervals) than if you were comparing the difference in proportions, or the ratio of the two proportions.
+      </p>
+    </div>
+    <div class="col-40">
+      <table style="margin-top: 0.9em;">
+        <tbody>
+          <tr>
+            <td class="bg-info" rowspan=2 style="border-right: solid 1px; vertical-align: middle;">Response <br>variable</td>
+            <td class="bg-danger" colspan=2 style="border-bottom: none; border-right: solid 1px;">
+              Explanatory var.</td>
+          </tr>
+         <tr>
+           <td class="bg-danger">Cat. #1</td>
+           <td class="bg-danger">Cat. #2</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            Yes</td>
+           <td style="border-bottom: none;">50</td>
+           <td style="border-bottom: none;">65</td>
+         </tr>
+         <tr>
+           <td class="bg-info" style="border-bottom: none; border-right: solid 1px;">
+            No</td>
+           <td style="border-bottom: none;">30</td>
+           <td style="border-bottom: none;">45</td>
+         </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
 </section>
 
 <section>
-  <h3>Multiple explanatory categories</h3>
+  <h3>Multiple explanatory categories for quantitative variables</h3>
   <p>
     So far, we’ve learned how to do inference for a difference in means IF the categorical variable has only two categories (i.e. compare two groups)
   </p>
-  <p>
-    Today, we’ll learn how to do hypothesis tests for a difference in means across multiple categories (i.e. compare more than two groups)
-  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="small">
+        Today, we’ll learn how to do hypothesis tests for a <span class="info">difference in mean (or median) across multiple categories</span> (i.e. compare more than two groups)
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/multiple-means-ex.svg" width=100%>
+    </div>
+  </div>
 </section>
 
 
@@ -174,10 +224,10 @@
         <img src="assets/img/lec/ants-sandwich-preferred.png" width=50%>
         <i class="fa fa-question fa-3x warning"></i>
       </div>
-      <p class="sided border-info">
+      <p class="sided border-info fragment">
         $H_0$: $\mu_\texclass{warning}{1}=\mu_\texclass{info}{2}=\mu_\texclass{danger}{3}$
       </p>
-      <p class="sided border-danger">
+      <p class="sided border-danger fragment">
         $H_a$: At least one $\mu_i=\mu_j$
       </p>
     </div>
@@ -193,26 +243,26 @@
   <h3>Comparing means</h3>
   <p class="small no-margin-top">
     We have 3 groups. 
-    Why not just carry out a bunch of pair-wise analysis of the difference in mean?
+    Why not just carry out a bunch of pair-wise analyses of the difference in mean?
   </p>
   <div class="row">
     <div class="col-33">
-      <p class="no-margin-top" style="text-align: center;">
+      <p class="no-margin-top framed border-light" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
         $H_0$: $\mu_\texclass{warning}{1}\neq\mu_\texclass{info}{2}$
       </p>
     </div>
     <div class="col-33">
-      <p class="no-margin-top" style="text-align: center;">
+      <p class="no-margin-top framed border-light" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
         $H_0$: $\mu_\texclass{warning}{1}\neq\mu_\texclass{danger}{3}$
       </p>
     </div>
     <div class="col-33">
-      <p class="no-margin-top" style="text-align: center;">
+      <p class="no-margin-top framed border-light" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
         $H_0$: $\mu_\texclass{info}{2}\neq\mu_\texclass{danger}{3}$
       </p>
     </div>
   </div>
-  <div class="row" style="margin-top: 0.9em;">
+  <div class="row fragment" style="margin-top: 0.5em;">
     <img src="assets/img/lec/multi-testing-angel-demon.svg" width=62%>
   </div>
 </section>
@@ -222,42 +272,47 @@
   <p class="no-margin-top">
     Each test is carried out at $\alpha=0.05$, so the risk of <span class="success">making a Type I error is $5\%$ each time</span> (rejecting the null when it's true).
   </p>
-  <p class="small no-margin-bottom">
+  <p class="no-margin-bottom fragment">
     These risk of making a Type I errors increases as we multiply the number of tests on the same data:
   </p>
-  <div class="row">
+  <div class="row fragment">
   <ul class="push-left small">
     <li>
       At the $5\%$ significance level, the probability of making at least one type I error for <span class="info">3 tests</span> would be <span class="info">$14\%$</span>
     </li>
     <li>
-      Comparing <span class="warning">4 means</span> (6 tests), this jumps to <span class="warning">$26\%$</span>.
+      Comparing <span class="warning">4 means</span> (6 tests), this jumps to <span class="warning">$26\%$</span>
     </li>
     <li>
-      Comparing <span class="danger">5 means</span> (10 tests), this jumps to <span class="danger">$40\%$</span>.
+      Comparing <span class="danger">5 means</span> (10 tests), this jumps to <span class="danger">$40\%$</span>
     </li>
   </ul>
   </div>
-  <p class="small framed border-success" style="margin-top: 1em;">
+  <p class="small framed border-success fragment" style="margin-top: 1em;">
     We need to make multiple comparisons with an <span class="info">overall</span> Type I error of $\alpha=0.05$ (or whichever level is specified). We need an alternative approach that uses one overall test that compares all means at once.
   </p>
 </section>
 
-<section>
-  <h3>Overall test (part 1: the simple way)</h3>
+<section data-transition="slide-in fade-out">
+  <h3>Overall test (part 1: the <span class="info">simple way</span>)</h3>
   <p>
-    Last time we used one overall test ($\chi^2$) to compare multiple proportions, we can probably do the same for comparing means.
+    Last time we used an <span class="warning">overall test</span> ($\chi^2$) to compare multiple proportions, we can probably do 
+    the same for comparing means.
   </p>
   <p>
-    If we have two means to compare, we just need to look at their difference to measure how far apart they are.
+    If we have <span class="danger">two means to compare</span>, we just need to look at their <span class="danger">difference</span> (or ratio) to measure how far apart they are.
   </p>
-  <p>
-    Suppose we wanted to compare three means.  How could I create something that would measure how different all three means are?
+  <p class="quoted">
+    Suppose we wanted to compare <span class="info">three means</span>.  How could I create something that would measure <span class="info">how different all three means are</span>?
+  </p>
+  <p class="fragment">
+    <i class="fa fa-arrow-circle-right info"></i>
+    Calculate the average differences between the three means!
   </p>
 </section>
 
-<section>
-  <h3>Overall test (part 1: the simple way)</h3>
+<section data-transition="fade-in slide-out">
+  <h3>Overall test (part 1: the <span class="info">simple way</span>)</h3>
   <div class="row">
     <div class="col-50">
       <svg width="100%" viewBox="0 -20 432 164" style="margin-top: 0;">
@@ -307,8 +362,9 @@
       </p>
     </div>
   </div>
-  <p class="fragment small no-margin-top">
-    How can we combine those 3 differences into a single statistic of interest?
+  <p class="fragment no-margin-top">
+    <i class="fa fa-arrow-circle-right success"></i>
+    How can we combine those 3 differences into a <span class="success">single statistic of interest</span> so they don't cancel out?
   </p>
 </section>
 
@@ -319,7 +375,7 @@
     The average (or mean) of the absolute value of the differences in the conditional means, referred as the <span class="warning">MAD</span> statistic, provides a measure of <span class="info">how far appart the sample means are on average</span>.
   </p>
   <div class="framed border-warning" style="padding-top: 0.3em; padding-bottom: 0.3em; margin-top: 1em;">
-    $\mathrm{MAD}=\sum_{i=1}^n\frac{\mid\bar{x_i}\mid}{n}$
+    $\mathrm{MAD}=\sum\frac{\mid\bar{x_i}-\bar{x_j}\mid}{n}$
   </div>
 </section>
 
@@ -363,7 +419,7 @@
   <div class="row framed border-info">
   <p class="sided border-info">
     $H_0$:
-    There is <span class="warning">no association</span> between which kind of sandwich is put on the floor and the number of
+    There is <span class="warning">no association</span> between which kind of sandwich is left on the ground and the number of
     ants that are attracted by it.
   </p>
   <p class="fragment">
@@ -390,7 +446,7 @@
   <div class="row framed border-info">
   <p class="sided border-info">
     $H_0$:
-    There is <span class="warning">no association</span> between which kind of sandwich is put on the floor and the number of
+    There is <span class="warning">no association</span> between which kind of sandwich is left on the ground and the number of
     ants that are attracted by it.
   </p>
   <p>
@@ -400,18 +456,703 @@
     $H_0$: $\mu_\texclass{warning}{1}=\mu_\texclass{info}{2}=\mu_\texclass{danger}{3}$
   </p>
   </div>
-  <p class="small">
-    If the sandwich filling doesn't affect the number of ants that are attracted, then all the numbers of ants Dominic recorded for each of his trials could have been observed for any filling or sandwich.
+  <p>
+    <span class="warning">If the sandwich filling doesn't affect</span> the number of ants that are attracted, then all the numbers of ants Dominic recorded for each of his trials <span class="info">could have been observed for any</span> of the sandwich fillings.
+  </p>
+  <p class="fragment">
+    <i class="fa fa-arrow-circle-right"></i>
+    All the numbers of ants recorded could have <span class="info">come from the same population</span>, and this repartition of numbers just happened by chance.
   </p>
 </section>
 
 <section>
   <h3>Simulating the null (MAD)</h3> 
   <p class="no-margin-top smaller">
-    To simulate the null hypothesis, we have to randomize the groups (number of ants observed per filling) and calculate the resulting MAD statistic each time.
+    To simulate the null hypothesis, we have to randomize the groups (shuffle all the pooled numbers of ants observed per filling), redistribute these shuffled numbers into 3 groups (same sample size than original groups) and calculate the resulting MAD statistic each time.
   </p>
   <div class="row">
+    <div class="col-20">
+      <p>
+        $MAD_\mathrm{original}=12.33$
+      </p>
+    </div>
+    <div class="col-80">
+      <table class="small">
+        <tbody>
+          <tr class="no-bottom">
+            <td></td>
+            <td class="bg-muted" colspan="8" style="border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">Number of ants visiting sandwiches</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="bg-muted" style="border-left: 1px solid;">#1</td>
+            <td class="bg-muted">#2</td>
+            <td class="bg-muted">#3</td>
+            <td class="bg-muted">#4</td>
+            <td class="bg-muted">#5</td>
+            <td class="bg-muted">#6</td>
+            <td class="bg-muted">#7</td>
+            <td class="bg-muted">#8</td>
+            <td>$\bar{x}$</td>
+          </tr>
+          <tr>
+            <td class="bg-warning">Vegemite</td>
+            <td class="bg-warning" style="border-left: 1px solid;">18</td>
+            <td class="bg-warning">29</td>
+            <td class="bg-warning">42</td>
+            <td class="bg-warning">42</td>
+            <td class="bg-warning">31</td>
+            <td class="bg-warning">21</td>
+            <td class="bg-warning">38</td>
+            <td class="bg-warning">25</td>
+            <td class="warning">30.75</td>
+          </tr>
+          <tr>
+            <td class="bg-info">Peanut Butter</td>
+            <td class="bg-info" style="border-left: 1px solid;">43</td>
+            <td class="bg-info">59</td>
+            <td class="bg-info">22</td>
+            <td class="bg-info">25</td>
+            <td class="bg-info">36</td>
+            <td class="bg-info">47</td>
+            <td class="bg-info">19</td>
+            <td class="bg-info">21</td>
+            <td class="info">34.0</td>
+          </tr>
+          <tr>
+            <td class="bg-danger">Ham & Pickles</td>
+            <td class="bg-danger" style="border-left: 1px solid;">44</td>
+            <td class="bg-danger">34</td>
+            <td class="bg-danger">36</td>
+            <td class="bg-danger">49</td>
+            <td class="bg-danger">54</td>
+            <td class="bg-danger">65</td>
+            <td class="bg-danger">59</td>
+            <td class="bg-danger">53</td>
+            <td class="danger">49.25</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<!-- The resampling tables -->
+  <div class="row" style="margin-top: 0.4em;">
+    <div class="col-50">
+      <table class="small fragment" data-fragment-index=1>
+        <tbody>
+          <tr class="no-bottom">
+            <td></td>
+            <td class="bg-muted" colspan="8">Number of ants visiting sandwiches</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="bg-muted">#1</td>
+            <td class="bg-muted">#2</td>
+            <td class="bg-muted">#3</td>
+            <td class="bg-muted">#4</td>
+            <td class="bg-muted">#5</td>
+            <td class="bg-muted">#6</td>
+            <td class="bg-muted">#7</td>
+            <td class="bg-muted">#8</td>
+            <td>$\bar{x}$</td>
+          </tr>
+          <tr>
+            <td class="bg-warning">Vegemite</td>
+            <td class="bg-info">47</td>
+            <td class="bg-danger">49</td>
+            <td class="bg-info">22</td>
+            <td class="bg-warning">42</td>
+            <td class="bg-warning">31</td>
+            <td class="bg-danger">65</td>
+            <td class="bg-warning">38</td>
+            <td class="bg-info">25</td>
+            <td class="success">39.88</td>
+          </tr>
+          <tr>
+            <td class="bg-info">Peanut Butter</td>
+            <td class="bg-danger">53</td>
+            <td class="bg-danger">34</td>
+            <td class="bg-info">43</td>
+            <td class="bg-warning">21</td>
+            <td class="bg-info">21</td>
+            <td class="bg-info">59</td>
+            <td class="bg-danger">54</td>
+            <td class="bg-warning">25</td>
+            <td class="success">38.75</td>
+          </tr>
+          <tr>
+            <td class="bg-danger">Ham & Pickles</td>
+            <td class="bg-warning">18</td>
+            <td class="bg-info">19</td>
+            <td class="bg-danger">44</td>
+            <td class="bg-danger">36</td>
+            <td class="bg-warning">42</td>
+            <td class="bg-warning">29</td>
+            <td class="bg-info">36</td>
+            <td class="bg-danger">59</td>
+            <td class="success">35.37</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="smaller no-margin-bottom fragment" data-fragment-index=1>
+        $MAD_1=3.0$
+      </p>
+    </div>
+    <div class="col-50">
+      <table class="small fragment" data-fragment-index=2>
+        <tbody>
+          <tr class="no-bottom">
+            <td></td>
+            <td class="bg-muted" colspan="8">Number of ants visiting sandwiches</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="bg-muted">#1</td>
+            <td class="bg-muted">#2</td>
+            <td class="bg-muted">#3</td>
+            <td class="bg-muted">#4</td>
+            <td class="bg-muted">#5</td>
+            <td class="bg-muted">#6</td>
+            <td class="bg-muted">#7</td>
+            <td class="bg-muted">#8</td>
+            <td>$\bar{x}$</td>
+          </tr>
+          <tr>
+            <td class="bg-warning">Vegemite</td>
+            <td class="bg-danger">44</td>
+            <td class="bg-warning">29</td>
+            <td class="bg-danger">36</td>
+            <td class="bg-info">36</td>
+            <td class="bg-info">43</td>
+            <td class="bg-warning">42</td>
+            <td class="bg-info">19</td>
+            <td class="bg-warning">25</td>
+            <td class="success">34.25</td>
+          </tr>
+          <tr>
+            <td class="bg-info">Peanut Butter</td>
+            <td class="bg-info">59</td>
+            <td class="bg-info">25</td>
+            <td class="bg-warning">18</td><td class="bg-danger">34</td>
+            <td class="bg-info">47</td>
+            <td class="bg-danger">53</td>
+            <td class="bg-warning">31</td>
+            <td class="bg-info">21</td>
+            <td class="success">36</td>
+          </tr>
+          <tr>
+            <td class="bg-danger">Ham & Pickles</td>
+            <td class="bg-info">22</td>
+            <td class="bg-warning">21</td>
+            <td class="bg-danger">49</td>
+            <td class="bg-danger">65</td>
+            <td class="bg-warning">42</td>
+            <td class="bg-danger">59</td>
+            <td class="bg-danger">54</td>
+            <td class="bg-warning">38</td>
+            <td class="success">43.75</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="smaller no-margin-bottom fragment" data-fragment-index=2>
+        $MAD_2=6.33$
+      </p>
+    </div>
+  </div>
+  <p class="small fragment">
+    <i class="fa fa-arrow-circle-right success"></i>
+    Repeat this process 10000 times! ($MAD_1 ... MAD_{10000}$)
+  </p>
+</section>
+
+<section>
+  <h3>Null MAD distribution</h3>
+  <div class="row">
+    <div class="col-45">
+      <p class="no-margin-top smaller">
+        We obtain 10000 MAD statistics that <span class="info">could have been observed if there was no association</span> between the sandwich filling and the number of ants attracted to it.
+      </p>
+      <p class="small framed border-danger fragment no-margin-bottom" data-fragment-index=1>
+        Where does the initial MAD statistic lies in this distribution? What is the probability of getting such an extreme statistic <span class="danger"> by chance?</span>
+      </p>
+    </div>
+    <div class="col-55">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/ants-sandwich-simulation-mad.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/ants-sandwich-simulation-mad.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/ants-sandwich-simulation-mad.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small fragment" data-fragment-index=3>
+    <i class="fa fa-arrow-circle-right danger"></i>
+    The probability of observing such a difference in the number of ants attracted by the sandwiches <span class="danger">if the filling had no effect</span> would be $1.3\%$.
+    <br>
+    <i class="fa fa-arrow-circle-right danger"></i>
+    There is evidence that ants do not prefer sandwich fillings equally.
+  </p>
+</section>
+
+<section>
+  <h3>Which filling is particularly attractive?</h3>
+  <p class="no-margin-top framed border-light">
+    From this null hypothesis testing, we can conclude that ants do not prefer sandwich fillings equally. Which filling is particularly attractive?
+  </p>
+  <p class="small no-margin-bottom u em">
+    Several options are possible as follow-up test:
+  </p>
+  <div class="row">
+    <ul class="small push-left">
+      <li>
+        Confidence interval for a single mean
+      </li>
+      <li>
+        <span class="fragment highlight-blue-gc" data-fragment-index=1>Confidence interval for a difference in two means</span>
+      </li>
+      <li>
+        Pairwise comparison for a difference in two means
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col-80 fragment" data-fragment-index=2>
+      <p class="small">
+        <span class="u em">Vegemite vs Peanut Butter:</span> <br>
+        $30.75 - 34.0 = -3.25$ with $95\%$ CIs ($-14.75, 7.50$)
+      </p>
+      <p class="small">
+        <span class="u em">Vegemite vs Ham & Pickles:</span> <br>
+        $30.75 - 49.25 = -18.50$ with $95\%$ CIs <span class="fragment highlight-bckg-blue" data-fragment-index=3>($-27.50, -9.375$)</span>
+      </p>
+      <p class="small">
+        <span class="u em">Peanut Butter vs Ham & Pickles:</span> <br>
+        $34.0 - 49.25 = -15.25$ with $95\%$ CIs <span class="fragment highlight-bckg-blue" data-fragment-index=3>($-26.75, -3.00$)</span>
+      </p>
+    </div>
+    <div class="col-20">
+      <p class="small framed border-info fragment" data-fragment-index=4>
+        Ham & Pickles is a big hit at every party in the ant world!
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>What about outliers?</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top small">
+        Our original data <span class="info">did not have obvious outliers</span> and the mean was a good-enough descriptor for each of our groups, 
+        but other datasets to analyze could contain anomalies.
+      </p>
+      <p class="small framed border-info">
+        What could we do if this happen?
+      </p>
+      <p class="small fragment no-margin-bottom">
+        <i class="fa fa-arrow-circle-right info"></i>
+        Same thing but using the median!!
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/ants-sandwich-dotplot.svg#axes_1"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="small no-margin-top fragment">
+    Just calculate a <span class="warning">MAD-like statistic using the median</span> of each group instead of the mean (Mean Median Difference).
+  </p>
+  <p class="small no-margin-top framed border-warning fragment">
+    Using <span class="warning">resampling</span>, you <span class="warning">can adapt</span> your statistic of interest depending on the caracteristics of your data!
+  </p>
+</section>
+
+<section>
+  <h3>Recap on the MAD statistic</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="u em framed border-success">Pros:</p>
+      <div class="row">
+        <ul class="small push-left">
+          <li>
+            Easy to understand in the context of the study and easy to directly <span class="success">relate to the data</span> (average distance between the means of the different groups)
+          </li>
+          <li>
+            <span class="success">Can be adapted</span> to better render the particular shape of the data (compare medians instead of the means if outliers are present)
+          </li>
+          <li>
+            Do <span class="success">not</span> require any <span class="success">assumptions</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-50">
+      <p class="u em framed border-danger">Cons??:</p>
+      <div class="row">
+        <ul class="small push-left">
+          <li>
+            The value of the MAD will be <span class="danger">specific to each dataset</span> analyzed (cannot directly compare the value of a MAD to another) and do not render any information about the sample size (not a <span class="em">standardized</span> statistic). <span class="warning">Some people think this is annoying</span>.
+          </li>
+          <li>
+            The <span class="danger">distribution</span> of the MAD cannot be predicted. <span class="warning">Some people think this is annoying too</span>.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Overall test (part 2: <span class="info">the complicated way</span>)</h3>
+  <p>
+    Like for comparing multiple proportions ($\chi^2$), 
+    comparing multiple means also has its own <span class="info">more complex statistic</span> with a distribution that can be pretty much modeled by theory.
+  </p>
+  <p>
+    This new statistic is called an <span class="warning">$F$-statistic</span> and the resampling-based (or theory-based) distribution that estimates the null distribution is called an <span class="warning">$F$-distribution</span>.
+  </p>
+  <p class="framed border-light fragment">
+    What is this $F$-statistic?
+  </p>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Variability in a multiple-group dataset</h3>
+  <div class="row">
     <div class="col-100">
+      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_2"></use>
+      </svg>
+    </div>
+  </div>
+  <p>
+    Consider those 3 groups (same mean in left and right panels). Intuitively, in which case the groups seem <span class="info">more different from one to another</span>? Why?
+  </p>
+</section>
+
+<section data-transition="fade">
+  <h3>Variability in a multiple-group dataset</h3>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_4"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/total-variability-ex.svg#axes_5"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/total-variability-ex.svg#axes_6"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row fragment">
+    <div class="col-25">
+      <p class="small framed border-danger" style="text-align: center;">
+        Total <br> variability
+      </p>
+    </div>
+    <div class="col-7" style="margin-top: 0.6em;">
+        $=$
+    </div>
+    <div class="col-30">
+      <p class="small framed border-warning" style="text-align: center;">
+        Variability <br> between groups
+      </p>
+    </div>
+    <div class="col-7" style="margin-top: 0.6em;">
+        $+$
+    </div>
+    <div class="col-30">
+      <p class="small framed border-info" style="text-align: center;">
+        Variability <br> within groups
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Variability in a multiple-group dataset</h3>
+  <div class="row">
+    <div class="col-100">
+      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_4"></use>
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_5"></use>
+        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_6"></use>
+      </svg>
+    </div>
+  </div>
+  <p>
+    <i class="fa fa-arrow-circle-right danger"></i>
+    For the same total variability, the <span class="warning">greater the variability between groups</span> will be compared the the variability within groups, the more likely the groups will be <span class="warning">different</span> from one to another.
+  </p>
+</section>
+
+<section>
+  <h3>Analysis of variance</h3>
+  <p class="quoted no-margin-top">
+    An <span class="warning">AN</span>alysis <span class="warning">O</span>f <span class="warning">VA</span>riance (ANOVA) is a comparison between the <span class="em">variability between groups</span> to the <span class="em">variability within groups</span>. The statistic of interested that reflex this comparison between the two types of variability when performing an ANOVA is the <span class="warning">$F$-statistic</span>.
+  </p>
+  <div class="row">
+    <div class="col-25">
+      <p class="small framed border-danger" style="text-align: center;">
+        Total <br> variability
+      </p>
+    </div>
+    <div class="col-7" style="margin-top: 0.6em;">
+        $=$
+    </div>
+    <div class="col-30">
+      <p class="small framed border-warning" style="text-align: center;">
+        Variability <br> between groups
+      </p>
+    </div>
+    <div class="col-7" style="margin-top: 0.6em;">
+        $+$
+    </div>
+    <div class="col-30">
+      <p class="small framed border-info" style="text-align: center;">
+        Variability <br> within groups
+      </p>
+    </div>
+  </div>
+  <p class="small fragment">
+    How to <span class="warning">measure variability between</span> groups?
+  </p>
+  <p class="small fragment">
+    How to <span class="info">measure variability within</span> groups?
+  </p>
+  <p class="small fragment">
+    How to <span class="success">compare</span> the two measures?
+  </p>
+  <p class="small fragment">
+    How to <span class="success">determine significance</span>?
+  </p>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Sums of squares</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top smaller">
+        To caracterize the <span class="warning">variability between groups</span>, we are considering how far each sample mean ($\bar{x}_k$) is from the <span class="em warning">"Grand mean"</span> ($\bar{x}$, mean of the means)
+      </p>
+      <p class="no-margin-top smaller fragment" data-fragment-index=1>
+        To caracterize the <span class="info">variability within groups</span>, we are considering how far each data point ($x_{ik}$) inside each sample is from the <span class="info">sample mean</span> ($\bar{x}_k$).
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <p class="small framed border-danger" style="text-align: center;">
+        Total <br> variability
+      </p>
+    </div>
+    <div class="col-6" style="margin-top: 0.6em;">
+        $=$
+    </div>
+    <div class="col-32">
+      <p class="small framed border-warning" style="text-align: center;">
+        Variability <br> between groups
+      </p>
+    </div>
+    <div class="col-6" style="margin-top: 0.6em;">
+        $+$
+    </div>
+    <div class="col-30">
+      <p class="small framed border-info" style="text-align: center;">
+        Variability <br> within groups
+      </p>
+    </div>
+  </div>
+  <div class="row fragment">
+    <div class="col-25">
+      <p class="small framed border-danger" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+        $\sum_{i=1}^n(x_{i}-\bar{x})^2$
+      </p>
+    </div>
+    <div class="col-6" style="margin-top: 0.6em;">
+        $=$
+    </div>
+    <div class="col-32">
+      <p class="small framed border-warning" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+        $\sum_{k=1}^{nk}n_{ik}(\bar{x}_k-\bar{x})^2$
+      </p>
+    </div>
+    <div class="col-6" style="margin-top: 0.6em;">
+        $+$
+    </div>
+    <div class="col-30">
+      <p class="small framed border-info" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+        $\sum_{i=1}^{n}(x_{ik}-\bar{x}_k)^2$
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Sums of squares</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top smaller">
+        To caracterize the variability between groups, we are considering how far each sample mean ($\bar{x}_k$) is from the <span class="em">"Grand mean"</span> ($\bar{x}$, mean of the means)
+      </p>
+      <p class="no-margin-top smaller">
+        To caracterize the variability within groups, we are considering how far each data point ($x_{ik}$) inside each sample is from the sample mean ($\bar{x}_k$).
+      </p>
+    </div>
+    <div class="col-50">
+      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_2"></use>
+        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_3"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <p class="small framed border-danger" style="text-align: center;">
+        Total sum of squares (<span class="danger">SST</span>)
+      </p>
+    </div>
+    <div class="col-6" style="margin-top: 0.6em;">
+        $=$
+    </div>
+    <div class="col-32">
+      <p class="small framed border-warning" style="text-align: center;">
+        Sum of squares due to groups (<span class="warning">SSG</span>)
+      </p>
+    </div>
+    <div class="col-6" style="margin-top: 0.6em;">
+        $+$
+    </div>
+    <div class="col-30">
+      <p class="small framed border-info" style="text-align: center;">
+        "Error" sum of squares (<span class="info">SSE</span>)
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <p class="small framed border-danger" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+        $\sum_{i=1}^n(x_{i}-\bar{x})^2$
+      </p>
+    </div>
+    <div class="col-6" style="margin-top: 0.6em;">
+        $=$
+    </div>
+    <div class="col-32">
+      <p class="small framed border-warning" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+        $\sum_{k=1}^{nk}n_{ik}(\bar{x}_k-\bar{x})^2$
+      </p>
+    </div>
+    <div class="col-6" style="margin-top: 0.6em;">
+        $+$
+    </div>
+    <div class="col-30">
+      <p class="small framed border-info" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
+        $\sum_{i=1}^{n}(x_{ik}-\bar{x}_k)^2$
+      </p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>The $F$-statistic</h3>
+  <p class="small no-margin-top framed border-light">
+    The $F$-statistic is a <span class="success">ratio of the variability</span> between groups and the variability withing groups,
+    but uses the mean variability instead of the total variability for each component.
+  </p>
+  <p>
+    $F=\frac{\texclass{warning}{\textrm{Mean variability between groups}}}{\texclass{info}{\textrm{Mean variability within groups}}}$
+  </p>
+  <p style="margin-top: 0.9em;">
+    $F=\frac{\texclass{warning}{\textrm{Mean SSG}}}{\texclass{info}{\textrm{Mean SSE}}}=\frac{\texclass{warning}{\textrm{SSG}/(k-1)}}{\texclass{info}{\textrm{SSE}/(n-k)}}$
+  </p>
+  <p class="smaller no-margin-bottom fragment" data-fragment-index=1>
+    <span class="u em">Notes:</span>
+  </p>
+  <ul class="smaller push-left" >
+    <li class="fragment" data-fragment-index=1>
+      $(k-1)$ and $(n-k)$ are the respective degrees of freedom for the variability between and within groups. (degree of freedom for the total varaibility is $(n-1)$)
+    </li>
+    <li class="fragment">
+      This is like normalizing the difference in means between each group and the <span class="em">"Grand mean"</span> with their respective <span class="danger">variance ($s^2$)</span>. The $F$-statistic is a <span class="em danger">standardized</span> statistic.
+    </li>
+  </ul>
+
+</section>
+
+<section data-transition="fade">
+  <h3>The $F$-statistic</h3>
+  <p>
+    The $F$-statistic equation can then be expressed as:
+  </p>
+  <div class="row">
+    <div class="col-25"></div>
+    <div class="col-50 framed border-warning" style="padding-top: 0.4em; padding-bottom: 0.4em;">
+    $F=\frac{
+      \frac{\sum_{i=1}^n n_i(\bar{x}_i-\bar{x})^2}{(k-1)}
+    }{
+      \frac{\sum_{i=1}^k (n_i-1)s_i^2}{(n-k)}
+    }$
+    </div>
+    <div class="col-25"></div>
+  </div>  
+  <p class="fragment">
+    <span class="em u">Note:</span> <br>
+    Don't worry, <span class="highlight-bckg-info">nobody calculates it by hand</span>, it would be very tedious. You can rely on technology to do the hard work for you.
+  </p>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>The $F$-statistic</h3>
+  <p>
+    The $F$-statistic is <span class="u warning">just another statistic</span>, like the MAD, this doesn't change the approach to compare different groups.
+  </p>
+  <div class="row framed border-info fragment" data-fragment-index=1>
+  <p class="em u fragment" data-fragment-index=1>
+    Null hypothesis testing:
+  </p>
+  <ol class="normal">
+    <li class="fragment">
+      State hypotheses
+    </li>
+    <li class="fragment">
+      Calculate a statistic, based on your sample data
+    </li>
+    <li class="fragment">
+      Create a distribution of this statistic, as it would be observed if the null hypothesis were true
+    </li>
+    <li class="fragment">
+      Measure how extreme your test statistic from (2) is, as compared to the distribution generated in (3)
+    </li>
+  </ol>
+  </div>
+</section>
+
+
+<section>
+  <h3>Simulating the null ($F$)</h3> 
+  <p class="no-margin-top smaller">
+    To simulate the null hypothesis, we have to randomize the groups (number of ants observed per filling) and calculate the resulting $F$-statistic each time.
+  </p>
+  <div class="row">
+    <div class="col-20">
+      <p>
+        $F_\mathrm{original}=5.63$
+      </p>
+    </div>
+    <div class="col-80">
       <table class="small">
         <tbody>
           <tr class="no-bottom">
@@ -472,7 +1213,7 @@
   </div>
 <!-- The resampling tables -->
   <div class="row" style="margin-top: 0.8em;">
-    <div class="col-50">
+    <div class="col-50 fragment">
       <table class="small">
         <tbody>
           <tr class="no-bottom">
@@ -530,10 +1271,10 @@
         </tbody>
       </table>
       <p class="smaller no-margin-bottom">
-        $MAD_1=3$
+        $F_1=0.21$
       </p>
     </div>
-    <div class="col-50">
+    <div class="col-50 fragment">
       <table class="small">
         <tbody>
           <tr class="no-bottom">
@@ -590,13 +1331,13 @@
         </tbody>
       </table>
       <p class="smaller no-margin-bottom">
-        $MAD_2=6.33$
+        $F_2=1.06$
       </p>
     </div>
   </div>
-  <p>
-    <i class="fa fa-arrow-circle-right success small"></i>
-    Repeat this process 10000 times! ($MAD_1 ... MAD_{10000}$)
+  <p class="small fragment">
+    <i class="fa fa-arrow-circle-right success"></i>
+    Repeat this process 10000 times! ($F_1 ... F_{10000}$)
   </p>
 </section>
 
@@ -605,17 +1346,17 @@
   <div class="row">
     <div class="col-45">
       <p class="no-margin-top smaller">
-        We obtain 10000 MAD statistics that could have been observed if there was no association between the sandwich filling and the number of ants attracted to it.
+        We obtain 10000 $F$-statistics that <span class="info">could have been observed if there was no association</span> between the sandwich filling and the number of ants attracted to it.
       </p>
       <p class="small framed border-danger fragment no-margin-bottom" data-fragment-index=1>
-        Where does the initial MAD statistic lies in this distribution? What was the probability of getting such an extreme statistic <span class="danger"> by chance?</span>
+        Where does the initial $F$-statistic lies in this distribution? What was the probability of getting such an extreme statistic <span class="danger"> by chance?</span>
       </p>
     </div>
     <div class="col-55">
       <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/ants-sandwich-simulation-mad.svg#axes_1"></use>
-        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/ants-sandwich-simulation-mad.svg#axes_2"></use>
-        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/ants-sandwich-simulation-mad.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/ants-sandwich-simulation-fstat.svg#axes_1"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/ants-sandwich-simulation-fstat.svg#axes_2"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/ants-sandwich-simulation-fstat.svg#axes_3"></use>
       </svg>
     </div>
   </div>
@@ -631,13 +1372,13 @@
 <section>
   <h3>Which filling is particularly attractive?</h3>
   <p class="no-margin-top small">
-    We conclude that ants do not prefer sandwich fillings equally. Which filling is particularly attractive?
+    Using the $F$-statistic as our statistic of interest, we obtained <span class="warning">the same p-value</span> than when we used the $MAD$, and our conclusions will be the same, i.e. that ants do not prefer sandwich fillings equally. Which filling is particularly attractive?
   </p>
-  <p class="small no-margin-bottom">
-    Several options are possible as follow-up test:
+  <p class="small no-margin-bottom fragment u em" data-fragment-index=1>
+    Several options are possible as follow-up test (like for the MAD analysis ):
   </p>
   <div class="row">
-    <ul class="small push-left">
+    <ul class="small push-left fragment" data-fragment-index=1>
       <li>
         Confidence interval for a single mean
       </li>
@@ -651,7 +1392,7 @@
   </div>
   <div class="row">
     <div class="col-80 fragment" data-fragment-index=2>
-      <p class="small">
+      <p class="small no-margin-top">
         <span class="u em">Vegemite vs Peanut Butter:</span> <br>
         $30.75 - 34.0 = -3.25$ with $95\%$ CIs ($-14.75, 7.50$)
       </p>
@@ -673,336 +1414,46 @@
 </section>
 
 <section>
-  <h3>What if your data had obvious outliers?</h3>
-  <p>
-    Same thing!!
-  </p>
-  <p>
-    Just calculate a MAD-like statistic using the median of each group instead of the mean (Mean Median Difference).
-  </p>
-  <p>
-    Using resampling, you can adapt your statistic of interest depending on the caracteristics of your data!
-  </p>
-</section>
-
-<section>
-  <h3>Recap on the MAD statistic</h3>
-  <div class="row">
-    <div class="col-50">
-      <p class="u em">Pros:</p>
-      <div class="row">
-        <ul class="small push-left">
-          <li>
-            Easy to understand in the context of the study and easy to directly relate to the data (average distance between the means of the different groups)
-          </li>
-          <li>
-            Can be adapted to better render the particular shape of the data (compare medians instead of the means if outliers are present)
-          </li>
-          <li>
-            Do not require any assumptions
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-50">
-      <p class="u em">Cons?:</p>
-      <div class="row">
-        <ul class="small push-left">
-          <li>
-            The value of the MAD will be specific to each dataset analyzed (cannot directly compare the value of a MAD to another) and do not render any information about the sample size (not a <span class="em">standardized</span> statistic). <span class="warning">Some people think this is annoying</span>.
-          </li>
-          <li>
-            The distribution of the MAD cannot be predicted. <span class="warning">Some people think this is annoying too</span>.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h3>Overall test (part 2: the complicated way)</h3>
-  <p>
-    Like for comparing multiple proportions ($\chi^2$), 
-    comparing multiple means also has its own more complex statistic which distribution can be pretty much modeled by theory.
-  </p>
-  <p>
-    This new statistic is called an $F$-statistic and the resampling-based (or theory-based) distribution that estimates the null distribution is called an $F$-distribution.
-  </p>
-  <p>
-    What is it?
-  </p>
-</section>
-
-<section data-transition="slide-in fade-out">
-  <h3>Variability in a multiple-group dataset</h3>
-  <div class="row">
-    <div class="col-100">
-      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_1"></use>
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_2"></use>
-      </svg>
-    </div>
-  </div>
-  <p>
-    Consider those 3 groups (same mean in left and right panels). Intuitively, in which case the groups seem more different from one to another? Why?
-  </p>
-</section>
-
-<section data-transition="fade">
-  <h3>Variability in a multiple-group dataset</h3>
-  <div class="row">
-    <div class="col-100">
-      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_1"></use>
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_2"></use>
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_3"></use>
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_4"></use>
-        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/total-variability-ex.svg#axes_5"></use>
-        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/total-variability-ex.svg#axes_6"></use>
-      </svg>
-    </div>
-  </div>
-  <div class="row fragment">
-    <div class="col-25">
-      <p class="small framed border-danger" style="text-align: center;">
-        Total <br> variability
-      </p>
-    </div>
-    <div class="col-7" style="margin-top: 0.6em;">
-        $=$
-    </div>
-    <div class="col-30">
-      <p class="small framed border-warning" style="text-align: center;">
-        Variability <br> between groups
-      </p>
-    </div>
-    <div class="col-7" style="margin-top: 0.6em;">
-        $+$
-    </div>
-    <div class="col-30">
-      <p class="small framed border-info" style="text-align: center;">
-        Variability <br> within groups
-      </p>
-    </div>
-  </div>
-</section>
-
-<section data-transition="fade-in slide-out">
-  <h3>Variability in a multiple-group dataset</h3>
-  <div class="row">
-    <div class="col-100">
-      <svg width="100%" viewBox="0 0 720 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_1"></use>
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_2"></use>
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_3"></use>
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_4"></use>
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_5"></use>
-        <use xlink:href="assets/img/lec/total-variability-ex.svg#axes_6"></use>
-      </svg>
-    </div>
-  </div>
-  <p>
-    <i class="fa fa-arrow-circle-right danger"></i>
-    For the same total variability, the greater the variability between groups will be compared the the variability within groups, the more likely the groups will be different from one to another.
-  </p>
-</section>
-
-<section>
-  <h3>Analysis of variance</h3>
-  <p class="quoted no-margin-top">
-    An <span class="warning">AN</span>alysis <span class="warning">O</span>f <span class="warning">VA</span>riance (ANOVA) is a comparison between the <span class="em">variability between groups</span> to the <span class="em">variability within groups</span>. The statistic of interested that reflex this comparison between the two types of variability when performing an ANOVA is the <span class="warning">$F$-statistic</span>.
+  <h3>Theory approach: the $F$-distribution</h3>
+  <p class="no-margin-top">
+    The distribution of the <span class="info">$F$-statistic under the assumption that the null hypothesis is true</span> can be described theoretically by a particular distribution, called
+    $F$-distribution, which depends on the degrees of freedom for the variability between $(k-1)$ and within (n-k) groups.
   </p>
   <div class="row">
-    <div class="col-25">
-      <p class="small framed border-danger" style="text-align: center;">
-        Total <br> variability
+    <div class="col-45">
+      <p class="small framed border-danger no-margin-bottom">
+        A p-value is obtained by computing the area 
+        under the curve for $F\geq F_{original}$.
+      </p>
+      <p class="small">
+        (Here again, the p-value obtained is pretty close to what we calculated and the conclusions of our study will be the same).
       </p>
     </div>
-    <div class="col-7" style="margin-top: 0.6em;">
-        $=$
-    </div>
-    <div class="col-30">
-      <p class="small framed border-warning" style="text-align: center;">
-        Variability <br> between groups
-      </p>
-    </div>
-    <div class="col-7" style="margin-top: 0.6em;">
-        $+$
-    </div>
-    <div class="col-30">
-      <p class="small framed border-info" style="text-align: center;">
-        Variability <br> within groups
-      </p>
-    </div>
-  </div>
-  <p class="small fragment">
-    How to <span class="warning">measure variability between</span> groups?
-  </p>
-  <p class="small fragment">
-    How to <span class="info">measure variability within</span> groups?
-  </p>
-  <p class="small fragment">
-    How to <span class="success">compare</span> the two measures?
-  </p>
-  <p class="small fragment">
-    How to <span class="success">determine significance</span>?
-  </p>
-</section>
-
-<section data-transition="slide-in fade-out">
-  <h3>Sums of squares</h3>
-  <div class="row">
-    <div class="col-50">
-      <p class="no-margin-top smaller">
-        To caracterize the variability between groups, we are considering how far each sample mean ($\bar{x}_k$) is from the <span class="em">"Grand mean"</span> ($\bar{x}$, mean of the means)
-      </p>
-      <p class="no-margin-top smaller">
-        To caracterize the variability within groups, we are considering how far each data point ($x_{ik}$) inside each sample is from the sample mean ($\bar{x}_k$).
-      </p>
-    </div>
-    <div class="col-50">
+    <div class="col-55">
       <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_1"></use>
-        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_2"></use>
-        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_3"></use>
+        <use xlink:href="assets/img/lec/ants-sandwich-theory-f.svg#axes_1"></use>
+        <use xlink:href="assets/img/lec/ants-sandwich-theory-f.svg#axes_2"></use>
       </svg>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <p class="small framed border-danger" style="text-align: center;">
-        Total <br> variability
-      </p>
-    </div>
-    <div class="col-6" style="margin-top: 0.6em;">
-        $=$
-    </div>
-    <div class="col-32">
-      <p class="small framed border-warning" style="text-align: center;">
-        Variability <br> between groups
-      </p>
-    </div>
-    <div class="col-6" style="margin-top: 0.6em;">
-        $+$
-    </div>
-    <div class="col-30">
-      <p class="small framed border-info" style="text-align: center;">
-        Variability <br> within groups
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <p class="small framed border-danger" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
-        $\sum_{i=1}^n(x_{i}-\bar{x})^2$
-      </p>
-    </div>
-    <div class="col-6" style="margin-top: 0.6em;">
-        $=$
-    </div>
-    <div class="col-32">
-      <p class="small framed border-warning" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
-        $\sum_{k=1}^{nk}n_{ik}(\bar{x}_k-\bar{x})^2$
-      </p>
-    </div>
-    <div class="col-6" style="margin-top: 0.6em;">
-        $+$
-    </div>
-    <div class="col-30">
-      <p class="small framed border-info" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
-        $\sum_{i=1}^{n}(x_{ik}-\bar{x}_k)^2$
-      </p>
-    </div>
-  </div>
-</section>
-
-<section data-transition="fade-in slide-out">
-  <h3>Sums of squares</h3>
-  <div class="row">
-    <div class="col-50">
-      <p class="no-margin-top smaller">
-        To caracterize the variability between groups, we are considering how far each sample mean ($\bar{x}_k$) is from the <span class="em">"Grand mean"</span> ($\bar{x}$, mean of the means)
-      </p>
-      <p class="no-margin-top smaller">
-        To caracterize the variability within groups, we are considering how far each data point ($x_{ik}$) inside each sample is from the sample mean ($\bar{x}_k$).
-      </p>
-    </div>
-    <div class="col-50">
-      <svg width="100%" viewBox="0 0 432 288" style="margin-top: 0;">
-        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_1"></use>
-        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_2"></use>
-        <use xlink:href="assets/img/lec/total-variability-sum-of-squares.svg#axes_3"></use>
-      </svg>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <p class="small framed border-danger" style="text-align: center;">
-        Total sum of squares (SST)
-      </p>
-    </div>
-    <div class="col-6" style="margin-top: 0.6em;">
-        $=$
-    </div>
-    <div class="col-32">
-      <p class="small framed border-warning" style="text-align: center;">
-        Sum of squares due to groups (SSG)
-      </p>
-    </div>
-    <div class="col-6" style="margin-top: 0.6em;">
-        $+$
-    </div>
-    <div class="col-30">
-      <p class="small framed border-info" style="text-align: center;">
-        "Error" sum of squares (SSE)
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <p class="small framed border-danger" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
-        $\sum_{i=1}^n(x_{i}-\bar{x})^2$
-      </p>
-    </div>
-    <div class="col-6" style="margin-top: 0.6em;">
-        $=$
-    </div>
-    <div class="col-32">
-      <p class="small framed border-warning" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
-        $\sum_{k=1}^{nk}n_{ik}(\bar{x}_k-\bar{x})^2$
-      </p>
-    </div>
-    <div class="col-6" style="margin-top: 0.6em;">
-        $+$
-    </div>
-    <div class="col-30">
-      <p class="small framed border-info" style="text-align: center; padding-top: 0.2em; padding-bottom: 0.2em;">
-        $\sum_{i=1}^{n}(x_{ik}-\bar{x}_k)^2$
-      </p>
     </div>
   </div>
 </section>
 
 <section>
-  <h3>The $F$-statistic</h3>
+  <h3>Comparing multiple means</h3>
   <p>
-    The $F$-statistic is a ratio of the variability between groups and the variability withing groups,
-    but uses the mean variability instead of the total variability for each component.
+    If you use the MAD, the idea behing comparing multiple ($>2$) means is the same than when you compared only two means.  
   </p>
-  <p>
-    $F=\frac{\texclass{warning}{\textrm{Mean variability between groups}}}{\texclass{info}{\textrm{Mean variability within groups}}}$
+  <p class="fragment">
+    MAD-like statistics can be designed to fit your particular dataset or study (if you want to analyse the average relative risk, this is possible too).
   </p>
-  <p style="margin-top: 0.9em;">
-    $F=\frac{\texclass{warning}{\textrm{Mean SSG}}}{\texclass{info}{\textrm{Mean SSE}}}$
+  <p class="fragment">
+    The MAD can only be performed using a resampling approach (no theory to describe the distribution of the MAD or MAD-like statistics)
   </p>
-  <p style="margin-top: 0.9em;">
-    $F=\frac{\texclass{warning}{\textrm{SSG}/(k-1)}}{\texclass{info}{\textrm{SSE}/(n-k)}}$
-  </p>
-  <p>
-    $(k-1)$ and $(n-k)$ are the respective degrees of freedom for the variability between and within groups. (degree of freedom for the total varaibility is $(n-1)$)
+  <p class="fragment">
+    The $F$-statistic compares the variability between groups (sample means) to the variability within groups (variance withing the groups). The bigger the difference between groups compared to the variability within groups, the bigger the $F$-statistic.
   </p>
 </section>
+
 
 <!-- THE END -->
 <!-- THE END -->
