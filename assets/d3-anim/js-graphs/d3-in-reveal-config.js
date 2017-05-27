@@ -247,6 +247,45 @@ gc.slideIdToFunctions = {
     }
   },
 
+  'bootstrap-brooke': {
+    'init': function() {
+      'use strict';
+      gc.bootstrap.init();
+    },
+    '-1': function() {
+      'use strict';
+      gc.bootstrap.reset_color();
+    },
+    0: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    1: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    2: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    3: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    4: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    5: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+    6: function() {
+      'use strict';
+      gc.bootstrap.select_sample_multi_color();
+    },
+  },
+
 
   'shuffling': {
     'init': function() {

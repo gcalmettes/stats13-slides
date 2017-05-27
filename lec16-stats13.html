@@ -50,27 +50,91 @@
 
 <section>
   <h2>Monty Hall Problem</h2>
-  <img src="http://www.sciencemadesimple.co.uk/files/2016/04/The-choices.png" alt="">
+  <div class="row">
+    <div class="col-100">
+      <img src="http://www.sciencemadesimple.co.uk/files/2016/04/The-choices.png" width=100%>
+    </div>
+  </div>
 </section>
 
 <section>
   <h2>Monty Hall Problem</h2>
-  <img src="assets/img/MontyHallSwitch.png">
-  <p>1/3 chance of getting the car if you stick with original choice</p>
-  <p>2/3 chance of getting the car if you switch!</p>
+  <div class="row">
+    <div class="col-100">
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3" class="bg-muted">What is really behind</td>
+            <td colspan="2" class="bg-warning">What the result will be</td>
+          </tr>
+          <tr>
+            <td class="bg-muted">Door 1</td>
+            <td class="bg-muted">Door 2</td>
+            <td class="bg-muted">Door 3</td>
+            <td class="bg-warning">Staying at door 1</td>
+            <td class="bg-warning">Switching to the door offered</td>
+          </tr>
+          <tr>
+            <td><span class="info">Car</span></td>
+            <td>Goat</td>
+            <td style="border-right: 1px solid;">Goat</td>
+            <td class="highlight-bckg-info">Wins car</td>
+            <td>Wins goat</td>
+          </tr>
+          <tr>
+            <td>Goat</td>
+            <td><span class="info">Car</span></td>
+            <td style="border-right: 1px solid;">Goat</td>
+            <td>Wins goat</td>
+            <td class="highlight-bckg-info">Wins car</td>
+          </tr>
+          <tr class="no-bottom">
+            <td>Goat</td>
+            <td>Goat</td>
+            <td style="border-right: 1px solid;"><span class="info">Car</span></td>
+            <td>Wins goat</td>
+            <td class="highlight-bckg-info">Wins car</td>
+          </tr>
+          <tr class="no-bottom">
+            <td height="10"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="no-bottom">
+            <td height="80"></td>
+            <td></td>
+            <td></td>
+            <td><i class="fa fa-2x fa-arrow-circle-down info"></i></td>
+            <td><i class="fa fa-2x fa-arrow-circle-down info"></i></td>
+          </tr>
+          <tr>
+            <td colspan="3">Chance of getting the car:</td>
+            <td><span class="framed border-info" style="padding-top: 0.3em; padding-bottom: 0.3em;">$1/3$</span></td>
+            <td><span class="framed border-info" style="padding-top: 0.3em; padding-bottom: 0.3em;">$2/3$</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </section>
 
 <section>
   <h2>Decision Making</h2>
-  <img src="assets/img/acceptJobOffer.png" height=66%>
+  <div class="row">
+    <div class="col-100">
+      <img src="assets/img/lec/ml-decision-tree-job-offer.svg" width=100%>
+    </div>
+  </div>
 </section>
 
 <section>
   <h2>Model this in Python?</h2>
   <pre style="width:100%"><code data-trim data-noescape>
-          If salary > 50k:
+          if salary > 50k:
             Decline offer
-          Else if salary > 50k and commute > 1 hr
+          else if salary > 50k and commute > 1 hr
             Decline offer
           </code></pre>
 </section>
@@ -208,6 +272,60 @@
 </section>
 
 <section>
+  <h3>The 632 rule</h3>
+  <div class="row">
+    <div class="col-50">
+      <p>
+        Probability of getting picked:
+      </p>
+      <div>
+        $\frac{1}{n}$
+      </div>
+    </div>
+    <div class="col-50">
+      <p>
+        Probability of not getting picked:
+      </p>
+      <div>
+         $1-(\frac{1}{n})$
+      </div>
+    </div>
+  </div>
+  <p>
+    Sample has $n$ elements.
+  </p>
+  <p>
+    Probability of not getting picked in the sample: $(1-\frac{1}{n})^n$
+  </p>
+  <p>
+    As ${n\to\infty}$, the probability of not getting picked $\frac{1}{e}\approx\frac{1}{3}$
+  </p>
+</section>
+
+<section data-transition="fade" id="bootstrap-brooke">
+  <h3>Bootstrap confidence intervals for a population mean</h3>
+  <div class="row" style="margin-top: 0;">
+    <div class="col-40">
+      <div class="placeholder"></div>
+      <p style="margin-top: -4%; font-size: 0.5em;">
+        <span class="u em">Each bootstrap sample:</span> <br>
+        n=100, drawing WITH replacement <br>
+        from original sample <br>
+        Statistic calculated: mean ($\bar{x}$)
+      </p>
+    </div>
+    <div class="col-60">
+      <label class="big" style="display: inline-block; width: 100%; text-align: center; font-family: sans-serif;">
+        proportion: <span class="info" id="proportion">0</span>
+      </label>
+    </div>
+  </div>
+  <div class="fragment"></div>
+  <div class="fragment"></div>
+  <div class="fragment"></div>
+</section>
+
+<section>
   <h2>Bagging</h2>
   
   <ul>
@@ -319,23 +437,24 @@
   <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
 
   <!-- Google spreadsheet to javascript -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
 
   <!-- D3 -->
   <script src="assets/js/d3.v4.min.js"></script>
-  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+  <script src="assets/js/d3-selection-multi.v0.4.min.js"></script>
 
     <!-- D3 in REVEAL -->
   <script src="assets/js/d3-in-reveal.js"></script>
     <!-- The D3 config & animations -->
     <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script>
+    <script src="assets/d3-anim/js-graphs/bootstrap-brooke.js"></script>
     <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
     <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
     <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
-    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script>
     <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
-    <script src="assets/d3-anim/js-graphs/linear-regression.js"></script>
-    <script src="assets/d3-anim/js-graphs/live-regression.js"></script>
+    <!-- <script src="assets/d3-anim/js-graphs/linear-regression.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/live-regression.js"></script> -->
     
 
 </body>
