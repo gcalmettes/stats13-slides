@@ -77,7 +77,7 @@ gc.bootstrap.select_sample_single_color = function(){
 };
 
 gc.bootstrap.select_sample_multi_color = function(){
-  //attribute colors based on number of time point has been 
+  //attribute colors based on number of time point has been
   //selected
   gc.bootstrap.svg.selectAll(".selected_point_fill").remove();
   gc.bootstrap.svg.selectAll(".selected_point_stroke").remove();
@@ -91,9 +91,9 @@ gc.bootstrap.select_sample_multi_color = function(){
     chosen_circles.push(index_in_circles);
   };
 
-  
+
   gc.bootstrap.setval = new Set(chosen_circles)
-  
+
   gc.bootstrap.updated_prop(gc.bootstrap.setval.size/gc.bootstrap.sampleSize)
 
   var selected_idx = gc.bootstrap.count_frequency(chosen_circles);
@@ -110,7 +110,7 @@ gc.bootstrap.select_sample_multi_color = function(){
     else {
       var color = "#f0ad4e"
     };
-    
+
     gc.bootstrap.svg
       .append("circle")
         .attr("class", "selected_point_fill")
@@ -133,10 +133,11 @@ gc.bootstrap.select_sample_multi_color = function(){
 };
 
 gc.bootstrap.reset_color = function(){
-  //attribute colors based on number of time point has been 
+  //attribute colors based on number of time point has been
   //selected
   gc.bootstrap.svg.selectAll(".selected_point_fill").remove();
   gc.bootstrap.svg.selectAll(".selected_point_stroke").remove();
+  d3.select("#bootstrap-brooke #proportion").text(0);
 
 };
 
@@ -161,13 +162,5 @@ gc.bootstrap.count_frequency = function(arr) {
 }
 
 gc.bootstrap.updated_prop = function(value){
-  // if (d3.select("#boostrap-brooke #proportion").property("value")==""){
-  //     predictedSize = 0;
-  //   } else {
-  //     predictedSize = parseFloat(Math.round((gc.linreglive.lsCoefm * d3.select("#linreglive #usr-shoe").property("value") + gc.linreglive.lsCoefb) * 1000) / 1000).toFixed(3);
-  //   }
     d3.select("#bootstrap-brooke #proportion").text(value);
 };
-
-
-
