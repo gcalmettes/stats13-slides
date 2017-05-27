@@ -121,6 +121,13 @@
 </section>
 
 <section>
+  <h2>What is Machine Learning?</h2>
+  <p>Computers that learn patterns in your data</p>
+  <p>Computers are vulnerable to making mistakes, like humans (will talk about at end)</p>
+  <img src="assets/img/machinelearning1.png" height=400px>
+</section>
+
+<section>
   <h2>Decision Making</h2>
   <div class="row">
     <div class="col-100">
@@ -207,7 +214,7 @@
       <ul>
         <li>Interpretable</li>
         <li>Simple</li>
-        <li>Flexible (different data types)</li>
+        <!-- <li>Flexible (different data types)</li> -->
       </ul>
       </div>
     </div>
@@ -230,7 +237,7 @@
   <img src="assets/img/bullseye.png" height=550px>
 </section>
 
-<section>
+<!-- <section>
   <h2>Bias-Variance Tradeoff</h2>
   <p class="framed border-success">$Error = Variance + Bias^2 + noise$</p>
   <img src="assets/img/BiasVarianceTradeoff.png" height=50%>
@@ -245,7 +252,7 @@
     <li>Reduce variance: Use a lot of data or simple model</li>
     <li>How to reduce the error caused by noise?</li>
   </ul>
-</section>
+</section> -->
 
 <section>
   <h2>Bagging</h2>
@@ -273,7 +280,10 @@
 
 <section>
   <h3>The 632 rule</h3>
-  <div class="row">
+  <p>
+    Sample has $n$ elements.
+  </p>
+  <div class="row framed border-info" style="padding-bottom: 10px">
     <div class="col-50">
       <p>
         Probability of getting picked:
@@ -287,31 +297,31 @@
         Probability of not getting picked:
       </p>
       <div>
-         $1-(\frac{1}{n})$
+         $1-\frac{1}{n}$
       </div>
     </div>
   </div>
-  <p>
-    Sample has $n$ elements.
+
+  <p class="fragment">
+    Sample $n$ elements with replacement, probability of not getting picked in the sample: $(1-\frac{1}{n})^n$
   </p>
-  <p>
-    Probability of not getting picked in the sample: $(1-\frac{1}{n})^n$
+  <p class="fragment">
+    As ${n\to\infty}$, approaches $\frac{1}{e}\approx.368$
   </p>
-  <p>
-    As ${n\to\infty}$, the probability of not getting picked $\frac{1}{e}\approx\frac{1}{3}$
+  <p class="fragment">
+    Thus, <span class="info">.632</span> of the data points in your original sample show up in the Bootstrap sample (the other .368 are duplicates)
   </p>
 </section>
 
 <section data-transition="fade" id="bootstrap-brooke">
-  <h3>Bootstrap confidence intervals for a population mean</h3>
+  <h3>Bootstrap samples</h3>
   <div class="row" style="margin-top: 0;">
     <div class="col-40">
       <div class="placeholder"></div>
       <p style="margin-top: -4%; font-size: 0.5em;">
         <span class="u em">Each bootstrap sample:</span> <br>
         n=100, drawing WITH replacement <br>
-        from original sample <br>
-        Statistic calculated: mean ($\bar{x}$)
+        from original sample
       </p>
     </div>
     <div class="col-60">
@@ -330,16 +340,18 @@
   
   <ul>
     <li>Train a tree on each bootstrap sample, and average their predictions (Bootstrap Aggregating)</li>
-    <li>Now, don't need to prune a tree to reduce variance! Can grow deep trees </li>
+    <li>Can grow deep trees!</li>
   </ul>
 </section>
 
 <section>
   <h2>Random Forests</h2>
+  <div style="text-align: left">
   <ul>
     <li>Like bagging, but <span class="warning">removes correlation</span> among trees</li>
     <li>At each split, considers only a subset of predictors</li>
   </ul>
+  </div>
 </section>
 
 <section>
@@ -348,7 +360,7 @@
 </section>
 
 <section class="title-slide">
-  <h2>The Dangers of Machine Learning</h2>
+  <h2 style="text-align: center">The Dangers of Machine Learning</h2>
 </section>
 
 <section>
@@ -371,27 +383,45 @@
   </div>
 </section>
 
-<!-- <section>
-  <h2>Problems</h2>
-  <ul>
-    <li>People don't understand how the things they are building work </li>
-  </ul> -->
+<section>
+    <div class="row">
+      <div class="col-50" style="text-align: left">
+      <h2>Overfitting</h2>
+      <ul>
+        <li>Superstition is overfitting to your training data</li>
+        <br>
+      </ul>
+      <img src="assets/img/Superstition.jpg" height=310px>
+    </div>
+    <div class="col-50 fragment" style="text-align: left">
+    <h2>Underfitting</h2>
+      <ul>
+        <li>Failing to learn from your mistakes = underfitting </li>
+        <br>
+      </ul>
+      <img src="assets/img/UnderfittingBart.jpg" height=310px>
+    </div>
+  </div>
+</section>
+
+<section class="title-slide">
+  <h1>Conclusion</h1>
 </section>
 
 <section>
   <h2>Sexiest job of the 21st century?</h2>
   <p class="quoted fragment">I keep saying the sexy job in the next ten years will be statisticians. People think I’m joking, but who would’ve guessed that computer engineers would’ve been the sexy job of the 1990s?</p> 
-  <p class="fragment">-Google’s Chief Economist Hal Varian</p>
+  <p class="fragment">-Google’s Chief Economist Hal Varian (2009)</p>
 </section>
 
 <section>
-  <h2>The difference between a data scientist and statistician? </h2>
+  <h2>Data Scientist vs. Statistician? </h2>
   <p class="quoted">
     A data scientist is a statistician that lives in San Francisco<br><br>
     Data science is statistics on a Mac<br><br>
     A data scientist is someone who is better at statistics than any software engineer and better at software engineering than any statistician</p>
   <p>Plus, they are paid more. Mean salary: 120,000 and Median salary: 126,000</p>
-  <p>Right or left skewed?</p>
+  <p class="fragment">Right or left skewed?</p>
 </section>
 
 <section>
@@ -400,18 +430,9 @@
   <p>Industry? Check out data science bootcamps!</p>
 </section>
 
-
-
-<!--        <section>
-  <img src="http://3qeqpr26caki16dnhd19sv6by6v.wpengine.netdna-cdn.com/wp-content/uploads/2016/02/Example-Decision-Tree.png">
-
-  Tree versus linear model
-</section> -->
-
-
-
-
-
+<section class="title-slide">
+  <h1 style="text-align: center">Thanks for the quarter!</h1>
+</section>
 
 
 <!-- THE END -->
