@@ -52,7 +52,7 @@
   <h2>Monty Hall Problem</h2>
   <div class="row">
     <div class="col-100">
-      <img src="http://www.sciencemadesimple.co.uk/files/2016/04/The-choices.png" width=100%>
+      <img src="assets/img/lec/ml-monty-hall-choices.png" width=100%>
     </div>
   </div>
 </section>
@@ -122,9 +122,21 @@
 
 <section>
   <h2>What is Machine Learning?</h2>
-  <p>Computers that learn patterns in your data</p>
-  <p>Computers are vulnerable to making mistakes, like humans (will talk about at end)</p>
-  <img src="assets/img/machinelearning1.png" height=400px>
+  <div class="row">
+    <div class="col-60">
+      <p class="framed border-warning">
+        Computers algorithms that <span class="warning">learn patterns</span> in your <span class="warning">data</span>.
+      </p>
+      <p>
+        <span class="u em">Note:</span> <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        Computers are <span class="danger">vulnerable to making mistakes</span>, like humans (will talk about this at the end)
+      </p>
+    </div>
+    <div class="col-40">
+      <img src="assets/img/lec/ml-machine-learning.svg" width=100%>
+    </div>
+  </div>  
 </section>
 
 <section>
@@ -138,12 +150,23 @@
 
 <section>
   <h2>Model this in Python?</h2>
-  <pre style="width:100%"><code data-trim data-noescape>
-          if salary > 50k:
+  <div class="row">
+    <div class="col-60">
+      <pre style="width:100%">
+        <code data-trim data-noescape>
+          if salary < 50k:
             Decline offer
           else if salary > 50k and commute > 1 hr
             Decline offer
-          </code></pre>
+        </code>
+      </pre>
+    </div>
+    <div class="col-40">
+      <svg width="100%" viewBox="350 0 370 250" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/ml-decision-tree-job-offer.svg#isolated"></use>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -156,13 +179,240 @@
 
 <section>
   <h2>Choosing a Restaurant</h2>
-  <img src="assets/img/DecisionTreeTable.png" alt="">
+  <!-- <img src="assets/img/DecisionTreeTable.png" width=50%> -->
+  <div class="row">
+    <div class="col-100">
+      <table style="font-size: 0.8em;">
+        <tr class="no-bottom">
+          <td rowspan="2" class="bg-warning" style="border-bottom: 1px solid !important; vertical-align: middle;">Examples</td>
+          <td colspan="10" class="bg-info">Attributes</td>
+          <td rowspan="2" class="bg-danger" style="border-bottom: 1px solid !important; vertical-align: middle;"> Target Wait</td>
+        </tr>
+        <tr>
+          <td class="bg-info">Alt</td>
+          <td class="bg-info">Bar</td>
+          <td class="bg-info">Fri</td>
+          <td class="bg-info">Hun</td>
+          <td class="bg-info">Pat</td>
+          <td class="bg-info">Price</td>
+          <td class="bg-info">Rain</td>
+          <td class="bg-info">Res</td>
+          <td class="bg-info">Type</td>
+          <td class="bg-info" width="100">Est</td>
+        </tr>
+        <tr>
+          <td>$X_1$</td>
+          <td>T</td>
+          <td>F</td>
+          <td>F</td>
+          <td>T</td>
+          <td>Some</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+            <i class="fa fa-dollar"></i>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>F</td>
+          <td>T</td>
+          <td>French</td>
+          <td>0-10</td>
+          <td>T</td>
+        </tr>
+        <tr>
+          <td>$X_2$</td>
+          <td>T</td>
+          <td>F</td>
+          <td>F</td>
+          <td>T</td>
+          <td>Full</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>F</td>
+          <td>F</td>
+          <td>Thai</td>
+          <td>30-60</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>$X_3$</td>
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+          <td>F</td>
+          <td>Some</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>F</td>
+          <td>F</td>
+          <td>Burger</td>
+          <td>0-10</td>
+          <td>T</td>
+        </tr>
+        <tr>
+          <td>$X_4$</td>
+          <td>T</td>
+          <td>F</td>
+          <td>T</td>
+          <td>T</td>
+          <td>Full</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>F</td>
+          <td>F</td>
+          <td>Thai</td>
+          <td>10-30</td>
+          <td>T</td>
+        </tr>
+        <tr>
+          <td>$X_5$</td>
+          <td>T</td>
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+          <td>Full</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+            <i class="fa fa-dollar"></i>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>F</td>
+          <td>T</td>
+          <td>French</td>
+          <td>>60</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>$X_6$</td>
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+          <td>T</td>
+          <td>Some</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>T</td>
+          <td>T</td>
+          <td>Italian</td>
+          <td>0-10</td>
+          <td>T</td>
+        </tr>
+        <tr>
+          <td>$X_7$</td>
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+          <td>F</td>
+          <td>None</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>T</td>
+          <td>F</td>
+          <td>Burger</td>
+          <td>0-10</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>$X_8$</td>
+          <td>F</td>
+          <td>F</td>
+          <td>F</td>
+          <td>T</td>
+          <td>Some</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>T</td>
+          <td>T</td>
+          <td>Thai</td>
+          <td>0-10</td>
+          <td>T</td>
+        </tr>
+        <tr>
+          <td>$X_9$</td>
+          <td>F</td>
+          <td>T</td>
+          <td>T</td>
+          <td>F</td>
+          <td>Full</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>T</td>
+          <td>F</td>
+          <td>Burger</td>
+          <td>>60</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>$X_{10}$</td>
+          <td>T</td>
+          <td>T</td>
+          <td>T</td>
+          <td>T</td>
+          <td>Full</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+            <i class="fa fa-dollar"></i>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>F</td>
+          <td>T</td>
+          <td>Italian</td>
+          <td>10-30</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>$X_{11}$</td>
+          <td>F</td>
+          <td>F</td>
+          <td>F</td>
+          <td>F</td>
+          <td>None</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>F</td>
+          <td>F</td>
+          <td>Thai</td>
+          <td>0-10</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>$X_{12}$</td>
+          <td>T</td>
+          <td>T</td>
+          <td>T</td>
+          <td>T</td>
+          <td>Full</td>
+          <td>
+            <i class="fa fa-dollar"></i>
+          </td>
+          <td>F</td>
+          <td>F</td>
+          <td>Burger</td>
+          <td>30-60</td>
+          <td>T</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </section>
 
 <section>
   <h2>Which attribute to split?</h2>
-  <img src="assets/img/AttributeToSplit.png" alt="">
-  <p style="text-align: center">Patrons is a better choice because it gives more <span class="success">information</span> about the classification</p>
+  <div class="row">
+    <div class="col-100">
+      <img src="assets/img/lec/ml-attribute-to-split.svg" width=100%>
+    </div>
+  </div>
+  <p class="framed border-danger">Patrons is a better choice because it gives more <span class="danger">information</span> about the classification</p>
 </section>
 
 <section>
