@@ -545,10 +545,23 @@
 
 <section>
   <h2>Bagging</h2>
-  <img src="assets/img/decision-tree-3.png" style="border:none; box-shadow: 0 0 0px; height:200px">
-  <p>Averaging a set of observations reduces variance</p>
+  <p>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Averaging a set of observations <span class="warning">reduces variance</span>.
+  </p>
+  <div class="row">
+    <div class="col-55">
+      <p>
+        <i class="fa fa-arrow-circle-right warning"></i>
+        But we only have <span class="u-warning">one training set</span> ... or do we?</p>
+    </div>
+    <div class="col-45">
+      <img src="assets/img/lec/ml-bagging.svg" width=100%>
+    </div>
+  </div>
+  
   <!-- <p>Set of n independent observations, $Z_{1}$, ..., $Z_{n}$, each with variance $\sigma^2$, then the variance of the mean $\bar{Z}$ of the observations is $\sigma^2/n$</p> -->
-  <p>But we only have one training set... or do we?</p>
+  
 </section>
 
 <section>
@@ -667,9 +680,6 @@
 
 <section>
   <h2>Random Forests</h2>
-  <!-- <p class="small framed border-danger" style="padding-top: 0.3em; padding-bottom: 0.3em;">
-    Like bagging, but <span class="danger">removes correlation</span> among trees.
-  </p> -->
   <div class="row no-margin-bottom">
     <div class="col-30">
       <p class="small framed border-danger" style="padding-top: 0.3em; padding-bottom: 0.3em;">
