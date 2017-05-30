@@ -655,20 +655,31 @@
 
 <section>
   <h2>Bagging</h2>
-  
-  <ul>
-    <li>Train a tree on each bootstrap sample, and average their predictions (Bootstrap Aggregating)</li>
-    <li>Can grow deep trees!</li>
-  </ul>
+  <p>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Train a tree on each bootstrap sample, and average their predictions (<span class="warning">Bootstrap Aggregating</span>)
+  </p>
+  <p>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Can grow deep trees!
+  </p>
 </section>
 
 <section>
   <h2>Random Forests</h2>
-  <div style="text-align: left">
-  <ul>
-    <li>Like bagging, but <span class="warning">removes correlation</span> among trees</li>
-    <li>At each split, considers only a subset of predictors</li>
-  </ul>
+  <p class="small framed border-danger" style="padding-top: 0.3em; padding-bottom: 0.3em;">
+    Like bagging, but <span class="danger">removes correlation</span> among trees.
+  </p>
+  <div class="row">
+    <div class="col-30">
+      <p class="small">
+        <i class="fa fa-arrow-circle-right info"></i>
+        At each split, considers only a <span class="info">subset of predictors</span>.
+      </p>
+    </div>
+    <div class="col-70">
+      <img src="assets/img/lec/ml-random-forest-features.svg" width=100%>
+    </div>
   </div>
 </section>
 
