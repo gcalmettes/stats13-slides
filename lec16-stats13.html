@@ -554,35 +554,40 @@
 <section>
   <h2>Bootstrap</h2>
   <div class="row">
-  <div class="col-50">
-    <p>Simulate new datasets:</p>
-    <ul>
-      <li>Take samples (with replacement) from original training set</li>
-      <li>Repeat n times</li>
-    </ul>
+  <div class="col-55">
+    <p class="u em">Simulate new datasets:</p>
+    <p>
+      <i class="fa fa-arrow-circle-right"></i>
+      Take samples (with replacement) from original training set
+    </p>
+    <p>
+      <i class="fa fa-arrow-circle-right"></i>
+      Repeat $n$ times
+    </p>
   </div>
-  <div class="col-50">
-    <img src="assets/img/DeckCards2.png" alt="">
+  <div class="col-45">
+    <img src="assets/img/DeckCards2.png" width=100%>
   </div>
   </div>
 </section>
 
 <section>
   <h3>The 632 rule</h3>
-  <p>
+  <p class="no-margin-top">
     Sample has $n$ elements.
   </p>
-  <div class="row framed border-info" style="padding-bottom: 10px">
-    <div class="col-50">
-      <p>
+  <div class="row" style="padding-bottom: 10px">
+    <div class="col-49 framed border-info" style="padding-bottom: 0.4em;">
+      <p class="no-margin-top">
         Probability of getting picked:
       </p>
       <div>
         $\frac{1}{n}$
       </div>
     </div>
-    <div class="col-50">
-      <p>
+    <div class="col-2"></div>
+    <div class="col-49 framed border-info"  style="padding-bottom: 0.4em;">
+      <p class="no-margin-top">
         Probability of not getting picked:
       </p>
       <div>
@@ -590,15 +595,16 @@
       </div>
     </div>
   </div>
-
-  <p class="fragment">
-    Sample $n$ elements with replacement, probability of not getting picked in the sample: $(1-\frac{1}{n})^n$
+  <p class="fragment no-margin-bottom no-margin-top">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    If you sample $n$ elements with replacement, the probability for each element of not getting picked in the sample is then: <span class="warning">$(1-\frac{1}{n})^n$</span>
   </p>
   <p class="fragment">
-    As ${n\to\infty}$, approaches $\frac{1}{e}\approx.368$
+    <i class="fa fa-arrow-circle-right warning"></i>
+    As ${n\to\infty}$, this probability approaches $\frac{1}{e}\approx.368$
   </p>
-  <p class="fragment">
-    Thus, <span class="info">.632</span> of the data points in your original sample show up in the Bootstrap sample (the other .368 are duplicates)
+  <p class="fragment framed border-warning">
+    Thus, <span class="warning">$0.632$</span> of the data points in your original sample show up in the Bootstrap sample (the other $0.368$ are duplicates at least)
   </p>
 </section>
 
@@ -725,19 +731,50 @@
 </section>
 
 <section>
-  <h2>Sexiest job of the 21st century?</h2>
-  <p class="quoted fragment">I keep saying the sexy job in the next ten years will be statisticians. People think I’m joking, but who would’ve guessed that computer engineers would’ve been the sexy job of the 1990s?</p> 
-  <p class="fragment">-Google’s Chief Economist Hal Varian (2009)</p>
+  <h2>Sexiest job of the 21$^{st}$ century?</h2>
+  <p class="quoted fragment big">
+    I keep saying the sexy job in the next ten years will be <span class="warning">statisticians</span>. People think I’m joking, but who would’ve guessed that computer engineers would’ve been the sexy job of the 1990s?
+  </p> 
+  <p class="fragment" style="text-align: right;">
+    - Google’s Chief Economist Hal Varian (2009) -
+  </p>
 </section>
 
 <section>
   <h2>Data Scientist vs. Statistician? </h2>
-  <p class="quoted">
-    A data scientist is a statistician that lives in San Francisco<br><br>
-    Data science is statistics on a Mac<br><br>
-    A data scientist is someone who is better at statistics than any software engineer and better at software engineering than any statistician</p>
-  <p>Plus, they are paid more. Mean salary: 120,000 and Median salary: 126,000</p>
-  <p class="fragment">Right or left skewed?</p>
+  <p class="col-55">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    A data scientist is a statistician that lives in San Francisco.
+  </p>
+  <div class="row">
+    <div class="col-15"></div>
+    <p class="col-55">
+      <i class="fa fa-arrow-circle-right warning"></i>
+      Data science is statistics on a Mac.
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-30"></div>
+    <p class="col-70">
+      <i class="fa fa-arrow-circle-right warning"></i>
+      A data scientist is someone who is better at statistics than any software engineer and better at software engineering than any statistician
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-45">
+      <p class="fragment" style="margin-top: 2em;">
+        Right or left skewed?
+      </p>
+    </div>
+    <div class="col-50">
+      <p>
+        <i class="fa fa-arrow-circle-right warning"></i>
+        <span>Plus, they are paid more:</span> <br>
+        <span class="em" style="margin-left: 1em;">Mean salary:</span> $\$120,000$ <br>
+        <span class="em" style="margin-left: 1em;">Median salary:</span> $\$126,000$
+      </p>
+    </div>
+  </div>
 </section>
 
 <section>
