@@ -78,7 +78,7 @@
             <td><span class="info">Car</span></td>
             <td>Goat</td>
             <td style="border-right: 1px solid;">Goat</td>
-            <td class="highlight-bckg-info">Wins car</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=1>Wins car</td>
             <td>Wins goat</td>
           </tr>
           <tr>
@@ -86,14 +86,14 @@
             <td><span class="info">Car</span></td>
             <td style="border-right: 1px solid;">Goat</td>
             <td>Wins goat</td>
-            <td class="highlight-bckg-info">Wins car</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=2>Wins car</td>
           </tr>
           <tr class="no-bottom">
             <td>Goat</td>
             <td>Goat</td>
             <td style="border-right: 1px solid;"><span class="info">Car</span></td>
             <td>Wins goat</td>
-            <td class="highlight-bckg-info">Wins car</td>
+            <td class="fragment highlight-bckg-blue" data-fragment-index=3>Wins car</td>
           </tr>
           <tr class="no-bottom">
             <td height="10"></td>
@@ -106,13 +106,13 @@
             <td height="80"></td>
             <td></td>
             <td></td>
-            <td><i class="fa fa-2x fa-arrow-circle-down info"></i></td>
-            <td><i class="fa fa-2x fa-arrow-circle-down info"></i></td>
+            <td><i class="fragment fa fa-2x fa-arrow-circle-down info" data-fragment-index=4></i></td>
+            <td class="fragment" data-fragment-index=5><i class="fa fa-2x fa-arrow-circle-down info"></i></td>
           </tr>
           <tr>
-            <td colspan="3">Chance of getting the car:</td>
-            <td><span class="framed border-info" style="padding-top: 0.3em; padding-bottom: 0.3em;">$1/3$</span></td>
-            <td><span class="framed border-info" style="padding-top: 0.3em; padding-bottom: 0.3em;">$2/3$</span></td>
+            <td colspan="3" class="fragment" data-fragment-index=4>Chance of getting the car:</td>
+            <td class="fragment" data-fragment-index=4><span class="framed border-info" style="padding-top: 0.3em; padding-bottom: 0.3em;">$1/3$</span></td>
+            <td class="fragment" data-fragment-index=5><span class="framed border-info" style="padding-top: 0.3em; padding-bottom: 0.3em;">$2/3$</span></td>
           </tr>
         </tbody>
       </table>
@@ -171,10 +171,25 @@
 
 <section>
   <h2>Decision Tree</h2>
-  <p>Really, it's an upside tree (leaves on bottom)</p>
-  <p><span class="success">Leaf:</span> Terminal node (no child)</p>
-  <p>Internal Node: Splits the predictor space</p>
-  <!-- <img src="img/typesOfTrees.jpg" alt=""> -->
+  <div class="row">
+    <div class="col-45">
+      <p>Really, it's an upside tree <br>
+        (leaves on bottom)</p>
+      <p>
+        <span class="info u em">Leaf:</span> <br>
+        <i class="fa fa-arrow-circle-right info"></i>
+        Terminal node (no child)
+      </p>
+      <p>
+        <span class="danger u em">Internal Node:</span> <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        Splits the predictor space
+      </p>
+    </div>
+    <div class="col-55">
+      <img src="assets/img/lec/ml-decision-tree.svg" width=100%>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -587,7 +602,7 @@
   </p>
 </section>
 
-<section data-transition="fade" id="bootstrap-brooke">
+<section id="bootstrap-brooke">
   <h3>Bootstrap samples</h3>
   <div class="row" style="margin-top: 0;">
     <div class="col-40">
@@ -618,8 +633,12 @@
           proportion: <span class="info" id="proportion">0</span>
         </label>
       </div>
+      <p style="text-align: center;">
+        <span class="u em">Theory:</span> 0.632
+        </p>
     </div>
   </div>
+  <div class="fragment"></div>
   <div class="fragment"></div>
   <div class="fragment"></div>
   <div class="fragment"></div>
