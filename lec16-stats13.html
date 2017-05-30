@@ -667,20 +667,27 @@
 
 <section>
   <h2>Random Forests</h2>
-  <p class="small framed border-danger" style="padding-top: 0.3em; padding-bottom: 0.3em;">
+  <!-- <p class="small framed border-danger" style="padding-top: 0.3em; padding-bottom: 0.3em;">
     Like bagging, but <span class="danger">removes correlation</span> among trees.
-  </p>
-  <div class="row">
+  </p> -->
+  <div class="row no-margin-bottom">
     <div class="col-30">
-      <p class="small">
+      <p class="small framed border-danger" style="padding-top: 0.3em; padding-bottom: 0.3em;">
+        Like bagging, but <span class="danger">removes correlation</span> among trees.
+      </p>
+      <p class="small no-margin-bottom">
         <i class="fa fa-arrow-circle-right info"></i>
         At each split, considers only a <span class="info">subset of predictors</span>.
       </p>
     </div>
     <div class="col-70">
-      <img src="assets/img/lec/ml-random-forest-features.svg" width=100%>
+      <img class="no-margin-bottom" src="assets/img/lec/ml-random-forest-features.svg" width=100%>
     </div>
   </div>
+  <p class="small no-margin-top">
+    <span class="u em">Notes:</span> <br>
+    Random forest typically considers $\sqrt{\textrm{number of features}}$ at each split (if 10 features, then it considers $\sqrt{10}\approx3$ features), and picks the best one.
+  </p>
 </section>
 
 <section>
