@@ -592,18 +592,37 @@
   <div class="row" style="margin-top: 0;">
     <div class="col-40">
       <div class="placeholder"></div>
-      <p style="margin-top: -4%; font-size: 0.5em;">
+    </div>
+    <div class="col-60">
+      <p class="small no-margin-top">
         <span class="u em">Each bootstrap sample:</span> <br>
         n=100, drawing WITH replacement <br>
         from original sample
       </p>
-    </div>
-    <div class="col-60">
-      <label class="big" style="display: inline-block; width: 100%; text-align: center; font-family: sans-serif;">
-        proportion: <span class="info" id="proportion">0</span>
-      </label>
+      <div class="row">
+        <div class="col-50">
+          <p>
+            <i class="fa fa-circle"></i> <span class="normal">Not selected</span><br>
+            <i class="fa fa-circle danger"></i> <span class="normal">Selected 1 time</span>
+          </p>
+        </div>
+        <div class="col-50">
+          <p>
+            <i class="fa fa-circle warning"></i> <span class="normal">Selected 2 times</span><br>
+            <i class="fa fa-circle muted"></i> <span class="normal">Selected >3 times</span>
+          </p>
+        </div>
+      </div>
+      <div class="framed border-info">
+        <label class="big" style="display: inline-block; width: 100%; text-align: center; font-family: sans-serif;">
+          proportion: <span class="info" id="proportion">0</span>
+        </label>
+      </div>
     </div>
   </div>
+  <div class="fragment"></div>
+  <div class="fragment"></div>
+  <div class="fragment"></div>
   <div class="fragment"></div>
   <div class="fragment"></div>
   <div class="fragment"></div>
