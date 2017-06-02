@@ -793,6 +793,11 @@
 <polyline fill="none" stroke="#D2D2D2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="174.5,28.5 
 	174.5,22.5 589.499,22.5 589.499,28.5 "/>
 <g>
+	<path fill="none" stroke="#D2D2D2" stroke-miterlimit="10" stroke-dasharray="3.9638,2.9729" d="M53.625,142.163
+		c0,3.977-3.224,7.2-7.2,7.2H18.903c-3.977,0-7.2-3.224-7.2-7.2V43.134c0-3.977,3.224-7.2,7.2-7.2h27.522c3.977,0,7.2,3.224,7.2,7.2
+		V142.163z"/>
+</g>
+<g>
 </g>
 <g>
 </g>
