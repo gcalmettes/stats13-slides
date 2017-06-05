@@ -1,0 +1,853 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=no">
+
+  <title>
+    Lecture 17 - Stats 13
+  </title>
+  <link rel="stylesheet" href="assets/reveal.js-master/css/reveal.css" />
+  <!-- beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+  <link rel="stylesheet" href="assets/reveal.js-master/css/theme/black.css" id="theme"/>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/reveal.js-master/lib/css/zenburn.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="assets/plugins/Font-Awesome-master/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom-gc.css" />
+  <link rel="stylesheet" href="assets/plugins/reveal.js-plugins-master/menu/menu.css">
+
+</head>
+
+<body>
+  <div class="reveal">
+    <!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+  	<header id="myHeadRight" style="position: absolute; top: 0; right:0; z-index:500; font-size: small;">
+  	</header>
+  	<header id="myHeadLeft" style="position: absolute; top: 0; left:0; z-index:501; fon-size: small;">
+  	</header>
+  	<footer id="myFootRight" style="position: absolute; bottom:0; right:0; z-index:502; font-size: small;">
+  	</footer>
+  	<footer id="myFootLeft" style="position: absolute; bottom:0; left:0; z-index:503;font-size: small;">
+  	</footer>
+  	<!-- ====================== CUSTOM HEADERs & FOOTERs ====================== -->
+
+<div class="slides">
+
+
+<section class="title-slide" data-background='assets/img/shared/bckg3.jpg' data-state="alpha-04">
+  <div class="content-box framed border-muted">
+    <h2>Stats 13</h2>
+    <h1 style="color: #FFFFFF">Lecture 17</h1>
+  </div>
+    <h3 style="color: #FFFFFF; text-align: center;">
+      Essential Synthesis #1
+    </h3>
+    <div class="col-90">
+      <p class="smaller push-right">Guillaume Calmettes</p>
+  </div>
+</section>
+
+<section>
+  <h3>The big picture</h3>
+  <div class="row">
+    <div class="col-40">
+      <p class="no-margin-top small">
+        <span class="u em">1) You have a question</span> <br>
+        <i class="fa fa-arrow-circle-right info"></i>
+        Questions are always about <span class="info">population</span> data.
+      </p>
+      <p class="no-margin-top small fragment" data-fragment-index=1>
+        <span class="u em">2) Data analysis</span> <br>
+        <i class="fa fa-arrow-circle-right danger"></i>
+        You cannot always access the full population data and
+        have to rely on a small part of it, the <span class="danger">sample</span> data, that you will analyze.
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="100%" viewBox="0 0 518.4 288" style="margin-top: 0;">
+        <use xlink:href="assets/img/lec/distribution-sample-inference.svg#population"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/distribution-sample-inference.svg#sampling"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/distribution-sample-inference.svg#inference"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="no-margin-top small fragment" data-fragment-index=2>
+    <span class="u em">3) Answer the question</span> <br>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Using the new knowledge you gained from the sample analysis, you can make conclusions (under some conditions) about the population data. This is the process of making <span class="warning">inference</span>.
+  </p>
+</section>
+
+<section>
+  <h3>The statistical analysis process</h3>
+  <p>
+    <i class="fa fa-arrow-circle-right"></i>
+    Collect data / Design experiment
+  </p>
+  <p>
+    <i class="fa fa-arrow-circle-right"></i>
+    Visualize data (important!). Distribution? Skewness? outliers?
+  </p>
+  <p>
+    <i class="fa fa-arrow-circle-right"></i>
+    Choose a statistic to describe the sample (will depend on skewness, etc ...)
+  </p>
+  <p>
+    <i class="fa fa-arrow-circle-right"></i>
+    Formulate hypotheses
+  </p>
+  <p>
+    <i class="fa fa-arrow-circle-right"></i>
+    Analysis
+  </p>
+</section>
+
+<section>
+  <h3>Data collection</h3>
+  <div class="row">
+    <div class="col-40">
+      <p class="no-margin-top small">
+        We obtain information about (observational) <span class="warning">units</span>.
+      </p>
+      <p class="no-margin-top small fragment" data-fragment-index=1>
+        A <span class="info">variable</span> is any characteristic that is recorded on each unit. 
+        <span class="fragment" data-fragment-index=2>It can be <span class="info">categorical</span> or <span class="info">quantitative</span>.</span>
+      </p>
+      <p class="no-margin-top small fragment" data-fragment-index=3>
+        When selecting data, the goal is to select a <span class="success">sample</span> that is similar (<span class="success">representative</span>) to the population, only smaller.
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="80%" viewBox="120 0 261 244.75" style="margin-top: 0; margin-bottom: 0;">
+        <use xlink:href="assets/img/lec/summary-lec1.svg#population"></use>
+        <use class="fragment" data-fragment-index=3 xlink:href="assets/img/lec/summary-lec1.svg#datasample"></use>
+        <use class="fragment" data-fragment-index=1 xlink:href="assets/img/lec/summary-lec1.svg#variables"></use>
+        <use class="fragment" data-fragment-index=2 xlink:href="assets/img/lec/summary-lec1.svg#type1"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="no-margin-top small fragment" data-fragment-index=4>
+    <i class="fa fa-arrow-circle-right danger"></i>
+    <span class="danger">Sampling biais</span> occurs when the method of selecting a sample causes the <span class="danger">sample to differ from the population</span> in some relevant way.
+  </p>
+</section>
+
+<section>
+  <h3>Sampling</h3>
+  <div class="row">
+    <div class="col-50">
+      <p class="no-margin-top small">
+        <span class="u em warning">Sampling bias:</span>
+        when a sampling method systematically yields results that are either too high or too low. <br>
+        <i class="fa fa-arrow-circle-right warning"></i>
+        can be avoided by using good sampling technique (<span class="warning">random</span>).
+      </p>
+      <p class="no-margin-top small">
+        <span class="u em info">Sampling variation:</span>
+        natural variation in results from one random sample to next. <br>
+        <i class="fa fa-arrow-circle-right info"></i>
+        can be reduced by using a <span class="info">larger sample</span>.
+      </p>
+    </div>
+    <div class="col-50">
+      <img src="assets/img/lec/ml-bullseye.svg" width=100%>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Experimental design</h3>
+  <div class="row">
+    <div class="col-40">
+      <p class="no-margin-top small">
+        If we want to show <span class="info">relationships (association)</span> between several variables, we are analyzing the effects of an <span class="info">explanatory</span> variable on a <span class="info">response</span> variable.
+      </p>
+      <p class="no-margin-top small fragment">
+        <i class="fa fa-arrow-circle-right warning"></i>
+        A third variable that is associated with both the explanatory variable and the response variable is called a <span class="warning">confounding variable</span>.
+      </p>
+    </div>
+    <div class="col-60">
+      <svg width="80%" viewBox="120 0 261 244.75" style="margin-top: 0; margin-bottom: 0;">
+        <use xlink:href="assets/img/lec/summary-lec1.svg#population"></use>
+        <use xlink:href="assets/img/lec/summary-lec1.svg#datasample"></use>
+        <use xlink:href="assets/img/lec/summary-lec1.svg#variables"></use>
+        <use xlink:href="assets/img/lec/summary-lec1.svg#type1"></use>
+        <use xlink:href="assets/img/lec/summary-lec1.svg#type2"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Experimental design</h3>
+  <div class="row">
+    <table>
+      <col width=50%>
+      <col width=50%>
+      <tbody>
+        <tr>
+          <td class="bg-info">Observational study</td>
+          <td class="bg-danger">Randomized experiment</td>
+        </tr>
+        <tr class="fragment">
+          <td>
+            The independent (explanatory) variable is <span class="info">not under the control of the researcher</span> because of ethical concerns or logistical constraints.
+          </td>
+          <td>
+            The explanatory variable for each unit is <span class="danger">determined randomly, before</span> the response variable is measured.
+          </td>
+        </tr>
+        <tr class="fragment no-bottom">
+          <td colspan="2">
+            <span class="warning">Confounding variables</span> can be present both in observational studies or randomized experiments, but ...
+          </td>
+        </tr>
+        <tr class="fragment">
+          <td>
+            <i class="fa fa-arrow-circle-right info"></i>
+            Because the response variable assignment is not randomized,
+            the effects of <span class="info">confounding variables</span> are almost always present in observational studies.
+          </td>
+          <td>
+            <i class="fa fa-arrow-circle-right danger"></i>
+            Because the explanatory variable is <span class="danger">randomly assigned</span>, it is not associated with any other variables. The effect of confounding variables are most likely eliminated!!!
+          </td>
+        </tr>
+        <tr class="fragment">
+          <td>
+            Observational studies can almost never be used to establish causation.
+          </td>
+          <td>
+            Randomized experiments make it possible to infer causation!
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h3>Randomized experiment</h3>
+  <div class="row">
+    <img src="assets/img/lec/randomized-experiment.svg" width=75%>
+  </div>
+</section>
+
+<section>
+  <h3>Data collection / Study design</h3>
+  <div class="row">
+    <img src="assets/img/lec/randomization.svg" width=100%>
+  </div>
+</section>
+
+<section>
+  <h3>Descriptive statistics</h3>
+  <p>
+    In order to make sense of data, we need ways to <span class="warning">summarize</span> and <span class="warning">visualize</span> it.
+  </p>
+  <p>
+    <i class="fa fa-arrow-circle-right warning"></i>
+    Summarizing and visualizing variables and relationships between two variables is often known as descriptive statistics (also known as <span class="warning">exploratory data analysis</span>)
+  </p>
+  <p class="framed border-danger">
+    Type of summary statistics and visualization methods depend on the type of variable(s) being analyzed (categorical or quantitative).
+  </p>
+</section>
+
+<section>
+  <h3>Exploratory data analysis</h3>
+  <div class="row">
+    <table>
+      <col width=25%>
+      <col width=35%>
+      <col width=40%>
+      <tbody>
+        <tr>
+          <td class="bg-danger">Variable(s)</td>
+          <td class="bg-info">Visualisation</td>
+          <td class="bg-warning">Summary statistic</td>
+        </tr>
+        <tr>
+          <td>
+            Categorical
+          </td>
+          <td>
+            <span class="fragment">
+            Bar chart, pie chart
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            (relative) Frequency table, proportion
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Quantitative
+          </td>
+          <td>
+            <span class="fragment">
+            Dotplot, histogram, boxplot
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            Mean, median, max, min, standard deviation, range, IQR, five number summary
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Categorical vs categorical
+          </td>
+          <td>
+            <span class="fragment">
+            Side-by-side bar chart, segmented bar chart
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            Two-way table, difference in proportions, ratio of the proportion (relative risk)
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Quantitative vs categorical
+          </td>
+          <td>
+            <span class="fragment">
+            Side-by-side boxplots, side-by-side dotplots
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            Statistics for each group, difference in means/median, ratio of the means/medians
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Quantitative vs quantitative
+          </td>
+          <td>
+            <span class="fragment">
+            Scatterplot
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            Correlation, regression line
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h3>Sampling distribution</h3>
+  <p class="no-margin-top no-margin-bottom small">
+    A sampling distribution is the <span class="warning">distribution of statistics computed for different samples of the same size</span> taken from the same population.
+  </p>
+  <div class="row">
+    <div class="col-100">
+      <img class="no-margin-top no-margin-bottom" src="assets/img/lec/sampling-distribution.svg" width=100%>
+    </div>
+  </div>
+  <p class="no-margin-top smaller no-margin-bottom">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    The spread of the sampling distribution helps us to assess the <span class="warning">uncertainty</span> in the sample statistic. (<span class="u em">Note:</span> the standard deviation of the sampling distribution is the standard error of the parameter).
+  </p>
+  <p class="no-margin-top smaller">
+    <i class="fa fa-arrow-circle-right warning"></i>
+    We rarely get to see the sampling distribution, we usually only have one sample.
+  </p>
+</section>
+
+<section>
+  <h3>Bootstrap</h3>
+  <p class="no-margin-top small">
+    A <span class="warning">bootstrap sample</span> is a random sample taken with replacement from the original sample, of the same size as the original sample.
+  </p>
+  <div class="row">
+    <div class="col-32">
+      <p class="no-margin-top small">
+        A <span class="info">bootstrap statistic</span> is the statistic computed on the bootstrap sample.
+      </p>
+      <p class="no-margin-top no-margin-bottom small">
+        A <span class="info">bootstrap distribution</span> is the distribution of many bootstrap statistics.
+      </p>
+    </div>
+    <div class="col-68">
+      <svg width="80%" viewBox="0 0 433 204" style="margin-top: 0; margin-bottom: 0;">
+        <use xlink:href="assets/img/lec/bootstrap-distribution-generation-process.svg#bootstrap"></use>
+      </svg>
+    </div>
+  </div>
+  <p class="no-margin-top small">
+    <i class="fa fa-arrow-circle-right info"></i>
+    The bootstrap distribution will be centered at the statistic of the original sample the bootstrap samples have been drawn from.
+  </p>
+</section>
+
+<section>
+  <h3>Confidence intervals</h3>
+  <div class="row">
+    <div class="col-60">
+      <p class="framed border-warning no-margin-top small">
+        A <span class="warning">confidence interval</span> for a <span class="warning">parameter</span> is an interval computed from sample data by a method that will capture the parameter for a specified proportion of all samples.
+      </p>
+      <p class="no-margin-top small">
+        <i class="fa fa-arrow-circle-right warning"></i>
+        The parameter is fixed (from <span class="warning">population</span>) <br>
+        <i class="fa fa-arrow-circle-right info"></i>
+        The statistic is random (depends on the <span class="info">sample</span>) <br>
+        <i class="fa fa-arrow-circle-right"></i>
+        The interval is random (depends on the statistic) <br>
+        <i class="fa fa-arrow-circle-right"></i>
+        A 95% confidence interval will contain the true parameter for 95% of all samples
+      </p>
+      <p class="no-margin-top small">
+        <i class="fa fa-arrow-circle-right danger"></i>
+        Drawing bootstrap samples from a sample is one of the method to compute the confidence intervals.
+      </p>
+    </div>
+    <div class="col-40">
+      <img class="no-margin-top" src="assets/img/lec/sampling-confidence-intervals.svg" width=100%>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Statistical analysis</h3>
+  <p class="small no-margin-top">
+    All the statistical problems we have seen could be solved using two main types of approaches:
+  </p>
+  <div class="row">
+    <div class="col-50">
+      <p class="small framed border-info">
+        Null Hypothesis Testing
+      </p>
+      <p class="small">
+        <i class="fa fa-arrow-circle-right info"></i>
+        <span class="info">How unusual</span> would it be to get <span class="info">results as extreme (or more extreme)</span> than those observed, if the null hypothesis is true?
+      </p>
+    </div>
+    <div class="col-50">
+      <p class="small framed border-warning">
+        95% confidence intervals
+      </p>
+      <p class="small">
+        <i class="fa fa-arrow-circle-right warning"></i>
+        What is an <span class="warning">estimate</span> of the range of <span class="warning">possible values of the true parameter</span>? Is the null hypothesis parameter contained in this interval?
+      </p>
+    </div>
+  </div>
+  <p>
+    <span class="u em">Note:</span> this is looking at the same thing, but with a different angle.
+  </p>
+</section>
+
+<section>
+  <h3>Randomization distribution & p-value</h3>
+  <p class="small no-margin-top framed border-warning">
+    A <span class="warning">randomization distribution</span> is the distribution of sample statistics we would observe, just by <span class="warning">random chance</span>, if the null hypothesis were true.
+  </p>
+  <p class="small no-margin-top framed border-info">
+    The p-value is the <span class="info">probability of getting a statistic as extreme (or more extreme) as that observed</span>, just by random chance, if the null hypothesis is true.
+  </p>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right info"></i>
+    The p-value measures <span class="u-info">evidence against the null hypothesis</span>
+  </p>
+  <p class="small">
+    <i class="fa fa-arrow-circle-right info"></i>
+    The p-value is calculated by finding the proportion of statistics in the <span class="warning">randomization distribution</span> that fall beyond (one or both direction) the observed statistic
+  </p>
+</section>
+
+<section>
+  <h3>p-value common thresholds</h3>
+  <p style="margin-top: 0; margin-bottom: 0;">
+    A <span class="u em">small</span> p-value casts doubt on the null hypothesis/model
+    used to perform the calculation.
+  </p>
+  <div class="row" style="margin-top: 1em;">
+    <div class="col-15" style="margin-top: 4%;">
+      <p style="text-align: right; font-size: 0.65em;">A p-value</p>
+    </div>
+    <div class="col-15" style="margin-top: 0;">
+      <p style="margin-top: 0;">
+        <span class="success" style="margin-left: 0.2em;">$\leq{0.10}$</span> <br>
+        <span class="info" style="margin-left: 0.2em;">$\leq{0.05}$</span> <br>
+        <span class="warning" style="margin-left: 0.2em;">$\leq{0.01}$</span> <br>
+        <span class="danger" style="margin-left: 0.2em;">$\leq{0.001}$</span>
+      </p>
+    </div>
+    <div class="col-20" style="margin-left:0;">
+      <p>is generally considered <br>to be</p>
+    </div>
+    <div class="col-30" style="margin-top: 0;">
+      <p style="margin-top: 0;">
+        <span class="success" style="margin-left: 0.2em;">some</span> <br>
+        <span class="info" style="margin-left: 0.2em;">fairly strong</span> <br>
+        <span class="warning" style="margin-left: 0.2em;">very strong</span> <br>
+        <span class="danger" style="margin-left: 0.2em;">extremely strong</span>
+      </p>
+    </div>
+    <div class="col-20">
+      <p>
+        <span class="u">evidence</span> against the null
+      </p>
+    </div>
+  </div>
+  <p>
+    <span class="u em">Formal decisions:</span> <br>
+    p-value $<\alpha$ <i class="fa fa-arrow-right"></i> Reject $H_0$ <br>
+    p-value $\geq\alpha$ <i class="fa fa-arrow-right"></i> Do not reject $H_0$
+  </p>
+</section>
+
+<section data-transition="slide-in">
+  <h3>Errors in significance testing</h3>
+  <p class="u em" style="margin-top: 0; margin-bottom: 0;">
+    Errors can happen!
+  </p>
+  <ul style="font-size: 0.7em;" class="push-left">
+    <li>A Type I error is rejecting a true null (false positive)</li>
+    <li>A Type II error is not rejecting a false null (false negative)</li>
+  </ul>
+  <table style="font-size: 1.5em; margin-top: 2em;">
+    <tbody>
+      <tr>
+        <td style="border-bottom: none;"></td>
+        <td style="border-bottom: none;"></td>
+        <td colspan=2><span class="danger">Decision</span></td>
+      </tr>
+      <tr>
+        <td style="border-bottom: none;"></td>
+        <td style="border-right: solid 1px;"></td>
+        <td style="border-right: solid 1px;" class="highlight-bckg-danger">Reject H$_0$</td>
+        <td style="border-right: solid 1px;" class="highlight-bckg-danger">Do not reject H$_0$</td>
+      </tr>
+      <tr>
+        <td rowspan=2 style="border-right: solid 1px; border-bottom: none; vertical-align: middle;">
+          <span class="info">Truth</span></td>
+        <td style="border-right: solid 1px; vertical-align: middle;" class="highlight-bckg-info">H$_0$ true</td>
+        <td style="border-right: solid 1px; vertical-align: middle;"><span class="warning"><i class="fa fa-warning warning"></i> Type I</span> error</td>
+        <td style="border-right: solid 1px;"><i class="fa fa-smile-o fa-2x success"></i></td>
+      </tr>
+      <tr>
+        <td style="border-right: solid 1px; border-bottom: solid 1px; vertical-align: middle;" class="highlight-bckg-info">H$_0$ false</td>
+        <td style="border-right: solid 1px; border-bottom: solid 1px;"><i class="fa fa-smile-o fa-2x success"></i></td>
+        <td style="border-right: solid 1px; border-bottom: solid 1px; vertical-align: middle;"><span class="warning"><i class="fa fa-warning warning"></i> Type II</span> error</td>
+      </tr>
+    </tbody>
+  </table> 
+</section>
+
+<section data-transition="slide-out">
+  <h3>Errors in significance testing</h3>
+  <p class="u em" style="margin-top: 0; margin-bottom: 0;">
+    Errors can happen!
+  </p>
+  <ul style="font-size: 0.7em;" class="push-left">
+    <li>A Type I error is rejecting a true null (false positive)</li>
+    <li>A Type II error is not rejecting a false null (false negative)</li>
+  </ul>
+  <div class="row">
+    <div class="col-100" style="margin-top: 0.5em;">
+      <img src="assets/img/lec/type1-type2-error.svg" class="unbordered flat" width=100%>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <h3>Statistics of interest & Null</h3>
+  <div class="row">
+    <table style="font-size: 0.9em">
+      <col width=30%>
+      <col width=50%>
+      <col width=20%>
+      <tbody>
+        <tr>
+          <td class="bg-danger">Situation</td>
+          <td class="bg-info">Statistic of interest</td>
+          <td class="bg-warning">Null</td>
+        </tr>
+        <tr>
+          <td>
+            One categorical variable
+          </td>
+          <td>
+            <span class="fragment">
+            Proportion ($\overset{\hat{}}{p}$) 
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            $\pi_0=x$ 
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            One quantitative variable
+          </td>
+          <td>
+            <span class="fragment">
+            Mean ($\bar{x}$), Median ($m$), Min, Max, etc ...
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            $\mu_0=x$ 
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Comparing two categorical variables
+          </td>
+          <td>
+            <span class="fragment">
+            Difference in proportions ($\overset{\hat{}}{p}_1-\overset{\hat{}}{p}_2$), ratio of the proportions (relative risk), $\chi^2$
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            $\pi_1-\pi_2=0$ <br>
+            ($rr=1$)
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Comparing two quantitative variables
+          </td>
+          <td>
+            <span class="fragment">
+            Difference in means ($\bar{x}_1-\bar{x}_2$), difference in medians, ratio of the means, ratio of the medians, etc ...
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            $\mu_1-\mu_2=0$ <br>
+            ($rr=1$)
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Comparing more than 2 categorical variables
+          </td>
+          <td>
+            <span class="fragment">
+            $\chi^2$, MAD (of proportions)
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            $MAD=0$, $\chi^2=0$
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Comparing more than 2 quantitative variables
+          </td>
+          <td>
+            <span class="fragment">
+            MAD (of the means, of the medians), $F$-statistic
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            $MAD=0$, $F=0$
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Association of 2 quantitative variables
+          </td>
+          <td>
+            <span class="fragment">
+            Correlation coefficient ($r$), <br> regression slope ($m$)
+            </span>
+          </td>
+          <td>
+            <span class="fragment">
+            $\rho=0$, <br> $\beta_1=0$
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>Hypothesis testing</h3>
+  <p class="small">
+    1. State hypotheses ($H_0$, $H_a$)
+  </p>
+  <p class="small">
+    2. Calculate the <span class="info">statistic of interest</span> from your sample(s) data
+  </p>
+  <p class="small">
+    3. Construct the <span class="warning">randomization distribution</span> of the statistic of interest <br>
+    <span style="margin-left: 2em;"> <span class="em">- One variable (categorical):</span> simulation of random samples ($\pi_0=x$)</span>
+    <br>
+    <span style="margin-left: 2em;"> <span class="em">- $\geq$2 variables:</span> pool samples together ($H_0$: no difference), shuffle and split into random groups (same size than original samples), and calculate new statistic of interest from this randomization</span> <br>
+    <i class="fa fa-arrow-circle-right warning"></i> distribution of statistic of interest if the null hypothesis were true
+  </p>
+  <p class="small">
+    4. Measure how extreme your test statistic from (2) is, as compared to the distribution generated in (3) <br>
+    <i class="fa fa-arrow-circle-right danger"></i> p-value
+  </p>
+</section>
+
+<section data-transition="fade">
+  <h3>Hypothesis testing</h3>
+  <p class=" u em no-margin-top smaller">
+    Comparing proportions:
+  </p>
+  <div class="row">
+    <img src="assets/img/lec/two-groups-simulation-proportion.svg" width=95%>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>Hypothesis testing</h3>
+  <p class=" u em no-margin-top small">
+    Comparing means (medians, etc ...):
+  </p>
+  <div class="row">
+    <img src="assets/img/lec/two-groups-simulation-mean.svg" width=95%>
+  </div>
+</section>
+
+<section data-transition="slide-in fade-out">
+  <h3>95% confidence intervals</h3>
+  <p class="small">
+    1. State hypotheses ($H_0$, $H_a$)
+  </p>
+  <p class="small">
+    2. Calculate the <span class="info">statistic of interest</span> from your sample(s) data
+  </p>
+  <p class="small">
+    3. Construct the <span class="warning">bootstrap distribution</span> of the statistic of interest <br>
+    <span style="margin-left: 2em;"> <span class="em">- One variable:</span> bootstrap samples from original sample (same size)</span>
+    <br>
+    <span style="margin-left: 2em;"> <span class="em">- $\geq$2 variables:</span> Independant bootstrap samples (same size than original samples), and calculate new statistic of interest from these bootstrap samples</span> <br>
+    <i class="fa fa-arrow-circle-right warning"></i> distribution of statistic of interest if more samples were acquired
+  </p>
+  <p class="small">
+    4. Taking the middle 95% of the bootstrap distribution. <br>
+    <i class="fa fa-arrow-circle-right danger"></i> is the null hypothesis parameter in this interval?
+  </p>
+</section>
+
+<section data-transition="fade">
+  <h3>95% confidence intervals</h3>
+  <p class=" u em no-margin-top smaller">
+    Comparing proportions:
+  </p>
+  <div class="row">
+    <img src="assets/img/lec/two-groups-bootstrap-ci-proportion.svg" width=90%>
+  </div>
+</section>
+
+<section data-transition="fade-in slide-out">
+  <h3>95% confidence intervals</h3>
+  <p class=" u em no-margin-top smaller">
+    Comparing means:
+  </p>
+  <div class="row">
+    <img src="assets/img/lec/two-groups-bootstrap-ci-mean.svg" width=90%>
+  </div>
+</section>
+
+<section class="title-slide">
+  <h2>Questions?</h2>
+</section>
+
+<!-- THE END -->
+<!-- THE END -->
+
+<!-- <section class='looney-slide' data-state="looney" id="looney" data-menu-title="That's all folks">
+<div id="looney_text" style="top:12% !important">
+  <div class="looney_char">T</div>
+  <div class="looney_char">h</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">t</div>
+  <div class="looney_char">'</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">a</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">F</div>
+  <div class="looney_char">o</div>
+  <div class="looney_char">l</div>
+  <div class="looney_char">k</div>
+  <div class="looney_char">s</div>
+  <div class="looney_char">!</div>
+</div>
+<div id="looneycircle">
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+  <i class="looney_i"></i>
+</div>
+</section> -->
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - -    JAVASCRIP LOADING  - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- Reveal -->
+  <script src="assets/reveal.js-master/lib/js/head.min.js"></script>
+  <script src="assets/reveal.js-master/js/reveal.js"></script>
+    <!-- Reveal initialization file, including custom event listeners-->
+  <script src="assets/js/Reveal-init-gc.js"></script>
+
+  <script src="assets/js/jquery.js"></script>
+
+  <!-- Looney slide -->
+  <!-- <script src="assets/looney-slide/looney-reveal.js"></script> -->
+
+  <!-- Google spreadsheet to javascript -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> -->
+
+  <!-- D3 -->
+  <!-- <script src="assets/js/d3.v4.min.js"></script> -->
+  <!-- <script src="assets/js/d3-selection-multi.v0.4.min.js"></script> -->
+
+    <!-- D3 in REVEAL -->
+  <!-- <script src="assets/js/d3-in-reveal.js"></script> -->
+    <!-- The D3 config & animations -->
+    <!-- <script src="assets/d3-anim/js-graphs/d3-in-reveal-config.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/sampling-distribution.js"></script>
+    <script src="assets/d3-anim/js-graphs/live-sampling-words.js"></script>
+    <script src="assets/d3-anim/js-graphs/sampling-frame.js"></script>
+    <script src="assets/d3-anim/js-graphs/sample_table.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/shuffling.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/linear-regression.js"></script> -->
+    <!-- <script src="assets/d3-anim/js-graphs/live-regression.js"></script> -->
+    
+
+</body>
+</html>
